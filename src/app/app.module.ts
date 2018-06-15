@@ -8,6 +8,13 @@ import { BasicWebFrameComponent } from './web-frame/basic/basic-web-frame.compon
 import { AccountWebFeatureComponent } from './web-feature/account/account-web-feature.component';
 import { ProfileWebFeatureComponent } from './web-feature/profile/profile-web-feature.component';
 import { SandboxWebFeatureComponent } from './web-feature/sandbox/sandbox-web-feature.component';
+import { LoginPageComponent } from './web-feature/account/pages/login/login-page.component';
+import { SignupPageComponent } from './web-feature/account/pages/signup/signup-page.component';
+import { LogoutPageComponent } from './web-feature/account/pages/logout/logout-page.component';
+import { ForgotPasswordPageComponent } from './web-feature/account/pages/forgot-password/forgot-password-page.component';
+import { EmailConfirmationPageComponent } from './web-feature/account/pages/email-confirmation/email-confirmation-page.component';
+import { InviteUsersPageComponent } from './web-feature/account/pages/invite-users/invite-users-page.component';
+import { AccountNotActivatedPageComponent } from './web-feature/account/pages/account-not-activated/account-not-activated-page.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +24,13 @@ import { SandboxWebFeatureComponent } from './web-feature/sandbox/sandbox-web-fe
     AccountWebFeatureComponent,
     ProfileWebFeatureComponent,
     SandboxWebFeatureComponent,
+    LoginPageComponent,
+    SignupPageComponent,
+    LogoutPageComponent,
+    ForgotPasswordPageComponent,
+    EmailConfirmationPageComponent,
+    InviteUsersPageComponent,
+    AccountNotActivatedPageComponent,
   ],
   imports: [
     BrowserModule
