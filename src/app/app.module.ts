@@ -15,6 +15,7 @@ import { ForgotPasswordPageComponent } from './web-feature/account/pages/forgot-
 import { EmailConfirmationPageComponent } from './web-feature/account/pages/email-confirmation/email-confirmation-page.component';
 import { InviteUsersPageComponent } from './web-feature/account/pages/invite-users/invite-users-page.component';
 import { AccountNotActivatedPageComponent } from './web-feature/account/pages/account-not-activated/account-not-activated-page.component';
+import { ProfileSettingsPageComponent } from './web-feature/profile/pages/profile-settings/profile-settings-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AccountNotActivatedPageComponent } from './web-feature/account/pages/ac
     EmailConfirmationPageComponent,
     InviteUsersPageComponent,
     AccountNotActivatedPageComponent,
+    ProfileSettingsPageComponent,
   ],
   imports: [
     BrowserModule
