@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { WebFrameAppComponent } from './web-frame-app.component';
 // tslint:disable-next-line:max-line-length
 import { BasicWithNavigationWebFrameComponent } from './basic-with-navigation/basic-with-navigation-web-frame.component';
 import { BasicWebFrameComponent } from './basic/basic-web-frame.component';
@@ -19,7 +19,7 @@ import { ProfileSettingsPageComponent } from 'src/web-feature/profile/pages/prof
 
 @NgModule({
   declarations: [
-    AppComponent,
+    WebFrameAppComponent,
     BasicWithNavigationWebFrameComponent,
     BasicWebFrameComponent,
     AccountWebFeatureComponent,
@@ -38,6 +38,6 @@ import { ProfileSettingsPageComponent } from 'src/web-feature/profile/pages/prof
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [WebFrameAppComponent]
 })
 export class AppModule { }
