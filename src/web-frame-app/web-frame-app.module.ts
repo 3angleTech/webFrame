@@ -2,9 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { WebFrameAppComponent } from './web-frame-app.component';
+import { BasicWebFrameLayoutComponent } from './layout/basic/basic-web-frame-layout.component';
 // tslint:disable-next-line:max-line-length
-import { BasicWithNavigationWebFrameComponent } from './basic-with-navigation/basic-with-navigation-web-frame.component';
-import { BasicWebFrameComponent } from './basic/basic-web-frame.component';
+import { BasicWithNavigationWebFrameLayoutComponent } from './layout/basic-with-navigation/basic-with-navigation-web-frame-layout.component';
+// tslint:disable-next-line:max-line-length
 import { AccountWebFeatureComponent } from 'src/web-feature/account/account-web-feature.component';
 import { ProfileWebFeatureComponent } from 'src/web-feature/profile/profile-web-feature.component';
 import { SandboxWebFeatureComponent } from 'src/web-feature/sandbox/sandbox-web-feature.component';
@@ -20,8 +21,8 @@ import { ProfileSettingsPageComponent } from 'src/web-feature/profile/pages/prof
 @NgModule({
   declarations: [
     WebFrameAppComponent,
-    BasicWithNavigationWebFrameComponent,
-    BasicWebFrameComponent,
+    BasicWebFrameLayoutComponent,
+    BasicWithNavigationWebFrameLayoutComponent,
     AccountWebFeatureComponent,
     ProfileWebFeatureComponent,
     SandboxWebFeatureComponent,
