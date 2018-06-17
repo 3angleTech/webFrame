@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { WebFrameAppComponent } from './web-frame-app.component';
-describe('AppComponent', () => {
+describe('WebFrameAppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [

@@ -40,4 +40,4 @@ import { ProfileSettingsPageComponent } from 'src/web-feature/profile/pages/prof
   providers: [],
   bootstrap: [WebFrameAppComponent]
 })
-export class AppModule { }
+export class WebFrameAppModule { }
