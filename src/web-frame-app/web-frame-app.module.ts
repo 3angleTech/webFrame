@@ -17,6 +17,7 @@ import { EmailConfirmationPageComponent } from 'src/web-feature/account/pages/em
 import { InviteUsersPageComponent } from 'src/web-feature/account/pages/invite-users/invite-users-page.component';
 import { AccountNotActivatedPageComponent } from 'src/web-feature/account/pages/account-not-activated/account-not-activated-page.component';
 import { ProfileSettingsPageComponent } from 'src/web-feature/profile/pages/profile-settings/profile-settings-page.component';
+import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProfileSettingsPageComponent } from 'src/web-feature/profile/pages/prof
     InviteUsersPageComponent,
     AccountNotActivatedPageComponent,
     ProfileSettingsPageComponent,
+    NavigationMenuComponent,
   ],
   imports: [
     BrowserModule
