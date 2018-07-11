@@ -157,7 +157,7 @@
     "no-object-literal-type-assertion": true,
     "no-parameter-reassignment": true,
     "no-reference-import": true,
-    "no-submodule-imports": true,
+    // "no-submodule-imports": true,
     "no-unnecessary-callback-wrapper": true,
 
     /**
@@ -167,7 +167,7 @@
     "max-func-body-length": [true, 30, {"ignore-parameters-to-function-regex": "describe"}],
     "chai-prefer-contains-to-index-of": true,
     "chai-vague-errors": true,
-    "function-name": true,
+    // "function-name": true,
     "import-name": true,
     "missing-jsdoc": true,
     "mocha-unneeded-done": true,
@@ -196,7 +196,7 @@
     "parameters-max-number": [true, 3],
     "no-commented-code": true,
     "no-dead-store": true,
-    "no-duplicate-string": true,
+    // "no-duplicate-string": true,
     "no-gratuitous-expressions": true,
     "no-identical-conditions": true,
     "no-identical-functions": [true, 7],
