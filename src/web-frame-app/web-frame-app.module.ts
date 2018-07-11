@@ -19,6 +19,10 @@ import { AccountNotActivatedPageComponent } from 'src/web-feature/account/pages/
 import { ProfileSettingsPageComponent } from 'src/web-feature/profile/pages/profile-settings/profile-settings-page.component';
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
 
+/**
+ * TODO
+ */
+
 @NgModule({
   declarations: [
     WebFrameAppComponent,

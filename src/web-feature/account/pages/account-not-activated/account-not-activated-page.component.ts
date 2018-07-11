@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * TODO
+ */
 @Component({
   selector: 'app-account-not-activated-page',
   templateUrl: './account-not-activated-page.component.html',
