@@ -31,7 +31,10 @@
     "label-position": true,
     "max-line-length": [
       true,
-      140
+      {
+        "limit": 140,
+        "ignore-pattern": "^import { \\w+ }|^export { \\w+ }"
+      }
     ],
     "member-access": false,
     "member-ordering": [
@@ -130,14 +133,13 @@
     "directive-class-suffix": true,
 
     /**
-    * Rules from tslint-microsoft-contrib
-    */
+     * Rules from tslint-microsoft-contrib
+     */
 
     /**
-    * Common Bugs and Correctness. The following rules should be turned on because they find
-    * common bug patterns in the code or enforce type safety.
-    */
-
+     * Common Bugs and Correctness. The following rules should be turned on because they find
+     * common bug patterns in the code or enforce type safety.
+     */
     "no-constant-condition": true,
     "no-control-regex": true,
     "no-invalid-regexp": true,
@@ -157,17 +159,33 @@
     "no-object-literal-type-assertion": true,
     "no-parameter-reassignment": true,
     "no-reference-import": true,
+    // TODO: Review rule and enable or remove once the project grows in size.
     // "no-submodule-imports": true,
     "no-unnecessary-callback-wrapper": true,
 
     /**
-    * Code Clarity. The following rules should be turned on because they make the code
-    * generally more clear to the reader.
-    */
-    "max-func-body-length": [true, 30, {"ignore-parameters-to-function-regex": "describe"}],
+     * Code Clarity. The following rules should be turned on because they make the code
+     * generally more clear to the reader.
+     */
+    "max-func-body-length": [
+      true,
+      30,
+      {
+        "ignore-parameters-to-function-regex": "describe"
+      }
+    ],
     "chai-prefer-contains-to-index-of": true,
     "chai-vague-errors": true,
-    // "function-name": true,
+    "function-name": [
+      true,
+      {
+        "method-regex": "^[a-z][\\w\\d]+$",
+        "private-method-regex": "^_[a-z][\\w\\d]+$",
+        "protected-method-regex": "^_[a-z][\\w\\d]+$",
+        "static-method-regex": "^[A-Z_\\d]+$",
+        "function-regex": "^_?[a-z][\\w\\d]+$"
+      }
+    ],
     "import-name": true,
     "missing-jsdoc": true,
     "mocha-unneeded-done": true,
@@ -191,16 +209,16 @@
     "type-literal-delimiter": true,
 
     /**
-    * Rules from tslint-sonarts
-    */
+     * Rules from tslint-sonarts
+     */
     "parameters-max-number": [true, 3],
     "no-commented-code": true,
     "no-dead-store": true,
-    // "no-duplicate-string": true,
+    "no-duplicate-string": true,
     "no-gratuitous-expressions": true,
     "no-identical-conditions": true,
     "no-identical-functions": [true, 7],
-    "no-inconsistent-return": false,
+    "no-inconsistent-return": true,
     "no-redundant-parentheses": true,
     "no-return-type-any": true,
     "no-self-assignment": true,
@@ -212,4 +230,3 @@
     "use-type-alias": true
   }
 }
-

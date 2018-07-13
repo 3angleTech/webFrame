@@ -1,5 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { isNil } from 'src/utils/is-nil';
+import { isNil } from './is-nil';
 
 /**
  * TODO
@@ -11,17 +10,17 @@ describe('isNil', () => {
   beforeAll(() => {
     testObject = {
       childA: {
-        childA1: 'test value',
-        childA2: 'test value',
+        childA1: 'childA1 value',
+        childA2: 'childA2 value',
         childA3: 3
       },
       childB: {
-        childB1: 'test value',
+        childB1: 'childB1 value',
         childB2: {
           childB21Null: null,
           childB22Undefined: undefined,
           childB23: {
-            childB231: 'test value'
+            childB231: 'childB231 value'
           }
         }
       }
