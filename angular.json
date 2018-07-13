@@ -89,8 +89,7 @@
               "src/tsconfig.spec.json"
             ],
             "exclude": [
-              "**/node_modules/**",
-              "**/src/polyfills.ts"
+              "**/node_modules/**"
             ]
           }
         }
@@ -117,8 +116,7 @@
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
             "exclude": [
-              "**/node_modules/**",
-              "**/src/polyfills.ts"
+              "**/node_modules/**"
             ]
           }
         }
