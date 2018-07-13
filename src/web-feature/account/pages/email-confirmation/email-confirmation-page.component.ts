@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+/**
+ * TODO
+ */
 
 @Component({
   selector: 'app-email-confirmation-page',
