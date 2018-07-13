@@ -133,13 +133,13 @@
     "directive-class-suffix": true,
 
     /**
-    * Rules from tslint-microsoft-contrib
-    */
+     * Rules from tslint-microsoft-contrib
+     */
 
     /**
-    * Common Bugs and Correctness. The following rules should be turned on because they find
-    * common bug patterns in the code or enforce type safety.
-    */
+     * Common Bugs and Correctness. The following rules should be turned on because they find
+     * common bug patterns in the code or enforce type safety.
+     */
 
     "no-constant-condition": true,
     "no-control-regex": true,
@@ -164,9 +164,9 @@
     "no-unnecessary-callback-wrapper": true,
 
     /**
-    * Code Clarity. The following rules should be turned on because they make the code
-    * generally more clear to the reader.
-    */
+     * Code Clarity. The following rules should be turned on because they make the code
+     * generally more clear to the reader.
+     */
     "max-func-body-length": [
       true,
       30,
@@ -176,7 +176,16 @@
     ],
     "chai-prefer-contains-to-index-of": true,
     "chai-vague-errors": true,
-    // "function-name": true,
+    "function-name": [
+      true,
+      {
+        "method-regex": "^[a-z][\\w\\d]+$",
+        "private-method-regex": "^[a-z][\\w\\d]+$",
+        "protected-method-regex": "^[a-z][\\w\\d]+$",
+        "static-method-regex": "^[A-Z_\\d]+$",
+        "function-regex": "^[a-z][\\w\\d]+$"
+      }
+    ],
     "import-name": true,
     "missing-jsdoc": true,
     "mocha-unneeded-done": true,
@@ -200,8 +209,8 @@
     "type-literal-delimiter": true,
 
     /**
-    * Rules from tslint-sonarts
-    */
+     * Rules from tslint-sonarts
+     */
     "parameters-max-number": [true, 3],
     "no-commented-code": true,
     "no-dead-store": true,
