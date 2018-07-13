@@ -140,7 +140,6 @@
      * Common Bugs and Correctness. The following rules should be turned on because they find
      * common bug patterns in the code or enforce type safety.
      */
-
     "no-constant-condition": true,
     "no-control-regex": true,
     "no-invalid-regexp": true,
@@ -160,6 +159,7 @@
     "no-object-literal-type-assertion": true,
     "no-parameter-reassignment": true,
     "no-reference-import": true,
+    // TODO: Review rule and enable or remove once the project grows in size.
     // "no-submodule-imports": true,
     "no-unnecessary-callback-wrapper": true,
 
