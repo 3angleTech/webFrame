@@ -1,7 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TestObject } from 'protractor/built/driverProviders';
-import { tryGetValue } from 'src/utils/try-get-value';
+import { tryGetValue } from './try-get-value';
 
+/**
+ * TODO
+ */
 
 describe('tryGetValue', () => {
   let testObject;
