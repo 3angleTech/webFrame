@@ -167,7 +167,13 @@
     * Code Clarity. The following rules should be turned on because they make the code
     * generally more clear to the reader.
     */
-    "max-func-body-length": [true, 30, {"ignore-parameters-to-function-regex": "describe"}],
+    "max-func-body-length": [
+      true,
+      30,
+      {
+        "ignore-parameters-to-function-regex": "describe"
+      }
+    ],
     "chai-prefer-contains-to-index-of": true,
     "chai-vague-errors": true,
     // "function-name": true,
@@ -215,4 +221,3 @@
     "use-type-alias": true
   }
 }
-
