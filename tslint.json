@@ -205,7 +205,7 @@
     "parameters-max-number": [true, 3],
     "no-commented-code": true,
     "no-dead-store": true,
-    // "no-duplicate-string": true,
+    "no-duplicate-string": true,
     "no-gratuitous-expressions": true,
     "no-identical-conditions": true,
     "no-identical-functions": [true, 7],
