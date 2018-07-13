@@ -218,7 +218,7 @@
     "no-gratuitous-expressions": true,
     "no-identical-conditions": true,
     "no-identical-functions": [true, 7],
-    "no-inconsistent-return": false,
+    "no-inconsistent-return": true,
     "no-redundant-parentheses": true,
     "no-return-type-any": true,
     "no-self-assignment": true,
