@@ -14,11 +14,11 @@
     "block-closing-brace-empty-line-before": null,
     "block-closing-brace-newline-after": null,
     "block-opening-brace-space-before": null,
+    "color-hex-length": null,
     "color-named": "never",
     "declaration-block-semicolon-newline-after": "always-multi-line",
     "declaration-block-semicolon-newline-before": "never-multi-line",
     "declaration-block-semicolon-space-after": "always-single-line",
-    "declaration-empty-line-before": null,
     "declaration-no-important": true,
     "font-family-name-quotes": "always-where-recommended",
     "font-weight-notation": "numeric",
@@ -34,7 +34,7 @@
     "no-descending-specificity": null,
     "no-duplicate-selectors": true,
     "no-empty-source": null,
-    "number-leading-zero": "never",
+    "number-leading-zero": "always",
     "media-feature-name-no-unknown": [
       true,
       {
@@ -50,13 +50,6 @@
     ],
     "order/properties-alphabetical-order": true,
     "property-no-vendor-prefix": true,
-    "rule-empty-line-before": null,
-    "scss/dollar-variable-default": [
-      true,
-      {
-        "ignore": "local"
-      }
-    ],
     "selector-attribute-quotes": "always",
     "selector-list-comma-newline-after": "always",
     "selector-list-comma-newline-before": "never-multi-line",
