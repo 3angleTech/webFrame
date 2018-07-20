@@ -1,0 +1,12 @@
+// This is the main file for global styles, please use it only for importing other files.
+// When writing styles you should follow some best practices.
+//
+// @see http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
+// @see http://getbem.com/introduction/
+
+// Import items from the includes directory.
+@import "app-styling-utils";
+@import "app-styling-variables";
+
+@import "./base/app-elements.scss";
+@import "./base/app-temporary.scss";

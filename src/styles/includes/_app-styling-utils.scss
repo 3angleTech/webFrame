@@ -1,0 +1,11 @@
+// This file should only contain style mixins.
+
+// For a given hue in a palette, return it's color value.
+@function app-get-color($palette, $hue) {
+  @return map-get($palette, $hue);
+}
+
+// For a given hue in a palette, return the contrast color from the map of contrast palettes.
+@function app-get-contrast($palette, $hue) {
+  @return map-get(map-get($palette, contrast), $hue);
+}

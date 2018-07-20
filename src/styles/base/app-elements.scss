@@ -1,0 +1,13 @@
+// This file should contain only generic element styles.
+
+html {
+  // Always show the scroll-bar to prevent side-movement when items are extending their height.
+  overflow-y: scroll;
+}
+
+body {
+  // Prevent layout from breaking on very small resolutions.
+  min-width: 320px;
+}
+
+// TODO: Define styles for anchor tags.
