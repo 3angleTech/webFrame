@@ -2,7 +2,7 @@
  * Account web feature module.
  */
 import { NgModule, Type } from '@angular/core';
-import { AccountWebFeatureComponent } from './account-web-feature.component';
+import { AccountFeatureComponent } from './account-feature.component';
 import { AccountNotActivatedPageComponent } from './pages/account-not-activated/account-not-activated-page.component';
 import { EmailConfirmationPageComponent } from './pages/email-confirmation/email-confirmation-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password/forgot-password-page.component';
@@ -13,7 +13,7 @@ import { SignupPageComponent } from './pages/signup/signup-page.component';
 
 
 const WEB_FEATURE_COMPONENTS: Type<any>[] = [
-  AccountWebFeatureComponent,
+  AccountFeatureComponent,
   AccountNotActivatedPageComponent,
   EmailConfirmationPageComponent,
   ForgotPasswordPageComponent,
@@ -31,4 +31,4 @@ const WEB_FEATURE_COMPONENTS: Type<any>[] = [
   imports: [],
   providers: [],
 })
-export class AccountWebFeatureModule { }
+export class AccountFeatureModule { }

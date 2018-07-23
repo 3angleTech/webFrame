@@ -2,11 +2,11 @@
  * Sandbox web feature module.
  */
 import { NgModule, Type } from '@angular/core';
-import { SandboxWebFeatureComponent } from './sandbox-web-feature.component';
+import { SandboxFeatureComponent } from './sandbox-feature.component';
 
 
 const WEB_FEATURE_COMPONENTS: Type<any>[] = [
-  SandboxWebFeatureComponent,
+  SandboxFeatureComponent,
 ];
 
 @NgModule({
@@ -17,4 +17,4 @@ const WEB_FEATURE_COMPONENTS: Type<any>[] = [
   imports: [],
   providers: [],
 })
-export class SandboxWebFeatureModule { }
+export class SandboxFeatureModule { }

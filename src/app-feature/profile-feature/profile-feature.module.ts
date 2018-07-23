@@ -2,12 +2,12 @@
  * Profile web feature module.
  */
 import { NgModule, Type } from '@angular/core';
-import { ProfileSettingsPageComponent } from './pages/profile-settings/profile-settings-page.component';
-import { ProfileWebFeatureComponent } from './profile-web-feature.component';
+import { ProfileSettingsPageComponent } from './pages/profile-settings-page/profile-settings-page.component';
+import { ProfileFeatureComponent } from './profile-feature.component';
 
 
 const WEB_FEATURE_COMPONENTS: Type<any>[] = [
-  ProfileWebFeatureComponent,
+  ProfileFeatureComponent,
   ProfileSettingsPageComponent,
 ];
 
@@ -19,4 +19,4 @@ const WEB_FEATURE_COMPONENTS: Type<any>[] = [
   imports: [],
   providers: [],
 })
-export class ProfileWebFeatureModule { }
+export class ProfileFeatureModule { }
