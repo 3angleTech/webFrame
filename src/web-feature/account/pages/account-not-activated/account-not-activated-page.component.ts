@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-account-not-activated-page',
   templateUrl: './account-not-activated-page.component.html',
-  styleUrls: ['./account-not-activated-page.component.css']
+  styleUrls: ['./account-not-activated-page.component.scss'],
 })
 export class AccountNotActivatedPageComponent implements OnInit {
 

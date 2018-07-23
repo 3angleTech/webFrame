@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-basic-with-navigation-web-frame-layout',
   templateUrl: './basic-with-navigation-web-frame-layout.component.html',
-  styleUrls: ['./basic-with-navigation-web-frame-layout.component.css']
+  styleUrls: ['./basic-with-navigation-web-frame-layout.component.scss'],
 })
 export class BasicWithNavigationWebFrameLayoutComponent implements OnInit {
 
