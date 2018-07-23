@@ -1,0 +1,57 @@
+// This file contains styles for printed pages.
+// stylelint-disable declaration-no-important, selector-no-qualifying-type
+@import "app-styling-utils";
+@import "app-styling-variables";
+
+
+@media print {
+  html,
+  body {
+    background-color: transparent !important;
+    color: app-get-color($app-text-colors, "normal") !important;
+    font-family: "Times New Roman", serif;
+    font-size: 12pt;
+  }
+
+  // Avoid page breaks inside and right after a heading.
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  // Table headers should be the same page as the table body.
+  table thead {
+    page-break-after: avoid;
+  }
+
+  // Display link destination on printed pages.
+  a[href^="http://"],
+  a[href^="https://"] {
+    page-break-inside: avoid;
+
+    &:after {
+      color: app-get-color($app-text-colors, "darker") !important;
+      content: " «" attr(href) "» ";
+      font-family: monospace, sans-serif;
+      font-size: 0.9em;
+    }
+  }
+
+  // Display abbreviation title on printed pages.
+  abbr[title],
+  acronym[title] {
+    page-break-inside: avoid;
+
+    &:after {
+      color: app-get-color($app-text-colors, "darker") !important;
+      content: " «" attr(title) "» ";
+      font-family: monospace, sans-serif;
+      font-size: 0.9em;
+    }
+  }
+}

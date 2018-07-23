@@ -1,0 +1,5 @@
+**/*.min.css
+**/build/
+**/dist/
+**/node_modules/
+**/vendor/

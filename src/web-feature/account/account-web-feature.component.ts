@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-account-web-feature',
   templateUrl: './account-web-feature.component.html',
-  styleUrls: ['./account-web-feature.component.css']
+  styleUrls: ['./account-web-feature.component.scss'],
 })
 export class AccountWebFeatureComponent implements OnInit {
 
