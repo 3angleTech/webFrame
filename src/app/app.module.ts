@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { WebFrameAppComponent } from './web-frame-app.component';
+import { AppComponent } from './app.component';
 
 
 /**
@@ -8,12 +8,12 @@ import { WebFrameAppComponent } from './web-frame-app.component';
  */
 @NgModule({
   declarations: [
-    WebFrameAppComponent,
+    AppComponent,
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [WebFrameAppComponent]
+  bootstrap: [AppComponent]
 })
-export class WebFrameAppModule { }
+export class AppModule { }
