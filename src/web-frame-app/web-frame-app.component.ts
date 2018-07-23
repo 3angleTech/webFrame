@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./web-frame-app.component.css']
 })
 export class WebFrameAppComponent {
-  title = 'app';
+  title = 'webFrame';
 }
