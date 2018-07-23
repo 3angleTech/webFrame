@@ -3,29 +3,29 @@
  */
 import { NgModule, Type } from '@angular/core';
 import { AccountFeatureComponent } from './account-feature.component';
-import { AccountNotActivatedPageComponent } from './pages/account-not-activated/account-not-activated-page.component';
-import { EmailConfirmationPageComponent } from './pages/email-confirmation/email-confirmation-page.component';
-import { ForgotPasswordPageComponent } from './pages/forgot-password/forgot-password-page.component';
-import { InviteUsersPageComponent } from './pages/invite-users/invite-users-page.component';
-import { LoginPageComponent } from './pages/login/login-page.component';
-import { LogoutPageComponent } from './pages/logout/logout-page.component';
-import { SignupPageComponent } from './pages/signup/signup-page.component';
+import { EmailConfirmationPageComponent } from './pages/email-confirmation-page/email-confirmation-page.component';
+import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
+import { InviteUsersPageComponent } from './pages/invite-users-page/invite-users-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
+import { NotActivatedPageComponent } from './pages/not-activated-page/not-activated-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 
-const WEB_FEATURE_COMPONENTS: Type<any>[] = [
+const FEATURE_COMPONENTS: Type<any>[] = [
   AccountFeatureComponent,
-  AccountNotActivatedPageComponent,
   EmailConfirmationPageComponent,
   ForgotPasswordPageComponent,
   InviteUsersPageComponent,
   LoginPageComponent,
   LogoutPageComponent,
+  NotActivatedPageComponent,
   SignupPageComponent,
 ];
 
 @NgModule({
   declarations: [
-    WEB_FEATURE_COMPONENTS,
+    FEATURE_COMPONENTS,
   ],
   exports: [],
   imports: [],
