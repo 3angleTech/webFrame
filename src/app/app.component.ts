@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
 /**
- * TODO
+ * The application's main component.
  */
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',

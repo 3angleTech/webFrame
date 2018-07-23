@@ -6,14 +6,14 @@ import { ProfileSettingsPageComponent } from './pages/profile-settings-page/prof
 import { ProfileFeatureComponent } from './profile-feature.component';
 
 
-const WEB_FEATURE_COMPONENTS: Type<any>[] = [
+const FEATURE_COMPONENTS: Type<any>[] = [
   ProfileFeatureComponent,
   ProfileSettingsPageComponent,
 ];
 
 @NgModule({
   declarations: [
-    WEB_FEATURE_COMPONENTS,
+    FEATURE_COMPONENTS,
   ],
   exports: [],
   imports: [],
