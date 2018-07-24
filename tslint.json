@@ -87,6 +87,15 @@
       "check-else",
       "check-whitespace"
     ],
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": false, // TODO: Enable once VSCode has proper support for fixing this.
+        "import-sources-order": "case-insensitive",
+        "module-source-path": "full",
+        "named-imports-order": "case-insensitive"
+      }
+    ],
     "prefer-const": true,
     "quotemark": [
       true,

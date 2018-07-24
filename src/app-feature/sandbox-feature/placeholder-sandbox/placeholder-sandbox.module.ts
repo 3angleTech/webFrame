@@ -4,8 +4,8 @@
 import { NgModule } from '@angular/core';
 import { DefaultShellModule } from 'app-shell/default-shell';
 import { MinimalShellModule } from 'app-shell/minimal-shell';
-import { PlaceholderSandboxComponent } from './placeholder-sandbox.component';
 import { PlaceholderSandboxRoutingModule } from './placeholder-sandbox-routing.module';
+import { PlaceholderSandboxComponent } from './placeholder-sandbox.component';
 
 
 @NgModule({

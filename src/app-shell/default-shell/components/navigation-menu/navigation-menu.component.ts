@@ -1,7 +1,7 @@
 /**
  * Provides the main navigation menu.
  */
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 
 
 @Component({
