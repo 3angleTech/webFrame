@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 /**
- * TODO
+ * Provides LogoutPageComponent.
  */
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-logout-page',

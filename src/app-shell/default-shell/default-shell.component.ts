@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 /**
- * TODO
+ * Provides the DefaultShellComponent.
  */
+import { Component, HostBinding, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-default-shell',
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./default-shell.component.scss'],
 })
 export class DefaultShellComponent implements OnInit {
+  @HostBinding('class.app-default-shell')
+  true;
 
   constructor() { }
 

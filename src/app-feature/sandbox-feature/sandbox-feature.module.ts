@@ -1,7 +1,9 @@
 /**
- * Sandbox web feature module.
+ * Provides the sandbox feature module.
  */
 import { NgModule, Type } from '@angular/core';
+import { DefaultShellModule } from 'app-shell/default-shell/default-shell.module';
+import { SandboxFeatureRoutingModule } from './sandbox-feature-routing.module';
 import { SandboxFeatureComponent } from './sandbox-feature.component';
 
 
@@ -10,11 +12,14 @@ const FEATURE_COMPONENTS: Type<any>[] = [
 ];
 
 @NgModule({
+  imports: [
+    SandboxFeatureRoutingModule,
+    DefaultShellModule,
+  ],
+  exports: [],
   declarations: [
     FEATURE_COMPONENTS,
   ],
-  exports: [],
-  imports: [],
   providers: [],
 })
 export class SandboxFeatureModule { }

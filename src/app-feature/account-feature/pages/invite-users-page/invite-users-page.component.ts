@@ -1,8 +1,8 @@
+/**
+ * Provides ForgotPInviteUsersPageComponentasswordPageComponent.
+ */
 import { Component, OnInit } from '@angular/core';
 
-/**
- * TODO
- */
 
 @Component({
   selector: 'app-invite-users-page',

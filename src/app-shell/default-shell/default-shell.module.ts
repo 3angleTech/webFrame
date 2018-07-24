@@ -5,22 +5,24 @@
  * E.g.: dashboard or profile edit pages.
  */
 import { NgModule, Type } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
 import { DefaultShellComponent } from './default-shell.component';
 
 
-const SHARED_DECLARATIONS: Type<any>[] = [
+const SHELL_DECLARATIONS: Type<any>[] = [
   NavigationMenuComponent,
   DefaultShellComponent,
 ];
 
 @NgModule({
   imports: [
+    RouterModule,
   ],
   exports: [
   ],
   declarations: [
-    SHARED_DECLARATIONS,
+    SHELL_DECLARATIONS,
   ],
   providers: [
   ],

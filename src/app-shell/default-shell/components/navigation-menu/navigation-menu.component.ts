@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 /**
- * TODO
+ * Provides the main navigation menu.
  */
+import { Component, OnInit, HostBinding } from '@angular/core';
+
 
 @Component({
   selector: 'app-navigation-menu',
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation-menu.component.scss'],
 })
 export class NavigationMenuComponent implements OnInit {
+  @HostBinding('class.app-navigation-menu')
+  true;
 
   constructor() { }
 

@@ -1,9 +1,11 @@
 /**
- * Account web feature module.
+ * Provides the account feature module.
  */
 import { NgModule, Type } from '@angular/core';
+import { DefaultShellModule } from 'app-shell/default-shell';
+import { AccountFeatureRoutingModule } from './account-feature-routing.module';
 import { AccountFeatureComponent } from './account-feature.component';
-import { EmailConfirmationPageComponent } from './pages/email-confirmation-page/email-confirmation-page.component';
+import { ConfirmEmailPageComponent } from './pages/confirm-email-page/confirm-email-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 import { InviteUsersPageComponent } from './pages/invite-users-page/invite-users-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -14,7 +16,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 const FEATURE_COMPONENTS: Type<any>[] = [
   AccountFeatureComponent,
-  EmailConfirmationPageComponent,
+  ConfirmEmailPageComponent,
   ForgotPasswordPageComponent,
   InviteUsersPageComponent,
   LoginPageComponent,
@@ -24,11 +26,14 @@ const FEATURE_COMPONENTS: Type<any>[] = [
 ];
 
 @NgModule({
+  imports: [
+    AccountFeatureRoutingModule,
+    DefaultShellModule,
+  ],
+  exports: [],
   declarations: [
     FEATURE_COMPONENTS,
   ],
-  exports: [],
-  imports: [],
   providers: [],
 })
 export class AccountFeatureModule { }

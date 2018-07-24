@@ -3,21 +3,24 @@
  * a minimal amount of structure. E.g.: login or registration pages.
  */
 import { NgModule, Type } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { MinimalShellComponent } from './minimal-shell.component';
 
 
-const SHARED_DECLARATIONS: Type<any>[] = [
+const SHELL_DECLARATIONS: Type<any>[] = [
   MinimalShellComponent,
 ];
 
 @NgModule({
   imports: [
+    RouterModule,
   ],
   exports: [
   ],
   declarations: [
-    SHARED_DECLARATIONS,
+    SHELL_DECLARATIONS,
   ],
-  providers: [],
+  providers: [
+  ],
 })
 export class MinimalShellModule { }
