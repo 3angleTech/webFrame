@@ -1,6 +1,8 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="app-form app-form--narrow app-form--simple">
   <h1 class="app-page__tile">{{ getPageTitle() }}</h1>
 
+  <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
+
   <label class="app-form__element">
     <span class="app-form__element__label">Username:</span>
     <input #usernameInput type="text" class="app-form__element__text-input" formControlName="username">
