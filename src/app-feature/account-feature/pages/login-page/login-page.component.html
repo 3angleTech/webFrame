@@ -1,5 +1,29 @@
-<h1 class="app-page__tile">{{ getPageTitle() }}</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="app-form app-form--narrow app-form--simple">
+  <h1 class="app-page__tile">{{ getPageTitle() }}</h1>
 
-<a routerLink="/account/forgot-password">Forgot password?</a>
+  <label class="app-form__element">
+    <span class="app-form__element__label">Username:</span>
+    <input #usernameInput type="text" class="app-form__element__text-input" formControlName="username">
+  </label>
 
-<p>TODO: Create login form!</p>
+  <label class="app-form__element">
+    <span class="app-form__element__label">Password:</span>
+    <input #passwordInput type="password" class="app-form__element__text-input" formControlName="password">
+  </label>
+
+  <div class="app-form__actions">
+    <a routerLink="/account/forgot-password">Forgot password?</a>
+  </div>
+
+  <div *ngIf="formErrors" class="app-form__errors">
+    <ng-container *ngFor="let formError of formErrors">
+      {{ formError }}
+    </ng-container>
+  </div>
+  <div class="app-form__actions">
+    <button class="app-button--with-icon" type="submit">
+      <i class="material-icons">lock_open</i>
+      <span class="text">Login</span>
+    </button>
+  </div>
+</form>
