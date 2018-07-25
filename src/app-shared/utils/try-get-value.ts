@@ -1,4 +1,4 @@
-import { isNil } from '.';
+import { isNil } from './is-nil';
 
 /**
  * Traverse the object as defined in the memberAccessChain and try to get it's value is it's defined. If the member is not define
