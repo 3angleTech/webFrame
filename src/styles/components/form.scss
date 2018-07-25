@@ -16,7 +16,18 @@
     margin: 2em auto;
     width: 16em;
   }
-  
+
+  .app-form__checkbox-input {
+    vertical-align: middle;
+  }
+
+  .app-form__text-input {
+    background-color: app-get-contrast($app-text-colors, "darker");
+    border: 1px solid app-get-color($app-text-colors, "darker");
+    color: app-get-color($app-text-colors, "darker");
+    padding: 0.25em;
+  }
+
   .app-form__actions {
     text-align: center;
   }
@@ -48,19 +59,11 @@
       flex-shrink: 1;
     }
 
-    .app-form__element__select-input,
-    .app-form__element__text-input {
+    .app-form__element__input {
       display: block;
       flex-basis: 20em;
       flex-grow: 2;
       flex-shrink: 1;
-    }
-
-    .app-form__element__text-input {
-      background-color: app-get-contrast($app-text-colors, "darker");
-      border: 1px solid app-get-color($app-text-colors, "darker");
-      color: app-get-color($app-text-colors, "darker");
-      padding: 0.25em;
     }
   }
 }

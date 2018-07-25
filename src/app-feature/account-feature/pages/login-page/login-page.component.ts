@@ -26,6 +26,7 @@ export class LoginPageComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       username: '',
       password: '',
+      staySignedIn: false,
     });
   }
 

@@ -5,17 +5,28 @@
 
   <label class="app-form__element">
     <span class="app-form__element__label">Username:</span>
-    <input #usernameInput type="text" class="app-form__element__text-input" formControlName="username">
+    <span class="app-form__element__input">
+      <input #usernameInput type="text" class="app-form__text-input" formControlName="username">
+    </span>
   </label>
 
   <label class="app-form__element">
     <span class="app-form__element__label">Password:</span>
-    <input #passwordInput type="password" class="app-form__element__text-input" formControlName="password">
+    <span class="app-form__element__input">
+      <input #passwordInput type="password" class="app-form__text-input" formControlName="password">
+    </span>
   </label>
 
   <div class="app-form__actions">
     <a routerLink="/account/forgot-password">Forgot password?</a>
   </div>
+  
+  <label class="app-form__element">
+    <span class="app-form__element__label">Stay signed in:</span>
+    <span class="app-form__element__input">
+      <input #staySignedInCheckbox type="checkbox" class="app-form__checkbox-input" formControlName="staySignedIn">
+    </span>
+  </label>
 
   <div *ngIf="formErrors" class="app-form__errors">
     <ng-container *ngFor="let formError of formErrors">
