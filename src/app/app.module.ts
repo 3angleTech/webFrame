@@ -3,17 +3,20 @@
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from 'app-shared/core';
+import { SecurityModule } from 'app-shared/security';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule.forRoot(),
+    SecurityModule.forRoot(),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

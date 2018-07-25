@@ -1,7 +1,7 @@
 /**
  * Provides the main navigation menu.
  */
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, isDevMode, OnInit } from '@angular/core';
 
 
 @Component({
@@ -12,6 +12,8 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 export class NavigationMenuComponent implements OnInit {
   @HostBinding('class.app-navigation-menu')
   true;
+
+  public isDevMode: boolean = isDevMode();
 
   constructor() { }
 

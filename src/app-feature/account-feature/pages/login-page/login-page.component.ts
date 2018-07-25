@@ -1,7 +1,9 @@
 /**
  * Provides LoginPageComponent.
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { IAccountCredentials, IAccountService } from 'app-shared/core';
 
 
 @Component({
@@ -10,13 +12,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent implements OnInit {
+  public formErrors: string[];
+  public loginForm: FormGroup;
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+    @Inject(IAccountService)
+    private accountService: IAccountService,
+  ) {
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username: '',
+      password: '',
+      staySignedIn: false,
+    });
   }
 
   public getPageTitle(): string {
     return 'Login';
+  }
+
+  public onSubmit(): void {
+    if (this.loginForm.invalid) {
+      this.loginForm.updateValueAndValidity();
+      return;
+    }
+
+    const credentials: IAccountCredentials = this.loginForm.getRawValue();
+    const onSuccess = (): void => {
+      alert('TODO: Implement user authentication.');
+    };
+
+    this.accountService.login(credentials).subscribe(onSuccess);
   }
 }

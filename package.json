@@ -10,6 +10,7 @@
     "lint:ts": "ng lint",
     "ng": "ng",
     "start": "ng serve",
+    "start:prod": "ng serve --prod",
     "test": "ng test"
   },
   "private": true,

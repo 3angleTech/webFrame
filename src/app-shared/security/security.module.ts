@@ -1,8 +1,11 @@
 /**
- * Provides the security shared module.
+ * Provides the security app-shared module.
  */
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
 
+
+const SHARED_ROOT_PROVIDERS: Provider[] = [
+];
 
 @NgModule({
   imports: [],
@@ -10,5 +13,11 @@ import { NgModule } from '@angular/core';
   declarations: [],
   providers: [],
 })
-export class SecurityModule { }
-
+export class SecurityModule {
+  public static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SecurityModule,
+      providers: SHARED_ROOT_PROVIDERS,
+    };
+  }
+}

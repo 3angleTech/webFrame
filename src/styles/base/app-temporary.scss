@@ -12,3 +12,19 @@
   margin: 0 auto;
   max-width: 640px;
 }
+
+.app-button--with-icon {
+  border-radius: 2px;
+  cursor: pointer;
+  line-height: 1em;
+  padding: 0.25em 1em;
+
+  .material-icons,
+  .text {
+    vertical-align: middle;
+  }
+
+  .material-icons + .text {
+    margin-left: 0.5em;
+  }
+}

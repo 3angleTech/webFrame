@@ -1,7 +1,11 @@
 /**
  * Provides the account feature module.
  */
+import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CoreModule } from 'app-shared/core';
+import { SecurityModule } from 'app-shared/security';
 import { DefaultShellModule } from 'app-shell/default-shell';
 import { AccountFeatureRoutingModule } from './account-feature-routing.module';
 import { AccountFeatureComponent } from './account-feature.component';
@@ -27,8 +31,12 @@ const FEATURE_COMPONENTS: Type<any>[] = [
 
 @NgModule({
   imports: [
-    AccountFeatureRoutingModule,
+    CommonModule,
+    ReactiveFormsModule,
+    CoreModule,
+    SecurityModule,
     DefaultShellModule,
+    AccountFeatureRoutingModule,
   ],
   exports: [],
   declarations: [

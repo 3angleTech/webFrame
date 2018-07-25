@@ -2,32 +2,12 @@
  * Provides the application's main routing module.
  */
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app-routes';
 
-
-const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'account',
-  },
-  {
-    path: 'account',
-    loadChildren: 'src/app-feature/account-feature/account-feature.module#AccountFeatureModule',
-  },
-  {
-    path: 'profile',
-    loadChildren: 'src/app-feature/profile-feature/profile-feature.module#ProfileFeatureModule',
-  },
-  {
-    // TODO: Remove `SandboxFeatureModule` from production builds.
-    path: 'sandbox',
-    loadChildren: 'src/app-feature/sandbox-feature/sandbox-feature.module#SandboxFeatureModule',
-  },
-];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(APP_ROUTES)],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
