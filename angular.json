@@ -43,22 +43,18 @@
               "src/assets"
             ],
             "styles": [{
-                "bundleName": "vendor-styles",
-                "input": "node_modules/normalize.css/normalize.css"
-              },
-              {
-                "bundleName": "vendor-styles",
-                "input": "node_modules/material-design-icons/iconfont/material-icons.css"
-              },
-              {
-                "bundleName": "main-styles",
-                "input": "src/styles/main.scss"
-              },
-              {
-                "bundleName": "print-styles",
-                "input": "src/styles/print.scss"
-              }
-            ],
+              "bundleName": "vendor-styles",
+              "input": "node_modules/normalize.css/normalize.css"
+            }, {
+              "bundleName": "vendor-styles",
+              "input": "node_modules/material-design-icons/iconfont/material-icons.css"
+            }, {
+              "bundleName": "main-styles",
+              "input": "src/styles/main.scss"
+            }, {
+              "bundleName": "print-styles",
+              "input": "src/styles/print.scss"
+            }],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "src/styles/includes"
