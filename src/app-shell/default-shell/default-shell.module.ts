@@ -4,6 +4,7 @@
  *
  * E.g.: dashboard or profile edit pages.
  */
+import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
@@ -17,6 +18,7 @@ const SHELL_DECLARATIONS: Type<any>[] = [
 
 @NgModule({
   imports: [
+    CommonModule,
     RouterModule,
   ],
   exports: [

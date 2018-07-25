@@ -1,2 +1,2 @@
 <button class="navigation-menu__item" type="button" routerLink="/account">Account</button>
-<button class="navigation-menu__item" type="button" routerLink="/sandbox">Sandbox</button>
+<button *ngIf="isDevMode" class="navigation-menu__item" type="button" routerLink="/sandbox">Sandbox</button>
