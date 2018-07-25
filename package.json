@@ -2,7 +2,7 @@
   "name": "web-frame",
   "version": "0.0.0",
   "scripts": {
-    "build": "ng build",
+    "build": "ng build --aot",
     "build:prod": "ng build --prod",
     "e2e": "ng e2e",
     "lint": "npm run lint:ts && npm run lint:style",
