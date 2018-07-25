@@ -1,5 +1,7 @@
 /**
- * TODO
+ * Provides utility functions.
+ *
+ * This file contains an explicit list of things exported in the current directory.
  */
 
 export { firstOrDefault } from './first-or-default';

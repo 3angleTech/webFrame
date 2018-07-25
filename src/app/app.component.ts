@@ -1,5 +1,5 @@
 /**
- * The application's main component.
+ * Provides the application's main component.
  */
 import { Component } from '@angular/core';
 

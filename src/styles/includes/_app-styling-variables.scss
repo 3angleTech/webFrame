@@ -8,16 +8,16 @@
 // Use the `!global` modifier to export them to the global scope.
 @mixin app_define_global_variables {
   // Dark and light colors defined in the Material Design specification.
-  $dark-primary-text: rgba(black, 0.87);
-  $dark-secondary-text: rgba(black, 0.54);
-  $dark-disabled-text: rgba(black, 0.38);
-  $dark-dividers: rgba(black, 0.12);
-  $dark-focused: rgba(black, 0.12);
-  $light-primary-text: white;
-  $light-secondary-text: rgba(white, 0.7);
-  $light-disabled-text: rgba(white, 0.5);
-  $light-dividers: rgba(white, 0.12);
-  $light-focused: rgba(white, 0.12);
+  $dark-primary-text: rgba(#000000, 0.87);
+  $dark-secondary-text: rgba(#000000, 0.54);
+  $dark-disabled-text: rgba(#000000, 0.38);
+  $dark-dividers: rgba(#000000, 0.12);
+  $dark-focused: rgba(#000000, 0.12);
+  $light-primary-text: #ffffff;
+  $light-secondary-text: rgba(#ffffff, 0.7);
+  $light-disabled-text: rgba(#ffffff, 0.5);
+  $light-dividers: rgba(#ffffff, 0.12);
+  $light-focused: rgba(#ffffff, 0.12);
 
   $app-text-colors: (
     lighter: #818181, // With low-contrast, for large fonts and icons.

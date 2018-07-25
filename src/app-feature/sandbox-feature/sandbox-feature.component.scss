@@ -1,0 +1,20 @@
+@import "app-styling-utils";
+@import "app-styling-variables";
+
+
+.app-sandbox__content {
+  margin: 24px auto;
+  max-width: 320px;
+
+  a,
+  button {
+    background-color: app-get-color($app-text-colors, lighter);
+    border-radius: 2px;
+    color: app-get-contrast($app-text-colors, lighter);
+    display: block;
+    margin-bottom: 8px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+  }
+}

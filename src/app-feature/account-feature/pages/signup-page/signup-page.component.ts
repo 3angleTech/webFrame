@@ -1,8 +1,8 @@
+/**
+ * Provides SignupPageComponent.
+ */
 import { Component, OnInit } from '@angular/core';
 
-/**
- * TODO
- */
 
 @Component({
   selector: 'app-signup-page',

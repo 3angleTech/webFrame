@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 /**
- * TODO
+ * Provides LoginPageComponent.
  */
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-login-page',
@@ -15,4 +16,7 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  public getPageTitle(): string {
+    return 'Login';
+  }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 /**
- * TODO
+ * Provides the DefaultShellComponent.
  */
+import { Component, HostBinding, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-minimal-shell',
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./minimal-shell.component.scss'],
 })
 export class MinimalShellComponent implements OnInit {
+  @HostBinding('class.app-minimal-shell')
+  true;
 
   constructor() { }
 

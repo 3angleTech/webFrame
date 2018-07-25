@@ -1,8 +1,9 @@
+/**
+ * Provides ForgotPasswordPageComponent.
+ */
 import { Component, OnInit } from '@angular/core';
 
-/**
- * TODO
- */
+
 @Component({
   selector: 'app-forgot-password-page',
   templateUrl: './forgot-password-page.component.html',
@@ -15,4 +16,7 @@ export class ForgotPasswordPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  public getPageTitle(): string {
+    return 'Forgot password';
+  }
 }
