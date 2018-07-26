@@ -3,21 +3,21 @@
 
   <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
 
-  <label class="app-form__element">
+  <label class="app-form__element--block">
     <span class="app-form__element__label">{{ 'First name:' | translate }}</span>
     <span class="app-form__element__input">
       <input #firstNameInput type="text" class="app-form__text-input" formControlName="firstName">
     </span>
   </label>
 
-  <label class="app-form__element">
+  <label class="app-form__element--block">
     <span class="app-form__element__label">{{ 'Last name:' | translate }}</span>
     <span class="app-form__element__input">
       <input #lastNameInput type="text" class="app-form__text-input" formControlName="lastName">
     </span>
   </label>
 
-  <label class="app-form__element">
+  <label class="app-form__element--block">
     <span class="app-form__element__label">{{ 'Email:' | translate }}</span>
     <span class="app-form__element__input">
       <input #emailInput type="email" class="app-form__text-input" formControlName="email">
@@ -30,7 +30,7 @@
     </span>
   </label>
 
-  <label class="app-form__element">
+  <label class="app-form__element--block">
     <span class="app-form__element__label">{{ 'Username:' | translate }}</span>
     <span class="app-form__element__input">
       <input #usernameInput type="text" class="app-form__text-input" formControlName="username">
@@ -41,7 +41,7 @@
   </label>
 
   <div formGroupName="newPasswordsGroup">
-    <label class="app-form__element">
+    <label class="app-form__element--block">
       <span class="app-form__element__label">{{ 'Password:' | translate }}</span>
       <span class="app-form__element__input">
         <input #newPasswordInput="" type="password" class="app-form__text-input" formControlName="newPassword">
@@ -54,7 +54,7 @@
       </span>
     </label>
 
-    <label class="app-form__element">
+    <label class="app-form__element--block">
       <span class="app-form__element__label">{{ 'Confirm:' | translate }}</span>
       <span class="app-form__element__input">
         <input #confirmPasswordInput type="password" class="app-form__text-input" formControlName="confirmPassword">
@@ -77,6 +77,7 @@
       {{ formError | translate }}
     </ng-container>
   </div>
+
   <div class="app-form__actions">
     <button class="app-button--with-icon" type="submit">
       <i class="material-icons">check</i>

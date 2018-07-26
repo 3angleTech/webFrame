@@ -18,7 +18,7 @@
   }
 
   .app-form__separator {
-    background-color: app-get-color($app-text-colors, "lighter");
+    background-color: app-get-color($app-foreground-colors, "dividers");
     height: 1px;
     margin-bottom: 2em;
     margin-top: 2em;
@@ -34,14 +34,21 @@
   }
 
   .app-form__checkbox-input {
+    margin: 0.5em;
     vertical-align: middle;
   }
 
   .app-form__text-input {
     background-color: app-get-contrast($app-text-colors, "darker");
-    border: 1px solid app-get-color($app-text-colors, "darker");
+    border: 1px solid app-get-color($app-foreground-colors, "dividers", 0.3);
+    box-sizing: border-box;
     color: app-get-color($app-text-colors, "darker");
     padding: 0.25em;
+
+    .app-form__text-input:active,
+    .app-form__text-input:focus {
+      border: 1px solid app-get-color($app-text-colors, "lighter");
+    }
   }
 
   .app-form__element-error {
@@ -69,24 +76,26 @@
 }
 
 .app-form.app-form--simple {
-  .app-form__element {
-    display: flex;
-    line-height: 2em;
+  border: 1px solid app-get-color($app-foreground-colors, "dividers");
+  box-sizing: border-box;
+  padding: 2em;
+
+  .app-form__element--inline-block {
+    display: block;
     margin-bottom: 1em;
     margin-top: 1em;
+  }
 
-    .app-form__element__label {
-      display: block;
-      flex-basis: 10em;
-      flex-grow: 1;
-      flex-shrink: 1;
-    }
+  .app-form__element--block {
+    @extend .app-form__element--inline-block;
 
+    .app-form__element__label,
     .app-form__element__input {
       display: block;
-      flex-basis: 20em;
-      flex-grow: 2;
-      flex-shrink: 1;
     }
+  }
+
+  .app-form__text-input {
+    width: 100%;
   }
 }
