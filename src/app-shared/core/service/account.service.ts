@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { IAccountCredentials } from '../interface/account-credentials';
 import { IAccountInformation } from '../interface/account-information';
-import { IAccountService } from '../interface/account-service';
+import { IAccountService } from '../interface/account.service';
 
 
 @Injectable()
