@@ -1,3 +1,97 @@
-<p>
-  signup-page works!
-</p>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="app-form app-form--narrow app-form--simple">
+  <h1 class="app-page__tile">{{ getPageTitle() | translate }}</h1>
+
+  <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
+
+  <label class="app-form__element">
+    <span class="app-form__element__label">{{ 'First name:' | translate }}</span>
+    <span class="app-form__element__input">
+      <input #firstNameInput type="text" class="app-form__text-input" formControlName="firstName">
+    </span>
+  </label>
+
+  <label class="app-form__element">
+    <span class="app-form__element__label">{{ 'Last name:' | translate }}</span>
+    <span class="app-form__element__input">
+      <input #lastNameInput type="text" class="app-form__text-input" formControlName="lastName">
+    </span>
+  </label>
+
+  <label class="app-form__element">
+    <span class="app-form__element__label">{{ 'Email:' | translate }}</span>
+    <span class="app-form__element__input">
+      <input #emailInput type="email" class="app-form__text-input" formControlName="email">
+      <span *ngIf="(signupForm.get('email').dirty || signupForm.get('email').touched) && signupForm.get('email').hasError('required')" class="app-form__element-error">
+        {{ 'This field is required.' | translate }}
+      </span>
+      <span *ngIf="(signupForm.get('email').dirty || signupForm.get('email').touched) && signupForm.get('email').hasError('email')" class="app-form__element-error">
+        {{ 'Email format is invalid.' | translate }}
+      </span>
+    </span>
+  </label>
+
+  <label class="app-form__element">
+    <span class="app-form__element__label">{{ 'Username:' | translate }}</span>
+    <span class="app-form__element__input">
+      <input #usernameInput type="text" class="app-form__text-input" formControlName="username">
+      <span *ngIf="(signupForm.get('username').dirty || signupForm.get('username').touched) && signupForm.get('username').hasError('required')" class="app-form__element-error">
+        {{ 'This field is required.' | translate }}
+      </span>
+    </span>
+  </label>
+
+  <div formGroupName="newPasswordsGroup">
+    <label class="app-form__element">
+      <span class="app-form__element__label">{{ 'Password:' | translate }}</span>
+      <span class="app-form__element__input">
+        <input #newPasswordInput="" type="password" class="app-form__text-input" formControlName="newPassword">
+        <span *ngIf="(signupForm.get('newPasswordsGroup.newPassword').dirty || signupForm.get('newPasswordsGroup.newPassword').touched) && signupForm.get('newPasswordsGroup.newPassword').hasError('required')" class="app-form__element-error">
+          {{ 'This field is required.' | translate }}
+        </span>
+        <span *ngIf="(signupForm.get('newPasswordsGroup.newPassword').dirty || signupForm.get('newPasswordsGroup.newPassword').touched) && signupForm.get('newPasswordsGroup.newPassword').hasError('minlength')" class="app-form__element-error">
+          {{ 'Password must be at least 8 characters long.' | translate }}
+        </span>
+      </span>
+    </label>
+
+    <label class="app-form__element">
+      <span class="app-form__element__label">{{ 'Confirm:' | translate }}</span>
+      <span class="app-form__element__input">
+        <input #confirmPasswordInput type="password" class="app-form__text-input" formControlName="confirmPassword">
+        <span *ngIf="(signupForm.get('newPasswordsGroup.confirmPassword').dirty || signupForm.get('newPasswordsGroup.confirmPassword').touched) && signupForm.get('newPasswordsGroup.confirmPassword').hasError('required')" class="app-form__element-error">
+          {{ 'This field is required.' | translate }}
+        </span>
+        <span *ngIf="(signupForm.get('newPasswordsGroup.confirmPassword').dirty || signupForm.get('newPasswordsGroup.confirmPassword').touched) && signupForm.get('newPasswordsGroup.confirmPassword').hasError('passwordConfirmed')" class="app-form__element-error">
+          {{ 'Passwords do not match.' | translate }}
+        </span>
+      </span>
+    </label>
+  </div>
+
+  <div class="app-form__actions">
+    <a routerLink="/account/forgot-password">{{ 'Forgot password?' | translate }}</a>
+  </div>
+
+  <div *ngIf="formErrors" class="app-form__errors">
+    <ng-container *ngFor="let formError of formErrors">
+      {{ formError | translate }}
+    </ng-container>
+  </div>
+  <div class="app-form__actions">
+    <button class="app-button--with-icon" type="submit">
+      <i class="material-icons">check</i>
+      <span class="text">{{ 'Signup' | translate }}</span>
+    </button>
+  </div>
+
+  <div class="app-form__separator">
+    <span>{{ 'Or' | translate }}</span>
+  </div>
+
+  <div class="app-form__actions">
+    <button class="app-button--with-icon" type="button" routerLink="/account/login">
+      <i class="material-icons">person</i>
+      <span class="text">{{ 'Login?' | translate }}</span>
+    </button>
+  </div>
+</form>

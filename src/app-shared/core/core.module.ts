@@ -4,6 +4,7 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
 import { IAccountService } from './interface/account-service';
+import { TranslatePipe } from './pipes/translate.pipe';
 import { AccountService } from './service/account.service';
 
 
@@ -14,6 +15,7 @@ const SHARED_DIRECTIVES: Type<any>[] = [
 ];
 
 const SHARED_PIPES: Type<any>[] = [
+  TranslatePipe,
 ];
 
 const SHARED_ROOT_PROVIDERS: Provider[] = [

@@ -17,6 +17,22 @@
     width: 16em;
   }
 
+  .app-form__separator {
+    background-color: app-get-color($app-text-colors, "lighter");
+    height: 1px;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    text-align: center;
+
+    span {
+      background-color: app-get-contrast($app-text-colors, "lighter");
+      line-height: 1;
+      padding: 0 0.5em;
+      position: relative;
+      top: -0.5em;
+    }
+  }
+
   .app-form__checkbox-input {
     vertical-align: middle;
   }
@@ -26,6 +42,13 @@
     border: 1px solid app-get-color($app-text-colors, "darker");
     color: app-get-color($app-text-colors, "darker");
     padding: 0.25em;
+  }
+
+  .app-form__element-error {
+    color: app-get-color($app-status-colors, "error");
+    display: block;
+    font-size: 0.75em;
+    line-height: 1;
   }
 
   .app-form__actions {
@@ -49,8 +72,8 @@
   .app-form__element {
     display: flex;
     line-height: 2em;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
 
     .app-form__element__label {
       display: block;
