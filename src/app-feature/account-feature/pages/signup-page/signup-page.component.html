@@ -1,3 +1,74 @@
-<p>
-  signup-page works!
-</p>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="app-form app-form--narrow app-form--simple">
+  <h1 class="app-page__tile">{{ getPageTitle() | translate }}</h1>
+
+  <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
+
+  <label class="app-form__element">
+    <span class="app-form__element__label">{{ 'First name:' | translate }}</span>
+    <span class="app-form__element__input">
+      <input #firstNameInput type="text" class="app-form__text-input" formControlName="firstName">
+    </span>
+  </label>
+
+  <label class="app-form__element">
+    <span class="app-form__element__label">{{ 'Last name:' | translate }}</span>
+    <span class="app-form__element__input">
+      <input #lastNameInput type="text" class="app-form__text-input" formControlName="lastName">
+    </span>
+  </label>
+
+  <label class="app-form__element">
+    <span class="app-form__element__label">{{ 'Email:' | translate }}</span>
+    <span class="app-form__element__input">
+      <input #emailInput type="email" class="app-form__text-input" formControlName="email">
+    </span>
+  </label>
+
+  <label class="app-form__element">
+    <span class="app-form__element__label">{{ 'Username:' | translate }}</span>
+    <span class="app-form__element__input">
+      <input #usernameInput type="text" class="app-form__text-input" formControlName="username">
+    </span>
+  </label>
+
+  <label class="app-form__element">
+    <span class="app-form__element__label">{{ 'Password:' | translate }}</span>
+    <span class="app-form__element__input">
+      <input #passwordInput type="password" class="app-form__text-input" formControlName="password">
+    </span>
+  </label>
+
+  <label class="app-form__element">
+    <span class="app-form__element__label">{{ 'Confirm:' | translate }}</span>
+    <span class="app-form__element__input">
+      <input #passwordInput type="password" class="app-form__text-input" formControlName="password">
+    </span>
+  </label>
+
+  <div class="app-form__actions">
+    <a routerLink="/account/forgot-password">{{ 'Forgot password?' | translate }}</a>
+  </div>
+
+  <div *ngIf="formErrors" class="app-form__errors">
+    <ng-container *ngFor="let formError of formErrors">
+      {{ formError | translate }}
+    </ng-container>
+  </div>
+  <div class="app-form__actions">
+    <button class="app-button--with-icon" type="submit">
+      <i class="material-icons">check</i>
+      <span class="text">{{ 'Signup' | translate }}</span>
+    </button>
+  </div>
+
+  <div class="app-form__separator">
+    <span>{{ 'Or' | translate }}</span>
+  </div>
+
+  <div class="app-form__actions">
+    <button class="app-button--with-icon" type="button" routerLink="/account/login">
+      <i class="material-icons">person</i>
+      <span class="text">{{ 'Login?' | translate }}</span>
+    </button>
+  </div>
+</form>

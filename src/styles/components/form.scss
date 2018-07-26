@@ -17,6 +17,22 @@
     width: 16em;
   }
 
+  .app-form__separator {
+    background-color: app-get-color($app-text-colors, "lighter");
+    height: 1px;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    text-align: center;
+
+    span {
+      background-color: app-get-contrast($app-text-colors, "lighter");
+      line-height: 1;
+      padding: 0 0.5em;
+      position: relative;
+      top: -0.5em;
+    }
+  }
+
   .app-form__checkbox-input {
     vertical-align: middle;
   }
