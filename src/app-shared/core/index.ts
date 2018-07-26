@@ -7,3 +7,4 @@ export { SerializableDataModel } from './data/serializable-data-model';
 export { User } from './data/user.dm';
 export { IAccountCredentials } from './interface/account-credentials';
 export { IAccountService } from './interface/account-service';
+export { Dictionary } from './interface/dictionary';
