@@ -2,8 +2,9 @@
  * Provides SignupPageComponent.
  */
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IAccountInformation, IAccountService } from 'app-shared/core';
+import { passwordGroupConfirmedValidator } from 'app-shared/security';
 
 
 @Component({
@@ -26,9 +27,23 @@ export class SignupPageComponent implements OnInit {
     this.signupForm = this.formBuilder.group({
       firstName: '',
       lastName: '',
-      email: '',
-      username: '',
-      password: '',
+      email: ['', Validators.compose([
+        Validators.required,
+        Validators.email,
+      ])],
+      username: ['', Validators.required],
+      newPasswordsGroup: this.formBuilder.group(
+        {
+          // TODO: Defined a custom password policy.
+          newPassword: ['', Validators.compose([
+            Validators.required,
+            Validators.minLength(8),
+          ])],
+          confirmPassword: ['', Validators.required],
+        }, {
+          validator: passwordGroupConfirmedValidator,
+        }
+      ),
     });
   }
 
@@ -38,7 +53,7 @@ export class SignupPageComponent implements OnInit {
 
   public onSubmit(): void {
     if (this.signupForm.invalid) {
-      this.signupForm.updateValueAndValidity();
+      this.signupForm.updateValueAndValidity({ emitEvent: true });
       return;
     }
 

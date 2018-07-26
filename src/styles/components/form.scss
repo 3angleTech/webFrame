@@ -44,6 +44,13 @@
     padding: 0.25em;
   }
 
+  .app-form__element-error {
+    color: app-get-color($app-status-colors, "error");
+    display: block;
+    font-size: 0.75em;
+    line-height: 1;
+  }
+
   .app-form__actions {
     text-align: center;
   }
@@ -65,8 +72,8 @@
   .app-form__element {
     display: flex;
     line-height: 2em;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
 
     .app-form__element__label {
       display: block;
