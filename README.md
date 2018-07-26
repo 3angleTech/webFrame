@@ -3,6 +3,11 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 
-For more information on a particular topic check the information available in the `docs` directory:
+## Documentation
 
+For information on various topics, check the `docs` directory:
+
+* [Requirements](./docs/requirements) for production and development environments
 * [Development Guide](./docs/development)
+  * TODO: [Project structure](./docs/project-structure)
+  * [Writing component and global styles](./docs/styles)
