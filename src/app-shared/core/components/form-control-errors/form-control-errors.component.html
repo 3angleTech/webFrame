@@ -1,0 +1,5 @@
+<ul *ngIf="this.formControl.dirty || this.formControl.touched">
+  <li *ngFor="let errorMessage of formControlErrors$ | async" [title]="errorMessage | translate">
+    {{ errorMessage | translate }}
+  </li>
+</ul>

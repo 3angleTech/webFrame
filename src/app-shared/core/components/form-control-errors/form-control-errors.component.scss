@@ -1,0 +1,23 @@
+@import "app-styling-utils";
+@import "app-styling-variables";
+
+
+:host {
+  color: app-get-color($app-status-colors, "error");
+  display: block;
+  font-size: 0.75em;
+
+  ul {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: block;
+    line-height: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

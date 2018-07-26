@@ -6,14 +6,16 @@
   <label class="app-form__element--block">
     <span class="app-form__element__label">{{ 'Username:' | translate }}</span>
     <span class="app-form__element__input">
-      <input #usernameInput type="text" class="app-form__text-input" formControlName="username">
+      <input type="text" class="app-form__text-input" formControlName="username">
+      <app-form-control-errors namespace="loginPage.errors" formControlPath="username"></app-form-control-errors>
     </span>
   </label>
 
   <label class="app-form__element--block">
     <span class="app-form__element__label">{{ 'Password:' | translate }}</span>
     <span class="app-form__element__input">
-      <input #passwordInput type="password" class="app-form__text-input" formControlName="password">
+      <input type="password" class="app-form__text-input" formControlName="password">
+      <app-form-control-errors namespace="loginPage.errors" formControlPath="password"></app-form-control-errors>
     </span>
   </label>
 
