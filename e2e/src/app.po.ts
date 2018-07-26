@@ -5,11 +5,15 @@ import { browser, by, element } from 'protractor';
  */
 
 export class AppPage {
-  navigateTo() {
+  navigateToRoot() {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  navigateToSignupPage() {
+    return browser.get('/account/signup');
+  }
+
+  getPageTitle() {
+    return element(by.css('app-root h1.app-page__title')).getText();
   }
 }

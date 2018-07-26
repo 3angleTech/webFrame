@@ -1,8 +1,8 @@
+/**
+ * Tests for tryGetValue.
+ */
 import { tryGetValue } from './try-get-value';
 
-/**
- * TODO
- */
 
 describe('tryGetValue', () => {
   let testObject;

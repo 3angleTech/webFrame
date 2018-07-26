@@ -1,3 +1,6 @@
+/**
+ * Tests for TranslatePipe.
+ */
 import { TranslatePipe } from './translate.pipe';
 
 

@@ -1,3 +1,6 @@
+/**
+ * Provides TranslatePipe.
+ */
 import { Pipe, PipeTransform } from '@angular/core';
 import { Dictionary } from '../interface/dictionary';
 
