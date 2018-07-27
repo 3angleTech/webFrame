@@ -30,12 +30,6 @@
     <span class="app-form__element__label">{{ 'Stay signed in' | translate }}</span>
   </label>
 
-  <div *ngIf="formErrors" class="app-form__errors">
-    <ng-container *ngFor="let formError of formErrors">
-      {{ formError | translate }}
-    </ng-container>
-  </div>
-
   <div class="app-form__actions">
     <button class="app-button--with-icon" type="submit">
       <i class="material-icons">lock_open</i>

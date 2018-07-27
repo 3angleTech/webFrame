@@ -54,16 +54,6 @@
   </div>
 
   <div class="app-form__actions">
-    <a routerLink="/account/forgot-password">{{ 'Forgot password?' | translate }}</a>
-  </div>
-
-  <div *ngIf="formErrors" class="app-form__errors">
-    <ng-container *ngFor="let formError of formErrors">
-      {{ formError | translate }}
-    </ng-container>
-  </div>
-
-  <div class="app-form__actions">
     <button class="app-button--with-icon" type="submit">
       <i class="material-icons">check</i>
       <span class="text">{{ 'Signup' | translate }}</span>

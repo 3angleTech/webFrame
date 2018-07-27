@@ -1,9 +1,9 @@
 /**
  * Provides SignupPageComponent.
  */
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAccountInformation, IAccountService } from 'app-shared/core';
+import { IAccountInformation, IAccountService, INotificationConfig, INotificationService } from 'app-shared/core';
 import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
 
 
@@ -11,15 +11,17 @@ import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } fro
   selector: 'app-signup-page',
   templateUrl: './signup-page.component.html',
   styleUrls: ['./signup-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignupPageComponent implements OnInit {
-  public formErrors: string[];
   public signupForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     @Inject(IAccountService)
     private accountService: IAccountService,
+    @Inject(INotificationService)
+    private notificationService: INotificationService,
   ) {
   }
 
@@ -52,13 +54,19 @@ export class SignupPageComponent implements OnInit {
 
   public onSubmit(): void {
     if (this.signupForm.invalid) {
-      this.signupForm.updateValueAndValidity({ emitEvent: true });
+      const notificationConfig: INotificationConfig = {
+        message: 'Invalid data provided.',
+      };
+      this.notificationService.showNotification(notificationConfig);
       return;
     }
 
     const credentials: IAccountInformation = this.signupForm.getRawValue();
     const onSuccess = (): void => {
-      alert('TODO: Implement user signup.');
+      const notificationConfig: INotificationConfig = {
+        message: 'TODO: Implement user signup feature.',
+      };
+      this.notificationService.showNotification(notificationConfig);
     };
 
     this.accountService.signup(credentials).subscribe(onSuccess);
