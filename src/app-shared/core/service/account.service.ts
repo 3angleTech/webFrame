@@ -18,7 +18,7 @@ export class AccountService implements IAccountService {
     return of(null);
   }
 
-  signup(information: IAccountInformation): Observable<null> {
+  public signup(information: IAccountInformation): Observable<null> {
     // TODO: Implement signup feature.
     console.log('IAccountInformation', information);
     return of(null);

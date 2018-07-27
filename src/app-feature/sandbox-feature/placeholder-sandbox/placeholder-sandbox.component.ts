@@ -19,7 +19,7 @@ export class PlaceholderSandboxComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     const title = this.activatedRoute.snapshot.paramMap.get('title');
     if (title) {
       this.placeholderPageTitle = upperFirst(title.replace(/-/g, ' '));

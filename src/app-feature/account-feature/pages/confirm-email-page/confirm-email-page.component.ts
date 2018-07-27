@@ -13,7 +13,7 @@ export class ConfirmEmailPageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit() {
   }
 
 }
