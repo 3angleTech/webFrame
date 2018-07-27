@@ -4,7 +4,6 @@
 import { ChangeDetectionStrategy, Component, Host, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective } from '@angular/forms';
 import { ValidationErrors } from '@angular/forms/src/directives/validators';
-import { isEmpty, isObject } from 'lodash';
 import { Observable } from 'rxjs';
 import { filter, map, startWith } from 'rxjs/operators';
 
@@ -18,6 +17,13 @@ import { filter, map, startWith } from 'rxjs/operators';
   preserveWhitespaces: false,
 })
 export class FormControlErrorsComponent implements OnInit {
+  /**
+   * A list of `ValidationErrors` that contain multiple details.
+   */
+  protected static readonly complexValidationErrors: string[] = [
+    'passwordPolicy',
+  ];
+
   public formControl: FormControl;
   public formControlErrors$: Observable<string[] | null>;
 
@@ -26,13 +32,6 @@ export class FormControlErrorsComponent implements OnInit {
 
   @Input()
   public readonly namespace: string;
-
-  /**
-   * A list of `ValidationErrors` that should be handled as trees.
-   */
-  protected readonly multiLevelValidationErrors: string[] = [
-    'passwordPolicy',
-  ];
 
   constructor(
     @Host()
@@ -51,29 +50,32 @@ export class FormControlErrorsComponent implements OnInit {
       }),
       map((): string[] | null => {
         if (this.formControl.errors) {
-          return this.getFlatErrors(this.formControl.errors);
+          return this.getErrorPhrases(this.formControl.errors);
         }
         return null;
       })
     );
   }
 
-  public getFlatErrors(errors: ValidationErrors, parent?: string): string[] {
-    const errorPath = isEmpty(parent) ? `${this.namespace}.${this.formControlPath}.` : `${parent}.`;
+  /**
+   * Returns a list of error phrases that need to go through the translate service.
+   *
+   * @param errors The ValidationErrors object from the FormControl.errors property.
+   */
+  public getErrorPhrases(errors: ValidationErrors): string[] {
+    const errorPhrases: string[] = [];
+    const errorPhrasePrefix = `${this.namespace}.${this.formControlPath}`;
 
-    const errorStrings: string[] = [];
-    Object.getOwnPropertyNames(errors).forEach((error: string) => {
-      if (isObject(errors[error])) {
-        this.getFlatErrors(errors[error], parent).forEach((errorString: string) => {
-          errorStrings.push(errorString);
+    Object.getOwnPropertyNames(errors).forEach((errorKey: string) => {
+      if (FormControlErrorsComponent.complexValidationErrors.includes(errorKey)) {
+        Object.getOwnPropertyNames(errors[errorKey]).forEach((errorDetailKey: string) => {
+          errorPhrases.push(`${errorPhrasePrefix}.${errorKey}.${errorDetailKey}`);
         });
       } else {
-        const errorString = `${errorPath}${error}`;
-        errorStrings.push(errorString);
+        errorPhrases.push(`${errorPhrasePrefix}.${errorKey}`);
       }
     });
 
-    return errorStrings;
+    return errorPhrases;
   }
-
 }
