@@ -8,6 +8,16 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+NOTES: To generate code outside the `src/app` directory,  you must either be in that directory or provide a path relative to the `src/app` directory:
+
+```
+cd $PROJECT_ROOT
+ng generate pipe ../app-shared/core/pipes/example-pipe
+# OR
+cd $PROJECT_ROOT/src/app-shared
+ng generate pipe ./core/pipes/example-pipe
+```
+
 
 ## Build
 
@@ -27,4 +37,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
