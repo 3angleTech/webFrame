@@ -28,13 +28,16 @@ export class FormControlErrorsComponent implements OnInit {
   public readonly namespace: string;
 
   /**
-   * A list of validation that should be handled as trees.
+   * A list of `ValidationErrors` that should be handled as trees.
    */
   protected readonly multiLevelValidationErrors: string[] = [
     'passwordPolicy',
   ];
 
-  constructor(@Host() private formDir: FormGroupDirective) {
+  constructor(
+    @Host()
+    private formDir: FormGroupDirective,
+  ) {
   }
 
   ngOnInit() {
