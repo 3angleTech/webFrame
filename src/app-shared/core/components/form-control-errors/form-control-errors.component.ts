@@ -1,22 +1,21 @@
 /**
  * Provides a helper component that can be used to display form control errors.
  */
-import { ChangeDetectionStrategy, Component, Host, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, EventEmitter, Host, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective } from '@angular/forms';
 import { ValidationErrors } from '@angular/forms/src/directives/validators';
-import { Observable } from 'rxjs';
-import { filter, map, startWith } from 'rxjs/operators';
+import { merge, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Component({
   selector: 'app-form-control-errors',
   templateUrl: './form-control-errors.component.html',
   styleUrls: ['./form-control-errors.component.scss'],
-  // TODO: Use `OnPush` change detection.
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
 })
-export class FormControlErrorsComponent implements OnInit {
+export class FormControlErrorsComponent implements DoCheck, OnInit {
   /**
    * A list of `ValidationErrors` that contain multiple details.
    */
@@ -24,8 +23,15 @@ export class FormControlErrorsComponent implements OnInit {
     'passwordPolicy',
   ];
 
-  public formControl: FormControl;
-  public formControlErrors$: Observable<string[] | null>;
+  protected formControl: FormControl;
+  public controlErrors$: Observable<string[] | null>;
+
+  /**
+   * Touch events are not emitted by form controls, this emit an event when a
+   * form control is first touched.
+   */
+  protected formControlTouchedChanges: EventEmitter<void> = new EventEmitter<void>();
+  protected formControlTouchedChanged: boolean = false;
 
   @Input()
   public readonly formControlPath: string;
@@ -35,22 +41,24 @@ export class FormControlErrorsComponent implements OnInit {
 
   constructor(
     @Host()
-    private formDir: FormGroupDirective,
+    protected formGroupDirective: FormGroupDirective,
   ) {
   }
 
   public ngOnInit(): void {
-    this.formControl = this.formDir.form.get(this.formControlPath) as FormControl;
+    this.formControl = this.formGroupDirective.form.get(this.formControlPath) as FormControl;
+    if (!this.formControl) {
+      throw getFormControlErrorsMissingControlError(this.formControlPath);
+    }
 
-    this.formControlErrors$ = this.formControl.statusChanges.pipe(
-      // Emit a value on start, because `statusChanges` doesn't emit one.
-      startWith(null),
-      filter((): boolean => {
-        return this.formControl.dirty || this.formControl.touched;
-      }),
+    this.controlErrors$ = merge(
+      this.formGroupDirective.ngSubmit,
+      this.formControl.valueChanges,
+      this.formControlTouchedChanges,
+    ).pipe(
       map((): string[] | null => {
         if (this.formControl.errors) {
-          return this.getErrorPhrases(this.formControl.errors);
+          return this._getErrorPhrases(this.formControl.errors);
         }
         return null;
       })
@@ -58,11 +66,22 @@ export class FormControlErrorsComponent implements OnInit {
   }
 
   /**
+   * NOTE: This method should be kept as fast as possible.
+   */
+  public ngDoCheck(): void {
+    // Show errors when a component is first touched.
+    if (this.formControl.touched && !this.formControlTouchedChanged) {
+      this.formControlTouchedChanged = true;
+      this.formControlTouchedChanges.emit();
+    }
+  }
+
+  /**
    * Returns a list of error phrases that need to go through the translate service.
    *
    * @param errors The ValidationErrors object from the FormControl.errors property.
    */
-  public getErrorPhrases(errors: ValidationErrors): string[] {
+  protected _getErrorPhrases(errors: ValidationErrors): string[] {
     const errorPhrases: string[] = [];
     const errorPhrasePrefix = `${this.namespace}.${this.formControlPath}`;
 
@@ -78,4 +97,11 @@ export class FormControlErrorsComponent implements OnInit {
 
     return errorPhrases;
   }
+}
+
+/**
+ * Returns an error to be thrown when the form control is missing.
+ */
+export function getFormControlErrorsMissingControlError(formControlPath: string): Error {
+  return Error(`Parent form group does not have a "${formControlPath}" control.`);
 }
