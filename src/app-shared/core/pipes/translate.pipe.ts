@@ -1,16 +1,20 @@
 /**
  * Provides TranslatePipe.
  */
-import { Pipe, PipeTransform } from '@angular/core';
-import { Dictionary } from '../interface/dictionary';
+import { Inject, Pipe, PipeTransform } from '@angular/core';
+import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from '../interface/translation.service';
 
 
 @Pipe({
   name: 'translate'
 })
 export class TranslatePipe implements PipeTransform {
-  public transform(text: string, args?: Dictionary<any>): string {
-    // TODO: Implement i18n system.
-    return text;
+  constructor(
+    @Inject(ITranslationService)
+    private translationService: ITranslationService,
+  ) { }
+
+  public transform(phrase: TranslationPhrase, phraseArgs?: TranslationPhraseArgs): string {
+    return this.translationService.translate(phrase, phraseArgs);
   }
 }

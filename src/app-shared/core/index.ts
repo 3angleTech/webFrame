@@ -9,3 +9,4 @@ export { IAccountCredentials } from './interface/account-credentials';
 export { IAccountInformation } from './interface/account-information';
 export { IAccountService } from './interface/account.service';
 export { Dictionary } from './interface/dictionary';
+export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './interface/translation.service';
