@@ -2,36 +2,9 @@
  * Tests for TranslatePipe.
  */
 import { async, inject, TestBed } from '@angular/core/testing';
-import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from '../interface/translation.service';
+import { createTranslationServiceStub } from 'app-shared/test-utils';
+import { ITranslationService } from '../interface/translation.service';
 import { TranslatePipe } from './translate.pipe';
-
-
-function createTranslationServiceStub(): ITranslationService {
-  // Create a fake TranslationService object with a `translate()` spy.
-  return {
-    translate: (phrase: TranslationPhrase, phraseArgs: TranslationPhraseArgs): string => {
-      if (phrase == null) {
-        return '';
-      }
-
-      // Provide a list of known translations.
-      switch (phrase) {
-        case 'hello':
-          return 'Hello!';
-        case 'hello.world':
-          return 'Hello, World!';
-        case 'abc.def.ghi':
-          return 'ABC DEF GHI';
-        case 'test.12':
-          return 'Test 12';
-        case 'test.random.number':
-          return `Test random number: ${phraseArgs.randomNumber}`;
-      }
-
-      return phrase;
-    }
-  };
-}
 
 
 describe('TranslatePipe', () => {
