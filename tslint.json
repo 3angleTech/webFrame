@@ -141,12 +141,9 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-
     /**
      * Rules from tslint-microsoft-contrib
-     */
-
-    /**
+     *
      * Common Bugs and Correctness. The following rules should be turned on because they find
      * common bug patterns in the code or enforce type safety.
      */
@@ -167,7 +164,10 @@
     "no-implicit-dependencies": [
       true,
       // Allow imports from path aliases defined in "tsconfig.json".
-      ["app-shared", "app-shell"]
+      [
+        "app-shared",
+        "app-shell"
+      ]
     ],
     "no-invalid-template-strings": true,
     "no-object-literal-type-assertion": true,
@@ -176,8 +176,9 @@
     // TODO: Review rule and enable or remove once the project grows in size.
     // "no-submodule-imports": true,
     "no-unnecessary-callback-wrapper": true,
-
     /**
+     * Rules from tslint-microsoft-contrib
+     *
      * Code Clarity. The following rules should be turned on because they make the code
      * generally more clear to the reader.
      */
@@ -221,17 +222,22 @@
     "prefer-object-spread": true,
     "prefer-template": true,
     "type-literal-delimiter": true,
-
     /**
      * Rules from tslint-sonarts
      */
-    "parameters-max-number": [true, 3],
+    "parameters-max-number": [
+      true,
+      3
+    ],
     "no-commented-code": true,
     "no-dead-store": true,
     "no-duplicate-string": true,
     "no-gratuitous-expressions": true,
     "no-identical-conditions": true,
-    "no-identical-functions": [true, 7],
+    "no-identical-functions": [
+      true,
+      7
+    ],
     "no-inconsistent-return": true,
     "no-redundant-parentheses": true,
     "no-return-type-any": true,
