@@ -11,11 +11,11 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 })
 export class AccountFeatureComponent implements OnInit {
   @HostBinding('class.app-account-feature')
-  public componentClass = true;
+  public componentClass: boolean = true;
 
   constructor() { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

@@ -64,10 +64,7 @@
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
+    "no-inferrable-types": false,
     "no-misused-new": true,
     "no-non-null-assertion": true,
     "no-shadowed-variable": true,
@@ -110,6 +107,14 @@
     "triple-equals": [
       true,
       "allow-null-check"
+    ],
+    // TODO: Decide if arrow functions and variable declaration should have the same requirements.
+    "typedef": [
+      true,
+      "call-signature",
+      "member-variable-declaration",
+      "parameter",
+      "property-declaration"
     ],
     "typedef-whitespace": [
       true,

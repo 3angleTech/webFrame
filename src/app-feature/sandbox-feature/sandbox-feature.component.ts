@@ -14,11 +14,11 @@ import { ChangeDetectionStrategy, Component, HostBinding, OnInit, ViewEncapsulat
 })
 export class SandboxFeatureComponent implements OnInit {
   @HostBinding('class.app-sandbox-feature')
-  public componentClass = true;
+  public componentClass: boolean = true;
 
   constructor() { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
   }
 
   public getPageTitle(): string {

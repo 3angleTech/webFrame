@@ -13,7 +13,7 @@ export class LogoutPageComponent implements OnInit {
 
   constructor() { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

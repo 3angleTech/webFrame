@@ -1,5 +1,5 @@
 /**
  * TODO
  */
-export function firstOrDefault() {
+export function firstOrDefault(): void {
 }

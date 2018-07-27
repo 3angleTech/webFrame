@@ -13,7 +13,7 @@ export class ProfilePageComponent implements OnInit {
 
   constructor() { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

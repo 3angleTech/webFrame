@@ -39,7 +39,7 @@ export class FormControlErrorsComponent implements OnInit {
   ) {
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.formControl = this.formDir.form.get(this.formControlPath) as FormControl;
 
     this.formControlErrors$ = this.formControl.statusChanges.pipe(

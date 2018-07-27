@@ -11,11 +11,11 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 })
 export class DefaultShellComponent implements OnInit {
   @HostBinding('class.app-default-shell')
-  public componentClass = true;
+  public componentClass: boolean = true;
 
   constructor() { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

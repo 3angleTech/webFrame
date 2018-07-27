@@ -13,7 +13,7 @@ export class InviteUsersPageComponent implements OnInit {
 
   constructor() { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

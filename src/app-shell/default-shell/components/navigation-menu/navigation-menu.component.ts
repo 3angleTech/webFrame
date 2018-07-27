@@ -11,13 +11,13 @@ import { Component, HostBinding, isDevMode, OnInit } from '@angular/core';
 })
 export class NavigationMenuComponent implements OnInit {
   @HostBinding('class.app-navigation-menu')
-  public componentClass = true;
+  public componentClass: boolean = true;
 
   public isDevMode: boolean = isDevMode();
 
   constructor() { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

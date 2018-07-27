@@ -13,7 +13,7 @@ export class ForgotPasswordPageComponent implements OnInit {
 
   constructor() { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
   }
 
   public getPageTitle(): string {

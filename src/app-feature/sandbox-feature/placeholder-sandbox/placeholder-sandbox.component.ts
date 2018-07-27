@@ -13,13 +13,13 @@ import { upperFirst } from 'lodash';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class PlaceholderSandboxComponent implements OnInit {
-  private placeholderPageTitle = 'Implement page!';
+  private placeholderPageTitle: string = 'Implement page!';
 
   constructor(
     private activatedRoute: ActivatedRoute,
   ) { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     const title = this.activatedRoute.snapshot.paramMap.get('title');
     if (title) {
       this.placeholderPageTitle = upperFirst(title.replace(/-/g, ' '));
