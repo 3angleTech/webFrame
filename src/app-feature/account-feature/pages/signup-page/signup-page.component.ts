@@ -31,7 +31,10 @@ export class SignupPageComponent implements OnInit {
         Validators.required,
         Validators.email,
       ])],
-      username: ['', Validators.required],
+      username: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+      ])],
       newPasswordsGroup: this.formBuilder.group(
         {
           newPassword: ['', passwordPolicyComposedValidators],
