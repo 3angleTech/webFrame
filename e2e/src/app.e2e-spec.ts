@@ -20,5 +20,8 @@ describe('webFrame', () => {
 
     page.navigateToRoot();
     expect(page.getPageTitle()).toEqual('Login');
+
+    page.navigateToForgotPasswordPage();
+    expect(page.getPageTitle()).toEqual('Forgot password');
   });
 });
