@@ -26,6 +26,21 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: [
+          '--window-size=1366,768',
+        ],
+      },
+    },
+    singleRun: false,
   });
+
+  // Change configuration for the CI environment.
+  if (process.env.CONTINUOUS_INTEGRATION) {
+    console.info('Using CONTINUOUS_INTEGRATION environment specific configuration.');
+    config.browsers = ['ChromeHeadlessCI'];
+    config.singleRun = true;
+  }
 };
