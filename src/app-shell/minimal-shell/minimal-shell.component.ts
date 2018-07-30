@@ -11,11 +11,11 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 })
 export class MinimalShellComponent implements OnInit {
   @HostBinding('class.app-minimal-shell')
-  true;
+  public componentClass: boolean = true;
 
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

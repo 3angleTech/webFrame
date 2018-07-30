@@ -1,8 +1,8 @@
+/**
+ * Tests for isNil.
+ */
 import { isNil } from './is-nil';
 
-/**
- * TODO
- */
 
 describe('isNil', () => {
   let testObject;

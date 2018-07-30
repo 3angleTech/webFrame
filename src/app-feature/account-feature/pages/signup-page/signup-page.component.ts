@@ -4,7 +4,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IAccountInformation, IAccountService } from 'app-shared/core';
-import { passwordGroupConfirmedValidator } from 'app-shared/security';
+import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
 
 
 @Component({
@@ -31,14 +31,13 @@ export class SignupPageComponent implements OnInit {
         Validators.required,
         Validators.email,
       ])],
-      username: ['', Validators.required],
+      username: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+      ])],
       newPasswordsGroup: this.formBuilder.group(
         {
-          // TODO: Defined a custom password policy.
-          newPassword: ['', Validators.compose([
-            Validators.required,
-            Validators.minLength(8),
-          ])],
+          newPassword: ['', passwordPolicyComposedValidators],
           confirmPassword: ['', Validators.required],
         }, {
           validator: passwordGroupConfirmedValidator,

@@ -2,7 +2,7 @@
  * Provides LoginPageComponent.
  */
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IAccountCredentials, IAccountService } from 'app-shared/core';
 
 
@@ -22,10 +22,10 @@ export class LoginPageComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: '',
-      password: '',
+      username: ['', Validators.required],
+      password: ['', Validators.required],
       staySignedIn: false,
     });
   }

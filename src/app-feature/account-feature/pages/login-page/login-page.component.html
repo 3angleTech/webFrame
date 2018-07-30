@@ -1,19 +1,21 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="app-form app-form--narrow app-form--simple">
-  <h1 class="app-page__tile">{{ getPageTitle() | translate }}</h1>
+  <h1 class="app-page__title">{{ getPageTitle() | translate }}</h1>
 
   <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
 
-  <label class="app-form__element">
+  <label class="app-form__element--block">
     <span class="app-form__element__label">{{ 'Username:' | translate }}</span>
     <span class="app-form__element__input">
-      <input #usernameInput type="text" class="app-form__text-input" formControlName="username">
+      <input type="text" class="app-form__text-input" formControlName="username">
+      <app-form-control-errors namespace="loginPage.errors" formControlPath="username"></app-form-control-errors>
     </span>
   </label>
 
-  <label class="app-form__element">
+  <label class="app-form__element--block">
     <span class="app-form__element__label">{{ 'Password:' | translate }}</span>
     <span class="app-form__element__input">
-      <input #passwordInput type="password" class="app-form__text-input" formControlName="password">
+      <input type="password" class="app-form__text-input" formControlName="password">
+      <app-form-control-errors namespace="loginPage.errors" formControlPath="password"></app-form-control-errors>
     </span>
   </label>
 
@@ -21,11 +23,11 @@
     <a routerLink="/account/forgot-password">{{ 'Forgot password?' | translate }}</a>
   </div>
 
-  <label class="app-form__element">
-    <span class="app-form__element__label">{{ 'Stay signed in:' | translate }}</span>
+  <label class="app-form__element--inline-block">
     <span class="app-form__element__input">
       <input #staySignedInCheckbox type="checkbox" class="app-form__checkbox-input" formControlName="staySignedIn">
     </span>
+    <span class="app-form__element__label">{{ 'Stay signed in' | translate }}</span>
   </label>
 
   <div *ngIf="formErrors" class="app-form__errors">
@@ -33,6 +35,7 @@
       {{ formError | translate }}
     </ng-container>
   </div>
+
   <div class="app-form__actions">
     <button class="app-button--with-icon" type="submit">
       <i class="material-icons">lock_open</i>

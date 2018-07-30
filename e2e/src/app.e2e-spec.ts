@@ -1,17 +1,24 @@
-import { AppPage } from './app.po';
 /**
- * TODO
+ * End-To-End tests for AppPage.
  */
+import { AppPage } from './app.po';
 
-describe('workspace-project App', () => {
+
+describe('webFrame', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to webFrame!');
+  it('should display the public account pages', () => {
+    page.navigateToRoot();
+    expect(page.getPageTitle()).toEqual('Login');
+
+    page.navigateToSignupPage();
+    expect(page.getPageTitle()).toEqual('Signup');
+
+    page.navigateToRoot();
+    expect(page.getPageTitle()).toEqual('Login');
   });
 });

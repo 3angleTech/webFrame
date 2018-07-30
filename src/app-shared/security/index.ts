@@ -3,4 +3,5 @@
  */
 
 export { passwordGroupConfirmedValidator } from './other/password-group-confirmed-validator';
+export { passwordPolicyComposedValidators, passwordPolicyValidator } from './other/password-policy-validator';
 export { SecurityModule } from './security.module';

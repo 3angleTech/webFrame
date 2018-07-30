@@ -13,7 +13,7 @@ export class NotActivatedPageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

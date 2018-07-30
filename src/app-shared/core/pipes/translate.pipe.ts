@@ -1,3 +1,6 @@
+/**
+ * Provides TranslatePipe.
+ */
 import { Pipe, PipeTransform } from '@angular/core';
 import { Dictionary } from '../interface/dictionary';
 
@@ -6,7 +9,7 @@ import { Dictionary } from '../interface/dictionary';
   name: 'translate'
 })
 export class TranslatePipe implements PipeTransform {
-  transform(text: string, args?: Dictionary<any>): string {
+  public transform(text: string, args?: Dictionary<any>): string {
     // TODO: Implement i18n system.
     return text;
   }

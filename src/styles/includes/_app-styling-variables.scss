@@ -30,6 +30,10 @@
     )
   ) !global;
 
+  $app-foreground-colors: (
+    dividers: $dark-dividers,
+  ) !global;
+
   // TODO: Define multiple hues for status colors, at least two, for dark and light contrasts.
   $app-status-colors: (
     success: #43a047,
