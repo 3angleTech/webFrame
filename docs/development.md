@@ -28,6 +28,15 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+To run unit tests in a headless browser, just define a `CONTINUOUS_INTEGRATION`
+environment variable:
+
+```
+export CONTINUOUS_INTEGRATION=true
+```
+To do local development in a headless browser, you can also change the
+`config.singleRun` flag in `src/karma.conf.js`.
+
 
 ## Running end-to-end tests
 
