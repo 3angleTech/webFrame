@@ -6,7 +6,7 @@
   <label class="app-form__element--block">
     <span class="app-form__element__label">{{ 'First name:' | translate }}</span>
     <span class="app-form__element__input">
-      <input type="text" class="app-form__text-input" formControlName="firstName">
+      <input type="text" class="app-form__text-input" formControlName="firstName" autofocus>
       <app-form-control-errors namespace="signupPage.errors" formControlPath="firstName"></app-form-control-errors>
     </span>
   </label>
@@ -51,16 +51,6 @@
         <app-form-control-errors namespace="signupPage.errors" formControlPath="newPasswordsGroup.confirmPassword"></app-form-control-errors>
       </span>
     </label>
-  </div>
-
-  <div class="app-form__actions">
-    <a routerLink="/account/forgot-password">{{ 'Forgot password?' | translate }}</a>
-  </div>
-
-  <div *ngIf="formErrors" class="app-form__errors">
-    <ng-container *ngFor="let formError of formErrors">
-      {{ formError | translate }}
-    </ng-container>
   </div>
 
   <div class="app-form__actions">

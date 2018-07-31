@@ -5,8 +5,12 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
 import { FormControlErrorsComponent } from './components/form-control-errors/form-control-errors.component';
 import { IAccountService } from './interface/account.service';
+import { INotificationService } from './interface/notification.service';
+import { ITranslationService } from './interface/translation.service';
 import { TranslatePipe } from './pipes/translate.pipe';
 import { AccountService } from './service/account.service';
+import { NotificationService } from './service/notification.service';
+import { TranslationService } from './service/translation.service';
 
 
 const SHARED_COMPONENTS: Type<any>[] = [
@@ -24,6 +28,14 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
   {
     provide: IAccountService,
     useClass: AccountService,
+  },
+  {
+    provide: INotificationService,
+    useClass: NotificationService,
+  },
+  {
+    provide: ITranslationService,
+    useClass: TranslationService,
   },
 ];
 
