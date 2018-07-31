@@ -7,7 +7,7 @@ import { InjectionToken } from '@angular/core';
 export type TranslationPhrase = string;
 
 export interface TranslationPhraseArgs {
-  [key: string]: any | TranslationPhraseArgs;
+  [key: string]: string | TranslationPhraseArgs;
 }
 
 export interface ITranslationService {
