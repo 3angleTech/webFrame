@@ -33,7 +33,7 @@
       true,
       {
         "limit": 140,
-        "ignore-pattern": "^import { \\w+ }|^export { \\w+ }"
+        "ignore-pattern": "^import { .+ }|^export { .+ }"
       }
     ],
     "member-access": true,
