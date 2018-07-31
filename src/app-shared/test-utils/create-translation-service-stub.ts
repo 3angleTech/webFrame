@@ -1,4 +1,4 @@
-import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from "app-shared/core";
+import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from 'app-shared/core';
 
 
 /**
@@ -8,9 +8,8 @@ import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from "a
  *
  * {
  *   provide: ITranslationService,
- *   useValue: createTranslationServiceStub,
+ *   useValue: createTranslationServiceStub(),
  * }
- *
  */
 export function createTranslationServiceStub(): ITranslationService {
   // Create a fake TranslationService object with a `translate()` spy.
