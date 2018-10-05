@@ -12,7 +12,6 @@ import { AccountService } from './service/account.service';
 import { NotificationService } from './service/notification.service';
 import { TranslationService } from './service/translation.service';
 
-
 const SHARED_COMPONENTS: Type<any>[] = [
   FormControlErrorsComponent,
 ];

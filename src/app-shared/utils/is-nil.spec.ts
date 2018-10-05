@@ -3,7 +3,6 @@
  */
 import { isNil } from './is-nil';
 
-
 describe('isNil', () => {
   let testObject;
 
@@ -12,7 +11,7 @@ describe('isNil', () => {
       childA: {
         childA1: 'childA1 value',
         childA2: 'childA2 value',
-        childA3: 3
+        childA3: 3,
       },
       childB: {
         childB1: 'childB1 value',
@@ -20,10 +19,10 @@ describe('isNil', () => {
           childB21Null: null,
           childB22Undefined: undefined,
           childB23: {
-            childB231: 'childB231 value'
-          }
-        }
-      }
+            childB231: 'childB231 value',
+          },
+        },
+      },
     };
   });
 

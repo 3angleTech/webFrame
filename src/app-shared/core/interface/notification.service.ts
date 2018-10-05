@@ -4,7 +4,6 @@
 import { InjectionToken } from '@angular/core';
 import { TranslationPhrase, TranslationPhraseArgs } from './translation.service';
 
-
 export interface INotificationConfig {
   message: TranslationPhrase;
   messageArgs?: TranslationPhraseArgs;

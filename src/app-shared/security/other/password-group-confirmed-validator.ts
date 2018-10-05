@@ -3,7 +3,6 @@
  */
 import { FormGroup, ValidationErrors } from '@angular/forms';
 
-
 export function passwordGroupConfirmedValidator(group: FormGroup): ValidationErrors | null {
   const validationError = { passwordConfirmed: true };
 

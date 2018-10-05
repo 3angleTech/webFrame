@@ -7,7 +7,6 @@ import { DefaultShellComponent } from 'app-shell/default-shell';
 import { MinimalShellComponent } from 'app-shell/minimal-shell';
 import { PlaceholderSandboxComponent } from './placeholder-sandbox.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -17,7 +16,7 @@ const routes: Routes = [
         path: ':title',
         component: PlaceholderSandboxComponent,
       },
-    ]
+    ],
   },
   {
     path: 'minimal',

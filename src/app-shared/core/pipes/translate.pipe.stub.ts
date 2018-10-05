@@ -5,7 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from 'app-shared/core';
 import { createTranslationServiceStub } from 'app-shared/test-utils';
 
-
 const translateServiceStub: ITranslationService = createTranslationServiceStub();
 
 @Pipe({
@@ -16,4 +15,3 @@ export class TranslatePipeStub implements PipeTransform {
     return translateServiceStub.translate(phrase, phraseArgs);
   }
 }
-

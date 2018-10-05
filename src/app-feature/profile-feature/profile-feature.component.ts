@@ -3,7 +3,6 @@
  */
 import { Component, HostBinding, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-profile-feature',
   templateUrl: './profile-feature.component.html',

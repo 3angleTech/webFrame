@@ -3,7 +3,6 @@
  */
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-not-activated-page',
   templateUrl: './not-activated-page.component.html',

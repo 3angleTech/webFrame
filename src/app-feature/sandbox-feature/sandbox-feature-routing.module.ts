@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { DefaultShellComponent } from 'app-shell/default-shell/default-shell.component';
 import { SandboxFeatureComponent } from './sandbox-feature.component';
 
-
 const routes: Routes = [
   {
     path: '',

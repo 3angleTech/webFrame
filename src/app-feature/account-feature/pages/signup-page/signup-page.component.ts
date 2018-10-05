@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IAccountInformation, IAccountService, INotificationConfig, INotificationService } from 'app-shared/core';
 import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
 
-
 @Component({
   selector: 'app-signup-page',
   templateUrl: './signup-page.component.html',
@@ -43,7 +42,7 @@ export class SignupPageComponent implements OnInit {
           confirmPassword: ['', Validators.required],
         }, {
           validator: passwordGroupConfirmedValidator,
-        }
+        },
       ),
     });
   }

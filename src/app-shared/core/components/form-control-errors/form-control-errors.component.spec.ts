@@ -15,6 +15,30 @@ import { FormControlErrorsComponent } from './form-control-errors.component';
 // tslint:disable:no-identical-functions
 // tslint:disable:no-multiline-string
 
+class FormControlErrorsTestFormComponent {
+  public readonly testForm: FormGroup;
+  @ViewChild(FormControlErrorsComponent)
+  public readonly formControlErrors: FormControlErrorsComponent;
+
+  public submittedValues: Dictionary<string> = null;
+
+  constructor() {
+    this.testForm = new FormGroup({
+      fullName: new FormControl(''),
+      userName: new FormControl('', Validators.required),
+      userEmail: new FormControl('', Validators.compose([
+        Validators.email,
+        Validators.minLength(8),
+      ])),
+    });
+  }
+
+  public onSubmit(): void {
+    if (this.testForm.valid) {
+      this.submittedValues = this.testForm.getRawValue();
+    }
+  }
+}
 
 describe('FormControlErrorsComponent', () => {
   let abstractControl: AbstractControl;
@@ -35,7 +59,7 @@ describe('FormControlErrorsComponent', () => {
         {
           provide: ITranslationService,
           useValue: createTranslationServiceStub(),
-        }
+        },
       ] as Provider[],
     }).compileComponents();
     fixture = TestBed.createComponent(FormControlErrorsTestFormComponent);
@@ -129,12 +153,12 @@ describe('FormControlErrorsComponent', () => {
 
 function countFormControlErrors(fixture: ComponentFixture<any>, formControlPath: string): string[] {
   const controlError: DebugElement = fixture.debugElement.query(
-    By.css(`[formControlPath=${formControlPath}]`)
+    By.css(`[formControlPath=${formControlPath}]`),
   );
 
   // console.log('controlError.attributes.formControlPath', controlError.attributes.formControlPath);
   const controlErrorItems: DebugElement[] = controlError.queryAll(
-    By.css('ul > li')
+    By.css('ul > li'),
   );
 
   const errorStrings: string[] = [];
@@ -164,29 +188,5 @@ function countFormControlErrors(fixture: ComponentFixture<any>, formControlPath:
     <input type="text" formControlName="userEmail" placeholder="userEmail">
     <app-form-control-errors namespace="testForm" formControlPath="userEmail"></app-form-control-errors>
   </form>
-  `
+  `,
 })
-class FormControlErrorsTestFormComponent {
-  public readonly testForm: FormGroup;
-  @ViewChild(FormControlErrorsComponent)
-  public readonly formControlErrors: FormControlErrorsComponent;
-
-  public submittedValues: Dictionary<string> = null;
-
-  constructor() {
-    this.testForm = new FormGroup({
-      fullName: new FormControl(''),
-      userName: new FormControl('', Validators.required),
-      userEmail: new FormControl('', Validators.compose([
-        Validators.email,
-        Validators.minLength(8),
-      ])),
-    });
-  }
-
-  public onSubmit(): void {
-    if (this.testForm.valid) {
-      this.submittedValues = this.testForm.getRawValue();
-    }
-  }
-}

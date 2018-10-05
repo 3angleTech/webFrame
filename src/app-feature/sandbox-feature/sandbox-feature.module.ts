@@ -6,7 +6,6 @@ import { DefaultShellModule } from 'app-shell/default-shell/default-shell.module
 import { SandboxFeatureRoutingModule } from './sandbox-feature-routing.module';
 import { SandboxFeatureComponent } from './sandbox-feature.component';
 
-
 const FEATURE_COMPONENTS: Type<any>[] = [
   SandboxFeatureComponent,
 ];

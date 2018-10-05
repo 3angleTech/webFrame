@@ -6,7 +6,6 @@ import { createTranslationServiceStub } from 'app-shared/test-utils';
 import { ITranslationService } from '../interface/translation.service';
 import { TranslatePipe } from './translate.pipe';
 
-
 describe('TranslatePipe', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -15,15 +14,15 @@ describe('TranslatePipe', () => {
         {
           provide: ITranslationService,
           useValue: createTranslationServiceStub(),
-        }
-      ]
+        },
+      ],
     }).compileComponents();
   }));
 
   it('create an instance', inject([TranslatePipe, ITranslationService],
     (translatePipe: TranslatePipe) => {
       expect(translatePipe).toBeTruthy();
-    }
+    },
   ));
 
   it('handle empty phrases', inject([TranslatePipe, ITranslationService],
@@ -31,7 +30,7 @@ describe('TranslatePipe', () => {
       expect(translatePipe.transform(undefined)).toBe('');
       expect(translatePipe.transform(null)).toBe('');
       expect(translatePipe.transform('')).toBe('');
-    }
+    },
   ));
 
   it('handle unknown phrases', inject([TranslatePipe, ITranslationService],
@@ -44,7 +43,7 @@ describe('TranslatePipe', () => {
       const randomNumber = Math.floor(Math.random() * 10000);
       const unknownText = `unknown.translation.phrase${randomNumber}`;
       expect(translatePipe.transform(unknownText)).toBe(unknownText);
-    }
+    },
   ));
 
   it('translates known phrases', inject([TranslatePipe, ITranslationService],
@@ -57,6 +56,6 @@ describe('TranslatePipe', () => {
       const randomNumber = Math.floor(Math.random() * 10000);
       const args = { randomNumber: `${ randomNumber }` };
       expect(translatePipe.transform('test.random.number', args)).toBe(`Test random number: ${randomNumber}`);
-    }
+    },
   ));
 });

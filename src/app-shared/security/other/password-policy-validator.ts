@@ -4,7 +4,6 @@
 import { AbstractControl, ValidationErrors, Validators } from '@angular/forms';
 import { isEmpty, isNull } from 'lodash';
 
-
 export function passwordPolicyValidator(control: AbstractControl): ValidationErrors | null {
   const newPassword: string = control.value;
   const validationErrors: ValidationErrors = { passwordPolicy: {} };

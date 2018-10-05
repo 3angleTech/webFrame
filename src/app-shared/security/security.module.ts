@@ -3,7 +3,6 @@
  */
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
 
-
 const SHARED_ROOT_PROVIDERS: Provider[] = [
 ];
 

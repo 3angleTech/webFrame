@@ -3,7 +3,6 @@
  */
 import { Component, HostBinding, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-default-shell',
   templateUrl: './default-shell.component.html',

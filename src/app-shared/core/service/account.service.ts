@@ -7,7 +7,6 @@ import { IAccountCredentials } from '../interface/account-credentials';
 import { IAccountInformation } from '../interface/account-information';
 import { IAccountService } from '../interface/account.service';
 
-
 @Injectable()
 export class AccountService implements IAccountService {
   constructor() { }

@@ -6,7 +6,6 @@ import { NgModule, Type } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MinimalShellComponent } from './minimal-shell.component';
 
-
 const SHELL_DECLARATIONS: Type<any>[] = [
   MinimalShellComponent,
 ];

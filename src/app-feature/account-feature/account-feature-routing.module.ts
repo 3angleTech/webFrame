@@ -13,7 +13,6 @@ import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
 import { NotActivatedPageComponent } from './pages/not-activated-page/not-activated-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
-
 const routes: Routes = [
   {
     path: '',

@@ -3,7 +3,6 @@
  */
 import { Component, HostBinding, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-account-feature',
   templateUrl: './account-feature.component.html',
