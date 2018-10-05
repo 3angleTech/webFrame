@@ -3,7 +3,6 @@
  */
 import { Component, HostBinding, isDevMode, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-navigation-menu',
   templateUrl: './navigation-menu.component.html',

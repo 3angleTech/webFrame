@@ -5,7 +5,6 @@ import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/cor
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IAccountCredentials, IAccountService, INotificationConfig, INotificationService } from 'app-shared/core';
 
-
 @Component({
   selector: 'app-forgot-password-page',
   templateUrl: './forgot-password-page.component.html',

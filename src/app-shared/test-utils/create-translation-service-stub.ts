@@ -1,6 +1,5 @@
 import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from 'app-shared/core';
 
-
 /**
  * Provides a stub for testing components that depend on the translation service.
  *
@@ -34,6 +33,6 @@ export function createTranslationServiceStub(): ITranslationService {
       }
 
       return phrase;
-    }
+    },
   };
 }

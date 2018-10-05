@@ -10,7 +10,6 @@ import { RouterModule } from '@angular/router';
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
 import { DefaultShellComponent } from './default-shell.component';
 
-
 const SHELL_DECLARATIONS: Type<any>[] = [
   NavigationMenuComponent,
   DefaultShellComponent,

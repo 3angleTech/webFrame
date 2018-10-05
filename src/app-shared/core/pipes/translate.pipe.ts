@@ -4,9 +4,8 @@
 import { Inject, Pipe, PipeTransform } from '@angular/core';
 import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from '../interface/translation.service';
 
-
 @Pipe({
-  name: 'translate'
+  name: 'translate',
 })
 export class TranslatePipe implements PipeTransform {
   constructor(

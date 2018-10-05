@@ -3,7 +3,6 @@
  */
 import { InjectionToken } from '@angular/core';
 
-
 export type TranslationPhrase = string;
 
 export interface TranslationPhraseArgs {

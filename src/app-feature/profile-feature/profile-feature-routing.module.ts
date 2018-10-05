@@ -8,7 +8,6 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { ProfileSettingsPageComponent } from './pages/profile-settings-page/profile-settings-page.component';
 import { ProfileFeatureComponent } from './profile-feature.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -27,7 +26,7 @@ const routes: Routes = [
             component: ProfileSettingsPageComponent,
           },
         ],
-      }
+      },
     ],
    },
 ];

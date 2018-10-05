@@ -7,7 +7,6 @@ import { ValidationErrors } from '@angular/forms/src/directives/validators';
 import { merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
 @Component({
   selector: 'app-form-control-errors',
   templateUrl: './form-control-errors.component.html',
@@ -61,10 +60,10 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
     ).pipe(
       map((): string[] | null => {
         if (this.formControl.errors) {
-          return this._getErrorPhrases(this.formControl.errors);
+          return this.getErrorPhrases(this.formControl.errors);
         }
         return null;
-      })
+      }),
     );
   }
 
@@ -87,7 +86,7 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
    *
    * @param errors The ValidationErrors object from the FormControl.errors property.
    */
-  protected _getErrorPhrases(errors: ValidationErrors): string[] {
+  protected getErrorPhrases(errors: ValidationErrors): string[] {
     const errorPhrases: string[] = [];
     const errorPhrasePrefix = `${this.namespace}.${this.formControlPath}`;
 

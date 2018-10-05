@@ -3,7 +3,6 @@
  */
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-invite-users-page',
   templateUrl: './invite-users-page.component.html',

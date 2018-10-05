@@ -4,7 +4,6 @@
  */
 import { ChangeDetectionStrategy, Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 
-
 @Component({
   selector: 'app-sandbox-feature',
   styleUrls: ['./sandbox-feature.component.scss'],

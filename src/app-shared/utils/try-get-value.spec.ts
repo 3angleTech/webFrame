@@ -3,7 +3,6 @@
  */
 import { tryGetValue } from './try-get-value';
 
-
 describe('tryGetValue', () => {
   let testObject;
 
@@ -12,7 +11,7 @@ describe('tryGetValue', () => {
       childA: {
         childA1: 'A1',
         childA2: 'A2',
-        childA3: 3
+        childA3: 3,
       },
       childB: {
         childB1: 'B1',
@@ -20,10 +19,10 @@ describe('tryGetValue', () => {
           childB21Null: null,
           childB22Undefined: undefined,
           childB23: {
-            childB231: 'B231'
-          }
-        }
-      }
+            childB231: 'B231',
+          },
+        },
+      },
     };
   });
 

@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { IAccountCredentials } from './account-credentials';
 import { IAccountInformation } from './account-information';
 
-
 export interface IAccountService {
   login(credentials: IAccountCredentials): Observable<null>;
   // TODO: Implement logout feature.

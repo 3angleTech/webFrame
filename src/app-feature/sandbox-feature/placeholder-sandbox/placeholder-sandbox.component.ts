@@ -5,7 +5,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { upperFirst } from 'lodash';
 
-
 @Component({
   selector: 'app-placeholder-sandbox',
   styleUrls: ['./placeholder-sandbox.component.scss'],
