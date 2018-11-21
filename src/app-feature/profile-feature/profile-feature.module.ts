@@ -1,4 +1,10 @@
 /**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
+/**
  * Provides the profile feature module.
  */
 import { NgModule, Type } from '@angular/core';

@@ -1,4 +1,10 @@
 /**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
+/**
  * The sandbox feature module main component. This component should only link
  * to lazy-loaded sub-modules.
  */

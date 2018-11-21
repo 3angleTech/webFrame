@@ -1,4 +1,10 @@
 /**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
+/**
  * Use the `MinimalShellComponent` to provide a structure around application pages that require
  * a minimal amount of structure. E.g.: login or registration pages.
  */

@@ -1,4 +1,10 @@
 /**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
+/**
  * Provides NotActivatedPageComponent.
  */
 import { Component, OnInit } from '@angular/core';

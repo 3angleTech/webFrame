@@ -1,4 +1,10 @@
 /**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
+/**
  * Provides SignupPageComponent.
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';

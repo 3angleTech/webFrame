@@ -1,4 +1,10 @@
 /**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
+/**
  * Use the `DefaultShellComponent` to provide a structure around most application pages that
  * require a consistent structure (page headers, navigation menu).
  *

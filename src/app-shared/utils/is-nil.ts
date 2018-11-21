@@ -1,4 +1,10 @@
 /**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
+/**
  * Checks if object is undefined or null. If memberAccessChain is provided it will traverse the object and check
  * if the value associated to the memberAccessChain is undefined or null.
  * @param object The object to check
