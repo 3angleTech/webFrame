@@ -2,5 +2,8 @@
   "extends": [
     "@3angletech/tslint/ts",
     "@3angletech/tslint/angular"
-  ]
+  ],
+  "rules": {
+    "file-header": [true, "Copyright .* 2018 THREEANGLE SOFTWARE SOLUTIONS SRL"]
+  }
 }
