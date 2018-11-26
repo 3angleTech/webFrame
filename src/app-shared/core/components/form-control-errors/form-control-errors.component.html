@@ -1,3 +1,9 @@
+<!--
+  @license
+  Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+  Available under MIT license webFrame/LICENSE
+-->
+
 <ul *ngIf="controlErrors$ | async as controlErrors">
   <li *ngFor="let errorMessage of controlErrors" [title]="errorMessage | translate">
     {{ errorMessage | translate }}

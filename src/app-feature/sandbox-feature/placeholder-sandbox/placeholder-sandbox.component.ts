@@ -1,4 +1,10 @@
 /**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
+/**
  * A placeholder-sandbox page that can be used as placeholder-sandbox for navigation menu items.
  */
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';

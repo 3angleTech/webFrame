@@ -1,3 +1,9 @@
+/**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
 import { browser, by, element, promise } from 'protractor';
 
 /**

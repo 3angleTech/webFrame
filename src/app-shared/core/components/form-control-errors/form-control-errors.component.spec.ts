@@ -1,4 +1,10 @@
 /**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
+/**
  * Tests for FormControlErrorsComponent.
  */
 import { Component, DebugElement, Provider, Type, ViewChild } from '@angular/core';

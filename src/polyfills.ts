@@ -1,3 +1,9 @@
+/**
+ * @license
+ * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
 // tslint:disable:no-commented-code
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
