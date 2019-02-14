@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 import { Empty } from '../data/empty.dm';
 import { IAccountCredentials } from '../interface/account-credentials';
 import { IAccountInformation } from '../interface/account-information';
-import { IAccountService } from '../interface/account.service';
+import { IAccountService } from '../interface/account.interface';
 import { ServerApi } from '../interface/api-endpoint-builder.interface';
 import { IWebRequestService, RequestContentType } from '../interface/web-request.interface';
 

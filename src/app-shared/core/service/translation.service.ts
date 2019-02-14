@@ -5,7 +5,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from '../interface/translation.service';
+import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from '../interface/translation.interface';
 
 @Injectable()
 export class TranslationService implements ITranslationService {

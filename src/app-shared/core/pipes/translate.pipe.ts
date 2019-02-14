@@ -8,7 +8,7 @@
  * Provides TranslatePipe.
  */
 import { Inject, Pipe, PipeTransform } from '@angular/core';
-import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from '../interface/translation.service';
+import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from '../interface/translation.interface';
 
 @Pipe({
   name: 'translate',
