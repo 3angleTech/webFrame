@@ -4,9 +4,6 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-/**
- * Tests for NotificationService.
- */
 import { inject, TestBed } from '@angular/core/testing';
 import { createTranslationServiceStub } from 'app-shared/test-utils';
 import { ITranslationService } from '../interface/translation.service';

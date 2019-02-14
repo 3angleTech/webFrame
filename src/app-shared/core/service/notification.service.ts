@@ -4,9 +4,6 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-/**
- * Provides NotificationService.
- */
 import { Inject, Injectable } from '@angular/core';
 import { INotificationConfig, INotificationService } from '../interface/notification.service';
 import { ITranslationService } from '../interface/translation.service';

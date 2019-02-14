@@ -4,9 +4,6 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-/**
- * Tests for TranslationService.
- */
 import { inject, TestBed } from '@angular/core/testing';
 import { TranslationService } from './translation.service';
 

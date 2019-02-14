@@ -9,13 +9,13 @@
  */
 import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Empty } from '../data/empty.dm';
 import { IAccountCredentials } from './account-credentials';
 import { IAccountInformation } from './account-information';
 
 export interface IAccountService {
-  login(credentials: IAccountCredentials): Observable<null>;
-  // TODO: Implement logout feature.
-  // logout(): Observable<null>;
-  signup(information: IAccountInformation): Observable<null>;
+  login(credentials: IAccountCredentials): Observable<Empty>;
+  logout(): Observable<Empty>;
+  signup(information: IAccountInformation): Observable<Empty>;
 }
 export const IAccountService = new InjectionToken('IAccountService');
