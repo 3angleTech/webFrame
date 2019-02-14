@@ -9,9 +9,9 @@ import { Dictionary } from 'app-shared/core';
 import { forEach, isNil, isString } from 'lodash';
 
 import { environment } from '../../../environments/environment';
-import { IApiEndpointBuilderService, ServerApi } from '../interface/api-endpoint-builder.interface';
-import { IStringTemplateService } from '../interface/string-template.interface';
-import { QueryParameterValueType, UrlParameterValueType } from '../interface/web-request.interface';
+import { IApiEndpointBuilderService, ServerApi } from './api-endpoint-builder.interface';
+import { IStringTemplateService } from './string-template.interface';
+import { QueryParameterValueType, UrlParameterValueType } from './web-request.interface';
 
 @Injectable()
 export class ApiEndpointBuilderService implements IApiEndpointBuilderService {

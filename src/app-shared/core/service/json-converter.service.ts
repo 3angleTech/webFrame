@@ -6,7 +6,7 @@
 
 import { Injectable } from '@angular/core';
 import { JsonConvert, ValueCheckingMode } from 'json2typescript';
-import { IJsonConverterService } from '../interface/json-converter.interface';
+import { IJsonConverterService } from './json-converter.interface';
 
 @Injectable()
 export class JsonConverterService implements IJsonConverterService {

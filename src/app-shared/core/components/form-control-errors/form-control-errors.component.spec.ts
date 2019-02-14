@@ -13,8 +13,8 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validator
 import { By } from '@angular/platform-browser';
 import { createTranslationServiceStub } from 'app-shared/test-utils';
 import { Dictionary } from '../../interface/dictionary';
-import { ITranslationService } from '../../interface/translation.interface';
 import { TranslatePipeStub } from '../../pipes/translate.pipe.stub';
+import { ITranslationService } from '../../service/translation.interface';
 import { FormControlErrorsComponent } from './form-control-errors.component';
 // tslint:disable:no-commented-code
 // tslint:disable:no-duplicate-string

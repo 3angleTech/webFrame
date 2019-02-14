@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { forEach, map, union } from 'lodash';
 
 import { isNil } from 'app-shared/utils';
-import { IStringTemplateService } from '../interface/string-template.interface';
+import { IStringTemplateService } from './string-template.interface';
 
 @Injectable()
 export class StringTemplateService implements IStringTemplateService {

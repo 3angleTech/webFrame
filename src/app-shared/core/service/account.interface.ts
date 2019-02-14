@@ -10,8 +10,18 @@
 import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Empty } from '../data/empty.dm';
-import { IAccountCredentials } from './account-credentials';
-import { IAccountInformation } from './account-information';
+
+export interface IAccountCredentials {
+  username: string;
+  password: string;
+}
+
+export interface IAccountInformation extends IAccountCredentials {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
 
 export interface IAccountService {
   login(credentials: IAccountCredentials): Observable<Empty>;

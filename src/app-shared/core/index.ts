@@ -11,9 +11,7 @@
 export { CoreModule } from './core.module';
 export { SerializableDataModel } from './data/serializable-data-model';
 export { User } from './data/user.dm';
-export { IAccountCredentials } from './interface/account-credentials';
-export { IAccountInformation } from './interface/account-information';
-export { IAccountService } from './interface/account.interface';
+export { IAccountCredentials, IAccountInformation, IAccountService } from './service/account.interface';
 export { Dictionary } from './interface/dictionary';
-export { INotificationConfig, INotificationService } from './interface/notification.interface';
-export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './interface/translation.interface';
+export { INotificationConfig, INotificationService } from './service/notification.interface';
+export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './service/translation.interface';

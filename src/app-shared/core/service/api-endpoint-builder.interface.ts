@@ -4,7 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-import { Dictionary } from './dictionary';
+import { Dictionary } from '../interface/dictionary';
 import { QueryParameterValueType, UrlParameterValueType } from './web-request.interface';
 
 import { InjectionToken } from '@angular/core';
