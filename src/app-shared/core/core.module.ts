@@ -8,7 +8,7 @@
  * Provides the core shared module.
  */
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
 import { FormControlErrorsComponent } from './components/form-control-errors/form-control-errors.component';
 import { TranslatePipe } from './pipes/translate.pipe';
@@ -24,6 +24,7 @@ import { IStringTemplateService } from './service/string-template.interface';
 import { StringTemplateService } from './service/string-template.service';
 import { ITranslationService } from './service/translation.interface';
 import { TranslationService } from './service/translation.service';
+import { WebRequestInterceptorService } from './service/web-request-interceptor.service';
 import { IWebRequestService } from './service/web-request.interface';
 import { WebRequestService } from './service/web-request.service';
 
@@ -66,6 +67,11 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
   {
     provide: IJsonConverterService,
     useClass: JsonConverterService,
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: WebRequestInterceptorService,
+    multi: true,
   },
 ];
 
