@@ -4,9 +4,6 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-/**
- * Tests for AccountService.
- */
 import { inject, TestBed } from '@angular/core/testing';
 import { AccountService } from './account.service';
 

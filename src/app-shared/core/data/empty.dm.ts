@@ -4,11 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-/**
- * Provides IAccountCredentials.
- */
+import { SerializableDataModel } from './serializable-data-model';
 
-export interface IAccountCredentials {
-  username: string;
-  password: string;
+export class Empty extends SerializableDataModel {
 }

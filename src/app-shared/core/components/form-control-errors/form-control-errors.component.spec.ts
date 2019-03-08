@@ -13,14 +13,31 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validator
 import { By } from '@angular/platform-browser';
 import { createTranslationServiceStub } from 'app-shared/test-utils';
 import { Dictionary } from '../../interface/dictionary';
-import { ITranslationService } from '../../interface/translation.service';
 import { TranslatePipeStub } from '../../pipes/translate.pipe.stub';
+import { ITranslationService } from '../../service/translation.interface';
 import { FormControlErrorsComponent } from './form-control-errors.component';
 // tslint:disable:no-commented-code
 // tslint:disable:no-duplicate-string
 // tslint:disable:no-identical-functions
 // tslint:disable:no-multiline-string
 
+@Component({
+  template: `
+  <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
+    <!-- control without any validators. -->
+    <input type="text" formControlName="fullName" placeholder="fullName">
+    <app-form-control-errors namespace="testForm" formControlPath="fullName"></app-form-control-errors>
+
+    <!-- control with one validator. -->
+    <input type="text" formControlName="userName" placeholder="userName">
+    <app-form-control-errors namespace="testForm" formControlPath="userName"></app-form-control-errors>
+
+    <!-- control with two non-required validators. -->
+    <input type="text" formControlName="userEmail" placeholder="userEmail">
+    <app-form-control-errors namespace="testForm" formControlPath="userEmail"></app-form-control-errors>
+  </form>
+  `,
+})
 class FormControlErrorsTestFormComponent {
   public readonly testForm: FormGroup;
   @ViewChild(FormControlErrorsComponent)
@@ -178,21 +195,3 @@ function countFormControlErrors(fixture: ComponentFixture<any>, formControlPath:
   // debugger;
   return errorStrings;
 }
-
-@Component({
-  template: `
-  <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
-    <!-- control without any validators. -->
-    <input type="text" formControlName="fullName" placeholder="fullName">
-    <app-form-control-errors namespace="testForm" formControlPath="fullName"></app-form-control-errors>
-
-    <!-- control with one validator. -->
-    <input type="text" formControlName="userName" placeholder="userName">
-    <app-form-control-errors namespace="testForm" formControlPath="userName"></app-form-control-errors>
-
-    <!-- control with two non-required validators. -->
-    <input type="text" formControlName="userEmail" placeholder="userEmail">
-    <app-form-control-errors namespace="testForm" formControlPath="userEmail"></app-form-control-errors>
-  </form>
-  `,
-})
