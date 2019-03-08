@@ -5,21 +5,28 @@
  */
 
 import { Inject, Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
+import { isNull } from 'util';
 import { environment } from '../../../environments/environment';
-import { Empty } from '../data/empty.dm';
+import { Empty } from '../data/empty.do';
+import { User } from '../data/user.do';
 import { IAccountCredentials, IAccountInformation, IAccountService } from './account.interface';
 import { ServerApi } from './api-endpoint-builder.interface';
+import { IJsonConverterService } from './json-converter.interface';
 import { IWebRequestService, RequestContentType } from './web-request.interface';
 
 @Injectable()
 export class AccountService implements IAccountService {
   public isLoggedIn: boolean;
+  private loggedInUserSubject: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  public loggedInUserObservable: Observable<User> = this.loggedInUserSubject.asObservable();
 
   constructor(
     @Inject(IWebRequestService)
     private webRequest: IWebRequestService,
+    @Inject(IJsonConverterService)
+    private jsonConverter: IJsonConverterService,
   ) { }
 
   public login(credentials: IAccountCredentials): Observable<Empty> {
@@ -35,9 +42,25 @@ export class AccountService implements IAccountService {
     }).pipe(
       map(() => {
         this.isLoggedIn = true;
+        this.getLoggedInUser().subscribe(user => {
+          console.log(user);
+        });
         return new Empty();
       }),
     );
+  }
+
+  public getLoggedInUser(): Observable<User> {
+    if (!isNull(this.loggedInUserSubject.value)) {
+      return this.loggedInUserObservable;
+    }
+    return this.webRequest.get({
+      serverApi: ServerApi.AccountMe,
+    }).pipe(mergeMap((userObject) => {
+      const user = this.jsonConverter.deserialize(userObject, User);
+      this.loggedInUserSubject.next(user);
+      return this.loggedInUserObservable;
+    }));
   }
 
   public logout(): Observable<Empty> {

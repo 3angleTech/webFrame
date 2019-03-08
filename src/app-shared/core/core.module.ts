@@ -16,6 +16,8 @@ import { IAccountService } from './service/account.interface';
 import { AccountService } from './service/account.service';
 import { IApiEndpointBuilderService } from './service/api-endpoint-builder.interface';
 import { ApiEndpointBuilderService } from './service/api-endpoint-builder.service';
+import { IJsonConverterService } from './service/json-converter.interface';
+import { JsonConverterService } from './service/json-converter.service';
 import { INotificationService } from './service/notification.interface';
 import { NotificationService } from './service/notification.service';
 import { IStringTemplateService } from './service/string-template.interface';
@@ -61,6 +63,10 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
   {
     provide: IStringTemplateService,
     useClass: StringTemplateService,
+  },
+  {
+    provide: IJsonConverterService,
+    useClass: JsonConverterService,
   },
   {
     provide: HTTP_INTERCEPTORS,
