@@ -9,7 +9,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { isNull } from 'util';
 import { environment } from '../../../environments/environment';
-import { Empty } from '../data/empty.dm';
+import { Empty } from '../data/empty.do';
 import { User } from '../data/user.do';
 import { IAccountCredentials, IAccountInformation, IAccountService } from './account.interface';
 import { ServerApi } from './api-endpoint-builder.interface';
@@ -42,6 +42,9 @@ export class AccountService implements IAccountService {
     }).pipe(
       map(() => {
         this.isLoggedIn = true;
+        this.getLoggedInUser().subscribe(user => {
+          console.log(user);
+        });
         return new Empty();
       }),
     );

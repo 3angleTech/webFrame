@@ -9,8 +9,8 @@
  */
 
 export { CoreModule } from './core.module';
-export { SerializableDataModel } from './data/serializable-data-model';
-export { User } from './data/user.dm';
+export { User } from './data/user.do';
+export { Empty } from './data/empty.do';
 export { IAccountCredentials, IAccountInformation, IAccountService } from './service/account.interface';
 export { Dictionary } from './interface/dictionary';
 export { INotificationConfig, INotificationService } from './service/notification.interface';
