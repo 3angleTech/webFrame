@@ -15,3 +15,7 @@ export { IAccountCredentials, IAccountInformation, IAccountService } from './ser
 export { Dictionary } from './interface/dictionary';
 export { INotificationConfig, INotificationService } from './service/notification.interface';
 export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './service/translation.interface';
+export { IWebFrameContextStateService } from './service/web-frame-context/web-frame-context.interface';
+export { IWebFrameContextLocalizationService } from './service/web-frame-context/web-frame-context.interface';
+export { IWebFrameContextNavigationService } from './service/web-frame-context/web-frame-context.interface';
+export { IWebFrameContextUIService } from './service/web-frame-context/web-frame-context.interface';
