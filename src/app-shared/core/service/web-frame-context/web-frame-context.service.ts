@@ -11,7 +11,16 @@
   IWebFrameContextUIService,
  } from '.';
 
-import { IWebFrameContextService } from './web-frame-context.interface';
+/**
+ * Service that can be injected in pages in order to have quick access to the state of
+ * the application and commonly used services.
+ */
+export interface IWebFrameContextService {
+  state: IWebFrameContextStateService;
+  localization: IWebFrameContextLocalizationService;
+  navigation: IWebFrameContextNavigationService;
+  ui: IWebFrameContextUIService;
+}
 
  export class WebFrameContextService implements IWebFrameContextService {
   public state: IWebFrameContextStateService;

@@ -15,5 +15,5 @@ export interface IWebFrameContextStateService {
 }
 
 export class WebFrameContextStateService implements IWebFrameContextStateService {
-  public currentUser: any;
+  public currentUser: BehaviorSubject<User>;
 }

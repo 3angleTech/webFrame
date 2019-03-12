@@ -17,6 +17,7 @@ export { INotificationConfig, INotificationService } from './service/notificatio
 export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './service/translation.interface';
 
 export {
+  IWebFrameContextService,
   IWebFrameContextStateService,
   IWebFrameContextLocalizationService,
   IWebFrameContextNavigationService,
