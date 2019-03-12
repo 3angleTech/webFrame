@@ -7,11 +7,15 @@
  /**
   * Service for localization operations.
   */
+import { Injectable, InjectionToken } from '@angular/core';
+
 export interface IWebFrameContextLocalizationService {
   translate(phrase: string, parameters?: Object): string;
   changeLocalization(locale: string): void;
 }
+export const IWebFrameContextLocalizationService = new InjectionToken('IWebFrameContextLocalizationService');
 
+@Injectable()
 export class WebFrameContextLocalizationService implements IWebFrameContextLocalizationService {
   public translate(phrase: string, parameters?: Object): string {
     throw new Error('Method not implemented');

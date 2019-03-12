@@ -4,6 +4,8 @@
  * Available under MIT license webFrame/LICENSE
  */
 
+import { InjectionToken } from '@angular/core';
+
 /**
  * Service for common UI operations.
  */
@@ -29,6 +31,7 @@ export interface IWebFrameContextUIService {
    */
   showConfirmationDialog(configuration: IDialogConfiguration, confirmCallback: Function, cancelCallback: Function): void;
 }
+export const IWebFrameContextUIService = new InjectionToken('IWebFrameContextUIService');
 
 // tslint:disable-next-line:no-empty-interface
 export interface INotificationConfiguration {

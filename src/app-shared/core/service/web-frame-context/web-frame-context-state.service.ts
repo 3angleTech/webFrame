@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 
+import { Injectable, InjectionToken } from '@angular/core';
 import { User } from 'app-shared/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -13,7 +14,9 @@ import { BehaviorSubject } from 'rxjs';
 export interface IWebFrameContextStateService {
   currentUser: BehaviorSubject<User>;
 }
+export const IWebFrameContextStateService = new InjectionToken('IWebFrameContextStateService');
 
+@Injectable()
 export class WebFrameContextStateService implements IWebFrameContextStateService {
   public currentUser: BehaviorSubject<User>;
 }

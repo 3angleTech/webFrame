@@ -4,7 +4,8 @@
  * Available under MIT license webFrame/LICENSE
  */
 
- import {
+import { Injectable, InjectionToken } from '@angular/core';
+import {
   IWebFrameContextLocalizationService,
   IWebFrameContextNavigationService,
   IWebFrameContextStateService,
@@ -21,8 +22,10 @@ export interface IWebFrameContextService {
   navigation: IWebFrameContextNavigationService;
   ui: IWebFrameContextUIService;
 }
+export const IWebFrameContextService = new InjectionToken('IWebFrameContextService');
 
- export class WebFrameContextService implements IWebFrameContextService {
+@Injectable()
+export class WebFrameContextService implements IWebFrameContextService {
   public state: IWebFrameContextStateService;
   public localization: IWebFrameContextLocalizationService;
   public navigation: IWebFrameContextNavigationService;
