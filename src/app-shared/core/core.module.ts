@@ -14,8 +14,8 @@ import { FormControlErrorsComponent } from './components/form-control-errors/for
 import { TranslatePipe } from './pipes/translate.pipe';
 import { IAccountService } from './service/account/account.interface';
 import { AccountService } from './service/account/account.service';
-import { IApiEndpointBuilderService } from './service/api-endpoint-builder.interface';
-import { ApiEndpointBuilderService } from './service/api-endpoint-builder.service';
+import { IApiEndpointBuilderService } from './service/api-endpoint-builder/api-endpoint-builder.interface';
+import { ApiEndpointBuilderService } from './service/api-endpoint-builder/api-endpoint-builder.service';
 import { IJsonConverterService } from './service/json-converter.interface';
 import { JsonConverterService } from './service/json-converter.service';
 import { INotificationService } from './service/notification.interface';
