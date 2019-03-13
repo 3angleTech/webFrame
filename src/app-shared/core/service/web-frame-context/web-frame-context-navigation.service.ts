@@ -11,11 +11,30 @@
  * Service for common navigation operations.
  */
 export interface IWebFrameContextNavigationService {
+  /**
+   * Navigate to target url.
+   * @param url The target url.
+   */
   navigateToUrl(url: string): void;
+  /**
+   * Navigate to login page.
+   */
   navigateToLogin(): void;
+  /**
+   * Navigate to logout page.
+   */
   navigateToLogout(): void;
+  /**
+   * Navigate to not found error page.
+   */
   navigateToNotFoundErrorPage(): void;
+  /**
+   * Navigate to access denied error page.
+   */
   navigateToAccessDeniedErrorPage(): void;
+  /**
+   * Force a refresh of the current page.
+   */
   refreshCurrentPage(): void;
 }
 export const IWebFrameContextNavigationService = new InjectionToken('IWebFrameContextNavigationService');

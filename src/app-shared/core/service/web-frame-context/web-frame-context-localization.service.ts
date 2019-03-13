@@ -9,6 +9,9 @@
   */
 import { Injectable, InjectionToken } from '@angular/core';
 
+/**
+ * Service for common localization operations.
+ */
 export interface IWebFrameContextLocalizationService {
   translate(phrase: string, parameters?: Object): string;
   changeLocalization(locale: string): void;
