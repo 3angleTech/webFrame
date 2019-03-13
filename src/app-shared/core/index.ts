@@ -14,7 +14,7 @@ export { Empty } from './data/empty.do';
 export { IAccountCredentials, IAccountInformation, IAccountService } from './service/account/account.interface';
 export { Dictionary } from './interface/dictionary';
 export { INotificationConfig, INotificationService } from './service/notification.interface';
-export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './service/translation.interface';
+export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './service/translation/translation.interface';
 
 export {
   IWebFrameContextService,

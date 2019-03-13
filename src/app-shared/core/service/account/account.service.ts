@@ -13,7 +13,7 @@ import { Empty } from '../../data/empty.do';
 import { User } from '../../data/user.do';
 import { ServerApi } from '../api-endpoint-builder/api-endpoint-builder.interface';
 import { IJsonConverterService } from '../json-converter/json-converter.interface';
-import { IWebRequestService, RequestContentType } from '../web-request.interface';
+import { IWebRequestService, RequestContentType } from '../web-request/web-request.interface';
 import { IAccountCredentials, IAccountInformation, IAccountService } from './account.interface';
 
 @Injectable()

@@ -5,7 +5,7 @@
  */
 
 import { Dictionary } from '../../interface/dictionary';
-import { QueryParameterValueType, UrlParameterValueType } from '../web-request.interface';
+import { QueryParameterValueType, UrlParameterValueType } from '../web-request/web-request.interface';
 
 import { InjectionToken } from '@angular/core';
 

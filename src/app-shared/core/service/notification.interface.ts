@@ -8,7 +8,7 @@
  * Provides INotificationService.
  */
 import { InjectionToken } from '@angular/core';
-import { TranslationPhrase, TranslationPhraseArgs } from './translation.interface';
+import { TranslationPhrase, TranslationPhraseArgs } from './translation/translation.interface';
 
 export interface INotificationConfig {
   message: TranslationPhrase;

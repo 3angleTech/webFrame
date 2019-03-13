@@ -6,7 +6,7 @@
 
 import { Inject, Injectable } from '@angular/core';
 import { INotificationConfig, INotificationService } from './notification.interface';
-import { ITranslationService } from './translation.interface';
+import { ITranslationService } from './translation/translation.interface';
 
 @Injectable()
 export class NotificationService implements INotificationService {
