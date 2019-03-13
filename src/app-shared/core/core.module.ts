@@ -24,6 +24,10 @@ import { IStringTemplateService } from './service/string-template.interface';
 import { StringTemplateService } from './service/string-template.service';
 import { ITranslationService } from './service/translation.interface';
 import { TranslationService } from './service/translation.service';
+import { IWebFrameContextStateService, IWebFrameContextUIService, WebFrameContextNavigationService, WebFrameContextStateService, WebFrameContextUIService } from './service/web-frame-context';
+import { IWebFrameContextLocalizationService, IWebFrameContextNavigationService, IWebFrameContextService } from './service/web-frame-context/index';
+import { WebFrameContextLocalizationService } from './service/web-frame-context/web-frame-context-localization.service';
+import { WebFrameContextService } from './service/web-frame-context/web-frame-context.service';
 import { WebRequestInterceptorService } from './service/web-request-interceptor.service';
 import { IWebRequestService } from './service/web-request.interface';
 import { WebRequestService } from './service/web-request.service';
@@ -72,6 +76,26 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
     provide: HTTP_INTERCEPTORS,
     useClass: WebRequestInterceptorService,
     multi: true,
+  },
+  {
+    provide: IWebFrameContextService,
+    useClass: WebFrameContextService,
+  },
+  {
+    provide: IWebFrameContextLocalizationService,
+    useClass: WebFrameContextLocalizationService,
+  },
+  {
+    provide: IWebFrameContextNavigationService,
+    useClass: WebFrameContextNavigationService,
+  },
+  {
+    provide: IWebFrameContextStateService,
+    useClass: WebFrameContextStateService,
+  },
+  {
+    provide: IWebFrameContextUIService,
+    useClass: WebFrameContextUIService,
   },
 ];
 

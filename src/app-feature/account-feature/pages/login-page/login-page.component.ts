@@ -9,7 +9,7 @@
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAccountCredentials, IAccountService, INotificationConfig, INotificationService } from 'app-shared/core';
+import { IAccountCredentials, IAccountService, INotificationConfig, INotificationService, IWebFrameContextService } from 'app-shared/core';
 
 @Component({
   selector: 'app-login-page',
@@ -26,6 +26,8 @@ export class LoginPageComponent implements OnInit {
     private accountService: IAccountService,
     @Inject(INotificationService)
     private notificationService: INotificationService,
+    @Inject(IWebFrameContextService)
+    private context: IWebFrameContextService,
   ) {
   }
 

@@ -4,8 +4,8 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-export { IWebFrameContextService } from './web-frame-context.service';
-export { IWebFrameContextStateService } from './web-frame-context-state.service';
-export { IWebFrameContextLocalizationService } from './web-frame-context-localization.service';
-export { IWebFrameContextNavigationService } from './web-frame-context-navigation.service';
-export { IWebFrameContextUIService } from './web-frame-context-ui.service';
+export { IWebFrameContextService, WebFrameContextService } from './web-frame-context.service';
+export { IWebFrameContextStateService, WebFrameContextStateService } from './web-frame-context-state.service';
+export { IWebFrameContextLocalizationService, WebFrameContextLocalizationService } from './web-frame-context-localization.service';
+export { IWebFrameContextNavigationService, WebFrameContextNavigationService } from './web-frame-context-navigation.service';
+export { IWebFrameContextUIService, WebFrameContextUIService } from './web-frame-context-ui.service';

@@ -18,7 +18,7 @@ export interface IWebFrameContextNavigationService {
   navigateToAccessDeniedErrorPage(): void;
   refreshCurrentPage(): void;
 }
-export const IWebFrameContextService = new InjectionToken('IWebFrameContextService');
+export const IWebFrameContextNavigationService = new InjectionToken('IWebFrameContextNavigationService');
 
 // tslint:disable:no-duplicate-string
 @Injectable()

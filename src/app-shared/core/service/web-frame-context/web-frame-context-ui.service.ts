@@ -44,7 +44,7 @@ export interface IDialogConfiguration {
 }
 
 // tslint:disable:no-duplicate-string
-export class WebFrameContextUiService implements IWebFrameContextUIService {
+export class WebFrameContextUIService implements IWebFrameContextUIService {
   public showNotification(configuration: INotificationConfiguration): void {
     throw new Error('Method not implemented.');
   }
