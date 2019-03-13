@@ -9,7 +9,7 @@
  */
 import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Empty } from '../data/empty.do';
+import { Empty } from '../../data/empty.do';
 
 export interface IAccountCredentials {
   username: string;

@@ -8,13 +8,13 @@ import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { isNull } from 'util';
-import { environment } from '../../../environments/environment';
-import { Empty } from '../data/empty.do';
-import { User } from '../data/user.do';
+import { environment } from '../../../../environments/environment';
+import { Empty } from '../../data/empty.do';
+import { User } from '../../data/user.do';
+import { ServerApi } from '../api-endpoint-builder.interface';
+import { IJsonConverterService } from '../json-converter.interface';
+import { IWebRequestService, RequestContentType } from '../web-request.interface';
 import { IAccountCredentials, IAccountInformation, IAccountService } from './account.interface';
-import { ServerApi } from './api-endpoint-builder.interface';
-import { IJsonConverterService } from './json-converter.interface';
-import { IWebRequestService, RequestContentType } from './web-request.interface';
 
 @Injectable()
 export class AccountService implements IAccountService {
