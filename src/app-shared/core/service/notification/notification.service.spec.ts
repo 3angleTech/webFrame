@@ -6,8 +6,8 @@
 
 import { inject, TestBed } from '@angular/core/testing';
 import { createTranslationServiceStub } from 'app-shared/test-utils';
+import { ITranslationService } from '../translation/translation.interface';
 import { NotificationService } from './notification.service';
-import { ITranslationService } from './translation/translation.interface';
 
 describe('NotificationService', () => {
   beforeEach(() => {

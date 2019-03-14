@@ -18,7 +18,7 @@ import { IApiEndpointBuilderService } from './service/api-endpoint-builder/api-e
 import { ApiEndpointBuilderService } from './service/api-endpoint-builder/api-endpoint-builder.service';
 import { IJsonConverterService } from './service/json-converter/json-converter.interface';
 import { JsonConverterService } from './service/json-converter/json-converter.service';
-import { INotificationService, NotificationService } from './service/notification.service';
+import { INotificationService, NotificationService } from './service/notification/notification.service';
 import { IStringTemplateService } from './service/string-template/string-template.interface';
 import { StringTemplateService } from './service/string-template/string-template.service';
 import { ITranslationService } from './service/translation/translation.interface';

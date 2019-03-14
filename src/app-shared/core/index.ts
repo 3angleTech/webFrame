@@ -13,7 +13,7 @@ export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
 export { IAccountCredentials, IAccountInformation, IAccountService } from './service/account/account.interface';
 export { Dictionary } from './interface/dictionary';
-export { INotificationConfig, INotificationService } from './service/notification.service';
+export { INotificationConfig, INotificationService } from './service/notification/notification.service';
 export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './service/translation/translation.interface';
 
 export {
