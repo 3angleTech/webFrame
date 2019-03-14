@@ -9,7 +9,7 @@
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAccountCredentials, IAccountService, INotificationConfig, INotificationService, IWebFrameContextService } from 'app-shared/core';
+import { IAccountCredentials, IAccountService, INotificationConfiguration, INotificationService, IWebFrameContextService } from 'app-shared/core';
 
 @Component({
   selector: 'app-login-page',
@@ -45,7 +45,7 @@ export class LoginPageComponent implements OnInit {
 
   public onSubmit(): void {
     if (this.loginForm.invalid) {
-      const notificationConfig: INotificationConfig = {
+      const notificationConfig: INotificationConfiguration = {
         message: 'Invalid data provided.',
       };
       this.notificationService.showNotification(notificationConfig);
@@ -54,7 +54,7 @@ export class LoginPageComponent implements OnInit {
 
     const credentials: IAccountCredentials = this.loginForm.getRawValue();
     const onSuccess = (): void => {
-      const notificationConfig: INotificationConfig = {
+      const notificationConfig: INotificationConfiguration = {
         message: 'TODO: Implement user authentication feature.',
       };
       this.notificationService.showNotification(notificationConfig);

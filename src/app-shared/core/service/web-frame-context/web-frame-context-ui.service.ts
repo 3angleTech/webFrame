@@ -5,6 +5,7 @@
  */
 
 import { InjectionToken } from '@angular/core';
+import { INotificationConfiguration } from 'app-shared/core';
 
 /**
  * Service for common UI operations.
@@ -34,9 +35,9 @@ export interface IWebFrameContextUIService {
 export const IWebFrameContextUIService = new InjectionToken('IWebFrameContextUIService');
 
 // tslint:disable-next-line:no-empty-interface
-export interface INotificationConfiguration {
-  // TODO
-}
+// export interface INotificationConfiguration {
+//   // TODO
+// }
 
 // tslint:disable-next-line:no-empty-interface
 export interface IDialogConfiguration {

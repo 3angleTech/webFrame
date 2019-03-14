@@ -9,7 +9,7 @@
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAccountCredentials, IAccountService, INotificationConfig, INotificationService } from 'app-shared/core';
+import { IAccountCredentials, IAccountService, INotificationConfiguration, INotificationService } from 'app-shared/core';
 
 @Component({
   selector: 'app-forgot-password-page',
@@ -44,7 +44,7 @@ export class ForgotPasswordPageComponent implements OnInit {
 
   public onSubmit(): void {
     if (this.forgotPasswordForm.invalid) {
-      const notificationConfig: INotificationConfig = {
+      const notificationConfig: INotificationConfiguration = {
         message: 'Invalid data provided.',
       };
       this.notificationService.showNotification(notificationConfig);
@@ -53,7 +53,7 @@ export class ForgotPasswordPageComponent implements OnInit {
 
     const credentials: IAccountCredentials = this.forgotPasswordForm.getRawValue();
     const onSuccess = (): void => {
-      const notificationConfig: INotificationConfig = {
+      const notificationConfig: INotificationConfiguration = {
         message: 'TODO: Implement forgot password feature.',
       };
       this.notificationService.showNotification(notificationConfig);
