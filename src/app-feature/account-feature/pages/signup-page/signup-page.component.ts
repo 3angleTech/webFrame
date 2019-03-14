@@ -9,7 +9,7 @@
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAccountInformation, IAccountService, INotificationConfiguration, INotificationService } from 'app-shared/core';
+import { IAccountInformation, IAccountService, INotificationConfiguration, INotificationService, IWebFrameContextService } from 'app-shared/core';
 import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
 
 @Component({
@@ -25,8 +25,8 @@ export class SignupPageComponent implements OnInit {
     private formBuilder: FormBuilder,
     @Inject(IAccountService)
     private accountService: IAccountService,
-    @Inject(INotificationService)
-    private notificationService: INotificationService,
+    @Inject(IWebFrameContextService)
+    private context: IWebFrameContextService,
   ) {
   }
 
@@ -62,7 +62,7 @@ export class SignupPageComponent implements OnInit {
       const notificationConfig: INotificationConfiguration = {
         message: 'Invalid data provided.',
       };
-      this.notificationService.showNotification(notificationConfig);
+      this.context.ui.showNotification(notificationConfig);
       return;
     }
 
@@ -71,7 +71,7 @@ export class SignupPageComponent implements OnInit {
       const notificationConfig: INotificationConfiguration = {
         message: 'TODO: Implement user signup feature.',
       };
-      this.notificationService.showNotification(notificationConfig);
+      this.context.ui.showNotification(notificationConfig);
     };
 
     this.accountService.signup(credentials).subscribe(onSuccess);

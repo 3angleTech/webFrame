@@ -24,8 +24,6 @@ export class LoginPageComponent implements OnInit {
     private formBuilder: FormBuilder,
     @Inject(IAccountService)
     private accountService: IAccountService,
-    @Inject(INotificationService)
-    private notificationService: INotificationService,
     @Inject(IWebFrameContextService)
     private context: IWebFrameContextService,
   ) {
@@ -48,7 +46,7 @@ export class LoginPageComponent implements OnInit {
       const notificationConfig: INotificationConfiguration = {
         message: 'Invalid data provided.',
       };
-      this.notificationService.showNotification(notificationConfig);
+      this.context.ui.showNotification(notificationConfig);
       return;
     }
 
@@ -57,7 +55,7 @@ export class LoginPageComponent implements OnInit {
       const notificationConfig: INotificationConfiguration = {
         message: 'TODO: Implement user authentication feature.',
       };
-      this.notificationService.showNotification(notificationConfig);
+      this.context.ui.showNotification(notificationConfig);
     };
 
     this.accountService.login(credentials).subscribe(onSuccess);

@@ -4,8 +4,9 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-import { InjectionToken } from '@angular/core';
-import { INotificationConfiguration } from 'app-shared/core';
+import { Inject, InjectionToken } from '@angular/core';
+import { INotificationConfiguration, ITranslationService } from 'app-shared/core';
+import { INotificationService } from '../notification/notification.service';
 
 /**
  * Service for common UI operations.
@@ -46,9 +47,15 @@ export interface IDialogConfiguration {
 
 // tslint:disable:no-duplicate-string
 export class WebFrameContextUIService implements IWebFrameContextUIService {
+  constructor(
+    @Inject(INotificationService)
+    private notificationService: INotificationService,
+  ) { }
+
   public showNotification(configuration: INotificationConfiguration): void {
-    throw new Error('Method not implemented.');
+    this.notificationService.showNotification(configuration);
   }
+
   public showDialog(configuration: IDialogConfiguration, cancelCallback: Function): void {
     throw new Error('Method not implemented.');
   }
