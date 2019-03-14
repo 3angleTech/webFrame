@@ -9,7 +9,7 @@ import { Dictionary } from 'app-shared/core';
 import { forEach, isNil, isString } from 'lodash';
 
 import { environment } from '../../../../environments/environment';
-import { IStringTemplateService } from '../string-template/string-template.interface';
+import { IStringTemplateService } from '../string-template/string-template.service';
 import { QueryParameterValueType, UrlParameterValueType } from '../web-request/web-request.interface';
 import { IApiEndpointBuilderService, ServerApi } from './api-endpoint-builder.interface';
 

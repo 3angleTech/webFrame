@@ -4,11 +4,21 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken } from '@angular/core';
 import { forEach, map, union } from 'lodash';
 
 import { isNil } from 'app-shared/utils';
-import { IStringTemplateService } from './string-template.interface';
+
+export interface IStringTemplateService {
+  /**
+   * Interpolate a string template with the parameters passed as input.
+   * E.g. For the template 'Showing {{ resultsCount }} items out of {{ totalCount }}.',
+   * with the parameters: { resultsCount: 25, totalCount: 348 } we will get:
+   * 'Showing 25 items out of 348.'
+   */
+  interpolate(template: string, parameters: Object): string;
+}
+export const IStringTemplateService = new InjectionToken('IStringTemplateService');
 
 @Injectable()
 export class StringTemplateService implements IStringTemplateService {
