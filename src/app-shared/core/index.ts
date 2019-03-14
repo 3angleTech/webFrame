@@ -11,7 +11,15 @@
 export { CoreModule } from './core.module';
 export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
-export { IAccountCredentials, IAccountInformation, IAccountService } from './service/account.interface';
+export { IAccountCredentials, IAccountInformation, IAccountService } from './service/account/account.service';
 export { Dictionary } from './interface/dictionary';
-export { INotificationConfig, INotificationService } from './service/notification.interface';
-export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './service/translation.interface';
+export { INotificationConfiguration, INotificationService } from './service/notification/notification.service';
+export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './service/translation/translation.service';
+
+export {
+  IWebFrameContextService,
+  IWebFrameContextStateService,
+  IWebFrameContextLocalizationService,
+  IWebFrameContextNavigationService,
+  IWebFrameContextUIService,
+} from './service/web-frame-context/index';

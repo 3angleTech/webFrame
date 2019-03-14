@@ -7,8 +7,8 @@
 import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Dictionary } from '../interface/dictionary';
-import { ServerApi } from './api-endpoint-builder.interface';
+import { Dictionary } from '../../interface/dictionary';
+import { ServerApi } from '../api-endpoint-builder/api-endpoint-builder.interface';
 
 /**
  * Custom type for the URL parameters' values

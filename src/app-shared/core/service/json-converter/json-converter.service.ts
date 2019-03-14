@@ -4,9 +4,14 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken } from '@angular/core';
 import { JsonConvert, ValueCheckingMode } from 'json2typescript';
-import { IJsonConverterService } from './json-converter.interface';
+
+export interface IJsonConverterService {
+  deserialize<T>(json: any, classReference: { new(): T }): T;
+  serialize<T>(object: T): Object;
+}
+export const IJsonConverterService = new InjectionToken('IJsonConverterService');
 
 @Injectable()
 export class JsonConverterService implements IJsonConverterService {

@@ -8,10 +8,10 @@ import { Inject, Injectable } from '@angular/core';
 import { Dictionary } from 'app-shared/core';
 import { forEach, isNil, isString } from 'lodash';
 
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
+import { IStringTemplateService } from '../string-template/string-template.service';
+import { QueryParameterValueType, UrlParameterValueType } from '../web-request/web-request.interface';
 import { IApiEndpointBuilderService, ServerApi } from './api-endpoint-builder.interface';
-import { IStringTemplateService } from './string-template.interface';
-import { QueryParameterValueType, UrlParameterValueType } from './web-request.interface';
 
 @Injectable()
 export class ApiEndpointBuilderService implements IApiEndpointBuilderService {
