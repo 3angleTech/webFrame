@@ -11,7 +11,7 @@
 export { CoreModule } from './core.module';
 export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
-export { IAccountCredentials, IAccountInformation, IAccountService } from './service/account/account.interface';
+export { IAccountCredentials, IAccountInformation, IAccountService } from './service/account/account.service';
 export { Dictionary } from './interface/dictionary';
 export { INotificationConfiguration, INotificationService } from './service/notification/notification.service';
 export { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './service/translation/translation.interface';

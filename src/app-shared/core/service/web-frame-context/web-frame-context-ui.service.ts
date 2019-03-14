@@ -5,8 +5,7 @@
  */
 
 import { Inject, InjectionToken } from '@angular/core';
-import { INotificationConfiguration, ITranslationService } from 'app-shared/core';
-import { INotificationService } from '../notification/notification.service';
+import { INotificationConfiguration, INotificationService } from '../notification/notification.service';
 
 /**
  * Service for common UI operations.
