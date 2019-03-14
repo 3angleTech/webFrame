@@ -4,9 +4,18 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-import { Inject, Injectable } from '@angular/core';
-import { INotificationConfig, INotificationService } from './notification.interface';
-import { ITranslationService } from './translation/translation.interface';
+import { Inject, Injectable, InjectionToken } from '@angular/core';
+import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from './translation/translation.interface';
+
+export interface INotificationConfig {
+  message: TranslationPhrase;
+  messageArgs?: TranslationPhraseArgs;
+}
+
+export interface INotificationService {
+  showNotification(config: INotificationConfig): void;
+}
+export const INotificationService = new InjectionToken('INotificationService');
 
 @Injectable()
 export class NotificationService implements INotificationService {
