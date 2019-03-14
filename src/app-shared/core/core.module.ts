@@ -18,8 +18,7 @@ import { ApiEndpointBuilderService } from './service/api-endpoint-builder/api-en
 import { IJsonConverterService, JsonConverterService } from './service/json-converter/json-converter.service';
 import { INotificationService, NotificationService } from './service/notification/notification.service';
 import { IStringTemplateService, StringTemplateService } from './service/string-template/string-template.service';
-import { ITranslationService } from './service/translation/translation.interface';
-import { TranslationService } from './service/translation/translation.service';
+import { ITranslationService, TranslationService } from './service/translation/translation.service';
 import { IWebFrameContextStateService, IWebFrameContextUIService, WebFrameContextNavigationService, WebFrameContextStateService, WebFrameContextUIService } from './service/web-frame-context';
 import { IWebFrameContextLocalizationService, IWebFrameContextNavigationService, IWebFrameContextService } from './service/web-frame-context/index';
 import { WebFrameContextLocalizationService } from './service/web-frame-context/web-frame-context-localization.service';

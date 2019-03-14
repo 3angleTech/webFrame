@@ -9,7 +9,7 @@
  */
 import { async, inject, TestBed } from '@angular/core/testing';
 import { createTranslationServiceStub } from 'app-shared/test-utils';
-import { ITranslationService } from '../service/translation/translation.interface';
+import { ITranslationService } from '../service/translation/translation.service';
 import { TranslatePipe } from './translate.pipe';
 
 describe('TranslatePipe', () => {
