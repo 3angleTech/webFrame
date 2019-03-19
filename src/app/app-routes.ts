@@ -8,6 +8,7 @@
  * Routes for production environments.
  */
 import { Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'app-shared/security/guards/authenticated.guard';
 
 export const APP_ROUTES: Routes = [
   {
@@ -21,6 +22,7 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'profile',
+    canActivate: [AuthenticatedGuard],
     loadChildren: 'src/app-feature/profile-feature/profile-feature.module#ProfileFeatureModule',
   },
   {
