@@ -5,12 +5,11 @@
  */
 
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
-import { isNull } from 'util';
+import { IWebFrameContextStateService } from 'app-shared/core/service/web-frame-context/web-frame-context-state.service';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { Empty } from '../../data/empty.do';
-import { User } from '../../data/user.do';
 import { ServerApi } from '../api-endpoint-builder/api-endpoint-builder.interface';
 import { IJsonConverterService } from '../json-converter/json-converter.service';
 import { IWebRequestService, RequestContentType } from '../web-request/web-request.interface';
@@ -36,9 +35,6 @@ export const IAccountService = new InjectionToken('IAccountService');
 
 @Injectable()
 export class AccountService implements IAccountService {
-  public isLoggedIn: boolean;
-  private loggedInUserSubject: BehaviorSubject<User> = new BehaviorSubject<User>(null);
-  public loggedInUserObservable: Observable<User> = this.loggedInUserSubject.asObservable();
 
   constructor(
     @Inject(IWebRequestService)
@@ -53,33 +49,18 @@ export class AccountService implements IAccountService {
     const clientId = environment.clientId;
     const clientSecret = environment.clientSecret;
     const data = `username=${username}&password=${password}&client_id=${clientId}&client_secret=${clientSecret}&grant_type=password`;
+
     return this.webRequest.post<Empty>({
       serverApi: ServerApi.AuthToken,
       contentType: RequestContentType.ApplicationWWWFormUrlEncoded,
       body: data,
     }).pipe(
       map(() => {
-        this.isLoggedIn = true;
-        this.getLoggedInUser().subscribe(user => {
-          console.log(user);
-        });
         return new Empty();
       }),
     );
   }
 
-  public getLoggedInUser(): Observable<User> {
-    if (!isNull(this.loggedInUserSubject.value)) {
-      return this.loggedInUserObservable;
-    }
-    return this.webRequest.get({
-      serverApi: ServerApi.AccountMe,
-    }).pipe(mergeMap((userObject) => {
-      const user = this.jsonConverter.deserialize(userObject, User);
-      this.loggedInUserSubject.next(user);
-      return this.loggedInUserObservable;
-    }));
-  }
 
   public logout(): Observable<Empty> {
     // TODO: Implement logout feature

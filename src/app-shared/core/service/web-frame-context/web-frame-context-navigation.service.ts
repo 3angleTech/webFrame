@@ -6,6 +6,7 @@
  */
 
  import { Injectable, InjectionToken } from '@angular/core';
+import { Router } from '@angular/router';
 
 /**
  * Service for common navigation operations.
@@ -42,21 +43,30 @@ export const IWebFrameContextNavigationService = new InjectionToken('IWebFrameCo
 // tslint:disable:no-duplicate-string
 @Injectable()
 export class WebFrameContextNavigationService implements IWebFrameContextNavigationService {
+  constructor(
+    private router: Router,
+  ) { }
+
   public navigateToUrl(url: string): void {
-    throw new Error('Method not implemented.');
+    this.router.navigateByUrl(url);
   }
+
   public navigateToLogin(): void {
     throw new Error('Method not implemented.');
   }
+
   public navigateToLogout(): void {
     throw new Error('Method not implemented.');
   }
+
   public navigateToNotFoundErrorPage(): void {
     throw new Error('Method not implemented.');
   }
+
   public navigateToAccessDeniedErrorPage(): void {
     throw new Error('Method not implemented.');
   }
+
   public refreshCurrentPage(): void {
     throw new Error('Method not implemented.');
   }

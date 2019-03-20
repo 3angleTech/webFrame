@@ -10,6 +10,7 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IAccountCredentials, IAccountService, INotificationConfiguration, INotificationService, IWebFrameContextService } from 'app-shared/core';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login-page',
@@ -51,13 +52,14 @@ export class LoginPageComponent implements OnInit {
     }
 
     const credentials: IAccountCredentials = this.loginForm.getRawValue();
-    const onSuccess = (): void => {
-      const notificationConfig: INotificationConfiguration = {
-        message: 'TODO: Implement user authentication feature.',
-      };
-      this.context.ui.showNotification(notificationConfig);
-    };
+    this.accountService.login(credentials).subscribe(this.onLoginSuccess.bind(this));
+  }
 
-    this.accountService.login(credentials).subscribe(onSuccess);
+  private onLoginSuccess(): void {
+    this.context.state.initialize()
+    .pipe(take(1))
+    .subscribe(() => {
+      this.context.navigation.navigateToUrl('/profile/settings');
+    });
   }
 }

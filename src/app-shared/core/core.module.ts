@@ -17,6 +17,7 @@ import { IApiEndpointBuilderService } from './service/api-endpoint-builder/api-e
 import { ApiEndpointBuilderService } from './service/api-endpoint-builder/api-endpoint-builder.service';
 import { IJsonConverterService, JsonConverterService } from './service/json-converter/json-converter.service';
 import { INotificationService, NotificationService } from './service/notification/notification.service';
+import { IStorageService, StorageService } from './service/storage/storage.service';
 import { IStringTemplateService, StringTemplateService } from './service/string-template/string-template.service';
 import { ITranslationService, TranslationService } from './service/translation/translation.service';
 import { IWebFrameContextStateService, IWebFrameContextUIService, WebFrameContextNavigationService, WebFrameContextStateService, WebFrameContextUIService } from './service/web-frame-context';
@@ -46,6 +47,10 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
   {
     provide: INotificationService,
     useClass: NotificationService,
+  },
+  {
+    provide: IStorageService,
+    useClass: StorageService,
   },
   {
     provide: ITranslationService,
