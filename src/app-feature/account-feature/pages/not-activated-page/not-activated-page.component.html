@@ -3,7 +3,12 @@
   Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
   Available under MIT license webFrame/LICENSE
 -->
-
-<p>
-  not-activated-page works!
-</p>
+<div class="app-form app-form--simple">
+  <h1 class="app-page__title">{{ getPageTitle() | translate }}</h1>
+  <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
+  <div class="app-form__actions">
+    <button class="app-button--with-icon" type="button" routerLink="/account/login">
+      <span class="text">{{ 'Go to Login Page' | translate }}</span>
+    </button>
+  </div>
+</div>
