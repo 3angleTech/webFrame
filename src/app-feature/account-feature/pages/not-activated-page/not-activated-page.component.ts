@@ -21,4 +21,7 @@ export class NotActivatedPageComponent implements OnInit {
   public ngOnInit(): void {
   }
 
+  public getPageTitle(): string {
+    return 'Email account not activated';
+  }
 }
