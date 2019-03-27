@@ -4,6 +4,20 @@
   Available under MIT license webFrame/LICENSE
 -->
 
-<p>
-  confirm-email-page works!
-</p>
+<div class="app-form app-form--simple">
+  <div *ngIf="tokenStatus === tokenVerificationStatusType.ValidToken">
+    <h1 class="app-page__title">You email has been successfully activated.</h1>
+  </div>
+  <div *ngIf="tokenStatus === tokenVerificationStatusType.TokenExpired">
+    <h1 class="app-page__title">Token expired.</h1>
+  </div>
+  <div *ngIf="tokenStatus === tokenVerificationStatusType.InvalidToken">
+    <h1 class="app-page__title">Token is invalid.</h1>
+  </div>
+  <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
+  <div class="app-form__actions">
+    <button class="app-button--with-icon" type="button" routerLink="/account/login">
+      <span class="text">{{ 'Go to Login Page' | translate }}</span>
+    </button>
+  </div>
+</div>
