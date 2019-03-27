@@ -61,7 +61,6 @@ export class AccountService implements IAccountService {
     );
   }
 
-
   public logout(): Observable<Empty> {
     // TODO: Implement logout feature
     console.log('logout');
