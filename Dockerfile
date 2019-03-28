@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:1.15.9
 # install node 8 & npm 5.6
 RUN apt-get update && apt-get install -y
 RUN apt-get install -y apt-utils
