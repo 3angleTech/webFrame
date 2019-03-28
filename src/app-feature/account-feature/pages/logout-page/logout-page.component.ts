@@ -25,10 +25,6 @@ export class LogoutPageComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.accountService.logout().subscribe(this.onLogoutSuccess.bind(this));
-  }
-
-  private onLogoutSuccess(): void {
-    window.location.href = '/';
+    this.accountService.logout().subscribe(() => window.location.href = '/');
   }
 }
