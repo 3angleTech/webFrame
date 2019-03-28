@@ -29,7 +29,6 @@ export class LogoutPageComponent implements OnInit {
   }
 
   private onLogoutSuccess(): void {
-    this.context.state.clear();
-    this.context.navigation.navigateToUrl('/account/login');
+    window.location.href = '/';
   }
 }

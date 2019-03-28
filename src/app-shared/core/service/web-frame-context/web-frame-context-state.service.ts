@@ -19,7 +19,6 @@ export interface IWebFrameContextStateService {
   currentUser: BehaviorSubject<User>;
 
   initialize(): Observable<boolean>;
-  clear(): void;
 }
 export const IWebFrameContextStateService = new InjectionToken('IWebFrameContextStateService');
 // TODO: Move outside
@@ -51,9 +50,5 @@ export class WebFrameContextStateService implements IWebFrameContextStateService
       serverApi: ServerApi.AccountMe,
     };
     return this.webRequest.get(config);
-  }
-
-  public clear(): void {
-    this.currentUser.next(null);
   }
 }
