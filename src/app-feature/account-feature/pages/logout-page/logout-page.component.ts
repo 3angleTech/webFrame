@@ -7,7 +7,8 @@
 /**
  * Provides LogoutPageComponent.
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { IAccountService, IWebFrameContextService } from 'app-shared/core';
 
 @Component({
   selector: 'app-logout-page',
@@ -16,9 +17,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoutPageComponent implements OnInit {
 
-  constructor() { }
-
-  public ngOnInit(): void {
+  constructor(
+    @Inject(IAccountService)
+    private accountService: IAccountService,
+    @Inject(IWebFrameContextService)
+    private context: IWebFrameContextService) {
   }
 
+  public ngOnInit(): void {
+    this.accountService.logout().subscribe(() => window.location.href = '/');
+  }
 }

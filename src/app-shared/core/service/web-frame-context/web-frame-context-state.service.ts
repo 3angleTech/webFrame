@@ -34,21 +34,21 @@ export class WebFrameContextStateService implements IWebFrameContextStateService
     this.currentUser = new BehaviorSubject(null);
     this.ready = false;
 
-   }
+  }
 
-   public initialize(): Observable<boolean> {
+  public initialize(): Observable<boolean> {
     return this.getCurrentLoggedInUser().pipe(
       map((user) => {
         this.currentUser.next(user);
         this.ready = true;
         return true;
-    }));
-   }
+      }));
+  }
 
-   private getCurrentLoggedInUser(): Observable<User> {
+  private getCurrentLoggedInUser(): Observable<User> {
     const config: RequestConfiguration = {
       serverApi: ServerApi.AccountMe,
     };
     return this.webRequest.get(config);
-   }
+  }
 }
