@@ -9,6 +9,7 @@
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppSharedModule } from 'app-shared/app-shared.module';
 import { CoreModule } from 'app-shared/core';
 import { SecurityModule } from 'app-shared/security';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AppSharedModule,
     CoreModule.forRoot(),
     SecurityModule.forRoot(),
   ],
