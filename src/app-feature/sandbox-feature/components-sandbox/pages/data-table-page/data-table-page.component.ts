@@ -25,6 +25,8 @@ import { Product } from './product.do';
 })
 export class DataTablePageComponent implements OnInit {
   public search: string;
+  public pageIndex: number = 0;
+  public pageSize: number = 3;
 
   constructor(
     @Inject(ProductDataTableController)
@@ -50,10 +52,20 @@ export class DataTablePageComponent implements OnInit {
     return this.tableController.paginatorVm;
   }
 
-  public pageChange(event: any): void {
+  public pageChange(pageIndex: any): void {
+    this.pageIndex = Math.max(pageIndex, 0);
+
     this.tableController.input_events.paginationChange.next({
-      page: event.pageIndex,
-      pageSize: event.pageSize,
+      page: this.pageIndex,
+      pageSize: this.pageSize,
+    });
+  }
+
+  public pageSizeChange(pageSize: string): void {
+    this.pageSize = parseInt(pageSize, 10);
+    this.tableController.input_events.paginationChange.next({
+      page: this.pageIndex,
+      pageSize: this.pageSize,
     });
   }
 

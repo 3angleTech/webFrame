@@ -11,7 +11,6 @@ import { Product } from './product.do';
 
 @Injectable()
 export class ProductDataTableController extends DataTableController<Product> {
-
   constructor(
     @Inject(ProductPaginatedDataRequestService)
     public requestService: ProductPaginatedDataRequestService) {

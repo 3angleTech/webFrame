@@ -1,10 +1,30 @@
+<span>asin</span> <input type="text" paceholder="asin" [(ngModel)]="search">
+<input type="button" value="Search" (click)="searchForProducts()">
+
   <table>
     <tr>
       <th *ngFor="let column of displayedColumns">
         {{column}}
       </th>
     </tr>
-    <tr *ngFor="let row of (dataSource | async)?.results">
-        <td *ngFor="let column of displayedColumns">{{row[column]}}</td>
+    <ng-container *ngIf="!(isLoading | async); else loading">
+      <tr *ngFor="let row of (dataSource | async)?.results">
+          <td *ngFor="let column of displayedColumns">{{row[column]}}</td>
       </tr>
+    </ng-container>
   </table>
+  <ng-template #loading>
+    Loading ...
+  </ng-template>
+
+<input type="button" value="prev" (click)="pageChange(pageIndex - 1)">
+{{pageIndex}}
+<input type="button" value="next" (click)="pageChange(pageIndex + 1)">
+<select (change)="pageSizeChange($event.target.value)">
+    <option value="3">3</option>
+    <option value="6">6</option>
+    <option value="9">9</option>
+    <option value="12">12</option>
+  </select>
+<br>
+{{(dataSource | async)?.totalCount}} total

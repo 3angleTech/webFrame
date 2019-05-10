@@ -7,6 +7,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
 import { DefaultShellModule } from 'app-shell/default-shell';
 import { ComponentsSandboxRoutingModule } from './components-sandbox-routing.module';
 import { DataTablePageComponent } from './pages/data-table-page/data-table-page.component';
@@ -14,6 +15,7 @@ import { DataTablePageComponent } from './pages/data-table-page/data-table-page.
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     ComponentsSandboxRoutingModule,
     DefaultShellModule,
   ],
