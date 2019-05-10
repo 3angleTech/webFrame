@@ -1,17 +1,10 @@
   <table>
     <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Age</th>
+      <th *ngFor="let column of displayedColumns">
+        {{column}}
+      </th>
     </tr>
-    <tr>
-      <td>Jill</td>
-      <td>Smith</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <td>Eve</td>
-      <td>Jackson</td>
-      <td>94</td>
-    </tr>
+    <tr *ngFor="let row of (dataSource | async)?.results">
+        <td *ngFor="let column of displayedColumns">{{row[column]}}</td>
+      </tr>
   </table>
