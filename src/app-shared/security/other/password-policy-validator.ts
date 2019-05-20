@@ -42,6 +42,6 @@ export function passwordPolicyValidator(control: AbstractControl): ValidationErr
 
 export const passwordPolicyComposedValidators = Validators.compose([
   Validators.required,
-  Validators.minLength(8),
+  Validators.minLength(6),
   passwordPolicyValidator,
 ]);
