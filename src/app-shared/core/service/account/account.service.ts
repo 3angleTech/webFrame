@@ -19,16 +19,16 @@ export interface IAccountCredentials {
   password: string;
 }
 
-export interface IAccountChangePasswordReq {
+export interface IAccountChangePasswordRequest {
   currentPassword: string;
   newPassword: string;
 }
 
-export interface IAccountForgotPasswordReq {
+export interface IAccountForgotPasswordRequest {
   email: string;
 }
 
-export interface IAccountResetPasswordReq {
+export interface IAccountResetPasswordRequest {
   token: string;
   newPassword: string;
 }
@@ -46,11 +46,11 @@ export interface IAccountService {
 
   logout(): Observable<Empty>;
 
-  changePassword(req: IAccountChangePasswordReq): Observable<Empty>;
+  changePassword(request: IAccountChangePasswordRequest): Observable<Empty>;
 
-  forgotPassword(req: IAccountForgotPasswordReq): Observable<Empty>;
+  forgotPassword(request: IAccountForgotPasswordRequest): Observable<Empty>;
 
-  resetPassword(req: IAccountResetPasswordReq): Observable<Empty>;
+  resetPassword(request: IAccountResetPasswordRequest): Observable<Empty>;
 
   signup(information: IAccountInformation): Observable<Empty>;
 }
@@ -68,10 +68,10 @@ export class AccountService implements IAccountService {
   ) {
   }
 
-  public changePassword(req: IAccountChangePasswordReq): Observable<Empty> {
+  public changePassword(request: IAccountChangePasswordRequest): Observable<Empty> {
     const bodyData: Record<string, string> = {
-      currentPassword: req.currentPassword,
-      newPassword: req.newPassword,
+      currentPassword: request.currentPassword,
+      newPassword: request.newPassword,
     };
 
     return this.webRequest.post<Empty>({
@@ -84,9 +84,9 @@ export class AccountService implements IAccountService {
     );
   }
 
-  public forgotPassword(req: IAccountForgotPasswordReq): Observable<Empty> {
+  public forgotPassword(request: IAccountForgotPasswordRequest): Observable<Empty> {
     const bodyData: Record<string, string> = {
-      email: req.email,
+      email: request.email,
     };
     return this.webRequest.post<Empty>({
       serverApi: ServerApi.AccountForgotPassword,
@@ -98,10 +98,10 @@ export class AccountService implements IAccountService {
     );
   }
 
-  public resetPassword(req: IAccountResetPasswordReq): Observable<Empty> {
+  public resetPassword(request: IAccountResetPasswordRequest): Observable<Empty> {
     const bodyData: Record<string, string> = {
-      token: req.token,
-      newPassword: req.newPassword,
+      token: request.token,
+      newPassword: request.newPassword,
     };
     return this.webRequest.post<Empty>({
       serverApi: ServerApi.AccountResetPassword,

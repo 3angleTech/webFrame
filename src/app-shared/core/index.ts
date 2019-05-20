@@ -12,7 +12,9 @@ export { CoreModule } from './core.module';
 export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
 export {
-  IAccountForgotPasswordReq,
+  IAccountChangePasswordRequest,
+  IAccountForgotPasswordRequest,
+  IAccountResetPasswordRequest,
   IAccountCredentials,
   IAccountInformation,
   IAccountService,

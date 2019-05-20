@@ -8,13 +8,13 @@ import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/cor
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {
-  IAccountForgotPasswordReq,
+  IAccountForgotPasswordRequest,
   IAccountService,
   INotificationConfiguration,
   IWebFrameContextNavigationService,
   IWebFrameContextService,
 } from 'app-shared/core';
-import { IAccountResetPasswordReq } from 'app-shared/core/service/account/account.service';
+import { IAccountResetPasswordRequest } from 'app-shared/core/service/account/account.service';
 import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
 
 @Component({
@@ -71,7 +71,7 @@ export class ResetPasswordPageComponent implements OnInit {
     }
 
     const rawValue = this.forgotPasswordForm.getRawValue();
-    const resetPasswordReq: IAccountResetPasswordReq = {
+    const resetPasswordReq: IAccountResetPasswordRequest = {
       token: rawValue.token,
       newPassword: rawValue.newPasswordsGroup.newPassword,
     };

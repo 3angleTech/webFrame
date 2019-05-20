@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/cor
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { IAccountService, INotificationConfiguration, IWebFrameContextNavigationService, IWebFrameContextService } from 'app-shared/core';
-import { IAccountChangePasswordReq, IAccountResetPasswordReq } from 'app-shared/core/service/account/account.service';
+import { IAccountChangePasswordRequest, IAccountResetPasswordRequest } from 'app-shared/core/service/account/account.service';
 import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
 
 @Component({
@@ -56,7 +56,7 @@ export class PasswordChangeFormComponent implements OnInit {
 
     const rawValue = this.passwordChangeForm.getRawValue();
 
-    const resetPasswordReq: IAccountChangePasswordReq = {
+    const resetPasswordReq: IAccountChangePasswordRequest = {
       currentPassword: rawValue.currentPassword,
       newPassword: rawValue.newPasswordsGroup.newPassword,
     };

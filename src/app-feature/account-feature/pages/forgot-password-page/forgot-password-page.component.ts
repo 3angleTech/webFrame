@@ -9,7 +9,7 @@
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAccountForgotPasswordReq, IAccountService, INotificationConfiguration, IWebFrameContextService } from 'app-shared/core';
+import { IAccountForgotPasswordRequest, IAccountService, INotificationConfiguration, IWebFrameContextService } from 'app-shared/core';
 
 @Component({
   selector: 'app-forgot-password-page',
@@ -54,7 +54,7 @@ export class ForgotPasswordPageComponent implements OnInit {
       return;
     }
 
-    const forgotPasswordReq: IAccountForgotPasswordReq = this.forgotPasswordForm.getRawValue();
+    const forgotPasswordReq: IAccountForgotPasswordRequest = this.forgotPasswordForm.getRawValue();
     const onSuccess = (): void => {
       const notificationConfig: INotificationConfiguration = {
         message: 'Password recovery instruction have been sent via email.',
