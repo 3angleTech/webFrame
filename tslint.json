@@ -4,6 +4,10 @@
     "@3angletech/tslint/angular"
   ],
   "rules": {
-    "file-header": [true, "Copyright .* 2018 THREEANGLE SOFTWARE SOLUTIONS SRL"]
+    "file-header": [
+      true,
+      "@license",
+      "Copyright \\(c\\) \\d{4} THREEANGLE SOFTWARE SOLUTIONS SRL"
+    ]
   }
 }
