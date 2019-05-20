@@ -3,7 +3,14 @@
   Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
   Available under MIT license webFrame/LICENSE
 -->
+<ng-container *ngIf="{ currentUser: currentUserObs | async } as context">
+  <button *ngIf="!context.currentUser" class="navigation-menu__item" type="button" routerLink="/account">Account</button>
+  <button *ngIf="context.currentUser" class="navigation-menu__item" type="button" routerLink="/profile">Profile</button>
+  <button *ngIf="isDevMode" class="navigation-menu__item" type="button" routerLink="/sandbox">Sandbox</button>
+  <span class="spacer"></span>
 
-<button class="navigation-menu__item" type="button" routerLink="/account">Account</button>
-<button *ngIf="userIsLoggedIn | async" class="navigation-menu__item" type="button" routerLink="/profile">Profile</button>
-<button *ngIf="isDevMode" class="navigation-menu__item" type="button" routerLink="/sandbox">Sandbox</button>
+  <button *ngIf="context.currentUser" class="navigation-menu__item" type="button" routerLink="/profile">
+    {{ context.currentUser.firstName }} {{ context.currentUser.lastName }}
+  </button>
+  <button *ngIf="!context.currentUser" class="navigation-menu__item" type="button" routerLink="/account/login">Login</button>
+</ng-container>

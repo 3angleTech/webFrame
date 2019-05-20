@@ -7,7 +7,9 @@
 /**
  * Provides ProfilePageComponent.
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { IWebFrameContextStateService, User } from 'app-shared/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile-page',
@@ -15,10 +17,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
+  public currentUserObs: Observable<User>;
 
-  constructor() { }
+  constructor(
+    @Inject(IWebFrameContextStateService)
+    private stateService: IWebFrameContextStateService,
+  ) {
+  }
 
   public ngOnInit(): void {
+    this.currentUserObs = this.stateService.currentUser.asObservable();
   }
 
   public getPageTitle(): string {

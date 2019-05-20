@@ -10,7 +10,6 @@
 import { Component, HostBinding, Inject, isDevMode, OnInit } from '@angular/core';
 import { IWebFrameContextStateService, User } from 'app-shared/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -21,7 +20,7 @@ export class NavigationMenuComponent implements OnInit {
   @HostBinding('class.app-navigation-menu')
   public componentClass: boolean = true;
 
-  public userIsLoggedIn: Observable<Boolean>;
+  public currentUserObs: Observable<User>;
   public isDevMode: boolean = isDevMode();
 
   constructor(
@@ -31,11 +30,6 @@ export class NavigationMenuComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.userIsLoggedIn = this.stateService.currentUser.asObservable().pipe(
-      map((user: User): boolean => {
-        return !!user;
-      }),
-    );
+    this.currentUserObs = this.stateService.currentUser.asObservable();
   }
-
 }

@@ -21,19 +21,24 @@ export class AuthenticatedGuard implements CanActivate {
   }
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
-    return this.isAuthenticated().pipe(map((authenticated) => {
-      if (!authenticated) {
-        this.navigationService.navigateToAccessDeniedErrorPage();
-        return false;
-      }
+    return this.isAuthenticated().pipe(
+      map((authenticated) => {
+        if (!authenticated) {
+          this.navigationService.navigateToAccessDeniedErrorPage();
+          return false;
+        }
 
-      return true;
-    }));
+        return true;
+      }),
+    );
   }
 
   private isAuthenticated(): Observable<boolean> {
-    if (this.stateService.currentUser.value) {
-      return of(true);
+    if (this.stateService.ready) {
+      if (this.stateService.currentUser.value) {
+        return of(true);
+      }
+      return of(false);
     }
 
     return this.stateService.initialize().pipe(
