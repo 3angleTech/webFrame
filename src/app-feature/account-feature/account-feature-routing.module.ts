@@ -13,10 +13,10 @@ import { DefaultShellComponent } from 'app-shell/default-shell';
 import { AccountFeatureComponent } from './account-feature.component';
 import { ConfirmEmailPageComponent } from './pages/confirm-email-page/confirm-email-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
+import { InformationPageComponent } from './pages/information-page/information-page.component';
 import { InviteUsersPageComponent } from './pages/invite-users-page/invite-users-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
-import { NotActivatedPageComponent } from './pages/not-activated-page/not-activated-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 const routes: Routes = [
@@ -55,8 +55,8 @@ const routes: Routes = [
             component: LogoutPageComponent,
           },
           {
-            path: 'not-activated',
-            component: NotActivatedPageComponent,
+            path: 'information/:informationId',
+            component: InformationPageComponent,
           },
           {
             path: 'signup',
