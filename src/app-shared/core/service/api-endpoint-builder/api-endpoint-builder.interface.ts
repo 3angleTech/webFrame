@@ -14,7 +14,7 @@ export enum ServerApi {
   Logout = '/auth/logout',
   AccountMe = '/account/me',
   AccountActivate = '/account/activate',
-  AccountRequestResetPassword = '/account/request-reset-password',
+  AccountForgotPassword = '/account/forgot-password',
   AccountResetPassword = '/account/reset-password',
   UserById = '/users/{{userId}}',
 }

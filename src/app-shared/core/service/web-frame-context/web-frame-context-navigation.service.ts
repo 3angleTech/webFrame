@@ -1,11 +1,10 @@
-
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2019 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
- import { Injectable, InjectionToken } from '@angular/core';
+import { Injectable, InjectionToken } from '@angular/core';
 import { Router } from '@angular/router';
 
 /**
@@ -17,27 +16,39 @@ export interface IWebFrameContextNavigationService {
    * @param url The target url.
    */
   navigateToUrl(url: string): void;
+
   /**
    * Navigate to login page.
    */
   navigateToLogin(): void;
+
   /**
    * Navigate to logout page.
    */
   navigateToLogout(): void;
+
+  /**
+   * Navigate to information page.
+   * @param informationId The information page ID as defined in `INFORMATION_PAGES_DETAILS`
+   */
+  navigateToInformationPage(informationId: string): void;
+
   /**
    * Navigate to not found error page.
    */
   navigateToNotFoundErrorPage(): void;
+
   /**
    * Navigate to access denied error page.
    */
   navigateToAccessDeniedErrorPage(): void;
+
   /**
    * Force a refresh of the current page.
    */
   refreshCurrentPage(): void;
 }
+
 export const IWebFrameContextNavigationService = new InjectionToken('IWebFrameContextNavigationService');
 
 // tslint:disable:no-duplicate-string
@@ -45,7 +56,8 @@ export const IWebFrameContextNavigationService = new InjectionToken('IWebFrameCo
 export class WebFrameContextNavigationService implements IWebFrameContextNavigationService {
   constructor(
     private router: Router,
-  ) { }
+  ) {
+  }
 
   public navigateToUrl(url: string): void {
     this.router.navigateByUrl(url);
@@ -57,6 +69,10 @@ export class WebFrameContextNavigationService implements IWebFrameContextNavigat
 
   public navigateToLogout(): void {
     throw new Error('Method not implemented.');
+  }
+
+  public navigateToInformationPage(informationId: string): void {
+    this.router.navigateByUrl(`/account/information/${informationId}`);
   }
 
   public navigateToNotFoundErrorPage(): void {

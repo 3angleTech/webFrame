@@ -8,7 +8,7 @@
  * Provides LoginPageComponent.
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IAccountCredentials, IAccountService, INotificationConfiguration, INotificationService, IWebFrameContextService } from 'app-shared/core';
 import { take } from 'rxjs/operators';
 
@@ -31,8 +31,13 @@ export class LoginPageComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    const emailValidators = Validators.compose([
+      Validators.required,
+      Validators.email,
+    ]);
+
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', emailValidators],
       password: ['', Validators.required],
       staySignedIn: false,
     });

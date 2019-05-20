@@ -8,7 +8,7 @@
  * The application's bootstrap script.
  */
 
- import { enableProdMode } from '@angular/core';
+import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 // Development mode needs to be disabled before calling `isDevMode()`.

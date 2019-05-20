@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2019 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
@@ -17,6 +17,12 @@ export const INFORMATION_PAGES_DETAILS: Dictionary<IInformationPageDetails> = {
   notActivated: {
     title: 'Email account not activated',
     message: null,
+    type: 'warning',
+  },
+  resetPasswordSuccess: {
+    title: 'Password reset was successful.',
+    message: null,
+    type: 'success',
   },
 };
 
