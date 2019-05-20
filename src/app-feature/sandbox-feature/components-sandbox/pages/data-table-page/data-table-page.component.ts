@@ -28,12 +28,17 @@ export class DataTablePageComponent implements OnInit {
   public pageIndex: number = 0;
   public pageSize: number = 3;
 
+  public column_sort: DataTableSortQuery;
   constructor(
     @Inject(ProductDataTableController)
     private tableController: ProductDataTableController,
   ) { }
 
   public ngOnInit(): void {
+    this.column_sort = {
+      column: 'id',
+      direction: '',
+    };
   }
 
   public get displayedColumns(): string[] {
@@ -75,10 +80,22 @@ export class DataTablePageComponent implements OnInit {
     });
   }
 
-  public sortChanged(sort: DataTableSortQuery): void {
-    this.tableController.input_events.sortChange.next({
-      column: sort.column,
-      direction: sort.direction,
-    });
+  public sortChanged(column: string): void {
+    if (column !== this.column_sort.column) {
+      return;
+    }
+
+    switch (this.column_sort.direction ) {
+      case '':
+        this.column_sort.direction = 'asc';
+        break;
+      case 'asc':
+        this.column_sort.direction = 'desc';
+        break;
+      case 'desc':
+        this.column_sort.direction = '';
+        break;
+    }
+    this.tableController.input_events.sortChange.next(this.column_sort);
   }
 }
