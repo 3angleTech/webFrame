@@ -19,6 +19,11 @@ export interface IAccountCredentials {
   password: string;
 }
 
+export interface IAccountChangePasswordReq {
+  currentPassword: string;
+  newPassword: string;
+}
+
 export interface IAccountForgotPasswordReq {
   email: string;
 }
@@ -28,17 +33,20 @@ export interface IAccountResetPasswordReq {
   newPassword: string;
 }
 
-export interface IAccountInformation extends IAccountCredentials {
+export interface IAccountInformation {
+  email: string;
   firstName: string;
   lastName: string;
-  email: string;
   password: string;
+  username: string;
 }
 
 export interface IAccountService {
   login(credentials: IAccountCredentials): Observable<Empty>;
 
   logout(): Observable<Empty>;
+
+  changePassword(req: IAccountChangePasswordReq): Observable<Empty>;
 
   forgotPassword(req: IAccountForgotPasswordReq): Observable<Empty>;
 
@@ -58,6 +66,22 @@ export class AccountService implements IAccountService {
     @Inject(IJsonConverterService)
     private jsonConverter: IJsonConverterService,
   ) {
+  }
+
+  public changePassword(req: IAccountChangePasswordReq): Observable<Empty> {
+    const bodyData: Record<string, string> = {
+      currentPassword: req.currentPassword,
+      newPassword: req.newPassword,
+    };
+
+    return this.webRequest.post<Empty>({
+      serverApi: ServerApi.AccountChangePassword,
+      body: bodyData,
+    }).pipe(
+      map(() => {
+        return new Empty();
+      }),
+    );
   }
 
   public forgotPassword(req: IAccountForgotPasswordReq): Observable<Empty> {
@@ -88,7 +112,6 @@ export class AccountService implements IAccountService {
       }),
     );
   }
-
 
   public login(credentials: IAccountCredentials): Observable<Empty> {
     const bodyData = new HttpParams({

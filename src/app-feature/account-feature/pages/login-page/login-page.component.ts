@@ -64,7 +64,7 @@ export class LoginPageComponent implements OnInit {
     this.context.state.initialize()
     .pipe(take(1))
     .subscribe(() => {
-      this.context.navigation.navigateToUrl('/profile/settings');
+      this.context.navigation.navigateToUrl('/profile');
     });
   }
 }

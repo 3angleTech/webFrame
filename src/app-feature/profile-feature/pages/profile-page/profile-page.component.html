@@ -4,6 +4,6 @@
   Available under MIT license webFrame/LICENSE
 -->
 
-<p>
-  profile-page works!
-</p>
+<h1 class="app-page__title">{{ getPageTitle() | translate }}</h1>
+
+<button class="navigation-menu__item" type="button" routerLink="/profile/settings">Profile Settings</button>

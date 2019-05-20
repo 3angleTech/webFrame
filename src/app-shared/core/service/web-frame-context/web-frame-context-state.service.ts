@@ -20,7 +20,9 @@ export interface IWebFrameContextStateService {
 
   initialize(): Observable<boolean>;
 }
+
 export const IWebFrameContextStateService = new InjectionToken('IWebFrameContextStateService');
+
 // TODO: Move outside
 @Injectable()
 export class WebFrameContextStateService implements IWebFrameContextStateService {
@@ -37,12 +39,14 @@ export class WebFrameContextStateService implements IWebFrameContextStateService
   }
 
   public initialize(): Observable<boolean> {
+    // TODO: Handle errors during initialization.
     return this.getCurrentLoggedInUser().pipe(
       map((user) => {
         this.currentUser.next(user);
         this.ready = true;
         return true;
-      }));
+      }),
+    );
   }
 
   private getCurrentLoggedInUser(): Observable<User> {

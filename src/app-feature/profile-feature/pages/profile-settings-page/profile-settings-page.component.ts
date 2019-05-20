@@ -21,4 +21,8 @@ export class ProfileSettingsPageComponent implements OnInit {
   public ngOnInit(): void {
   }
 
+  public getPageTitle(): string {
+    return 'Profile Settings';
+  }
+
 }

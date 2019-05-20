@@ -5,4 +5,5 @@
 -->
 
 <button class="navigation-menu__item" type="button" routerLink="/account">Account</button>
+<button *ngIf="userIsLoggedIn | async" class="navigation-menu__item" type="button" routerLink="/profile">Profile</button>
 <button *ngIf="isDevMode" class="navigation-menu__item" type="button" routerLink="/sandbox">Sandbox</button>
