@@ -3,31 +3,23 @@
  * Copyright (c) 2019 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import {
-  IAccountForgotPasswordRequest,
-  IAccountService,
-  INotificationConfiguration,
-  IWebFrameContextNavigationService,
-  IWebFrameContextService,
-} from 'app-shared/core';
-import { IAccountResetPasswordRequest } from 'app-shared/core/service/account/account.service';
+import { IAccountService, INotificationConfiguration, IWebFrameContextNavigationService, IWebFrameContextService } from 'app-shared/core';
+import { IAccountChangePasswordRequest, IAccountResetPasswordRequest } from 'app-shared/core/service/account/account.service';
 import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
 
 @Component({
-  selector: 'app-reset-password-page',
-  templateUrl: './reset-password-page.component.html',
-  styleUrls: ['./reset-password-page.component.scss'],
+  selector: 'app-password-change-form',
+  templateUrl: './password-change-form.component.html',
+  styleUrls: ['./password-change-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ResetPasswordPageComponent implements OnInit {
-  public forgotPasswordForm: FormGroup;
+export class PasswordChangeFormComponent implements OnInit {
+  public passwordChangeForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
     @Inject(IAccountService)
     private accountService: IAccountService,
     @Inject(IWebFrameContextService)
@@ -35,17 +27,13 @@ export class ResetPasswordPageComponent implements OnInit {
     @Inject(IWebFrameContextNavigationService)
     public navigationService: IWebFrameContextNavigationService,
     private activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder,
   ) {
   }
 
   public ngOnInit(): void {
-    const token = this.activatedRoute.snapshot.queryParamMap.get('token');
-    if (!token) {
-      this.navigationService.navigateToNotFoundErrorPage();
-    }
-
-    this.forgotPasswordForm = this.formBuilder.group({
-      token: [token, Validators.required],
+    this.passwordChangeForm = this.formBuilder.group({
+      currentPassword: ['', Validators.required],
       newPasswordsGroup: this.formBuilder.group(
         {
           newPassword: ['', passwordPolicyComposedValidators],
@@ -57,12 +45,8 @@ export class ResetPasswordPageComponent implements OnInit {
     });
   }
 
-  public getPageTitle(): string {
-    return 'Reset password';
-  }
-
   public onSubmit(): void {
-    if (this.forgotPasswordForm.invalid) {
+    if (this.passwordChangeForm.invalid) {
       const notificationConfig: INotificationConfiguration = {
         message: 'Invalid data provided.',
       };
@@ -70,15 +54,19 @@ export class ResetPasswordPageComponent implements OnInit {
       return;
     }
 
-    const rawValue = this.forgotPasswordForm.getRawValue();
-    const resetPasswordReq: IAccountResetPasswordRequest = {
-      token: rawValue.token,
+    const rawValue = this.passwordChangeForm.getRawValue();
+
+    const resetPasswordReq: IAccountChangePasswordRequest = {
+      currentPassword: rawValue.currentPassword,
       newPassword: rawValue.newPasswordsGroup.newPassword,
     };
     const onSuccess = (): void => {
-      this.navigationService.navigateToInformationPage('resetPasswordSuccess');
+      const notificationConfig: INotificationConfiguration = {
+        message: 'Password changed.',
+      };
+      this.context.ui.showNotification(notificationConfig);
     };
 
-    this.accountService.resetPassword(resetPasswordReq).subscribe(onSuccess);
+    this.accountService.changePassword(resetPasswordReq).subscribe(onSuccess);
   }
 }

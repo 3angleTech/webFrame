@@ -9,10 +9,16 @@
 
 
 :host {
+  align-items: center;
   background-color: app-get-color($app-text-colors, lighter);
   color: app-get-contrast($app-text-colors, lighter);
-  display: block;
+  display: flex;
   padding: 8px;
+
+  span.spacer {
+    display: block;
+    flex-grow: 1;
+  }
 }
 
 .navigation-menu__item {
