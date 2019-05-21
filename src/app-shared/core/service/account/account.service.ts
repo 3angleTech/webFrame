@@ -4,8 +4,8 @@
  * Available under MIT license webFrame/LICENSE
  */
 
+import { HttpParams } from '@angular/common/http';
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { IWebFrameContextStateService } from 'app-shared/core/service/web-frame-context/web-frame-context-state.service';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
@@ -15,22 +15,46 @@ import { IJsonConverterService } from '../json-converter/json-converter.service'
 import { IWebRequestService, RequestContentType } from '../web-request/web-request.interface';
 
 export interface IAccountCredentials {
-  username: string;
-  password: string;
-}
-
-export interface IAccountInformation extends IAccountCredentials {
-  firstName: string;
-  lastName: string;
   email: string;
   password: string;
 }
 
+export interface IAccountChangePasswordRequest {
+  currentPassword: string;
+  newPassword: string;
+}
+
+export interface IAccountForgotPasswordRequest {
+  email: string;
+}
+
+export interface IAccountResetPasswordRequest {
+  token: string;
+  newPassword: string;
+}
+
+export interface IAccountInformation {
+  email: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+  username: string;
+}
+
 export interface IAccountService {
   login(credentials: IAccountCredentials): Observable<Empty>;
+
   logout(): Observable<Empty>;
+
+  changePassword(request: IAccountChangePasswordRequest): Observable<Empty>;
+
+  forgotPassword(request: IAccountForgotPasswordRequest): Observable<Empty>;
+
+  resetPassword(request: IAccountResetPasswordRequest): Observable<Empty>;
+
   signup(information: IAccountInformation): Observable<Empty>;
 }
+
 export const IAccountService = new InjectionToken('IAccountService');
 
 @Injectable()
@@ -41,19 +65,69 @@ export class AccountService implements IAccountService {
     private webRequest: IWebRequestService,
     @Inject(IJsonConverterService)
     private jsonConverter: IJsonConverterService,
-  ) { }
+  ) {
+  }
+
+  public changePassword(request: IAccountChangePasswordRequest): Observable<Empty> {
+    const bodyData: Record<string, string> = {
+      currentPassword: request.currentPassword,
+      newPassword: request.newPassword,
+    };
+
+    return this.webRequest.post<Empty>({
+      serverApi: ServerApi.AccountChangePassword,
+      body: bodyData,
+    }).pipe(
+      map(() => {
+        return new Empty();
+      }),
+    );
+  }
+
+  public forgotPassword(request: IAccountForgotPasswordRequest): Observable<Empty> {
+    const bodyData: Record<string, string> = {
+      email: request.email,
+    };
+    return this.webRequest.post<Empty>({
+      serverApi: ServerApi.AccountForgotPassword,
+      body: bodyData,
+    }).pipe(
+      map(() => {
+        return new Empty();
+      }),
+    );
+  }
+
+  public resetPassword(request: IAccountResetPasswordRequest): Observable<Empty> {
+    const bodyData: Record<string, string> = {
+      token: request.token,
+      newPassword: request.newPassword,
+    };
+    return this.webRequest.post<Empty>({
+      serverApi: ServerApi.AccountResetPassword,
+      body: bodyData,
+    }).pipe(
+      map(() => {
+        return new Empty();
+      }),
+    );
+  }
 
   public login(credentials: IAccountCredentials): Observable<Empty> {
-    const username = encodeURIComponent(credentials.username);
-    const password = encodeURIComponent(credentials.password);
-    const clientId = environment.clientId;
-    const clientSecret = environment.clientSecret;
-    const data = `username=${username}&password=${password}&client_id=${clientId}&client_secret=${clientSecret}&grant_type=password`;
+    const bodyData = new HttpParams({
+      fromObject: {
+        email: credentials.email,
+        password: credentials.password,
+        client_id: environment.clientId,
+        client_secret: environment.clientSecret,
+        grant_type: 'password',
+      },
+    });
 
     return this.webRequest.post<Empty>({
       serverApi: ServerApi.AuthToken,
       contentType: RequestContentType.ApplicationWWWFormUrlEncoded,
-      body: data,
+      body: bodyData,
     }).pipe(
       map(() => {
         return new Empty();

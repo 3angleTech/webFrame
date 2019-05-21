@@ -21,16 +21,18 @@ import { InformationPageComponent } from './pages/information-page/information-p
 import { InviteUsersPageComponent } from './pages/invite-users-page/invite-users-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
+import { ResetPasswordPageComponent } from './pages/reset-password-page/reset-password-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 const FEATURE_COMPONENTS: Type<any>[] = [
   AccountFeatureComponent,
   ConfirmEmailPageComponent,
   ForgotPasswordPageComponent,
+  InformationPageComponent,
   InviteUsersPageComponent,
   LoginPageComponent,
   LogoutPageComponent,
-  InformationPageComponent,
+  ResetPasswordPageComponent,
   SignupPageComponent,
 ];
 

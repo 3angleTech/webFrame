@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2019 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
@@ -9,7 +9,7 @@
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAccountCredentials, IAccountService, INotificationConfiguration, INotificationService, IWebFrameContextService } from 'app-shared/core';
+import { IAccountForgotPasswordRequest, IAccountService, INotificationConfiguration, IWebFrameContextService } from 'app-shared/core';
 
 @Component({
   selector: 'app-forgot-password-page',
@@ -30,11 +30,14 @@ export class ForgotPasswordPageComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.forgotPasswordForm = this.formBuilder.group({
-      email: ['', Validators.compose([
+    const emailValidators = Validators.compose([
         Validators.required,
         Validators.email,
-      ])],
+      ],
+    );
+
+    this.forgotPasswordForm = this.formBuilder.group({
+      email: ['', emailValidators],
     });
   }
 
@@ -51,14 +54,14 @@ export class ForgotPasswordPageComponent implements OnInit {
       return;
     }
 
-    const credentials: IAccountCredentials = this.forgotPasswordForm.getRawValue();
+    const forgotPasswordReq: IAccountForgotPasswordRequest = this.forgotPasswordForm.getRawValue();
     const onSuccess = (): void => {
       const notificationConfig: INotificationConfiguration = {
-        message: 'TODO: Implement forgot password feature.',
+        message: 'Password recovery instruction have been sent via email.',
       };
       this.context.ui.showNotification(notificationConfig);
     };
 
-    this.accountService.login(credentials).subscribe(onSuccess);
+    this.accountService.forgotPassword(forgotPasswordReq).subscribe(onSuccess);
   }
 }

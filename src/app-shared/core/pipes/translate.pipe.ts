@@ -12,6 +12,7 @@ import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from '.
 
 @Pipe({
   name: 'translate',
+  pure: true,
 })
 export class TranslatePipe implements PipeTransform {
   constructor(

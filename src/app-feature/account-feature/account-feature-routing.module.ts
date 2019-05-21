@@ -17,6 +17,7 @@ import { InformationPageComponent } from './pages/information-page/information-p
 import { InviteUsersPageComponent } from './pages/invite-users-page/invite-users-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
+import { ResetPasswordPageComponent } from './pages/reset-password-page/reset-password-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 const routes: Routes = [
@@ -41,6 +42,10 @@ const routes: Routes = [
           {
             path: 'forgot-password',
             component: ForgotPasswordPageComponent,
+          },
+          {
+            path: 'reset-password',
+            component: ResetPasswordPageComponent,
           },
           {
             path: 'invite-users',

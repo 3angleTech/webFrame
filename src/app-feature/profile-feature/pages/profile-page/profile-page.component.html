@@ -4,6 +4,12 @@
   Available under MIT license webFrame/LICENSE
 -->
 
-<p>
-  profile-page works!
-</p>
+<h1 class="app-page__title">{{ getPageTitle() | translate }}</h1>
+
+<ng-container *ngIf="{ currentUser: currentUserObs | async } as context">
+  <p>{{ 'First Name' | translate }}: {{ context.currentUser.firstName }}</p>
+  <p>{{ 'Last Name' | translate }}: {{ context.currentUser.lastName }}</p>
+  <p>{{ 'Email' | translate }}: {{ context.currentUser.email }}</p>
+</ng-container>
+
+<button class="navigation-menu__item" type="button" routerLink="/profile/settings">Profile Settings</button>
