@@ -16,7 +16,7 @@ export class ProductDataTableController extends DataTableController<Product> {
     public requestService: ProductPaginatedDataRequestService) {
       super();
       this.bootstrap({
-        displayedColumns: ['id', 'asin', 'name', 'price', 'no_reviews', 'no_sellers'],
+        displayedColumns: ['id', 'name', 'description', 'price'],
         paginatorVm: {
           length: 100,
           pageSize: 3,

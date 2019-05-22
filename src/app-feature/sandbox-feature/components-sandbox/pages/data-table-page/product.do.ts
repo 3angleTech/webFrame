@@ -11,15 +11,12 @@ export class Product {
   @JsonProperty('id', Number, true)
   public id: number = undefined;
 
-  @JsonProperty('asin', String, true)
-  public asin: string = undefined;
+  @JsonProperty('name', String, true)
+  public name: string = undefined;
+
+  @JsonProperty('description', String, true)
+  public description: string = undefined;
 
   @JsonProperty('price', Number, true)
   public price: number = undefined;
-
-  @JsonProperty('no_reviews', Number, true)
-  public no_reviews: number = undefined;
-
-  @JsonProperty('no_sellers', Number, true)
-  public no_sellers: number = undefined;
 }

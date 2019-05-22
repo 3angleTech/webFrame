@@ -76,7 +76,7 @@ export class DataTablePageComponent implements OnInit {
 
   public searchForProducts(): void {
     this.tableController.input_events.searchChange.next({
-      asin: this.search,
+      name: this.search,
     });
   }
 

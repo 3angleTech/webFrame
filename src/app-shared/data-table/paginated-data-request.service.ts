@@ -37,13 +37,24 @@ export interface PagedQuery extends Dictionary<QueryParameterValueType> {
  */
 export type QueryParameterValueType = string | number | boolean | string[] | number[];
 
+/**
+ * A service that that consumes a resource from the backend and handles pagination.
+ */
 export interface IPaginatedDataRequestService<T> {
+    /* Data payload subject */
     data: BehaviorSubject<PagedResult<T>>;
+    /* Loading subject indicator */
     loading: BehaviorSubject<boolean>;
+    /* Last query that was run to consume the resource  */
     latestQuery: DataTableQuery;
-
+    /**
+     * Makes a request to load the resource data for the provided query.
+     * @param query The query.
+     */
     load<Q extends DataTableQuery>(query: Q): void;
+    /* Refresh the data for the last run query. */
     refresh(): void;
+    /* Performs a cleanup. */
     destroy(): void;
 }
 

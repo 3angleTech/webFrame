@@ -31,17 +31,25 @@ export interface DataTableInputEvents {
 export interface DataTableOutputEvents {
   resetToFirstPage: EventEmitter<void>;
 }
-
+/** Data table controller. */
 export abstract class DataTableController<T> {
+  /* The Data table configuration. */
   protected configuration: DataTableControllerConfiguration<T>;
-
+  /* The columns that will be displayed. */
   public displayedColumns: string[];
+  /* The paginator view model. */
   public paginatorVm: IPaginatorVm;
+  /* The service that consumes the resource from the backend and handles pagination. */
   public requestService: IPaginatedDataRequestService<T>;
-
+  /* Grouping of events that are triggered from the view and will determin a change in the controller. */
   public input_events: DataTableInputEvents;
+  /* Grouping of events that are triggered from the controller and will determin changes in the view. */
   public output_events: DataTableOutputEvents;
 
+  /**
+   * Boostraps the controller with the provided configuration.
+   * @param configuration The boostrap configuration.
+   */
   protected bootstrap(configuration: DataTableControllerConfiguration<T>): void {
     this.configuration = configuration;
     this.initialize();
@@ -97,6 +105,7 @@ export abstract class DataTableController<T> {
       .subscribe(() => this.refresh());
   }
 
+  /* Trigger a refresh to the data table. */
   public refresh(): void {
     this.requestService.load({
       pagination: this.input_events.paginationChange.value,
