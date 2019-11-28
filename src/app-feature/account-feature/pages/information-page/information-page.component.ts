@@ -32,7 +32,7 @@ export const INFORMATION_PAGES_DETAILS: Dictionary<IInformationPageDetails> = {
   styleUrls: ['./information-page.component.scss'],
 })
 export class InformationPageComponent implements OnInit {
-  private pageDetails: IInformationPageDetails;
+  public pageDetails: IInformationPageDetails;
 
   constructor(
     @Inject(IWebFrameContextNavigationService)

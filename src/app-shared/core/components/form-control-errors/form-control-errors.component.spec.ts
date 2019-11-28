@@ -40,7 +40,7 @@ import { FormControlErrorsComponent } from './form-control-errors.component';
 })
 class FormControlErrorsTestFormComponent {
   public readonly testForm: FormGroup;
-  @ViewChild(FormControlErrorsComponent)
+  @ViewChild(FormControlErrorsComponent, {static: true})
   public readonly formControlErrors: FormControlErrorsComponent;
 
   public submittedValues: Dictionary<string> = null;

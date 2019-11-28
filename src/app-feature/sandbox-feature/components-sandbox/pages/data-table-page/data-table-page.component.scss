@@ -1,13 +1,14 @@
 table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
+  font-family: arial, sans-serif;
   width: 100%;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #dddddd;
-  text-align: left;
   padding: 8px;
+  text-align: left;
 }
 
 tr:nth-child(even) {
@@ -16,7 +17,8 @@ tr:nth-child(even) {
 
 .clickable {
   cursor: pointer;
+
   &:hover {
-    background-color: #eeeeee
+    background-color: #eeeeee;
   }
 }

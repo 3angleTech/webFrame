@@ -26,11 +26,11 @@ const routes: Routes = [
   // Other lazy-loaded sandbox sub-modules.
   {
     path: 'components',
-    loadChildren: './components-sandbox/components-sandbox.module#ComponentsSandboxModule',
+    loadChildren: () => import('./components-sandbox/components-sandbox.module').then(m => m.ComponentsSandboxModule),
   },
   {
     path: 'placeholder',
-    loadChildren: './placeholder-sandbox/placeholder-sandbox.module#PlaceholderSandboxModule',
+    loadChildren: () => import('./placeholder-sandbox/placeholder-sandbox.module').then(m => m.PlaceholderSandboxModule),
   },
 ];
 

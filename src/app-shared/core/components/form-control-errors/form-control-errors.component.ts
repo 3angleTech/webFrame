@@ -8,8 +8,7 @@
  * Provides a helper component that can be used to display form control errors.
  */
 import { ChangeDetectionStrategy, Component, DoCheck, EventEmitter, Host, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective } from '@angular/forms';
-import { ValidationErrors } from '@angular/forms/src/directives/validators';
+import { FormControl, FormGroupDirective, ValidationErrors } from '@angular/forms';
 import { merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 

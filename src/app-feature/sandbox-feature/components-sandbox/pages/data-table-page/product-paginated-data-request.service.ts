@@ -19,6 +19,12 @@ import { products } from './products-mock';
 
 const ELEMENT_DATA = products;
 
+@JsonObject
+export class ProductPagedResult extends PagedResult<Product> {
+    @JsonProperty('results', [Product], true)
+    public results: Product[] = undefined;
+}
+
 @Injectable()
 export class ProductPaginatedDataRequestService extends PaginatedDataRequestService<Product> {
 
@@ -76,10 +82,4 @@ export class ProductPaginatedDataRequestService extends PaginatedDataRequestServ
     protected getPagedResultClass(): { new(): PagedResult<Product> } {
         return ProductPagedResult;
     }
-}
-
-@JsonObject
-export class ProductPagedResult extends PagedResult<Product> {
-    @JsonProperty('results', [Product], true)
-    public results: Product[] = undefined;
 }
