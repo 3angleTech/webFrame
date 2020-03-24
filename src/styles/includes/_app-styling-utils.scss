@@ -8,7 +8,7 @@
 
 // For a given hue in a palette, return it's color value.
 @function app-get-color($palette, $hue, $opacity: null) {
-  $color:  map-get($palette, $hue);
+  $color: map-get($palette, $hue);
   $opacity: if($opacity == null, opacity($color), $opacity);
 
   @return rgba($color, $opacity);

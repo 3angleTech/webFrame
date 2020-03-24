@@ -10,48 +10,43 @@
 // and you must provide a contrast for every defined color.
 // @see http://contrast-ratio.com/
 
-// This mixin is used to contain variables that should not be used globally.
-// Use the `!global` modifier to export them to the global scope.
-@mixin app_define_global_variables {
-  // Dark and light colors defined in the Material Design specification.
-  $dark-primary-text: rgba(#000000, 0.87);
-  $dark-secondary-text: rgba(#000000, 0.54);
-  $dark-disabled-text: rgba(#000000, 0.38);
-  $dark-dividers: rgba(#000000, 0.12);
-  $dark-focused: rgba(#000000, 0.12);
-  $light-primary-text: #ffffff;
-  $light-secondary-text: rgba(#ffffff, 0.7);
-  $light-disabled-text: rgba(#ffffff, 0.5);
-  $light-dividers: rgba(#ffffff, 0.12);
-  $light-focused: rgba(#ffffff, 0.12);
-
-  $app-text-colors: (
-    lighter: #818181, // With low-contrast, for large fonts and icons.
-    normal: #555555,
-    darker: #2b2b2b,
-    contrast: (
-      lighter: $light-primary-text,
-      normal: $light-primary-text,
-      darker: $light-primary-text,
-    )
-  ) !global;
-
-  $app-foreground-colors: (
-    dividers: $dark-dividers,
-  ) !global;
-
-  // TODO: Define multiple hues for status colors, at least two, for dark and light contrasts.
-  $app-status-colors: (
-    success: #43a047,
-    warning: #fb8c00,
-    error: #e53935,
-    contrast: (
-      success: $dark-primary-text,
-      warning: $dark-primary-text,
-      error: $dark-primary-text,
-    ),
-  ) !global;
-}
-
 // Initialize the global variables.
-@include app_define_global_variables();
+
+// Dark and light colors defined in the Material Design specification.
+$dark-primary-text: rgba(#000000, 0.87);
+$dark-secondary-text: rgba(#000000, 0.54);
+$dark-disabled-text: rgba(#000000, 0.38);
+$dark-dividers: rgba(#000000, 0.12);
+$dark-focused: rgba(#000000, 0.12);
+$light-primary-text: #ffffff;
+$light-secondary-text: rgba(#ffffff, 0.7);
+$light-disabled-text: rgba(#ffffff, 0.5);
+$light-dividers: rgba(#ffffff, 0.12);
+$light-focused: rgba(#ffffff, 0.12);
+
+$app-text-colors: (
+  lighter: #818181, // With low-contrast, for large fonts and icons.
+  normal: #555555,
+  darker: #2b2b2b,
+  contrast: (
+    lighter: $light-primary-text,
+    normal: $light-primary-text,
+    darker: $light-primary-text,
+  )
+);
+
+$app-foreground-colors: (
+  dividers: $dark-dividers,
+);
+
+// TODO: Define multiple hues for status colors, at least two, for dark and light contrasts.
+$app-status-colors: (
+  success: #43a047,
+  warning: #fb8c00,
+  error: #e53935,
+  contrast: (
+    success: $dark-primary-text,
+    warning: $dark-primary-text,
+    error: $dark-primary-text,
+  ),
+);
