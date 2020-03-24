@@ -4,25 +4,32 @@
  * Available under MIT license webFrame/LICENSE
  */
 /* tslint:disable:max-classes-per-file */
-import { Inject, Injectable } from '@angular/core';
-import { IWebFrameContextService } from 'app-shared/core';
-import { PagedResult } from 'app-shared/core/data/paged-result.do';
-import { IJsonConverterService } from 'app-shared/core/service/json-converter/json-converter.service';
-import { IWebRequestService } from 'app-shared/core/service/web-request/web-request.interface';
-import { DataTableQuery, DataTableSearchQuery, PaginatedDataRequestService } from 'app-shared/data-table/paginated-data-request.service';
+import { Inject, Injectable, Type } from '@angular/core';
+import {
+  IJsonConverterService,
+  IWebFrameContextService,
+  IWebRequestService,
+  PagedResult,
+} from 'app-shared/core';
+import {
+  DataTableQuery,
+  DataTableSearchQuery,
+  PaginatedDataRequestService,
+} from 'app-shared/data-table/paginated-data-request.service';
 import { isNil } from 'app-shared/utils';
 import { JsonObject, JsonProperty } from 'json2typescript';
 import { filter, orderBy, slice } from 'lodash';
 import { Observable, of } from 'rxjs';
+
 import { Product } from './product.do';
 import { products } from './products-mock';
 
 const ELEMENT_DATA = products;
 
-@JsonObject
+@JsonObject('ProductPagedResult')
 export class ProductPagedResult extends PagedResult<Product> {
-    @JsonProperty('results', [Product], true)
-    public results: Product[] = undefined;
+  @JsonProperty('results', [Product])
+  public results: Product[] = undefined;
 }
 
 @Injectable()
@@ -41,7 +48,7 @@ export class ProductPaginatedDataRequestService extends PaginatedDataRequestServ
 
     protected getPage(query: DataTableQuery): Observable<PagedResult<Product>> {
         // TODO: Request from server
-        const pResults = new PagedResult<Product>();
+        const pResults = new ProductPagedResult();
         let pList: Product[] = [];
         ELEMENT_DATA.forEach(e => {
             const p = this.jsonConverter.deserialize(e, Product);

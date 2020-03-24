@@ -4,18 +4,21 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-import { JsonObject, JsonProperty } from 'json2typescript';
+import { JsonProperty } from 'json2typescript';
 
-@JsonObject
-export class PagedResult<T> {
-    @JsonProperty('page', Number, true)
-    public page: number = undefined;
+/**
+ * The extending class must be decorated with `@JsonObject('...')` and it must
+ * provide a `@JsonProperty()` decorated override for the results property.
+ */
+export abstract class PagedResult<T> {
+  @JsonProperty('page', Number)
+  public page: number = undefined;
 
-    @JsonProperty('pageSize', Number, true)
-    public pageSize: number = undefined;
+  @JsonProperty('pageSize', Number)
+  public pageSize: number = undefined;
 
-    @JsonProperty('totalCount', Number, true)
-    public totalCount: number = undefined;
+  @JsonProperty('totalCount', Number)
+  public totalCount: number = undefined;
 
-    public results: T[];
+  public abstract results: T[] = undefined;
 }

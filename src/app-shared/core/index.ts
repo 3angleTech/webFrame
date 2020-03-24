@@ -9,8 +9,12 @@
  */
 
 export { CoreModule } from './core.module';
-export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
+export { PagedResult } from './data/paged-result.do';
+export {
+  IJsonConverterService,
+} from './service/json-converter/json-converter.service';
+export { User } from './data/user.do';
 export {
   IAccountChangePasswordRequest,
   IAccountForgotPasswordRequest,
@@ -20,7 +24,10 @@ export {
   IAccountService,
 } from './service/account/account.service';
 export { Dictionary } from './interface/dictionary';
-export { INotificationConfiguration, INotificationService } from './service/notification/notification.service';
+export {
+  INotificationConfiguration,
+  INotificationService,
+} from './service/notification/notification.service';
 export {
   ITranslationService,
   TranslationPhrase,
@@ -34,3 +41,7 @@ export {
   IWebFrameContextNavigationService,
   IWebFrameContextUIService,
 } from './service/web-frame-context/index';
+
+export {
+  IWebRequestService,
+} from './service/web-request/web-request.interface';
