@@ -1,7 +1,6 @@
 {
   "extends": [
-    "@3angletech/tslint/ts",
-    "@3angletech/tslint/angular"
+    "./tslint.json"
   ],
   "rules": {
     "comment-format": false,
@@ -24,22 +23,6 @@
     "template-use-track-by-function": false,
     "triple-equals": false,
     "typedef": false,
-    "variable-name": false,
-
-    "file-header": [
-      true,
-      "@license",
-      "Copyright \\(c\\) \\d{4} THREEANGLE SOFTWARE SOLUTIONS SRL"
-    ],
-    "no-implicit-dependencies": [
-      true,
-      "dev",
-      [
-        "app-feature",
-        "app-shared",
-        "app-shell"
-      ]
-    ],
-    "no-unnecessary-field-initialization": false
+    "variable-name": false
   }
 }

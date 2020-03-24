@@ -1,5 +1,5 @@
 {
   "extends": [
     "@3angletech/tslint/styles"
-  ],
+  ]
 }

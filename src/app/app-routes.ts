@@ -4,7 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 
- // tslint:disable:no-implicit-dependencies
+// tslint:disable:no-implicit-dependencies
 
 /**
  * Routes for production environments.
