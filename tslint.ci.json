@@ -17,12 +17,9 @@
     "ordered-imports": false,
     "pipe-prefix": false,
     "prefer-readonly": false,
-    "promise-function-async": false,
     "template-no-call-expression": false,
     "template-no-negated-async": false,
     "template-use-track-by-function": false,
-    "triple-equals": false,
-    "typedef": false,
     "variable-name": false
   }
 }

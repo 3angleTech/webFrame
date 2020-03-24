@@ -58,6 +58,7 @@
     "lint:ts": "ng lint --configuration=ci",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "start": "ng serve",
-    "test": "ng test"
+    "test": "ng test",
+    "test:ci": "ng test --configuration=ci"
   }
 }

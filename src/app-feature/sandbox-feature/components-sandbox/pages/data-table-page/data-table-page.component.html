@@ -5,13 +5,13 @@
     <tr>
 
       <th *ngFor="let column of displayedColumns"
-        [ngClass]="{ clickable: column == column_sort.column }"
+        [ngClass]="{ clickable: column == sortQuery.column }"
         (click)="sortChanged(column)">
         {{column}}
-        <span *ngIf="column == column_sort.column">
-          <ng-container *ngIf="column_sort.direction == ''">&nbsp;</ng-container>
-          <ng-container *ngIf="column_sort.direction == 'asc'">^</ng-container>
-          <ng-container *ngIf="column_sort.direction == 'desc'">v</ng-container>
+        <span *ngIf="column == sortQuery.column">
+          <ng-container *ngIf="sortQuery.direction == ''">&nbsp;</ng-container>
+          <ng-container *ngIf="sortQuery.direction == 'asc'">^</ng-container>
+          <ng-container *ngIf="sortQuery.direction == 'desc'">v</ng-container>
         </span>
       </th>
     </tr>

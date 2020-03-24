@@ -17,10 +17,11 @@ export class WebRequestService implements IWebRequestService {
   constructor(
     @Inject(IApiEndpointBuilderService)
     private apiEndpointBuilder: IApiEndpointBuilderService,
-    private http: HttpClient) { }
+    private http: HttpClient,
+  ) { }
 
   public get<T>(config: RequestConfiguration): Observable<T> {
-    const getStrategy: RequestStrategy<T> = (url, headers, body) => {
+    const getStrategy: RequestStrategy<T> = (url, headers, body): Observable<T> => {
       return this.http.get<T>(url, { headers: headers });
     };
 
@@ -28,7 +29,7 @@ export class WebRequestService implements IWebRequestService {
   }
 
   public post<T>(config: RequestConfiguration): Observable<T> {
-    const postStrategy: RequestStrategy<T> = (url, headers, body) => {
+    const postStrategy: RequestStrategy<T> = (url, headers, body): Observable<T> => {
       return this.http.post<T>(url, config.body, { headers: headers });
     };
 
@@ -36,7 +37,7 @@ export class WebRequestService implements IWebRequestService {
   }
 
   public put<T>(config: RequestConfiguration): Observable<T> {
-    const putStrategy: RequestStrategy<T> = (url, headers, body) => {
+    const putStrategy: RequestStrategy<T> = (url, headers, body): Observable<T> => {
 
       return this.http.put<T>(url, config.body, { headers: headers });
     };
@@ -45,7 +46,7 @@ export class WebRequestService implements IWebRequestService {
   }
 
   public delete<T>(config: RequestConfiguration): Observable<T> {
-    const deleteStrategy: RequestStrategy<T> = (url, headers, body) => {
+    const deleteStrategy: RequestStrategy<T> = (url, headers, body): Observable<T> => {
       return this.http.delete<T>(url, { headers: headers });
     };
 
