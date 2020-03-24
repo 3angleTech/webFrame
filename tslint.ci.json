@@ -1,0 +1,45 @@
+{
+  "extends": [
+    "@3angletech/tslint/ts",
+    "@3angletech/tslint/angular"
+  ],
+  "rules": {
+    "comment-format": false,
+    "interface-name": false,
+    "jsdoc-format": false,
+    "newline-before-return": false,
+    "no-any": false,
+    "no-magic-numbers": false,
+    "no-null-keyword": false,
+    "no-suspicious-comment": false,
+    "no-unbound-method": false,
+    "no-unsafe-any": false,
+    "template-cyclomatic-complexity": false,
+    "ordered-imports": false,
+    "pipe-prefix": false,
+    "prefer-readonly": false,
+    "promise-function-async": false,
+    "template-no-call-expression": false,
+    "template-no-negated-async": false,
+    "template-use-track-by-function": false,
+    "triple-equals": false,
+    "typedef": false,
+    "variable-name": false,
+
+    "file-header": [
+      true,
+      "@license",
+      "Copyright \\(c\\) \\d{4} THREEANGLE SOFTWARE SOLUTIONS SRL"
+    ],
+    "no-implicit-dependencies": [
+      true,
+      "dev",
+      [
+        "app-feature",
+        "app-shared",
+        "app-shell"
+      ]
+    ],
+    "no-unnecessary-field-initialization": false
+  }
+}

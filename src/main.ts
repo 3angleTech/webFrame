@@ -11,13 +11,15 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-// Development mode needs to be disabled before calling `isDevMode()`.
+import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+
 if (environment.production) {
   enableProdMode();
 }
 
-import { AppModule } from './app/app.module';
-
 platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+  .catch((err: unknown): void => {
+    // tslint:disable-next-line:no-console
+    console.log(err);
+  });

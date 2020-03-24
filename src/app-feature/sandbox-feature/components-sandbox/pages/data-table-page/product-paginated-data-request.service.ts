@@ -3,7 +3,7 @@
  * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
+/* tslint:disable:max-classes-per-file */
 import { Inject, Injectable } from '@angular/core';
 import { IWebFrameContextService } from 'app-shared/core';
 import { PagedResult } from 'app-shared/core/data/paged-result.do';
@@ -79,7 +79,7 @@ export class ProductPaginatedDataRequestService extends PaginatedDataRequestServ
         return filteredProducts;
     }
 
-    protected getPagedResultClass(): { new(): PagedResult<Product> } {
+    protected getPagedResultClass(): new() => PagedResult<Product> {
         return ProductPagedResult;
     }
 }

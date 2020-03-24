@@ -8,6 +8,22 @@
       true,
       "@license",
       "Copyright \\(c\\) \\d{4} THREEANGLE SOFTWARE SOLUTIONS SRL"
-    ]
+    ],
+    "no-implicit-dependencies": [
+      true,
+      "dev",
+      [
+        "app-feature",
+        "app-shared",
+        "app-shell"
+      ]
+    ],
+    "no-import-side-effect": [
+      true,
+      {
+        "ignore-module": "(core-js/.*|zone\\.js/.*)$"
+      }
+    ],
+    "no-unnecessary-field-initialization": false
   }
 }

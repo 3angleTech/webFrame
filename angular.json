@@ -136,6 +136,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
+            "format": "stylish",
             "tslintConfig": "tslint.json",
             "tsConfig": [
               "e2e/tsconfig.json",
@@ -145,6 +146,11 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          },
+          "configurations": {
+            "ci": {
+              "tslintConfig": "tslint.ci.json"
+            }
           }
         },
         "e2e": {
