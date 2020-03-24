@@ -7,9 +7,11 @@
 /**
  * Provides the main navigation menu.
  */
-import { Component, HostBinding, Inject, isDevMode, OnInit } from '@angular/core';
+import { Component, HostBinding, Inject, OnInit } from '@angular/core';
 import { IWebFrameContextStateService, User } from 'app-shared/core';
 import { Observable } from 'rxjs';
+
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -21,7 +23,7 @@ export class NavigationMenuComponent implements OnInit {
   public componentClass: boolean = true;
 
   public currentUserObs: Observable<User>;
-  public isDevMode: boolean = isDevMode();
+  public isDevMode: boolean = environment.devMode;
 
   constructor(
     @Inject(IWebFrameContextStateService)
