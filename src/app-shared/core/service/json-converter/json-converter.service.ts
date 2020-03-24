@@ -17,7 +17,7 @@ export const IJsonConverterService = new InjectionToken('IJsonConverterService')
 export class JsonConverterService implements IJsonConverterService {
 
   public deserialize<T>(json: any, classReference: new () => T): T {
-    return this.jsonConvert.deserialize(json, classReference);
+    return this.jsonConvert.deserialize(json, classReference) as T;
   }
 
   public serialize<T>(object: T): Object {

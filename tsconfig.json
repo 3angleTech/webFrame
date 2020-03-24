@@ -1,5 +1,11 @@
 {
   "compileOnSave": false,
+  "angularCompilerOptions": {
+    "enableIvy": false,
+    "fullTemplateTypeCheck": false,
+    "strictInjectionParameters": false,
+    "strictTemplates": false
+  },
   "compilerOptions": {
     "baseUrl": "./",
     "declaration": false,
@@ -7,10 +13,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
-      "es2017",
-      "dom"
+      "DOM",
+      "ES2018"
     ],
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "outDir": "./dist/out-tsc",
     "paths": {
@@ -19,7 +25,7 @@
     },
     "rootDir": "./",
     "sourceMap": true,
-    "target": "es2015",
+    "target": "ES2015",
     "typeRoots": [
       "node_modules/@types"
     ]

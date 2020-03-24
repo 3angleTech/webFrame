@@ -26,7 +26,7 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
   providers: [],
 })
 export class SecurityModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<SecurityModule> {
     return {
       ngModule: SecurityModule,
       providers: SHARED_ROOT_PROVIDERS,

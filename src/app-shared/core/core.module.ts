@@ -116,7 +116,7 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
   ],
 })
 export class CoreModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<CoreModule> {
     return {
       ngModule: CoreModule,
       providers: SHARED_ROOT_PROVIDERS,
