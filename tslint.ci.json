@@ -3,6 +3,7 @@
     "./tslint.json"
   ],
   "rules": {
+    /* NOTE: These rules are disabled in order for the CI pipelines to pass. IDEs use stricter rules. In time, these overrides need to be removed. */
     "comment-format": false,
     "interface-name": false,
     "jsdoc-format": false,
