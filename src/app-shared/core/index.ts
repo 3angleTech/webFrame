@@ -36,11 +36,19 @@ export {
 
 export {
   IWebFrameContextService,
+} from './service/web-frame-context/web-frame-context.service';
+export {
   IWebFrameContextStateService,
+} from './service/web-frame-context/web-frame-context-state.service';
+export {
   IWebFrameContextLocalizationService,
+} from './service/web-frame-context/web-frame-context-localization.service';
+export {
   IWebFrameContextNavigationService,
+} from './service/web-frame-context/web-frame-context-navigation.service';
+export {
   IWebFrameContextUIService,
-} from './service/web-frame-context/index';
+} from './service/web-frame-context/web-frame-context-ui.service';
 
 export {
   IWebRequestService,

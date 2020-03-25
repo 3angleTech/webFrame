@@ -10,20 +10,55 @@
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
+
 import { FormControlErrorsComponent } from './components/form-control-errors/form-control-errors.component';
 import { TranslatePipe } from './pipes/translate.pipe';
-import { AccountService, IAccountService } from './service/account/account.service';
+import {
+  AccountService,
+  IAccountService,
+} from './service/account/account.service';
 import { IApiEndpointBuilderService } from './service/api-endpoint-builder/api-endpoint-builder.interface';
 import { ApiEndpointBuilderService } from './service/api-endpoint-builder/api-endpoint-builder.service';
-import { IJsonConverterService, JsonConverterService } from './service/json-converter/json-converter.service';
-import { INotificationService, NotificationService } from './service/notification/notification.service';
-import { IStorageService, StorageService } from './service/storage/storage.service';
-import { IStringTemplateService, StringTemplateService } from './service/string-template/string-template.service';
-import { ITranslationService, TranslationService } from './service/translation/translation.service';
-import { IWebFrameContextStateService, IWebFrameContextUIService, WebFrameContextNavigationService, WebFrameContextStateService, WebFrameContextUIService } from './service/web-frame-context';
-import { IWebFrameContextLocalizationService, IWebFrameContextNavigationService, IWebFrameContextService } from './service/web-frame-context/index';
-import { WebFrameContextLocalizationService } from './service/web-frame-context/web-frame-context-localization.service';
-import { WebFrameContextService } from './service/web-frame-context/web-frame-context.service';
+import {
+  IJsonConverterService,
+  JsonConverterService,
+} from './service/json-converter/json-converter.service';
+import {
+  INotificationService,
+  NotificationService,
+} from './service/notification/notification.service';
+import {
+  IStorageService,
+  StorageService,
+} from './service/storage/storage.service';
+import {
+  IStringTemplateService,
+  StringTemplateService,
+} from './service/string-template/string-template.service';
+import {
+  ITranslationService,
+  TranslationService,
+} from './service/translation/translation.service';
+import {
+  IWebFrameContextLocalizationService,
+  WebFrameContextLocalizationService,
+} from './service/web-frame-context/web-frame-context-localization.service';
+import {
+  IWebFrameContextNavigationService,
+  WebFrameContextNavigationService,
+} from './service/web-frame-context/web-frame-context-navigation.service';
+import {
+  IWebFrameContextStateService,
+  WebFrameContextStateService,
+} from './service/web-frame-context/web-frame-context-state.service';
+import {
+  IWebFrameContextUIService,
+  WebFrameContextUIService,
+} from './service/web-frame-context/web-frame-context-ui.service';
+import {
+  IWebFrameContextService,
+  WebFrameContextService,
+} from './service/web-frame-context/web-frame-context.service';
 import { WebRequestInterceptorService } from './service/web-request/web-request-interceptor.service';
 import { IWebRequestService } from './service/web-request/web-request.interface';
 import { WebRequestService } from './service/web-request/web-request.service';
