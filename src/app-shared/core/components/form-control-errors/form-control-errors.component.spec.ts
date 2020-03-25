@@ -174,7 +174,7 @@ describe('FormControlErrorsComponent', () => {
   }));
 });
 
-function countFormControlErrors(fixture: ComponentFixture<any>, formControlPath: string): string[] {
+function countFormControlErrors(fixture: ComponentFixture<unknown>, formControlPath: string): string[] {
   const controlError: DebugElement = fixture.debugElement.query(
     By.css(`[formControlPath=${formControlPath}]`),
   );

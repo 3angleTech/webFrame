@@ -13,12 +13,16 @@ import { catchError } from 'rxjs/operators';
 export class WebRequestInterceptorService implements HttpInterceptor {
   constructor() { }
 
+  /* tslint:disable:no-any */
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const updatedRequest = request.clone({
       withCredentials: true,
     });
-    return next.handle(updatedRequest).pipe(catchError((response: HttpErrorResponse) => {
-      return throwError(response.error);
-    }));
+
+    return next.handle(updatedRequest).pipe(
+      catchError((response: HttpErrorResponse): Observable<never> => {
+        return throwError(response.error);
+      }),
+    );
   }
 }

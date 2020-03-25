@@ -57,7 +57,7 @@ export class DataTablePageComponent implements OnInit {
     return this.tableController.paginatorVm;
   }
 
-  public pageChange(pageIndex: any): void {
+  public pageChange(pageIndex: number): void {
     this.pageIndex = Math.max(pageIndex, 0);
 
     this.tableController.inputEvents.paginationChange.next({

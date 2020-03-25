@@ -13,6 +13,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 export interface DataTableSearchQuery {
+    // tslint:disable-next-line:no-any
     [key: string]: any;
 }
 
