@@ -19,7 +19,7 @@ import { ProfileSettingsPageComponent } from './pages/profile-settings-page/prof
 import { ProfileFeatureRoutingModule } from './profile-feature-routing.module';
 import { ProfileFeatureComponent } from './profile-feature.component';
 
-const FEATURE_COMPONENTS: Type<any>[] = [
+const FEATURE_COMPONENTS: Type<unknown>[] = [
   PasswordChangeFormComponent,
   ProfileFeatureComponent,
   ProfilePageComponent,

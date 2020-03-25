@@ -28,14 +28,14 @@ import { WebRequestInterceptorService } from './service/web-request/web-request-
 import { IWebRequestService } from './service/web-request/web-request.interface';
 import { WebRequestService } from './service/web-request/web-request.service';
 
-const SHARED_COMPONENTS: Type<any>[] = [
+const SHARED_COMPONENTS: Type<unknown>[] = [
   FormControlErrorsComponent,
 ];
 
-const SHARED_DIRECTIVES: Type<any>[] = [
+const SHARED_DIRECTIVES: Type<unknown>[] = [
 ];
 
-const SHARED_PIPES: Type<any>[] = [
+const SHARED_PIPES: Type<unknown>[] = [
   TranslatePipe,
 ];
 

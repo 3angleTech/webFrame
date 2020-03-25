@@ -77,7 +77,7 @@ describe('FormControlErrorsComponent', () => {
         FormControlErrorsComponent,
         FormControlErrorsTestFormComponent,
         TranslatePipeStub,
-      ] as Type<any>[],
+      ] as Type<unknown>[],
       providers: [
         {
           provide: ITranslationService,

@@ -24,7 +24,7 @@ import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
 import { ResetPasswordPageComponent } from './pages/reset-password-page/reset-password-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
-const FEATURE_COMPONENTS: Type<any>[] = [
+const FEATURE_COMPONENTS: Type<unknown>[] = [
   AccountFeatureComponent,
   ConfirmEmailPageComponent,
   ForgotPasswordPageComponent,
