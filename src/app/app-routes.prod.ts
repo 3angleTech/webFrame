@@ -4,13 +4,12 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-// tslint:disable:no-implicit-dependencies
-
 /**
  * Routes for production environments.
  */
 import { Routes } from '@angular/router';
 
+/* tslint:disable:no-implicit-dependencies typedef */
 export const APP_ROUTES: Routes = [
   {
     path: '',

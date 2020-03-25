@@ -5,7 +5,7 @@
  */
 
 /**
- * Routes for production environments.
+ * Routes for development environments.
  */
 import { Routes } from '@angular/router';
 import { AuthenticatedGuard } from 'app-shared/security';

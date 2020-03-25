@@ -9,21 +9,26 @@
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { CoreModule } from 'app-shared/core';
 import { SecurityModule } from 'app-shared/security';
 
-import { AppRoutingModule } from './app-routing.module';
+import { APP_ROUTES } from './app-routes';
 import { AppComponent } from './app.component';
 
 @NgModule({
+  bootstrap: [
+    AppComponent,
+  ],
+  declarations: [
+    AppComponent,
+  ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RouterModule.forRoot(APP_ROUTES),
     CoreModule.forRoot(),
     SecurityModule.forRoot(),
   ],
-  declarations: [AppComponent],
-  bootstrap: [AppComponent],
 })
 export class AppModule {
 }
