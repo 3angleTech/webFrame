@@ -8,14 +8,10 @@
  * Provides the security app-shared module.
  */
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
-import { AccountService, IAccountService } from 'app-shared/core/service/account/account.service';
+
 import { AuthenticatedGuard } from './guards/authenticated.guard';
 
 const SHARED_ROOT_PROVIDERS: Provider[] = [
-  {
-    provide: IAccountService,
-    useClass: AccountService,
-  },
   AuthenticatedGuard,
 ];
 
