@@ -1,12 +1,17 @@
-<span>name</span> <input type="text" paceholder="name" [(ngModel)]="search">
-<input type="button" value="Search" (click)="searchForProducts()">
+<form (submit)="searchForProducts()">
+  <label>
+    <span>{{ 'Name' }}</span>&nbsp;
+    <input [(ngModel)]="search" name="search" type="text">
+  </label>
+  <input type="submit" value="Search">
+</form>
 
-  <table>
+<table>
+  <thead>
     <tr>
-
       <th *ngFor="let column of displayedColumns"
-        [ngClass]="{ clickable: column == sortQuery.column }"
-        (click)="sortChanged(column)">
+          [ngClass]="{ clickable: column == sortQuery.column }"
+          (click)="sortChanged(column)">
         {{column}}
         <span *ngIf="column == sortQuery.column">
           <ng-container *ngIf="sortQuery.direction == ''">&nbsp;</ng-container>
@@ -15,15 +20,19 @@
         </span>
       </th>
     </tr>
-    <ng-container *ngIf="!(isLoading | async); else loading">
-      <tr *ngFor="let row of (dataSource | async)?.results">
-          <td *ngFor="let column of displayedColumns">{{row[column]}}</td>
-      </tr>
-    </ng-container>
-  </table>
-  <ng-template #loading>
-    Loading ...
-  </ng-template>
+  </thead>
+
+  <tbody>
+    <tr *ngIf="isLoading | async">
+      <td [attr.colspan]="displayedColumns.length">
+        {{ 'Loading...' }}
+      </td>
+    </tr>
+    <tr *ngFor="let row of (dataSource | async)?.results">
+      <td *ngFor="let column of displayedColumns">{{row[column]}}</td>
+    </tr>
+  </tbody>
+</table>
 
 <input type="button" value="prev" (click)="pageChange(pageIndex - 1)">
 {{pageIndex}}

@@ -18,7 +18,6 @@
     "pipe-prefix": false,
     "prefer-readonly": false,
     "template-no-call-expression": false,
-    "template-no-negated-async": false,
     "template-use-track-by-function": false,
     "variable-name": false
   }
