@@ -136,10 +136,13 @@ export class AccountService implements IAccountService {
   }
 
   public logout(): Observable<Empty> {
-    // TODO: Implement logout feature
-    // tslint:disable-next-line:no-console
-    console.log('logout');
-    return of(null);
+    return this.webRequest.get<Empty>({
+      serverApi: ServerApi.Logout,
+    }).pipe(
+      map(() => {
+        return new Empty();
+      }),
+    );
   }
 
   public signup(information: IAccountInformation): Observable<null> {
