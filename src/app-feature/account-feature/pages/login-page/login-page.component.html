@@ -37,7 +37,7 @@
   </label>
 
   <div class="app-form__actions">
-    <button class="app-button--with-icon" type="submit" name="submit">
+    <button class="app-button--with-icon" type="submit" name="submit" [disabled]="loginForm.disabled">
       <i class="material-icons">lock_open</i>
       <span class="text">{{ 'Login' | translate }}</span>
     </button>

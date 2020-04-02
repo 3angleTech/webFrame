@@ -44,12 +44,12 @@ export interface IWebFrameContextUIService {
   ): void;
 }
 
-export const IWebFrameContextUIService = new InjectionToken(
-  'IWebFrameContextUIService');
+export const IWebFrameContextUIService =
+  new InjectionToken('IWebFrameContextUIService');
 
 export interface IDialogConfiguration {
-  title: string,
-  message: string,
+  title: string;
+  message: string;
 }
 
 @Injectable()
