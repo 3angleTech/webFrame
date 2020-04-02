@@ -10,6 +10,10 @@ exports.config = {
   baseUrl: 'http://localhost:4200/',
   directConnect: true,
   framework: 'jasmine',
+  noGlobals: true,
+  // Explicitly disable the deprecated WebDriver Control Flow.
+  // TODO: Remove when updating to selenium-webdriver@4 and protractor@6.
+  SELENIUM_PROMISE_MANAGER: false,
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
@@ -21,6 +25,7 @@ exports.config = {
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000,
     print: function() {},
+    random: false,
     showColors: true,
   },
   onPrepare() {

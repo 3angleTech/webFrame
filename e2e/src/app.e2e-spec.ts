@@ -18,18 +18,18 @@ describe('webFrame', () => {
     page = new AppPage();
   });
 
-  it('should display the public account pages', () => {
-    page.navigateToRoot();
-    expect(page.getPageTitle()).toEqual('Login');
+  it('should display the public account pages', async () => {
+    await page.navigateToRoot();
+    expect(await page.getPageTitle()).toEqual('Login');
 
-    page.navigateToSignupPage();
-    expect(page.getPageTitle()).toEqual('Signup');
+    await page.navigateToSignupPage();
+    expect(await page.getPageTitle()).toEqual('Signup');
 
-    page.navigateToRoot();
-    expect(page.getPageTitle()).toEqual('Login');
+    await page.navigateToRoot();
+    expect(await page.getPageTitle()).toEqual('Login');
 
-    page.navigateToForgotPasswordPage();
-    expect(page.getPageTitle()).toEqual('Forgot password');
+    await page.navigateToForgotPasswordPage();
+    expect(await page.getPageTitle()).toEqual('Forgot password');
   });
 
   afterEach(async () => {
