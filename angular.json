@@ -185,8 +185,9 @@
             "protractorConfig": "e2e/protractor.conf.js"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "web-frame:serve:production"
+            "ci": {
+              "devServerTarget": "web-frame:serve",
+              "protractorConfig": "e2e/protractor-ci.conf.js"
             }
           }
         }

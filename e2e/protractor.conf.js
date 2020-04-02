@@ -12,6 +12,11 @@ exports.config = {
   framework: 'jasmine',
   capabilities: {
     browserName: 'chrome',
+    chromeOptions: {
+      args: [
+        '--window-size=1280x768',
+      ],
+    },
   },
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000,
