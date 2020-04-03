@@ -9,7 +9,7 @@
  */
 
 export const environment = {
-  production: true,
+  devMode: false,
   clientId: '3at-api',
   apiBaseUrl: '/api/v1',
   appName: 'WebFrame-3angleTECH',

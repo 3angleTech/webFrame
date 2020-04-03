@@ -9,7 +9,9 @@
  */
 import { async, inject, TestBed } from '@angular/core/testing';
 import { createTranslationServiceStub } from 'app-shared/test-utils';
+
 import { ITranslationService } from '../service/translation/translation.service';
+
 import { TranslatePipe } from './translate.pipe';
 
 describe('TranslatePipe', () => {
@@ -34,6 +36,7 @@ describe('TranslatePipe', () => {
   it('handle empty phrases', inject([TranslatePipe, ITranslationService],
     (translatePipe: TranslatePipe) => {
       expect(translatePipe.transform(undefined)).toBe('');
+      // tslint:disable-next-line:no-null-keyword
       expect(translatePipe.transform(null)).toBe('');
       expect(translatePipe.transform('')).toBe('');
     },
@@ -46,6 +49,7 @@ describe('TranslatePipe', () => {
       expect(translatePipe.transform('100,000.00')).toBe('100,000.00');
       expect(translatePipe.transform('Test Phrase')).toBe('Test Phrase');
       expect(translatePipe.transform('test.12.123')).toBe('test.12.123');
+      // tslint:disable-next-line:no-magic-numbers
       const randomNumber = Math.floor(Math.random() * 10000);
       const unknownText = `unknown.translation.phrase${randomNumber}`;
       expect(translatePipe.transform(unknownText)).toBe(unknownText);
@@ -59,6 +63,7 @@ describe('TranslatePipe', () => {
       expect(translatePipe.transform('abc.def.ghi')).toBe('ABC DEF GHI');
       expect(translatePipe.transform('test.12')).toBe('Test 12');
 
+      // tslint:disable-next-line:no-magic-numbers
       const randomNumber = Math.floor(Math.random() * 10000);
       const args = { randomNumber: `${ randomNumber }` };
       expect(translatePipe.transform('test.random.number', args)).toBe(`Test random number: ${randomNumber}`);

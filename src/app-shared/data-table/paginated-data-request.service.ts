@@ -13,6 +13,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 export interface DataTableSearchQuery {
+    // tslint:disable-next-line:no-any
     [key: string]: any;
 }
 
@@ -92,10 +93,11 @@ export abstract class PaginatedDataRequestService<T> implements IPaginatedDataRe
         this.latestQuery = query;
         this.loading.next(true);
         this.getPage(query).pipe(delay(1000)).subscribe((pageObject) => {
-            this.loading.next(false);
+            // tslint:disable-next-line:no-inferred-empty-object-type
             const pagesResultClass = this.getPagedResultClass();
             const page = this.jsonConverter.deserialize(pageObject, pagesResultClass);
             this.data.next(page);
+            this.loading.next(false);
         });
     }
 
@@ -104,5 +106,5 @@ export abstract class PaginatedDataRequestService<T> implements IPaginatedDataRe
     }
 
     protected abstract getPage<Q extends DataTableQuery>(query: Q): Observable<PagedResult<T>>;
-    protected abstract getPagedResultClass(): { new(): PagedResult<T> };
+    protected abstract getPagedResultClass(): new() => PagedResult<T>;
 }

@@ -4,8 +4,12 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-import { Inject, InjectionToken } from '@angular/core';
-import { INotificationConfiguration, INotificationService } from '../notification/notification.service';
+import { Inject, Injectable, InjectionToken } from '@angular/core';
+
+import {
+  INotificationConfiguration,
+  INotificationService,
+} from '../notification/notification.service';
 
 /**
  * Service for common UI operations.
@@ -13,7 +17,7 @@ import { INotificationConfiguration, INotificationService } from '../notificatio
 export interface IWebFrameContextUIService {
   /**
    * Show a notification.
-   * @param configuration The configuration for notifaction.
+   * @param configuration The configuration for notification.
    */
   showNotification(configuration: INotificationConfiguration): void;
 
@@ -22,7 +26,10 @@ export interface IWebFrameContextUIService {
    * @param configuration The configuration of the dialog.
    * @param cancelCallback The cancel callback of the dialog.
    */
-  showDialog(configuration: IDialogConfiguration, cancelCallback: Function): void;
+  showDialog(
+    configuration: IDialogConfiguration,
+    cancelCallback: Function,
+  ): void;
 
   /**
    * Show a confirmation dialog.
@@ -30,36 +37,45 @@ export interface IWebFrameContextUIService {
    * @param confirmCallback The confirmation callback of the dialog.
    * @param cancelCallback  The cancel callback of the dialog.
    */
-  showConfirmationDialog(configuration: IDialogConfiguration, confirmCallback: Function, cancelCallback: Function): void;
+  showConfirmationDialog(
+    configuration: IDialogConfiguration,
+    confirmCallback: Function,
+    cancelCallback: Function,
+  ): void;
 }
-export const IWebFrameContextUIService = new InjectionToken('IWebFrameContextUIService');
 
-// tslint:disable-next-line:no-empty-interface
-// export interface INotificationConfiguration {
-//   // TODO
-// }
+export const IWebFrameContextUIService = new InjectionToken(
+  'IWebFrameContextUIService');
 
-// tslint:disable-next-line:no-empty-interface
 export interface IDialogConfiguration {
-  // TODO
+  title: string,
+  message: string,
 }
 
-// tslint:disable:no-duplicate-string
+@Injectable()
 export class WebFrameContextUIService implements IWebFrameContextUIService {
   constructor(
     @Inject(INotificationService)
     private notificationService: INotificationService,
-  ) { }
+  ) {
+  }
 
   public showNotification(configuration: INotificationConfiguration): void {
     this.notificationService.showNotification(configuration);
   }
 
-  public showDialog(configuration: IDialogConfiguration, cancelCallback: Function): void {
-    throw new Error('Method not implemented.');
-  }
-  public showConfirmationDialog(configuration: IDialogConfiguration, confirmCallback: Function, cancelCallback: Function): void {
+  public showDialog(
+    configuration: IDialogConfiguration,
+    cancelCallback: Function,
+  ): void {
     throw new Error('Method not implemented.');
   }
 
+  public showConfirmationDialog(
+    configuration: IDialogConfiguration,
+    confirmCallback: Function,
+    cancelCallback: Function,
+  ): void {
+    throw new Error('Method not implemented.');
+  }
 }

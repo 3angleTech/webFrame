@@ -28,14 +28,14 @@ export class DataTablePageComponent implements OnInit {
   public pageIndex: number = 0;
   public pageSize: number = 3;
 
-  public column_sort: DataTableSortQuery;
+  public sortQuery: DataTableSortQuery;
   constructor(
     @Inject(ProductDataTableController)
     private tableController: ProductDataTableController,
   ) { }
 
   public ngOnInit(): void {
-    this.column_sort = {
+    this.sortQuery = {
       column: 'id',
       direction: '',
     };
@@ -57,10 +57,10 @@ export class DataTablePageComponent implements OnInit {
     return this.tableController.paginatorVm;
   }
 
-  public pageChange(pageIndex: any): void {
+  public pageChange(pageIndex: number): void {
     this.pageIndex = Math.max(pageIndex, 0);
 
-    this.tableController.input_events.paginationChange.next({
+    this.tableController.inputEvents.paginationChange.next({
       page: this.pageIndex,
       pageSize: this.pageSize,
     });
@@ -68,34 +68,34 @@ export class DataTablePageComponent implements OnInit {
 
   public pageSizeChange(pageSize: string): void {
     this.pageSize = parseInt(pageSize, 10);
-    this.tableController.input_events.paginationChange.next({
+    this.tableController.inputEvents.paginationChange.next({
       page: this.pageIndex,
       pageSize: this.pageSize,
     });
   }
 
   public searchForProducts(): void {
-    this.tableController.input_events.searchChange.next({
+    this.tableController.inputEvents.searchChange.next({
       name: this.search,
     });
   }
 
   public sortChanged(column: string): void {
-    if (column !== this.column_sort.column) {
+    if (column !== this.sortQuery.column) {
       return;
     }
 
-    switch (this.column_sort.direction ) {
+    switch (this.sortQuery.direction ) {
       case '':
-        this.column_sort.direction = 'asc';
+        this.sortQuery.direction = 'asc';
         break;
       case 'asc':
-        this.column_sort.direction = 'desc';
+        this.sortQuery.direction = 'desc';
         break;
       case 'desc':
-        this.column_sort.direction = '';
+        this.sortQuery.direction = '';
         break;
     }
-    this.tableController.input_events.sortChange.next(this.column_sort);
+    this.tableController.inputEvents.sortChange.next(this.sortQuery);
   }
 }

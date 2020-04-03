@@ -5,6 +5,7 @@
  */
 
 import { JsonObject } from 'json2typescript';
+
 import { BaseDataObject } from './base.do';
 
 @JsonObject

@@ -4,14 +4,13 @@
  * Available under MIT license webFrame/LICENSE
  */
 
- // tslint:disable:no-implicit-dependencies
-
 /**
- * Routes for production environments.
+ * Routes for development environments.
  */
 import { Routes } from '@angular/router';
-import { AuthenticatedGuard } from 'app-shared/security/guards/authenticated.guard';
+import { AuthenticatedGuard } from 'app-shared/security';
 
+/* tslint:disable:no-implicit-dependencies typedef */
 export const APP_ROUTES: Routes = [
   {
     path: '',

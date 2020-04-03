@@ -6,11 +6,12 @@
 
 import { Inject, Injectable } from '@angular/core';
 import { Dictionary } from 'app-shared/core';
-import { forEach, isNil, isString } from 'lodash';
+import { isNil, isString } from 'lodash';
 
 import { environment } from '../../../../environments/environment';
 import { IStringTemplateService } from '../string-template/string-template.service';
 import { QueryParameterValueType, UrlParameterValueType } from '../web-request/web-request.interface';
+
 import { IApiEndpointBuilderService, ServerApi } from './api-endpoint-builder.interface';
 
 @Injectable()
@@ -19,10 +20,11 @@ export class ApiEndpointBuilderService implements IApiEndpointBuilderService {
     @Inject(IStringTemplateService) private templateService: IStringTemplateService,
   ) { }
 
-  public getUrl(serverApi: ServerApi,
+  public getUrl(
+    serverApi: ServerApi,
     queryParameters: Dictionary<QueryParameterValueType>,
-    urlParameters: Dictionary<UrlParameterValueType>): string {
-
+    urlParameters: Dictionary<UrlParameterValueType>,
+  ): string {
     const baseUrl = this.getBaseUrl(serverApi, urlParameters);
 
     const queryString = this.buildParamQueryString(queryParameters);
@@ -33,11 +35,13 @@ export class ApiEndpointBuilderService implements IApiEndpointBuilderService {
       }
       url += queryString;
     }
+
     return url;
   }
 
   private getBaseUrl(serverApi: ServerApi, urlParameters: Dictionary<UrlParameterValueType>): string {
     const urlTemplate = `${environment.apiBaseUrl}${serverApi}`;
+
     return this.templateService.interpolate(urlTemplate, urlParameters);
   }
 
@@ -46,22 +50,22 @@ export class ApiEndpointBuilderService implements IApiEndpointBuilderService {
       return '';
     }
 
-    const paramKeyList = this.getQueryParametersWithValue(queryParameters);
+    const paramKeyList: string[] = this.getQueryParametersWithValue(queryParameters);
     if (paramKeyList.length === 0) {
       return '';
     }
 
     let queryString = '?';
-    paramKeyList.forEach((pKey, pKeyIndex) => {
+    paramKeyList.forEach((pKey: string, pKeyIndex: number): void => {
       let token = '';
       const pValue = queryParameters[pKey];
       if (pValue instanceof Array) {
-        (<any[]>pValue).forEach((item: any, pValueIndex: number) => {
+        pValue.forEach((item: UrlParameterValueType, pValueIndex: number) => {
           token += `${pKey}=${encodeURIComponent(item)}`;
-          token += (pValueIndex !== (<any[]>pValue).length - 1) ? '&' : '';
+          token += (pValueIndex !== pValue.length - 1) ? '&' : '';
         });
       } else {
-        token = `${pKey}=${encodeURIComponent(<any>pValue)}`;
+        token = `${pKey}=${encodeURIComponent(pValue)}`;
       }
 
       queryString += token;
@@ -71,17 +75,18 @@ export class ApiEndpointBuilderService implements IApiEndpointBuilderService {
     return queryString;
   }
 
-  private getQueryParametersWithValue(urlParameters: Dictionary<QueryParameterValueType>): { [param: string]: any } {
+  private getQueryParametersWithValue(urlParameters: Dictionary<QueryParameterValueType>): string[] {
     const emptyString = '';
     const paramKeyList = Object.keys(urlParameters);
-    const filteredParamKeyList = [];
+    const filteredParamKeyList: string[] = [];
 
-    forEach(paramKeyList, (pKey) => {
+    paramKeyList.forEach((pKey: string): void => {
       const value = urlParameters[pKey];
       if (!isNil(value) && !(isString(value) && value.trim() === emptyString)) {
         filteredParamKeyList.push(pKey);
       }
     });
+
     return filteredParamKeyList;
   }
 }

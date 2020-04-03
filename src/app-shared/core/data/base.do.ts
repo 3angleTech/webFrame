@@ -5,6 +5,7 @@
  */
 
 import { JsonProperty } from 'json2typescript';
+
 import { ISODateConverter } from '../data-converters/iso-date-converter';
 
 export class BaseDataObject {

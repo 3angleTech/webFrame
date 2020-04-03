@@ -34,15 +34,16 @@ export interface RequestConfiguration {
   queryParameters?: Dictionary<QueryParameterValueType>;
   urlParameters?: Dictionary<UrlParameterValueType>;
   contentType?: RequestContentType;
+  // tslint:disable-next-line:no-any
   body?: any;
 }
 
 export interface IWebRequestService {
   /**
-     * GET resource<T>
-     * @param config The request configuration.
-     * @param instance The instance of object <T>.
-     */
+   * GET resource<T>
+   * @param config The request configuration.
+   * @param instance The instance of object <T>.
+   */
   get<T>(config: RequestConfiguration): Observable<T>;
   /**
    * POST resource<T>

@@ -41,14 +41,14 @@ export abstract class DataTableController<T> {
   public paginatorVm: IPaginatorVm;
   /* The service that consumes the resource from the backend and handles pagination. */
   public requestService: IPaginatedDataRequestService<T>;
-  /* Grouping of events that are triggered from the view and will determin a change in the controller. */
-  public input_events: DataTableInputEvents;
-  /* Grouping of events that are triggered from the controller and will determin changes in the view. */
-  public output_events: DataTableOutputEvents;
+  /* Grouping of events that are triggered from the view and will determine a change in the controller. */
+  public inputEvents: DataTableInputEvents;
+  /* Grouping of events that are triggered from the controller and will determine changes in the view. */
+  public outputEvents: DataTableOutputEvents;
 
   /**
-   * Boostraps the controller with the provided configuration.
-   * @param configuration The boostrap configuration.
+   * Bootstraps the controller with the provided configuration.
+   * @param configuration The bootstrap configuration.
    */
   protected bootstrap(configuration: DataTableControllerConfiguration<T>): void {
     this.configuration = configuration;
@@ -68,7 +68,7 @@ export abstract class DataTableController<T> {
     this.paginatorVm = (this.configuration.paginatorVm) ? this.configuration.paginatorVm : defaultPaginatorVm;
     this.requestService = this.configuration.requestService;
 
-    this.input_events = {
+    this.inputEvents = {
       paginationChange: new BehaviorSubject({
         page: 0,
         pageSize: this.paginatorVm.pageSize,
@@ -77,7 +77,7 @@ export abstract class DataTableController<T> {
       sortChange: new BehaviorSubject(null),
     };
 
-    this.output_events = {
+    this.outputEvents = {
       resetToFirstPage: new EventEmitter(),
     };
   }
@@ -88,29 +88,29 @@ export abstract class DataTableController<T> {
         this.paginatorVm.length = data.totalCount;
       }
     });
-    this.input_events.paginationChange.pipe(skip(1))
+    this.inputEvents.paginationChange.pipe(skip(1))
       .subscribe(() => this.refresh());
 
-    this.input_events.searchChange.pipe(skip(1))
+    this.inputEvents.searchChange.pipe(skip(1))
       .subscribe(() => {
-        this.output_events.resetToFirstPage.emit();
-        this.input_events.paginationChange.next({
+        this.outputEvents.resetToFirstPage.emit();
+        this.inputEvents.paginationChange.next({
           page: 0,
           pageSize: this.paginatorVm.pageSize,
         });
         this.refresh();
       });
 
-    this.input_events.sortChange.pipe(skip(1))
+    this.inputEvents.sortChange.pipe(skip(1))
       .subscribe(() => this.refresh());
   }
 
   /* Trigger a refresh to the data table. */
   public refresh(): void {
     this.requestService.load({
-      pagination: this.input_events.paginationChange.value,
-      search: this.input_events.searchChange.value,
-      sort: this.input_events.sortChange.value,
+      pagination: this.inputEvents.paginationChange.value,
+      search: this.inputEvents.searchChange.value,
+      sort: this.inputEvents.sortChange.value,
     });
   }
 }

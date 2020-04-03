@@ -3,7 +3,7 @@
  * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
+/* tslint:disable:no-identical-functions no-multiline-string no-duplicate-string no-commented-code no-suspicious-comment */
 /**
  * Tests for FormControlErrorsComponent.
  */
@@ -12,16 +12,16 @@ import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testi
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { createTranslationServiceStub } from 'app-shared/test-utils';
+
 import { Dictionary } from '../../interface/dictionary';
 import { TranslatePipeStub } from '../../pipes/translate.pipe.stub';
 import { ITranslationService } from '../../service/translation/translation.service';
+
 import { FormControlErrorsComponent } from './form-control-errors.component';
-// tslint:disable:no-commented-code
-// tslint:disable:no-duplicate-string
-// tslint:disable:no-identical-functions
-// tslint:disable:no-multiline-string
 
 @Component({
+  selector: 'app-form-control-errors-test-form',
+  // tslint:disable-next-line:component-max-inline-declarations
   template: `
   <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
     <!-- control without any validators. -->
@@ -43,7 +43,7 @@ class FormControlErrorsTestFormComponent {
   @ViewChild(FormControlErrorsComponent, {static: true})
   public readonly formControlErrors: FormControlErrorsComponent;
 
-  public submittedValues: Dictionary<string> = null;
+  public submittedValues: Dictionary<string> = undefined;
 
   constructor() {
     this.testForm = new FormGroup({
@@ -77,7 +77,7 @@ describe('FormControlErrorsComponent', () => {
         FormControlErrorsComponent,
         FormControlErrorsTestFormComponent,
         TranslatePipeStub,
-      ] as Type<any>[],
+      ] as Type<unknown>[],
       providers: [
         {
           provide: ITranslationService,
@@ -174,7 +174,7 @@ describe('FormControlErrorsComponent', () => {
   }));
 });
 
-function countFormControlErrors(fixture: ComponentFixture<any>, formControlPath: string): string[] {
+function countFormControlErrors(fixture: ComponentFixture<unknown>, formControlPath: string): string[] {
   const controlError: DebugElement = fixture.debugElement.query(
     By.css(`[formControlPath=${formControlPath}]`),
   );

@@ -20,7 +20,7 @@ export function createTranslationServiceStub(): ITranslationService {
   // Create a fake TranslationService object with a `translate()` spy.
   return {
     translate: (phrase: TranslationPhrase, phraseArgs: TranslationPhraseArgs): string => {
-      if (phrase == null) {
+      if (phrase === undefined || phrase === null) {
         return '';
       }
 

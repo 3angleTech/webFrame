@@ -4,12 +4,12 @@
  * Available under MIT license webFrame/LICENSE
  */
 
- // This file can be replaced during build by using the `fileReplacements` array.
+// This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  devMode: true,
   clientId: '3at-api',
   apiBaseUrl: 'http://localhost:3000/api/v1',
   appName: 'WebFrame-3angleTECH',

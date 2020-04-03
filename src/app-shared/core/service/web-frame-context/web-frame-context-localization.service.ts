@@ -4,9 +4,9 @@
  * Available under MIT license webFrame/LICENSE
  */
 
- /**
-  * Service for localization operations.
-  */
+/**
+ * Service for localization operations.
+ */
 import { Injectable, InjectionToken } from '@angular/core';
 
 /**
