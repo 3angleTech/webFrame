@@ -94,6 +94,14 @@
                   "with": "src/app/app-routes.prod.ts"
                 }
               ]
+            },
+            "proxy": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.proxy.ts"
+                }
+              ]
             }
           }
         },
@@ -105,6 +113,10 @@
           "configurations": {
             "production": {
               "browserTarget": "web-frame:build:production"
+            },
+            "proxy": {
+              "browserTarget": "web-frame:build:proxy",
+              "proxyConfig": "proxy.conf.json"
             }
           }
         },
