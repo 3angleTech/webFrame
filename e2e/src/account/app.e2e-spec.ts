@@ -9,30 +9,31 @@
  */
 import { browser, logging } from 'protractor';
 
-import { AppPage } from './app.po';
+import { AppPage } from './app.page';
 
-describe('webFrame', () => {
+describe('Test if application pages work', (): void => {
   let page: AppPage;
 
-  beforeEach(() => {
+  beforeEach((): void => {
     page = new AppPage();
   });
 
-  it('should display the public account pages', async () => {
-    await page.navigateToRoot();
+  it('The "Login" public page should work', async (): Promise<void> => {
+    await page.openLoginPage();
     expect(await page.getPageTitle()).toEqual('Login');
+  });
 
-    await page.navigateToSignupPage();
+  it('The "Signup" public page should work', async (): Promise<void> => {
+    await page.openSignupPage();
     expect(await page.getPageTitle()).toEqual('Signup');
+  });
 
-    await page.navigateToRoot();
-    expect(await page.getPageTitle()).toEqual('Login');
-
-    await page.navigateToForgotPasswordPage();
+  it('The "Forgot password" public page should work', async (): Promise<void> => {
+    await page.openForgotPasswordPage();
     expect(await page.getPageTitle()).toEqual('Forgot password');
   });
 
-  afterEach(async () => {
+  afterEach(async (): Promise<void> => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
     const partialLogEntry: Partial<logging.Entry> = {
