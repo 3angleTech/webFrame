@@ -7,9 +7,20 @@
 /**
  * Provides LoginPageComponent.
  */
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAccountCredentials, IAccountService, INotificationConfiguration, IWebFrameContextService } from 'app-shared/core';
+import {
+  IAccountCredentials,
+  IAccountService,
+  INotificationConfiguration,
+  IWebFrameContextService,
+  PAGE_URL,
+} from 'app-shared/core';
 
 @Component({
   selector: 'app-login-page',
@@ -69,7 +80,7 @@ export class LoginPageComponent implements OnInit {
 
   private onLoginComplete(): void {
     this.context.state.initialize().subscribe(() => {
-      this.context.navigation.navigateToUrl('/profile');
+      this.context.navigation.navigateToUrl(PAGE_URL.PROFILE_PAGE);
     });
   }
 

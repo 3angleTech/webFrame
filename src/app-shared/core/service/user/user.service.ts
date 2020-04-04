@@ -5,9 +5,10 @@
  */
 
 import { Inject, InjectionToken } from '@angular/core';
-import { User } from 'app-shared/core/data/user.do';
-import { ICRUDService } from 'app-shared/core/interface/common.interface';
 import { Observable } from 'rxjs';
+
+import { User } from '../../data/user.do';
+import { ICRUDService } from '../../interface/common.interface';
 import { ServerApi } from '../api-endpoint-builder/api-endpoint-builder.interface';
 import { IWebRequestService, RequestConfiguration } from '../web-request/web-request.interface';
 

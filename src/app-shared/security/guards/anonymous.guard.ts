@@ -14,7 +14,7 @@ import {
 import { IWebFrameContextStateService, PAGE_URL } from 'app-shared/core';
 
 @Injectable()
-export class AuthenticatedGuard implements CanActivate {
+export class AnonymousGuard implements CanActivate {
   constructor(
     @Inject(IWebFrameContextStateService)
     private stateService: IWebFrameContextStateService,
@@ -26,8 +26,8 @@ export class AuthenticatedGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): boolean | UrlTree {
-    if (!this.stateService.isAuthenticated()) {
-      return this.router.parseUrl(PAGE_URL.LOGIN_PAGE);
+    if (this.stateService.isAuthenticated()) {
+      return this.router.parseUrl(PAGE_URL.PROFILE_PAGE);
     }
     return true;
   }

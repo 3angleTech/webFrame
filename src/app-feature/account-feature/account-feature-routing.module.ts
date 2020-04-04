@@ -9,7 +9,9 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnonymousGuard, AuthenticatedGuard } from 'app-shared/security';
 import { DefaultShellComponent } from 'app-shell/default-shell';
+
 import { AccountFeatureComponent } from './account-feature.component';
 import { ConfirmEmailPageComponent } from './pages/confirm-email-page/confirm-email-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
@@ -42,10 +44,16 @@ const routes: Routes = [
           {
             path: 'forgot-password',
             component: ForgotPasswordPageComponent,
+            canActivate: [
+              AnonymousGuard,
+            ],
           },
           {
             path: 'reset-password',
             component: ResetPasswordPageComponent,
+            canActivate: [
+              AnonymousGuard,
+            ],
           },
           {
             path: 'invite-users',
@@ -54,10 +62,16 @@ const routes: Routes = [
           {
             path: 'login',
             component: LoginPageComponent,
+            canActivate: [
+              AnonymousGuard,
+            ],
           },
           {
             path: 'logout',
             component: LogoutPageComponent,
+            canActivate: [
+              AuthenticatedGuard,
+            ],
           },
           {
             path: 'information/:informationId',
@@ -66,6 +80,9 @@ const routes: Routes = [
           {
             path: 'signup',
             component: SignupPageComponent,
+            canActivate: [
+              AnonymousGuard,
+            ],
           },
         ],
       },
@@ -77,4 +94,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AccountFeatureRoutingModule { }
+export class AccountFeatureRoutingModule {
+}

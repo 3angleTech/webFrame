@@ -9,9 +9,11 @@
  */
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
 
+import { AnonymousGuard } from './guards/anonymous.guard';
 import { AuthenticatedGuard } from './guards/authenticated.guard';
 
 const SHARED_ROOT_PROVIDERS: Provider[] = [
+  AnonymousGuard,
   AuthenticatedGuard,
 ];
 

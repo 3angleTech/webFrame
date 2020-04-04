@@ -5,10 +5,10 @@
  */
 
 import { Inject, Injectable } from '@angular/core';
-import { Dictionary } from 'app-shared/core';
 import { isNil, isString } from 'lodash';
 
 import { environment } from '../../../../environments/environment';
+import { Dictionary } from '../../interface/dictionary';
 import { IStringTemplateService } from '../string-template/string-template.service';
 import { QueryParameterValueType, UrlParameterValueType } from '../web-request/web-request.interface';
 
