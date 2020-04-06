@@ -45,6 +45,12 @@ describe('Test if application pages work', (): void => {
     expect(await page.getPageTitle()).toEqual('Profile');
   });
 
+  it('User should be able to logout', async (): Promise<void> => {
+    expect(await page.getPageTitle()).toEqual('Profile');
+    await page.clickLogoutButton();
+    expect(await page.getPageTitle()).toEqual('Login');
+  });
+
   afterEach(async (): Promise<void> => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
