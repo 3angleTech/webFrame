@@ -33,8 +33,13 @@ To run unit tests in a headless browser use: `npm run test:ci`
 
 ## Running end-to-end tests
 
+Before running the tests, create an `environments/e2e.env` configuration file based on `environments/sample-e2e.env`.
+
 Run `npm run e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+To run unit tests in a headless browser use: `npm run e2e:ci`
+
+To run or debug unit tests in IDEs, you first need to run `npm run e2e` in order to prepare the WebDriver files.
 
 ## Further help
 

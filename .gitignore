@@ -35,6 +35,13 @@ testem.log
 /typings/
 tasks.todo
 
+# Environment variables
+environments/e2e.env
+environments/local.env
+environments/local-*.env
+environments/staging.env
+environments/prod.env
+
 # System Files
 .DS_Store
 Thumbs.db

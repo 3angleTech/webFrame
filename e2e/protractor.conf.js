@@ -1,6 +1,9 @@
 // @ts-check
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
+require('dotenv').config({
+  path: require('path').join(__dirname, '../environments/e2e.env'),
+});
 
 /**
  * @type { import('protractor').Config }
@@ -32,8 +35,15 @@ exports.config = {
       project: require('path').join(__dirname, './tsconfig.json'),
     });
     const { SpecReporter } = require('jasmine-spec-reporter');
+    /** @type { import('protractor').Reporter } */
     const specReporter = new SpecReporter({ spec: { displayStacktrace: 'pretty' } });
     jasmine.getEnv().addReporter(specReporter);
+  },
+  params: {
+    E2E_LOGIN_EMAIL: process.env.E2E_LOGIN_EMAIL,
+    E2E_LOGIN_PASSWORD: process.env.E2E_LOGIN_PASSWORD,
+    E2E_INVALID_LOGIN_EMAIL: process.env.E2E_INVALID_LOGIN_EMAIL,
+    E2E_INVALID_LOGIN_PASSWORD: process.env.E2E_INVALID_LOGIN_PASSWORD,
   },
   specs: [
     './src/**/*.e2e-spec.ts',
