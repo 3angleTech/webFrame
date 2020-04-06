@@ -41,6 +41,8 @@ To run unit tests in a headless browser use: `npm run e2e:ci`
 
 To run or debug unit tests in IDEs, you first need to run `npm run e2e` in order to prepare the WebDriver files.
 
+[protractor.angular.io][https://protractor.angular.io/] contains information on how to write e2e tests. 
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
