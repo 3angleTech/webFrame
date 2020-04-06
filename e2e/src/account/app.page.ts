@@ -5,7 +5,7 @@
  */
 
 import { IAccountCredentials, PAGE_URL } from 'app-shared/core';
-import { browser, by, element, Key, WebElement } from 'protractor';
+import { browser, by, Key, WebElement } from 'protractor';
 
 export class AppPage {
   public async openHomePage(): Promise<void> {
@@ -17,7 +17,7 @@ export class AppPage {
   }
 
   public async getPageTitle(): Promise<string> {
-    return element(by.css('app-root h1.app-page__title')).getText();
+    return browser.findElement(by.css('app-root h1.app-page__title')).getText();
   }
 
   public async openLoginPage(): Promise<void> {
