@@ -42,8 +42,6 @@ exports.config = {
   params: {
     E2E_LOGIN_EMAIL: process.env.E2E_LOGIN_EMAIL,
     E2E_LOGIN_PASSWORD: process.env.E2E_LOGIN_PASSWORD,
-    E2E_INVALID_LOGIN_EMAIL: process.env.E2E_INVALID_LOGIN_EMAIL,
-    E2E_INVALID_LOGIN_PASSWORD: process.env.E2E_INVALID_LOGIN_PASSWORD,
   },
   specs: [
     './src/**/*.e2e-spec.ts',
