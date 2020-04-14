@@ -6,13 +6,13 @@
 import { IAccountCredentials } from 'app-shared/core';
 import { browser, logging } from 'protractor';
 
-import { LoginPage } from './login.page';
+import { LoginTestability } from './login.testability';
 
 describe('Test if login works', (): void => {
-  let page: LoginPage;
+  let page: LoginTestability;
 
   beforeEach((): void => {
-    page = new LoginPage();
+    page = new LoginTestability();
   });
 
   it('User should be able to login', async (): Promise<void> => {

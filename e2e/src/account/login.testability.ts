@@ -7,9 +7,9 @@
 import { IAccountCredentials } from 'app-shared/core';
 import { browser, by, Key, WebElement } from 'protractor';
 
-import { AccountPage } from './account.page';
+import { AccountTestability } from './account.testability';
 
-export class LoginPage extends AccountPage {
+export class LoginTestability extends AccountTestability {
   /**
    * Used after the login on the Profile page in order to trigger the logout.
    */

@@ -6,7 +6,7 @@
 import { PAGE_URL } from 'app-shared/core';
 import { browser, by, WebElement } from 'protractor';
 
-export class AccountPage {
+export class AccountTestability {
   public async openHomePage(): Promise<void> {
     return browser.get(PAGE_URL.HOME_PAGE);
   }

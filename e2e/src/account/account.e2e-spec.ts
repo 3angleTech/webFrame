@@ -5,13 +5,13 @@
  */
 import { browser, by, logging } from 'protractor';
 
-import { AccountPage } from './account.page';
+import { AccountTestability } from './account.testability';
 
 describe('Test if account pages work', (): void => {
-  let page: AccountPage;
+  let page: AccountTestability;
 
   beforeEach((): void => {
-    page = new AccountPage();
+    page = new AccountTestability();
   });
 
   it('The "Home" page should redirect to the "Login" page', async (): Promise<void> => {
