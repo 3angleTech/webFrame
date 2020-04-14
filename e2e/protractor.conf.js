@@ -11,7 +11,6 @@ require('dotenv').config({
 exports.config = {
   allScriptsTimeout: 11000,
   baseUrl: 'http://localhost:4200/',
-  directConnect: true,
   framework: 'jasmine',
   noGlobals: true,
   // Explicitly disable the deprecated WebDriver Control Flow.
@@ -25,6 +24,7 @@ exports.config = {
       ],
     },
   },
+  highlightDelay: 0 + process.env.E2E_HIGHLIGHT_DELAY,
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000,
     random: false,
