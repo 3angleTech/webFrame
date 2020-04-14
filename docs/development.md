@@ -39,9 +39,23 @@ Run `npm run e2e` to execute the end-to-end tests via [Protractor](http://www.pr
 
 To run unit tests in a headless browser use: `npm run e2e:ci`
 
-To run or debug unit tests in IDEs, you first need to run `npm run e2e` in order to prepare the WebDriver files.
+To run or debug e2e tests in IDEs, you first need to run `npm run e2e` in order to prepare the WebDriver files.
 
 [protractor.angular.io][https://protractor.angular.io/] contains information on how to write e2e tests. 
+
+You can also use the protractor CLI directly in order to avoid having to wait for Angular to rebuild while only working on tests:
+
+    # Run a development server in one terminal:
+    npm run start
+
+    # Run e2e tests in another terminal
+    npx protractor ./e2e/protractor-ci.conf.js
+
+    # You can also limit the number of tests tests are being executed:
+    npx protractor ./e2e/protractor-ci.conf.js --specs ./e2e/src/account/login.e2e-spec.ts
+    # or use RegExp to only run certain tests, like tests that end with 'invalid credentials$':
+    npx protractor ./e2e/protractor-ci.conf.js --grep='invalid credentials$'
+
 
 ## Further help
 
