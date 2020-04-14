@@ -7,13 +7,16 @@
  */
 const config = require('./protractor.conf').config;
 
+delete config.highlightDelay;
 config.capabilities = {
   browserName: 'chrome',
   chromeOptions: {
-    // NOTE: Docker containers need properly created users.
     // @see https://developers.google.com/web/updates/2017/04/headless-chrome
     args: [
       '--headless',
+      // NOTE: Docker containers need properly created users.
+      // TODO: Enable the sandbox.
+      '--no-sandbox',
       '--window-size=1280,720',
     ],
   },

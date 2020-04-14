@@ -26,7 +26,7 @@ exports.config = {
   },
   highlightDelay: 0 + process.env.E2E_HIGHLIGHT_DELAY,
   jasmineNodeOpts: {
-    defaultTimeoutInterval: 30000,
+    defaultTimeoutInterval: 10000,
     random: false,
     showColors: true,
   },
