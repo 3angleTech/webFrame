@@ -87,7 +87,6 @@ export class LoginPageComponent implements OnInit {
   private onLoginError(err: unknown): void {
     this.loginForm.enable();
     if (typeof err === 'object' && err['message']) {
-      console.warn(err);
       alert('Login error!');
       this.loginForm.setErrors({
         submitError: err['message'],
