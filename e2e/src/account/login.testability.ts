@@ -17,13 +17,20 @@ export class LoginTestability extends AccountTestability {
     await browser.findElement(by.name('logout')).click();
   }
 
-  public async submitLoginCredentials(credentials: IAccountCredentials): Promise<void> {
+  public async submitLoginCredentials(credentials: IAccountCredentials, useEnterKey?: boolean): Promise<void> {
     const formEl: WebElement = await browser.findElement(by.tagName('form'));
     // tslint:disable-next-line:no-any
     const formData: Record<string, string> = credentials as any;
     await this.setReactiveFormData(formEl, formData);
 
-    // Login by pressing the enter key when the password field is selected.
-    return formEl.findElement(by.name('password')).sendKeys(Key.ENTER);
+    if (useEnterKey) {
+      // Login by pressing the enter key when the last (password) field is selected.
+      const lastField: string = Object.keys(formData).pop();
+      await formEl.findElement(by.name(lastField)).sendKeys(Key.ENTER);
+    } else {
+      await formEl.findElement(by.name('submit')).click();
+    }
+
+    return browser.waitForAngular();
   }
 }

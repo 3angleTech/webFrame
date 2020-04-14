@@ -19,6 +19,10 @@ export class AccountTestability {
     return browser.get(PAGE_URL.LOGIN_PAGE);
   }
 
+  public async openLogoutPage(): Promise<void> {
+    return browser.get(PAGE_URL.LOGOUT_PAGE);
+  }
+
   public async openSignupPage(): Promise<void> {
     return browser.get(PAGE_URL.SIGNUP_PAGE);
   }

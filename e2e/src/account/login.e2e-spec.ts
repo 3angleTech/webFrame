@@ -4,7 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { IAccountCredentials } from 'app-shared/core';
-import { browser, ExpectedConditions, logging } from 'protractor';
+import { browser, logging } from 'protractor';
 
 import { LoginTestability } from './login.testability';
 
@@ -15,7 +15,24 @@ describe('Test if login works', (): void => {
     page = new LoginTestability();
   });
 
-  it('User should be able to login', async (): Promise<void> => {
+  it('User should be able to login - by pressing Enter', async (): Promise<void> => {
+    await page.openLoginPage();
+    expect(await page.getPageTitle()).toEqual('Login');
+    const credentials: IAccountCredentials = {
+      email: browser.params.E2E_LOGIN_EMAIL,
+      password: browser.params.E2E_LOGIN_PASSWORD,
+    };
+    const useEnterKey: boolean = true;
+    await page.submitLoginCredentials(credentials, useEnterKey);
+    expect(await page.getPageTitle()).not.toEqual('Login');
+  });
+
+  it('User should be able to logout - by opening the logout page', async (): Promise<void> => {
+    await page.openLogoutPage();
+    expect(await page.getPageTitle()).toEqual('Login');
+  });
+
+  it('User should be able to login - by clicking submit', async (): Promise<void> => {
     await page.openLoginPage();
     expect(await page.getPageTitle()).toEqual('Login');
     const credentials: IAccountCredentials = {
@@ -23,10 +40,10 @@ describe('Test if login works', (): void => {
       password: browser.params.E2E_LOGIN_PASSWORD,
     };
     await page.submitLoginCredentials(credentials);
-    expect(browser.getCurrentUrl()).not.toContain('login');
+    expect(await page.getPageTitle()).not.toEqual('Login');
   });
 
-  it('User should be able to logout', async (): Promise<void> => {
+  it('User should be able to logout - by clicking the logout button', async (): Promise<void> => {
     expect(await page.getPageTitle()).toEqual('Profile');
     await page.clickLogoutButton();
     expect(await page.getPageTitle()).toEqual('Login');
