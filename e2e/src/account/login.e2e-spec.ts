@@ -4,7 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { IAccountCredentials } from 'app-shared/core';
-import { browser, logging } from 'protractor';
+import { browser, ExpectedConditions, logging } from 'protractor';
 
 import { LoginTestability } from './login.testability';
 
@@ -23,7 +23,7 @@ describe('Test if login works', (): void => {
       password: browser.params.E2E_LOGIN_PASSWORD,
     };
     await page.submitLoginCredentials(credentials);
-    expect(await page.getPageTitle()).toEqual('Profile');
+    expect(browser.getCurrentUrl()).not.toContain('login');
   });
 
   it('User should be able to logout', async (): Promise<void> => {
