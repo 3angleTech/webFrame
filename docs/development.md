@@ -48,6 +48,9 @@ You can also use the protractor CLI directly in order to avoid having to wait fo
     # Run a development server in one terminal:
     npm run start
 
+    # Install dependencies for running e2e tests
+    npx webdriver-manager update
+
     # Run e2e tests in another terminal
     npx protractor ./e2e/protractor-ci.conf.js
 
