@@ -10,19 +10,20 @@ import { LoginTestability } from './login.testability';
 
 describe('Test if login works', (): void => {
   let page: LoginTestability;
+  let credentials: IAccountCredentials;
+  const useEnterKey: boolean = true;
 
   beforeEach((): void => {
     page = new LoginTestability();
+    credentials = {
+      email: browser.params.E2E_LOGIN_EMAIL,
+      password: browser.params.E2E_LOGIN_PASSWORD,
+    };
   });
 
   it('User should be able to login - by pressing Enter', async (): Promise<void> => {
     await page.openLoginPage();
     expect(await page.getPageTitle()).toEqual('Login');
-    const credentials: IAccountCredentials = {
-      email: browser.params.E2E_LOGIN_EMAIL,
-      password: browser.params.E2E_LOGIN_PASSWORD,
-    };
-    const useEnterKey: boolean = true;
     await page.submitLoginCredentials(credentials, useEnterKey);
     expect(await page.getPageTitle()).not.toEqual('Login');
   });
@@ -35,10 +36,6 @@ describe('Test if login works', (): void => {
   it('User should be able to login - by clicking submit', async (): Promise<void> => {
     await page.openLoginPage();
     expect(await page.getPageTitle()).toEqual('Login');
-    const credentials: IAccountCredentials = {
-      email: browser.params.E2E_LOGIN_EMAIL,
-      password: browser.params.E2E_LOGIN_PASSWORD,
-    };
     await page.submitLoginCredentials(credentials);
     expect(await page.getPageTitle()).not.toEqual('Login');
   });
