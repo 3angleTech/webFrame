@@ -3,17 +3,12 @@
  * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
+import { PAGE_URL } from 'app-shared/core';
+import { browser, by, WebElement } from 'protractor';
 
-import { IAccountCredentials, PAGE_URL } from 'app-shared/core';
-import { browser, by, Key, WebElement } from 'protractor';
-
-export class AppPage {
+export class AccountPage {
   public async openHomePage(): Promise<void> {
     return browser.get(PAGE_URL.HOME_PAGE);
-  }
-
-  public async clickLogoutButton(): Promise<void> {
-    await browser.findElement(by.name('logout')).click();
   }
 
   public async getPageTitle(): Promise<string> {
@@ -32,7 +27,17 @@ export class AppPage {
     return browser.get(PAGE_URL.FORGOT_PASSWORD_PAGE);
   }
 
-  public async setFormData(
+  public async clickButtonWithText(partialButtonText: string): Promise<void> {
+    const buttonEl: WebElement = await browser.findElement(by.partialButtonText(partialButtonText));
+    await buttonEl.click();
+  }
+
+  public async clickLinkWithText(partialButtonText: string): Promise<void> {
+    const linkEl: WebElement = await browser.findElement(by.partialLinkText(partialButtonText));
+    await linkEl.click();
+  }
+
+  public async setReactiveFormData(
     formEl: WebElement,
     data: Record<string, string>,
   ): Promise<void> {
@@ -40,19 +45,7 @@ export class AppPage {
     // tslint:disable-next-line:prefer-for-of
     for (let index = 0; index < inputNames.length; index++) {
       const inputName: string = inputNames[index];
-      await formEl.findElement(by.name(inputName)).sendKeys(data[inputName]);
+      formEl.findElement(by.name(inputName)).sendKeys(data[inputName]);
     }
-  }
-
-  public async submitLoginCredentials(credentials: IAccountCredentials): Promise<void> {
-    await browser.get(PAGE_URL.LOGIN_PAGE);
-
-    const formEl: WebElement = await browser.findElement(by.tagName('form'));
-    // tslint:disable-next-line:no-any
-    const formData: Record<string, string> = credentials as any;
-    await this.setFormData(formEl, formData);
-
-    // Login by pressing the enter key when the password field is selected.
-    return formEl.findElement(by.name('password')).sendKeys(Key.ENTER);
   }
 }

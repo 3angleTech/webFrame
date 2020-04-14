@@ -3,35 +3,16 @@
  * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
-/**
- * End-To-End tests for AppPage.
- */
 import { IAccountCredentials } from 'app-shared/core';
 import { browser, logging } from 'protractor';
 
-import { AppPage } from './app.page';
+import { LoginPage } from './login.page';
 
-describe('Test if application pages work', (): void => {
-  let page: AppPage;
+describe('Test if login works', (): void => {
+  let page: LoginPage;
 
   beforeEach((): void => {
-    page = new AppPage();
-  });
-
-  it('The "Login" public page should work', async (): Promise<void> => {
-    await page.openLoginPage();
-    expect(await page.getPageTitle()).toEqual('Login');
-  });
-
-  it('The "Signup" public page should work', async (): Promise<void> => {
-    await page.openSignupPage();
-    expect(await page.getPageTitle()).toEqual('Signup');
-  });
-
-  it('The "Forgot password" public page should work', async (): Promise<void> => {
-    await page.openForgotPasswordPage();
-    expect(await page.getPageTitle()).toEqual('Forgot password');
+    page = new LoginPage();
   });
 
   it('User should be able to login', async (): Promise<void> => {

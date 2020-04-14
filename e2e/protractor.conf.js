@@ -36,7 +36,8 @@ exports.config = {
     });
     const { SpecReporter } = require('jasmine-spec-reporter');
     /** @type { import('protractor').Reporter } */
-    const specReporter = new SpecReporter({ spec: { displayStacktrace: 'pretty' } });
+    const specReporter = new SpecReporter({ spec: { displayStacktrace: 'raw' } });
+    jasmine.getEnv().clearReporters();
     jasmine.getEnv().addReporter(specReporter);
   },
   params: {
