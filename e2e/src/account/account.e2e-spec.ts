@@ -7,7 +7,7 @@ import { browser, by, logging } from 'protractor';
 
 import { AccountTestability } from './account.testability';
 
-describe('Test if account pages work', (): void => {
+describe('Test Account public pages', (): void => {
   let page: AccountTestability;
 
   beforeEach((): void => {

@@ -5,17 +5,20 @@
  */
 import { IAccountCredentials } from 'app-shared/core';
 import { browser, ExpectedConditions, logging } from 'protractor';
+// tslint:disable-next-line:no-implicit-dependencies
 import { Alert } from 'selenium-webdriver';
+
+import { withExpectedErrorForApiEndpoint } from '../utils/with-expected-error-for-api-endpoint';
 
 import { LoginTestability } from './login.testability';
 
-describe('Test if login works', (): void => {
+describe('Test Login feature', (): void => {
   let page: LoginTestability;
   let validCredentials: IAccountCredentials;
   const useEnterKey: boolean = true;
 
   // TODO: Find a way to remove the known/expected errors from the browser console.
-  let ignoreConsoleError: boolean;
+  let ignoreKnownErrors: boolean;
   let invalidCredentials: IAccountCredentials;
 
   beforeAll((): void => {
@@ -26,13 +29,13 @@ describe('Test if login works', (): void => {
     const randomNumber: number = Math.floor(Math.random() * 1000);
     invalidCredentials = {
       email: browser.params.E2E_LOGIN_EMAIL,
-      password: '--InvalidPassword--' + randomNumber,
+      password: `--InvalidPassword--${ randomNumber }`,
     };
   });
 
   beforeEach((): void => {
     page = new LoginTestability();
-    ignoreConsoleError = false;
+    ignoreKnownErrors = false;
   });
 
   it('User should be able to login - by pressing Enter', async (): Promise<void> => {
@@ -63,7 +66,7 @@ describe('Test if login works', (): void => {
   it('User should see the error message when providing invalid credentials', async (): Promise<void> => {
     await page.openLoginPage();
     expect(await page.getPageTitle()).toEqual('Login');
-    ignoreConsoleError = true;
+    ignoreKnownErrors = true;
     await page.submitLoginCredentials(invalidCredentials, useEnterKey);
     await browser.wait(ExpectedConditions.alertIsPresent());
     const alert: Alert = await browser.switchTo().alert();
@@ -78,13 +81,8 @@ describe('Test if login works', (): void => {
     const partialLogEntry: Partial<logging.Entry> = {
       level: logging.Level.SEVERE,
     };
-    if (logs.length === 1 && ignoreConsoleError) {
-      const firstLog: logging.Entry = logs[0];
-      // Ignore auth/token error caused by sending invalid password.
-      // TODO: Find a way to remove the known/expected errors from the browser console.
-      if (firstLog.message.includes('/auth/token')) {
-        return Promise.resolve();
-      }
+    if (ignoreKnownErrors && withExpectedErrorForApiEndpoint(logs, '/auth/token')) {
+      return Promise.resolve();
     }
     expect(logs).not.toContain(jasmine.objectContaining(partialLogEntry));
   });

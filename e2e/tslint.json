@@ -4,10 +4,7 @@
     "no-function-expression": false,
     "no-implicit-dependencies": [
       true,
-      "dev",
-      [
-        "selenium-webdriver"
-      ]
+      "dev"
     ]
   }
 }

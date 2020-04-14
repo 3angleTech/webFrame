@@ -14,4 +14,5 @@ export const enum PAGE_URL {
   LOGOUT_PAGE = '/account/logout',
   SIGNUP_PAGE = '/account/signup',
   PROFILE_PAGE = '/profile',
+  PROFILE_SETTINGS_PAGE = '/profile/settings',
 }

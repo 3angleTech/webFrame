@@ -49,6 +49,7 @@ export class AccountTestability {
     // tslint:disable-next-line:prefer-for-of
     for (let index = 0; index < inputNames.length; index++) {
       const inputName: string = inputNames[index];
+      await formEl.findElement(by.name(inputName)).clear();
       await formEl.findElement(by.name(inputName)).sendKeys(data[inputName]);
     }
   }

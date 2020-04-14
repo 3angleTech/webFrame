@@ -17,6 +17,9 @@ export { Dictionary } from './interface/dictionary';
 export { PAGE_URL } from './other/page-url.enum';
 
 export {
+  ServerApi,
+} from './service/api-endpoint-builder/api-endpoint-builder.interface';
+export {
   IJsonConverterService,
 } from './service/json-converter/json-converter.service';
 export {
