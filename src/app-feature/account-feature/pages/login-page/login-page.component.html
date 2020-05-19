@@ -12,7 +12,7 @@
   <label class="app-form__element--block">
     <span class="app-form__element-label">{{ 'Email:' | translate }}</span>
     <span class="app-form__element-input">
-      <input type="text" class="app-form__text-input" formControlName="email" autofocus>
+      <input type="text" class="app-form__text-input" formControlName="email" name="email">
       <app-form-control-errors namespace="loginPage.errors" formControlPath="email"></app-form-control-errors>
     </span>
   </label>
@@ -20,7 +20,7 @@
   <label class="app-form__element--block">
     <span class="app-form__element-label">{{ 'Password:' | translate }}</span>
     <span class="app-form__element-input">
-      <input type="password" class="app-form__text-input" formControlName="password">
+      <input type="password" class="app-form__text-input" formControlName="password" name="password">
       <app-form-control-errors namespace="loginPage.errors" formControlPath="password"></app-form-control-errors>
     </span>
   </label>
@@ -31,13 +31,13 @@
 
   <label class="app-form__element--inline-block">
     <span class="app-form__element-input">
-      <input #staySignedInCheckbox type="checkbox" class="app-form__checkbox-input" formControlName="staySignedIn">
+      <input type="checkbox" class="app-form__checkbox-input" formControlName="staySignedIn" name="staySignedIn">
     </span>
     <span class="app-form__element-label">{{ 'Stay signed in' | translate }}</span>
   </label>
 
   <div class="app-form__actions">
-    <button class="app-button--with-icon" type="submit">
+    <button class="app-button--with-icon" type="submit" name="submit" [disabled]="loginForm.disabled">
       <i class="material-icons">lock_open</i>
       <span class="text">{{ 'Login' | translate }}</span>
     </button>
@@ -50,7 +50,7 @@
   <div class="app-form__actions">
     <button class="app-button--with-icon" type="button" routerLink="/account/signup">
       <i class="material-icons">person</i>
-      <span class="text">{{ 'Create a new account?' | translate }}</span>
+      <span class="text">{{ 'Create account' | translate }}</span>
     </button>
   </div>
 </form>

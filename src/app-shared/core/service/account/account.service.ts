@@ -6,13 +6,19 @@
 
 import { HttpParams } from '@angular/common/http';
 import { Inject, Injectable, InjectionToken } from '@angular/core';
+import { getCookieValue } from 'app-shared/utils';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 import { environment } from '../../../../environments/environment';
 import { Empty } from '../../data/empty.do';
 import { ServerApi } from '../api-endpoint-builder/api-endpoint-builder.interface';
 import { IJsonConverterService } from '../json-converter/json-converter.service';
-import { IWebRequestService, RequestContentType } from '../web-request/web-request.interface';
+import { IStorageService } from '../storage/storage.service';
+import {
+  IWebRequestService,
+  RequestContentType,
+} from '../web-request/web-request.interface';
 
 export interface IAccountCredentials {
   email: string;
@@ -42,6 +48,15 @@ export interface IAccountInformation {
 }
 
 export interface IAccountService {
+  /**
+   * UNSAFE method for quickly checking if a user is authenticated during the
+   * application initialization process. This method is required to avoid making
+   * API requests when they are not needed.
+   *
+   * NOTE: You should use the state service whenever possible.
+   */
+  authenticatedCookieExists(): boolean;
+
   login(credentials: IAccountCredentials): Observable<Empty>;
 
   logout(): Observable<Empty>;
@@ -61,11 +76,17 @@ export const IAccountService = new InjectionToken('IAccountService');
 export class AccountService implements IAccountService {
 
   constructor(
-    @Inject(IWebRequestService)
-    private webRequest: IWebRequestService,
     @Inject(IJsonConverterService)
     private jsonConverter: IJsonConverterService,
+    @Inject(IStorageService)
+    private storageService: IStorageService,
+    @Inject(IWebRequestService)
+    private webRequest: IWebRequestService,
   ) {
+  }
+
+  public authenticatedCookieExists(): boolean {
+    return getCookieValue('authenticated') === 'true';
   }
 
   public changePassword(request: IAccountChangePasswordRequest): Observable<Empty> {
@@ -136,10 +157,13 @@ export class AccountService implements IAccountService {
   }
 
   public logout(): Observable<Empty> {
-    // TODO: Implement logout feature
-    // tslint:disable-next-line:no-console
-    console.log('logout');
-    return of(null);
+    return this.webRequest.get<Empty>({
+      serverApi: ServerApi.Logout,
+    }).pipe(
+      map(() => {
+        return new Empty();
+      }),
+    );
   }
 
   public signup(information: IAccountInformation): Observable<null> {

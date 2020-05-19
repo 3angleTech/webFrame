@@ -12,8 +12,7 @@ import { IAccountService, IWebFrameContextService } from 'app-shared/core';
 
 @Component({
   selector: 'app-logout-page',
-  templateUrl: './logout-page.component.html',
-  styleUrls: ['./logout-page.component.scss'],
+  template: '',
 })
 export class LogoutPageComponent implements OnInit {
 

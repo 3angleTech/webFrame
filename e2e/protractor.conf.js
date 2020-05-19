@@ -1,32 +1,50 @@
 // @ts-check
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
-
-const { SpecReporter } = require('jasmine-spec-reporter');
+require('dotenv').config({
+  path: require('path').join(__dirname, '../environments/e2e.env'),
+});
 
 /**
- * @type { import("protractor").Config }
+ * @type { import('protractor').Config }
  */
 exports.config = {
   allScriptsTimeout: 11000,
-  specs: [
-    './src/**/*.e2e-spec.ts'
-  ],
-  capabilities: {
-    'browserName': 'chrome'
-  },
-  directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
+  noGlobals: true,
+  // Explicitly disable the deprecated WebDriver Control Flow.
+  // TODO: Remove when updating to selenium-webdriver@4 and protractor@6.
+  SELENIUM_PROMISE_MANAGER: false,
+  capabilities: {
+    browserName: 'chrome',
+    chromeOptions: {
+      args: [
+        '--window-size=1280x768',
+      ],
+    },
+  },
+  highlightDelay: 0 + process.env.E2E_HIGHLIGHT_DELAY,
   jasmineNodeOpts: {
+    defaultTimeoutInterval: 10000,
+    random: false,
     showColors: true,
-    defaultTimeoutInterval: 30000,
-    print: function() {}
   },
   onPrepare() {
     require('ts-node').register({
-      project: require('path').join(__dirname, './tsconfig.json')
+      project: require('path').join(__dirname, './tsconfig.json'),
     });
-    jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: 'pretty' } }));
-  }
+    const { SpecReporter } = require('jasmine-spec-reporter');
+    /** @type { import('protractor').Reporter } */
+    const specReporter = new SpecReporter({ spec: { displayStacktrace: 'raw' } });
+    jasmine.getEnv().clearReporters();
+    jasmine.getEnv().addReporter(specReporter);
+  },
+  params: {
+    E2E_LOGIN_EMAIL: process.env.E2E_LOGIN_EMAIL,
+    E2E_LOGIN_PASSWORD: process.env.E2E_LOGIN_PASSWORD,
+  },
+  specs: [
+    './src/**/*.e2e-spec.ts',
+  ],
 };

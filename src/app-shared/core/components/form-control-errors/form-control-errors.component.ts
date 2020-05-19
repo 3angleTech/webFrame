@@ -28,7 +28,7 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
   ];
 
   protected formControl: FormControl;
-  public controlErrors$: Observable<string[] | null>;
+  public controlErrors$: Observable<string[] | undefined>;
 
   /**
    * Touch events are not emitted by form controls, this emit an event when a
@@ -63,11 +63,12 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
       this.formControl.valueChanges,
       this.formControlTouchedChanges,
     ).pipe(
-      map((): string[] | null => {
+      map((): string[] | undefined => {
         if (this.formControl.errors) {
           return this.getErrorPhrases(this.formControl.errors);
         }
-        return null;
+
+        return undefined;
       }),
     );
   }

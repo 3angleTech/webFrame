@@ -11,5 +11,6 @@
  */
 
 export { firstOrDefault } from './first-or-default';
+export { getCookieValue } from './get-cookie-value';
 export { isNil } from './is-nil';
 export { tryGetValue } from './try-get-value';

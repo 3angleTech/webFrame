@@ -19,6 +19,7 @@ import {
 } from './service/account/account.service';
 import { IApiEndpointBuilderService } from './service/api-endpoint-builder/api-endpoint-builder.interface';
 import { ApiEndpointBuilderService } from './service/api-endpoint-builder/api-endpoint-builder.service';
+import { APP_INITIALIZER_PROVIDERS } from './service/app-initializer.service';
 import {
   IJsonConverterService,
   JsonConverterService,
@@ -75,6 +76,7 @@ const SHARED_PIPES: Type<unknown>[] = [
 ];
 
 const SHARED_ROOT_PROVIDERS: Provider[] = [
+  APP_INITIALIZER_PROVIDERS,
   {
     provide: IAccountService,
     useClass: AccountService,

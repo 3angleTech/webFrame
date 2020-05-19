@@ -6,7 +6,13 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { IAccountService, INotificationConfiguration, IWebFrameContextNavigationService, IWebFrameContextService } from 'app-shared/core';
+import {
+  IAccountService,
+  INotificationConfiguration,
+  IWebFrameContextNavigationService,
+  IWebFrameContextService,
+  PAGE_URL,
+} from 'app-shared/core';
 import { IAccountChangePasswordRequest, IAccountResetPasswordRequest } from 'app-shared/core/service/account/account.service';
 import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
 
@@ -46,6 +52,9 @@ export class PasswordChangeFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    if (this.passwordChangeForm.disabled) {
+      return;
+    }
     if (this.passwordChangeForm.invalid) {
       const notificationConfig: INotificationConfiguration = {
         message: 'Invalid data provided.',
@@ -53,20 +62,37 @@ export class PasswordChangeFormComponent implements OnInit {
       this.context.ui.showNotification(notificationConfig);
       return;
     }
+    this.passwordChangeForm.disable();
 
     const rawValue = this.passwordChangeForm.getRawValue();
-
     const resetPasswordReq: IAccountChangePasswordRequest = {
       currentPassword: rawValue.currentPassword,
       newPassword: rawValue.newPasswordsGroup.newPassword,
     };
-    const onSuccess = (): void => {
-      const notificationConfig: INotificationConfiguration = {
-        message: 'Password changed.',
-      };
-      this.context.ui.showNotification(notificationConfig);
-    };
 
-    this.accountService.changePassword(resetPasswordReq).subscribe(onSuccess);
+    this.accountService.changePassword(resetPasswordReq).subscribe({
+      error: (err: unknown): void => this.onChangePasswordError(err),
+      complete: (): void => this.onChangePasswordComplete(),
+    });
+  }
+
+  private onChangePasswordComplete(): void {
+    this.passwordChangeForm.enable();
+    const notificationConfig: INotificationConfiguration = {
+      message: 'Password changed!',
+    };
+    this.context.ui.showNotification(notificationConfig);
+  }
+
+  private onChangePasswordError(err: unknown): void {
+    this.passwordChangeForm.enable();
+    if (typeof err === 'object' && err['message']) {
+      alert('Password change error!');
+      this.passwordChangeForm.setErrors({
+        submitError: err['message'],
+      });
+    } else {
+      throw err;
+    }
   }
 }
