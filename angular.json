@@ -199,7 +199,8 @@
           "configurations": {
             "ci": {
               "devServerTarget": "web-frame:serve",
-              "protractorConfig": "web-frame-e2e/protractor-ci.conf.js"
+              "protractorConfig": "web-frame-e2e/protractor-ci.conf.js",
+              "webdriverUpdate": false
             }
           }
         }

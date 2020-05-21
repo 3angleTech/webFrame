@@ -63,6 +63,7 @@
     "start": "ng serve",
     "start:proxy": "ng serve --configuration=proxy",
     "test": "ng test",
-    "test:ci": "ng test --configuration=ci"
+    "test:ci": "ng test --configuration=ci",
+    "webdriver-update": "webdriver-manager update --gecko=false --chrome=false"
   }
 }
