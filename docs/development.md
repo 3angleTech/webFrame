@@ -52,12 +52,12 @@ You can also use the protractor CLI directly in order to avoid having to wait fo
     npx webdriver-manager update
 
     # Run e2e tests in another terminal
-    npx protractor ./e2e/protractor-ci.conf.js
+    npx protractor ./web-frame-e2e/protractor-ci.conf.js
 
     # You can also limit the number of tests tests are being executed:
-    npx protractor ./e2e/protractor-ci.conf.js --specs ./e2e/src/account/login.e2e-spec.ts
+    npx protractor ./web-frame-e2e/protractor-ci.conf.js --specs ./web-frame-e2e/src/account/login.e2e-spec.ts
     # or use RegExp to only run certain tests, like tests that end with 'invalid credentials$':
-    npx protractor ./e2e/protractor-ci.conf.js --grep='invalid credentials$'
+    npx protractor ./web-frame-e2e/protractor-ci.conf.js --grep='invalid credentials$'
 
 
 ## Further help
