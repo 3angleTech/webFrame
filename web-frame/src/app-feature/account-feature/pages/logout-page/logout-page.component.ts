@@ -8,7 +8,7 @@
  * Provides LogoutPageComponent.
  */
 import { Component, Inject, OnInit } from '@angular/core';
-import { IAccountService, IWebFrameContextService } from 'app-shared/core';
+import { IAccountService, IWebFrameContextService } from '~app-shared/core';
 
 @Component({
   selector: 'app-logout-page',

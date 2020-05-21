@@ -8,7 +8,8 @@
  * Provides the sandbox feature module.
  */
 import { NgModule, Type } from '@angular/core';
-import { DefaultShellModule } from 'app-shell/default-shell/default-shell.module';
+import { DefaultShellModule } from '~app-shell/default-shell';
+
 import { SandboxFeatureRoutingModule } from './sandbox-feature-routing.module';
 import { SandboxFeatureComponent } from './sandbox-feature.component';
 

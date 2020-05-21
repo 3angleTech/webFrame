@@ -56,13 +56,14 @@
     "build:prod": "ng build --prod",
     "e2e": "ng run web-frame:e2e",
     "e2e:ci": "ng run web-frame:e2e:ci",
-    "lint": "npm run lint:ts && npm run lint:style",
+    "lint": "ng lint && npm run lint:style",
+    "lint:ci": "ng lint --configuration=ci && npm run lint:style",
     "lint:style": "stylelint './web-frame/src/**/*.*css'",
-    "lint:ts": "ng lint --configuration=ci",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "start": "ng serve",
     "start:proxy": "ng serve --configuration=proxy",
     "test": "ng test",
-    "test:ci": "ng test --configuration=ci"
+    "test:ci": "ng test --configuration=ci",
+    "webdriver-update": "webdriver-manager update --gecko=false --chrome=false"
   }
 }

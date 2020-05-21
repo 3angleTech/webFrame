@@ -4,7 +4,11 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from 'app-shared/core';
+import {
+  ITranslationService,
+  TranslationPhrase,
+  TranslationPhraseArgs,
+} from '~app-shared/core';
 
 /**
  * Provides a stub for testing components that depend on the translation service.

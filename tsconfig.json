@@ -28,9 +28,36 @@
       "ES2018"
     ],
     "paths": {
-      "app-feature/*": ["./web-frame/src/app-feature/*"],
-      "app-shared/*": ["./web-frame/src/app-shared/*"],
-      "app-shell/*": ["./web-frame/src/app-shell/*"]
+      "~app-feature/account-feature": [
+        "./web-frame/src/app-feature/account-feature/index.ts"
+      ],
+      "~app-feature/profile-feature": [
+        "./web-frame/src/app-feature/profile-feature/index.ts"
+      ],
+      "~app-feature/sandbox-feature": [
+        "./web-frame/src/app-feature/sandbox-feature/index.ts"
+      ],
+      "~app-shared/core": [
+        "./web-frame/src/app-shared/core/index.ts"
+      ],
+      "~app-shared/data-table": [
+        "./web-frame/src/app-shared/data-table/index.ts"
+      ],
+      "~app-shared/security": [
+        "./web-frame/src/app-shared/security/index.ts"
+      ],
+      "~app-shared/test-utils": [
+        "./web-frame/src/app-shared/test-utils/index.ts"
+      ],
+      "~app-shared/utils": [
+        "./web-frame/src/app-shared/utils/index.ts"
+      ],
+      "~app-shell/default-shell": [
+        "./web-frame/src/app-shell/default-shell/index.ts"
+      ],
+      "~app-shell/minimal-shell": [
+        "./web-frame/src/app-shell/minimal-shell/index.ts"
+      ]
     }
   }
 }

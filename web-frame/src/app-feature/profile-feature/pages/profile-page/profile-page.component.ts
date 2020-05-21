@@ -8,8 +8,8 @@
  * Provides ProfilePageComponent.
  */
 import { Component, Inject, OnInit } from '@angular/core';
-import { IWebFrameContextStateService, User } from 'app-shared/core';
 import { Observable } from 'rxjs';
+import { IWebFrameContextStateService, User } from '~app-shared/core';
 
 @Component({
   selector: 'app-profile-page',

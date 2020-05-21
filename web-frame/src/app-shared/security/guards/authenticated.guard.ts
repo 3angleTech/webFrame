@@ -11,7 +11,7 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { IWebFrameContextStateService, PAGE_URL } from 'app-shared/core';
+import { IWebFrameContextStateService, PAGE_URL } from '~app-shared/core';
 
 @Injectable()
 export class AuthenticatedGuard implements CanActivate {

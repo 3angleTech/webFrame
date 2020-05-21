@@ -4,11 +4,16 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { PagedResult } from 'app-shared/core/data/paged-result.do';
-import { IPaginatorVm } from 'app-shared/data-table/data-table.controller';
-import { DataTableSortQuery } from 'app-shared/data-table/paginated-data-request.service';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { PagedResult } from '~app-shared/core';
+import { DataTableSortQuery, IPaginatorVm } from '~app-shared/data-table';
+
 import { ProductDataTableController } from './product-data-table.controller';
 import { ProductPaginatedDataRequestService } from './product-paginated-data-request.service';
 import { Product } from './product.do';

@@ -10,8 +10,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { CoreModule } from 'app-shared/core';
-import { SecurityModule } from 'app-shared/security';
+import { CoreModule } from '~app-shared/core';
+import { SecurityModule } from '~app-shared/security';
 
 import { APP_ROUTES } from './app-routes';
 import { AppComponent } from './app.component';

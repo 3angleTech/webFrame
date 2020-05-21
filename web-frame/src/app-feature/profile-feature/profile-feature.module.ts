@@ -10,9 +10,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CoreModule } from 'app-shared/core';
-import { SecurityModule } from 'app-shared/security';
-import { DefaultShellModule } from 'app-shell/default-shell';
+import { CoreModule } from '~app-shared/core';
+import { SecurityModule } from '~app-shared/security';
+import { DefaultShellModule } from '~app-shell/default-shell';
+
 import { PasswordChangeFormComponent } from './components/password-change-form/password-change-form.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { ProfileSettingsPageComponent } from './pages/profile-settings-page/profile-settings-page.component';

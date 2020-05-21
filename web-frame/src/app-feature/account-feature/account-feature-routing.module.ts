@@ -9,8 +9,8 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AnonymousGuard, AuthenticatedGuard } from 'app-shared/security';
-import { DefaultShellComponent } from 'app-shell/default-shell';
+import { AnonymousGuard, AuthenticatedGuard } from '~app-shared/security';
+import { DefaultShellComponent } from '~app-shell/default-shell';
 
 import { AccountFeatureComponent } from './account-feature.component';
 import { ConfirmEmailPageComponent } from './pages/confirm-email-page/confirm-email-page.component';

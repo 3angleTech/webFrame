@@ -9,7 +9,7 @@
  */
 import { Routes } from '@angular/router';
 
-/* tslint:disable:no-implicit-dependencies typedef */
+/* tslint:disable:typedef */
 export const APP_ROUTES: Routes = [
   {
     path: '',
@@ -18,10 +18,10 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'account',
-    loadChildren: () => import('app-feature/account-feature/account-feature.module').then(m => m.AccountFeatureModule),
+    loadChildren: () => import('~app-feature/account-feature').then(m => m.default),
   },
   {
     path: 'profile',
-    loadChildren: () => import('app-feature/profile-feature/profile-feature.module').then(m => m.ProfileFeatureModule),
+    loadChildren: () => import('~app-feature/profile-feature').then(m => m.default),
   },
 ];

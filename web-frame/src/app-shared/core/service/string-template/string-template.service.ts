@@ -6,8 +6,7 @@
 
 import { Injectable, InjectionToken } from '@angular/core';
 import { forEach, map, union } from 'lodash';
-
-import { isNil } from 'app-shared/utils';
+import { isNil } from '~app-shared/utils';
 
 export interface IStringTemplateService {
   /**

@@ -14,7 +14,6 @@
     "no-unbound-method": false,
     "no-unsafe-any": false,
     "template-cyclomatic-complexity": false,
-    "ordered-imports": false,
     "pipe-prefix": false,
     "prefer-readonly": false,
     "template-no-call-expression": false,

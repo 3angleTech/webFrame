@@ -5,7 +5,8 @@
  */
 
 import { Inject, Injectable } from '@angular/core';
-import { DataTableController } from 'app-shared/data-table/data-table.controller';
+import { DataTableController } from '~app-shared/data-table';
+
 import { ProductPaginatedDataRequestService } from './product-paginated-data-request.service';
 import { Product } from './product.do';
 

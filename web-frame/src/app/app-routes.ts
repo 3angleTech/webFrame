@@ -8,9 +8,9 @@
  * Routes for development environments.
  */
 import { Routes } from '@angular/router';
-import { AuthenticatedGuard } from 'app-shared/security';
+import { AuthenticatedGuard } from '~app-shared/security';
 
-/* tslint:disable:no-implicit-dependencies typedef */
+/* tslint:disable:typedef */
 export const APP_ROUTES: Routes = [
   {
     path: '',
@@ -19,15 +19,15 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'account',
-    loadChildren: () => import('app-feature/account-feature/account-feature.module').then(m => m.AccountFeatureModule),
+    loadChildren: () => import('~app-feature/account-feature').then(m => m.default),
   },
   {
     path: 'profile',
     canActivate: [AuthenticatedGuard],
-    loadChildren: () => import('app-feature/profile-feature/profile-feature.module').then(m => m.ProfileFeatureModule),
+    loadChildren: () => import('~app-feature/profile-feature').then(m => m.default),
   },
   {
     path: 'sandbox',
-    loadChildren: () => import('app-feature/sandbox-feature/sandbox-feature.module').then(m => m.SandboxFeatureModule),
+    loadChildren: () => import('~app-feature/sandbox-feature').then(m => m.default),
   },
 ];

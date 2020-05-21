@@ -3,18 +3,25 @@
  * Copyright (c) 2019 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {
+  IAccountChangePasswordRequest,
   IAccountService,
   INotificationConfiguration,
   IWebFrameContextNavigationService,
   IWebFrameContextService,
-  PAGE_URL,
-} from 'app-shared/core';
-import { IAccountChangePasswordRequest, IAccountResetPasswordRequest } from 'app-shared/core/service/account/account.service';
-import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
+} from '~app-shared/core';
+import {
+  passwordGroupConfirmedValidator,
+  passwordPolicyComposedValidators,
+} from '~app-shared/security';
 
 @Component({
   selector: 'app-password-change-form',

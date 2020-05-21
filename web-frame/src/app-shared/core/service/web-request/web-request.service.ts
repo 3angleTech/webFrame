@@ -7,7 +7,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { IApiEndpointBuilderService } from '../api-endpoint-builder/api-endpoint-builder.interface';
+
 import { IWebRequestService, RequestConfiguration, RequestContentType } from './web-request.interface';
 
 export type RequestStrategy<T> = (url: string, headers: HttpHeaders, body?: string) => Observable<T>;

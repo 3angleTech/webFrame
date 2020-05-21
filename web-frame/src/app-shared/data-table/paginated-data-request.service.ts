@@ -5,12 +5,14 @@
  */
 
 import { Inject, Injectable } from '@angular/core';
-import { Dictionary} from 'app-shared/core';
-import { PagedResult } from 'app-shared/core/data/paged-result.do';
-import { IJsonConverterService } from 'app-shared/core/service/json-converter/json-converter.service';
-import { IWebRequestService } from 'app-shared/core/service/web-request/web-request.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import {
+  Dictionary,
+  IJsonConverterService,
+  IWebRequestService,
+  PagedResult,
+} from '~app-shared/core';
 
 export interface DataTableSearchQuery {
     // tslint:disable-next-line:no-any
