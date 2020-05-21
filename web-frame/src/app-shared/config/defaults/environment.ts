@@ -12,6 +12,7 @@ import { IEnvironmentConfig } from '../interfaces/environment-config.interface';
  */
 export const ENVIRONMENT: Readonly<IEnvironmentConfig> = {
   apiBaseUrl: 'http://localhost:3000/api/v1',
+  appBaseUrl: '/',
   appName: 'WebFrame-3angleTECH',
   clientId: '3at-api',
   clientSecret: '5r5rd15c650f4849119eb894939d9fdaaf5f7d0e7e0f65de15b71bfa6411011y',

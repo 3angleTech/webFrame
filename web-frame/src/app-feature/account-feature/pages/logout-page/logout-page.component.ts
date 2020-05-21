@@ -1,13 +1,10 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
-/**
- * Provides LogoutPageComponent.
- */
 import { Component, Inject, OnInit } from '@angular/core';
+import { ENVIRONMENT } from '~app-shared/config';
 import { IAccountService, IWebFrameContextService } from '~app-shared/core';
 
 @Component({
@@ -24,6 +21,8 @@ export class LogoutPageComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.accountService.logout().subscribe(() => window.location.href = '/');
+    this.accountService.logout().subscribe(() => {
+      window.location.href = ENVIRONMENT.appBaseUrl;
+    });
   }
 }
