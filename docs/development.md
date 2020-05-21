@@ -10,8 +10,9 @@ To avoid issues with CORS during development, you can run `npm run start:proxy` 
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-NOTES: To generate code outside the `src/app` directory,  you must either be in that directory or provide a path relative to the `src/app` directory:
+NOTES: To generate code outside the `web-frame/src/app` directory,  you must either be in that directory or provide a path relative to the `src/app` directory:
 
+    # @see https://github.com/angular/angular-cli/issues/17598
     cd $PROJECT_ROOT
     ng generate pipe ../app-shared/core/pipes/example-pipe
     # OR
