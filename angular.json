@@ -36,7 +36,7 @@
             "aot": true,
             "index": "web-frame/src/index.html",
             "main": "web-frame/src/main.ts",
-            "outputPath": "dist",
+            "outputPath": "dist/web-frame",
             "polyfills": "web-frame/src/polyfills.ts",
             "tsConfig": "web-frame/tsconfig.app.json",
             "assets": [
