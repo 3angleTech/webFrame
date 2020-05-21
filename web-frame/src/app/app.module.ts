@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
@@ -9,13 +9,21 @@
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { ExtraOptions, RouterModule } from '@angular/router';
 import { ConfigModule } from '~app-shared/config';
 import { CoreModule } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';
 
 import { APP_ROUTES } from './app-routes';
 import { AppComponent } from './app.component';
+
+const ROUTER_CONFIG: ExtraOptions = {
+  initialNavigation: 'disabled',
+  onSameUrlNavigation: 'reload',
+  paramsInheritanceStrategy: 'always',
+  relativeLinkResolution: 'corrected',
+  urlUpdateStrategy: 'eager',
+};
 
 @NgModule({
   bootstrap: [
@@ -27,7 +35,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     ConfigModule.forRoot(),
-    RouterModule.forRoot(APP_ROUTES),
+    RouterModule.forRoot(APP_ROUTES, ROUTER_CONFIG),
     CoreModule.forRoot(),
     SecurityModule.forRoot(),
   ],

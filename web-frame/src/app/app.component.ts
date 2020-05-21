@@ -1,17 +1,24 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
-/**
- * Provides the application's main component.
- */
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   template: '<router-outlet></router-outlet>',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  constructor(
+    private readonly router: Router,
+  ) {
+  }
+
+  public ngOnInit(): void {
+    // NOTE: Initial navigation is delayed until after APP_INITIALIZER.
+    // @see https://angular.io/api/router/InitialNavigation
+    this.router.initialNavigation();
+  }
 }
