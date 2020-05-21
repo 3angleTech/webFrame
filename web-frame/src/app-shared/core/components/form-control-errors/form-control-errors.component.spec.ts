@@ -7,11 +7,28 @@
 /**
  * Tests for FormControlErrorsComponent.
  */
-import { Component, DebugElement, Provider, Type, ViewChild } from '@angular/core';
-import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  Component,
+  DebugElement,
+  Provider,
+  Type,
+  ViewChild,
+} from '@angular/core';
+import {
+  async,
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+} from '@angular/core/testing';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { createTranslationServiceStub } from 'app-shared/test-utils';
+import { createTranslationServiceStub } from '~app-shared/test-utils';
 
 import { Dictionary } from '../../interface/dictionary';
 import { TranslatePipeStub } from '../../pipes/translate.pipe.stub';

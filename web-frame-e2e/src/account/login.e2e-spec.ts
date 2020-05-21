@@ -3,10 +3,10 @@
  * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import { IAccountCredentials } from 'app-shared/core';
 import { browser, ExpectedConditions, logging } from 'protractor';
 // tslint:disable-next-line:no-implicit-dependencies
 import { Alert } from 'selenium-webdriver';
+import { IAccountCredentials } from '~app-shared/core';
 
 import { withExpectedErrorForApiEndpoint } from '../utils/with-expected-error-for-api-endpoint';
 

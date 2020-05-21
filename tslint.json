@@ -13,9 +13,9 @@
       true,
       "dev",
       [
-        "app-feature",
-        "app-shared",
-        "app-shell"
+        "~app-feature",
+        "~app-shared",
+        "~app-shell"
       ]
     ],
     "no-import-side-effect": [

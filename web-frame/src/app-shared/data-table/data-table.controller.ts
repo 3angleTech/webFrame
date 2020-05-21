@@ -5,10 +5,16 @@
  */
 
 import { EventEmitter } from '@angular/core';
-import { isNil } from 'app-shared/utils';
 import { BehaviorSubject } from 'rxjs';
 import { skip } from 'rxjs/operators';
-import { DataTableSearchQuery, DataTableSortQuery, IPaginatedDataRequestService, PagedQuery } from './paginated-data-request.service';
+import { isNil } from '~app-shared/utils';
+
+import {
+  DataTableSearchQuery,
+  DataTableSortQuery,
+  IPaginatedDataRequestService,
+  PagedQuery,
+} from './paginated-data-request.service';
 
 export interface IPaginatorVm {
   length: number;

@@ -5,6 +5,7 @@
  */
 
 import { Inject, Injectable, InjectionToken } from '@angular/core';
+
 import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from '../translation/translation.service';
 
 export interface INotificationConfiguration {

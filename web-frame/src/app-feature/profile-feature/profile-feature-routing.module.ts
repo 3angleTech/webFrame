@@ -9,7 +9,8 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DefaultShellComponent } from 'app-shell/default-shell';
+import { DefaultShellComponent } from '~app-shell/default-shell';
+
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { ProfileSettingsPageComponent } from './pages/profile-settings-page/profile-settings-page.component';
 import { ProfileFeatureComponent } from './profile-feature.component';

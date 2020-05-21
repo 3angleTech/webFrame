@@ -8,7 +8,7 @@
  * Tests for TranslatePipe.
  */
 import { async, inject, TestBed } from '@angular/core/testing';
-import { createTranslationServiceStub } from 'app-shared/test-utils';
+import { createTranslationServiceStub } from '~app-shared/test-utils';
 
 import { ITranslationService } from '../service/translation/translation.service';
 

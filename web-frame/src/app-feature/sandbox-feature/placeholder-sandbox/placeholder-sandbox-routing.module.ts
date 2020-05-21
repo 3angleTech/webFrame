@@ -9,8 +9,9 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DefaultShellComponent } from 'app-shell/default-shell';
-import { MinimalShellComponent } from 'app-shell/minimal-shell';
+import { DefaultShellComponent } from '~app-shell/default-shell';
+import { MinimalShellComponent } from '~app-shell/minimal-shell';
+
 import { PlaceholderSandboxComponent } from './placeholder-sandbox.component';
 
 const routes: Routes = [

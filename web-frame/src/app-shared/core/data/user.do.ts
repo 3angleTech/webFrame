@@ -5,6 +5,7 @@
  */
 
 import { JsonObject, JsonProperty } from 'json2typescript';
+
 import { BaseDataObject } from './base.do';
 
 export enum UserStatus {

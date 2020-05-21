@@ -20,7 +20,7 @@ import {
   INotificationConfiguration,
   IWebFrameContextService,
   PAGE_URL,
-} from 'app-shared/core';
+} from '~app-shared/core';
 
 @Component({
   selector: 'app-login-page',

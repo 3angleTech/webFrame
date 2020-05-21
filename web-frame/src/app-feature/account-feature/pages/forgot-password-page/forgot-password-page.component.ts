@@ -7,9 +7,19 @@
 /**
  * Provides ForgotPasswordPageComponent.
  */
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAccountForgotPasswordRequest, IAccountService, INotificationConfiguration, IWebFrameContextService } from 'app-shared/core';
+import {
+  IAccountForgotPasswordRequest,
+  IAccountService,
+  INotificationConfiguration,
+  IWebFrameContextService,
+} from '~app-shared/core';
 
 @Component({
   selector: 'app-forgot-password-page',

@@ -9,7 +9,7 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DefaultShellComponent } from 'app-shell/default-shell';
+import { DefaultShellComponent } from '~app-shell/default-shell';
 
 import { SandboxFeatureComponent } from './sandbox-feature.component';
 

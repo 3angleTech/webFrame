@@ -8,7 +8,8 @@
  * Provides TranslatePipeStub.
  */
 import { Pipe, PipeTransform } from '@angular/core';
-import { createTranslationServiceStub } from 'app-shared/test-utils';
+import { createTranslationServiceStub } from '~app-shared/test-utils';
+
 import {
   ITranslationService,
   TranslationPhrase,

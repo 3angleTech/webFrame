@@ -7,10 +7,23 @@
 /**
  * Provides SignupPageComponent.
  */
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IAccountInformation, IAccountService, INotificationConfiguration, INotificationService, IWebFrameContextService } from 'app-shared/core';
-import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
+import {
+  IAccountInformation,
+  IAccountService,
+  INotificationConfiguration,
+  IWebFrameContextService,
+} from '~app-shared/core';
+import {
+  passwordGroupConfirmedValidator,
+  passwordPolicyComposedValidators,
+} from '~app-shared/security';
 
 @Component({
   selector: 'app-signup-page',

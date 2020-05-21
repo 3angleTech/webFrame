@@ -10,9 +10,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CoreModule } from 'app-shared/core';
-import { SecurityModule } from 'app-shared/security';
-import { DefaultShellModule } from 'app-shell/default-shell';
+import { CoreModule } from '~app-shared/core';
+import { SecurityModule } from '~app-shared/security';
+import { DefaultShellModule } from '~app-shell/default-shell';
+
 import { AccountFeatureRoutingModule } from './account-feature-routing.module';
 import { AccountFeatureComponent } from './account-feature.component';
 import { ConfirmEmailPageComponent } from './pages/confirm-email-page/confirm-email-page.component';

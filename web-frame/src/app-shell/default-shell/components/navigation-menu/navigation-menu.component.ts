@@ -8,8 +8,8 @@
  * Provides the main navigation menu.
  */
 import { Component, HostBinding, Inject, OnInit } from '@angular/core';
-import { IWebFrameContextStateService, User } from 'app-shared/core';
 import { Observable } from 'rxjs';
+import { IWebFrameContextStateService, User } from '~app-shared/core';
 
 import { environment } from '../../../../environments/environment';
 

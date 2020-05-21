@@ -9,7 +9,11 @@
  */
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Dictionary, IWebFrameContextNavigationService } from 'app-shared/core';
+import {
+  Dictionary,
+  IWebFrameContextNavigationService,
+} from '~app-shared/core';
+
 import { IInformationPageDetails } from './information-page-details.interface';
 
 // TODO: Refactor to use translation tokens once they exist.

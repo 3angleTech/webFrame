@@ -4,18 +4,25 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {
-  IAccountForgotPasswordRequest,
+  IAccountResetPasswordRequest,
   IAccountService,
   INotificationConfiguration,
   IWebFrameContextNavigationService,
   IWebFrameContextService,
-} from 'app-shared/core';
-import { IAccountResetPasswordRequest } from 'app-shared/core/service/account/account.service';
-import { passwordGroupConfirmedValidator, passwordPolicyComposedValidators } from 'app-shared/security';
+} from '~app-shared/core';
+import {
+  passwordGroupConfirmedValidator,
+  passwordPolicyComposedValidators,
+} from '~app-shared/security';
 
 @Component({
   selector: 'app-reset-password-page',
