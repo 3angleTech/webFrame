@@ -21,7 +21,7 @@
     "no-import-side-effect": [
       true,
       {
-        "ignore-module": "(core-js/.*|zone\\.js/.*)$"
+        "ignore-module": "(zone\\.js/.*)$"
       }
     ],
     "no-unnecessary-field-initialization": false

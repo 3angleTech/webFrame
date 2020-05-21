@@ -6,7 +6,7 @@
 
 Make sure you have installed:
 
-* NodeJS LTS v8+
+* NodeJS LTS v12+
 * NPM v6+
 
 

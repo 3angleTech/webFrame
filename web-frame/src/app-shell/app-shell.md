@@ -14,7 +14,7 @@ stand-alone modules that are shared between `app-feature` modules.
 Multiple app-shell modules can be used inside app-feature modules, but they should not be nested,
 this will cause page layout issues.
 
-Each app-shell MUST contain a `public-api.ts` file that exposes all publicly available objects.
+Each app-shell MUST contain an `index.ts` file that exposes all publicly available objects.
 
 NOTES:
 * modules MUST have the `ShellModule` suffix and their directory MUST have a `-shell` suffix.

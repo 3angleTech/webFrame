@@ -2,11 +2,11 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "defaultProject": "web-frame",
-  "newProjectRoot": "projects",
+  "newProjectRoot": "",
   "projects": {
     "web-frame": {
-      "root": "",
-      "sourceRoot": "src",
+      "root": "web-frame",
+      "sourceRoot": "web-frame/src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
@@ -34,14 +34,14 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "aot": true,
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "outputPath": "dist",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "web-frame/src/index.html",
+            "main": "web-frame/src/main.ts",
+            "outputPath": "dist/web-frame",
+            "polyfills": "web-frame/src/polyfills.ts",
+            "tsConfig": "web-frame/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "web-frame/src/favicon.ico",
+              "web-frame/src/assets"
             ],
             "scripts": [],
             "styles": [
@@ -55,16 +55,16 @@
               },
               {
                 "bundleName": "main-styles",
-                "input": "src/styles/main.scss"
+                "input": "web-frame/src/styles/main.scss"
               },
               {
                 "bundleName": "print-styles",
-                "input": "src/styles/print.scss"
+                "input": "web-frame/src/styles/print.scss"
               }
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles/includes"
+                "web-frame/src/styles/includes"
               ]
             }
           },
@@ -86,20 +86,20 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "web-frame/src/environments/environment.ts",
+                  "with": "web-frame/src/environments/environment.prod.ts"
                 },
                 {
-                  "replace": "src/app/app-routes.ts",
-                  "with": "src/app/app-routes.prod.ts"
+                  "replace": "web-frame/src/app/app-routes.ts",
+                  "with": "web-frame/src/app/app-routes.prod.ts"
                 }
               ]
             },
             "proxy": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.proxy.ts"
+                  "replace": "web-frame/src/environments/environment.ts",
+                  "with": "web-frame/src/environments/environment.proxy.ts"
                 }
               ]
             }
@@ -129,13 +129,13 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "web-frame/src/test.ts",
+            "polyfills": "web-frame/src/polyfills.ts",
+            "tsConfig": "web-frame/tsconfig.spec.json",
+            "karmaConfig": "web-frame/karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "web-frame/src/favicon.ico",
+              "web-frame/src/assets"
             ],
             "scripts": [],
             "styles": [
@@ -149,16 +149,16 @@
               },
               {
                 "bundleName": "main-styles",
-                "input": "src/styles/main.scss"
+                "input": "web-frame/src/styles/main.scss"
               },
               {
                 "bundleName": "print-styles",
-                "input": "src/styles/print.scss"
+                "input": "web-frame/src/styles/print.scss"
               }
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles/includes"
+                "web-frame/src/styles/includes"
               ]
             }
           },
@@ -176,9 +176,9 @@
             "format": "stylish",
             "tslintConfig": "tslint.json",
             "tsConfig": [
-              "e2e/tsconfig.json",
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "web-frame/tsconfig.app.json",
+              "web-frame/tsconfig.spec.json",
+              "web-frame-e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -194,12 +194,12 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "devServerTarget": "web-frame:serve",
-            "protractorConfig": "e2e/protractor.conf.js"
+            "protractorConfig": "web-frame-e2e/protractor.conf.js"
           },
           "configurations": {
             "ci": {
               "devServerTarget": "web-frame:serve",
-              "protractorConfig": "e2e/protractor-ci.conf.js"
+              "protractorConfig": "web-frame-e2e/protractor-ci.conf.js"
             }
           }
         }

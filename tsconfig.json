@@ -12,19 +12,25 @@
     "downlevelIteration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
     "module": "ESNext",
     "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
     "outDir": "./dist/out-tsc",
-    "rootDir": "./",
     "sourceMap": true,
+    "strictNullChecks": false,
     "target": "ES2015",
     "lib": [
       "DOM",
       "ES2018"
     ],
     "paths": {
-      "app-shared/*": ["./src/app-shared/*"],
-      "app-shell/*": ["./src/app-shell/*"]
+      "app-feature/*": ["./web-frame/src/app-feature/*"],
+      "app-shared/*": ["./web-frame/src/app-shared/*"],
+      "app-shell/*": ["./web-frame/src/app-shell/*"]
     }
   }
 }

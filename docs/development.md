@@ -10,8 +10,9 @@ To avoid issues with CORS during development, you can run `npm run start:proxy` 
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-NOTES: To generate code outside the `src/app` directory,  you must either be in that directory or provide a path relative to the `src/app` directory:
+NOTES: To generate code outside the `web-frame/src/app` directory,  you must either be in that directory or provide a path relative to the `src/app` directory:
 
+    # @see https://github.com/angular/angular-cli/issues/17598
     cd $PROJECT_ROOT
     ng generate pipe ../app-shared/core/pipes/example-pipe
     # OR
@@ -52,12 +53,12 @@ You can also use the protractor CLI directly in order to avoid having to wait fo
     npx webdriver-manager update
 
     # Run e2e tests in another terminal
-    npx protractor ./e2e/protractor-ci.conf.js
+    npx protractor ./web-frame-e2e/protractor-ci.conf.js
 
     # You can also limit the number of tests tests are being executed:
-    npx protractor ./e2e/protractor-ci.conf.js --specs ./e2e/src/account/login.e2e-spec.ts
+    npx protractor ./web-frame-e2e/protractor-ci.conf.js --specs ./web-frame-e2e/src/account/login.e2e-spec.ts
     # or use RegExp to only run certain tests, like tests that end with 'invalid credentials$':
-    npx protractor ./e2e/protractor-ci.conf.js --grep='invalid credentials$'
+    npx protractor ./web-frame-e2e/protractor-ci.conf.js --grep='invalid credentials$'
 
 
 ## Further help
