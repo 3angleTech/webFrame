@@ -8,9 +8,9 @@ import { HttpParams } from '@angular/common/http';
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ENVIRONMENT } from '~app-shared/config';
 import { getCookieValue } from '~app-shared/utils';
 
-import { environment } from '../../../../environments/environment';
 import { Empty } from '../../data/empty.do';
 import { ServerApi } from '../api-endpoint-builder/api-endpoint-builder.interface';
 import { IJsonConverterService } from '../json-converter/json-converter.service';
@@ -139,8 +139,8 @@ export class AccountService implements IAccountService {
       fromObject: {
         email: credentials.email,
         password: credentials.password,
-        client_id: environment.clientId,
-        client_secret: environment.clientSecret,
+        client_id: ENVIRONMENT.clientId,
+        client_secret: ENVIRONMENT.clientSecret,
         grant_type: 'password',
       },
     });

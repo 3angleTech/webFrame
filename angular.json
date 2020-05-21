@@ -86,8 +86,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "web-frame/src/environments/environment.ts",
-                  "with": "web-frame/src/environments/environment.prod.ts"
+                  "replace": "web-frame/src/app-shared/config/defaults/environment.ts",
+                  "with": "web-frame/src/app-shared/config/defaults/environment.prod.ts"
                 },
                 {
                   "replace": "web-frame/src/app/app-routes.ts",
@@ -98,8 +98,8 @@
             "proxy": {
               "fileReplacements": [
                 {
-                  "replace": "web-frame/src/environments/environment.ts",
-                  "with": "web-frame/src/environments/environment.proxy.ts"
+                  "replace": "web-frame/src/app-shared/config/defaults/environment.ts",
+                  "with": "web-frame/src/app-shared/config/defaults/environment.proxy.ts"
                 }
               ]
             }
