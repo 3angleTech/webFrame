@@ -57,7 +57,7 @@
     "e2e": "ng run web-frame:e2e",
     "e2e:ci": "ng run web-frame:e2e:ci",
     "lint": "npm run lint:ts && npm run lint:style",
-    "lint:style": "stylelint './src/**/*.*css'",
+    "lint:style": "stylelint './web-frame/src/**/*.*css'",
     "lint:ts": "ng lint --configuration=ci",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "start": "ng serve",
