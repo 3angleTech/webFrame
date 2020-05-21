@@ -8,6 +8,6 @@ import { JsonObject } from 'json2typescript';
 
 import { BaseDataObject } from './base.do';
 
-@JsonObject
+@JsonObject('Empty')
 export class Empty extends BaseDataObject {
 }

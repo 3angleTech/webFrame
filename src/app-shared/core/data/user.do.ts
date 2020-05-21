@@ -12,7 +12,7 @@ export enum UserStatus {
   Active,
 }
 
-@JsonObject
+@JsonObject('User')
 export class User extends BaseDataObject {
   @JsonProperty('id', Number, true)
   public id: number = undefined;
