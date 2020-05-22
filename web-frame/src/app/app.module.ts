@@ -23,6 +23,7 @@ const ROUTER_CONFIG: ExtraOptions = {
   paramsInheritanceStrategy: 'always',
   relativeLinkResolution: 'corrected',
   urlUpdateStrategy: 'eager',
+  useHash: true,
 };
 
 @NgModule({
