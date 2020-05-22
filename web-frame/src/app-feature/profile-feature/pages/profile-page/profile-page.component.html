@@ -7,15 +7,15 @@
 <h1 class="app-page__title">{{ getPageTitle() | translate }}</h1>
 
 <ng-container *ngIf="{ currentUser: currentUserObs | async } as context">
-  <p>{{ 'First Name' | translate }}: {{ context.currentUser.firstName }}</p>
-  <p>{{ 'Last Name' | translate }}: {{ context.currentUser.lastName }}</p>
-  <p>{{ 'Email' | translate }}: {{ context.currentUser.email }}</p>
+  <p>{{ 'PROFILE_FEATURE.GENERAL.FIRST_NAME' | translate }}: {{ context.currentUser.firstName }}</p>
+  <p>{{ 'PROFILE_FEATURE.GENERAL.LAST_NAME' | translate }}: {{ context.currentUser.lastName }}</p>
+  <p>{{ 'PROFILE_FEATURE.GENERAL.EMAIL' | translate }}: {{ context.currentUser.email }}</p>
 </ng-container>
 
 <button type="button" name="settings" routerLink="/profile/settings">
-  {{ 'Profile Settings' }}
+  {{ 'PROFILE_FEATURE.PROFILE_PAGE.GO_TO_SETTINGS' | translate }}
 </button>
 
 <button type="button" name="logout" routerLink="/account/logout">
-  {{ 'Logout' }}
+  {{ 'GENERAL.BUTTON.LOGOUT' | translate }}
 </button>

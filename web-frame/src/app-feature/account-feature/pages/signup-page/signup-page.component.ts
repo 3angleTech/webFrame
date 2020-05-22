@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
@@ -67,7 +67,7 @@ export class SignupPageComponent implements OnInit {
   }
 
   public getPageTitle(): string {
-    return 'Signup';
+    return 'ACCOUNT_FEATURE.SIGNUP_PAGE.PAGE_TITLE';
   }
 
   public onSubmit(): void {

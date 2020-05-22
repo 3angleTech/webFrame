@@ -1,6 +1,6 @@
 <!--
   @license
-  Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+  Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
   Available under MIT license webFrame/LICENSE
 -->
 
@@ -10,47 +10,58 @@
   <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
 
   <label class="app-form__element--block">
-    <span class="app-form__element-label">{{ 'Email:' | translate }}</span>
+    <span class="app-form__element-label">
+      {{ 'ACCOUNT_FEATURE.GENERAL.EMAIL' | translate }}
+    </span>
     <span class="app-form__element-input">
       <input type="text" class="app-form__text-input" formControlName="email" name="email">
-      <app-form-control-errors namespace="loginPage.errors" formControlPath="email"></app-form-control-errors>
+      <app-form-control-errors namespace="ACCOUNT_FEATURE.LOGIN_PAGE.ERRORS" formControlPath="email"></app-form-control-errors>
     </span>
   </label>
 
   <label class="app-form__element--block">
-    <span class="app-form__element-label">{{ 'Password:' | translate }}</span>
+    <span class="app-form__element-label">
+      {{ 'ACCOUNT_FEATURE.GENERAL.PASSWORD' | translate }}
+    </span>
     <span class="app-form__element-input">
       <input type="password" class="app-form__text-input" formControlName="password" name="password">
-      <app-form-control-errors namespace="loginPage.errors" formControlPath="password"></app-form-control-errors>
+      <app-form-control-errors namespace="ACCOUNT_FEATURE.LOGIN_PAGE.ERRORS" formControlPath="password"></app-form-control-errors>
     </span>
   </label>
 
+
   <div class="app-form__actions">
-    <a routerLink="/account/forgot-password">{{ 'Forgot password?' | translate }}</a>
+    <a routerLink="/account/forgot-password">
+      {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.FORGOT_PASSWORD' | translate }}
+    </a>
   </div>
 
   <label class="app-form__element--inline-block">
     <span class="app-form__element-input">
       <input type="checkbox" class="app-form__checkbox-input" formControlName="staySignedIn" name="staySignedIn">
     </span>
-    <span class="app-form__element-label">{{ 'Stay signed in' | translate }}</span>
+    <span class="app-form__element-label">
+      {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.STAY_SIGNED_IN' | translate }}
+    </span>
   </label>
 
   <div class="app-form__actions">
     <button class="app-button--with-icon" type="submit" name="submit" [disabled]="loginForm.disabled">
       <i class="material-icons">lock_open</i>
-      <span class="text">{{ 'Login' | translate }}</span>
+      <span class="text">{{ 'ACCOUNT_FEATURE.LOGIN_PAGE.SUBMIT' | translate }}</span>
     </button>
   </div>
 
   <div class="app-form__separator">
-    <span>{{ 'Or' | translate }}</span>
+    <span>{{ 'ACCOUNT_FEATURE.GENERAL.OR' | translate }}</span>
   </div>
 
   <div class="app-form__actions">
     <button class="app-button--with-icon" type="button" routerLink="/account/signup">
       <i class="material-icons">person</i>
-      <span class="text">{{ 'Create account' | translate }}</span>
+      <span class="text">
+        {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.CREATE_ACCOUNT' | translate }}
+      </span>
     </button>
   </div>
 </form>

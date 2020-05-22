@@ -52,7 +52,7 @@ export class ForgotPasswordPageComponent implements OnInit {
   }
 
   public getPageTitle(): string {
-    return 'Forgot password';
+    return 'ACCOUNT_FEATURE.FORGOT_PASSWORD_PAGE.PAGE_TITLE';
   }
 
   public onSubmit(): void {

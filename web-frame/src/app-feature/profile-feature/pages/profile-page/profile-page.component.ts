@@ -30,7 +30,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   public getPageTitle(): string {
-    return 'Profile';
+    return 'PROFILE_FEATURE.PROFILE_PAGE.PAGE_TITLE';
   }
 
 }

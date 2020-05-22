@@ -19,13 +19,13 @@ import { IInformationPageDetails } from './information-page-details.interface';
 // TODO: Refactor to use translation tokens once they exist.
 export const INFORMATION_PAGES_DETAILS: Dictionary<IInformationPageDetails> = {
   notActivated: {
-    title: 'Email account not activated',
-    message: null,
+    title: 'ACCOUNT_FEATURE.INFORMATION_PAGE.NOT_ACTIVATED.PAGE_TITLE',
+    message: undefined,
     type: 'warning',
   },
   resetPasswordSuccess: {
-    title: 'Password reset was successful.',
-    message: null,
+    title: 'ACCOUNT_FEATURE.INFORMATION_PAGE.RESET_PASSWORD_SUCCESS.PAGE_TITLE',
+    message: undefined,
     type: 'success',
   },
 };

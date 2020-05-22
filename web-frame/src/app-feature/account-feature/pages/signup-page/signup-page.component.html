@@ -1,6 +1,6 @@
 <!--
   @license
-  Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+  Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
   Available under MIT license webFrame/LICENSE
 -->
 
@@ -10,7 +10,9 @@
   <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
 
   <label class="app-form__element--block">
-    <span class="app-form__element-label">{{ 'First name:' | translate }}</span>
+    <span class="app-form__element-label">
+      {{ 'ACCOUNT_FEATURE.GENERAL.FIRST_NAME' | translate }}
+    </span>
     <span class="app-form__element-input">
       <input type="text" class="app-form__text-input" formControlName="firstName">
       <app-form-control-errors namespace="signupPage.errors" formControlPath="firstName"></app-form-control-errors>
@@ -18,7 +20,9 @@
   </label>
 
   <label class="app-form__element--block">
-    <span class="app-form__element-label">{{ 'Last name:' | translate }}</span>
+    <span class="app-form__element-label">
+      {{ 'ACCOUNT_FEATURE.GENERAL.LAST_NAME' | translate }}
+    </span>
     <span class="app-form__element-input">
       <input type="text" class="app-form__text-input" formControlName="lastName">
       <app-form-control-errors namespace="signupPage.errors" formControlPath="lastName"></app-form-control-errors>
@@ -26,7 +30,9 @@
   </label>
 
   <label class="app-form__element--block">
-    <span class="app-form__element-label">{{ 'Email:' | translate }}</span>
+    <span class="app-form__element-label">
+      {{ 'ACCOUNT_FEATURE.GENERAL.EMAIL' | translate }}
+    </span>
     <span class="app-form__element-input">
       <input type="email" class="app-form__text-input" formControlName="email">
       <app-form-control-errors namespace="signupPage.errors" formControlPath="email"></app-form-control-errors>
@@ -34,7 +40,9 @@
   </label>
 
   <label class="app-form__element--block">
-    <span class="app-form__element-label">{{ 'Username:' | translate }}</span>
+    <span class="app-form__element-label">
+      {{ 'ACCOUNT_FEATURE.GENERAL.USERNAME' | translate }}
+    </span>
     <span class="app-form__element-input">
       <input type="text" class="app-form__text-input" formControlName="username">
       <app-form-control-errors namespace="signupPage.errors" formControlPath="username"></app-form-control-errors>
@@ -43,7 +51,9 @@
 
   <div formGroupName="newPasswordsGroup">
     <label class="app-form__element--block">
-      <span class="app-form__element-label">{{ 'Password:' | translate }}</span>
+      <span class="app-form__element-label">
+        {{ 'ACCOUNT_FEATURE.GENERAL.PASSWORD' | translate }}
+      </span>
       <span class="app-form__element-input">
         <input type="password" class="app-form__text-input" formControlName="newPassword">
         <app-form-control-errors namespace="signupPage.errors" formControlPath="newPasswordsGroup.newPassword"></app-form-control-errors>
@@ -51,7 +61,9 @@
     </label>
 
     <label class="app-form__element--block">
-      <span class="app-form__element-label">{{ 'Confirm Password:' | translate }}</span>
+      <span class="app-form__element-label">
+        {{ 'ACCOUNT_FEATURE.GENERAL.CONFIRM_PASSWORD' | translate }}
+      </span>
       <span class="app-form__element-input">
         <input type="password" class="app-form__text-input" formControlName="confirmPassword">
         <app-form-control-errors namespace="signupPage.errors" formControlPath="newPasswordsGroup.confirmPassword"></app-form-control-errors>
@@ -62,18 +74,18 @@
   <div class="app-form__actions">
     <button class="app-button--with-icon" type="submit">
       <i class="material-icons">check</i>
-      <span class="text">{{ 'Signup' | translate }}</span>
+      <span class="text">{{ 'ACCOUNT_FEATURE.SIGNUP_PAGE.SUBMIT' | translate }}</span>
     </button>
   </div>
 
   <div class="app-form__separator">
-    <span>{{ 'Or' | translate }}</span>
+    <span>{{ 'ACCOUNT_FEATURE.GENERAL.OR' | translate }}</span>
   </div>
 
   <div class="app-form__actions">
     <button class="app-button--with-icon" type="button" routerLink="/account/login">
       <i class="material-icons">person</i>
-      <span class="text">{{ 'Login?' | translate }}</span>
+      <span class="text">{{ 'ACCOUNT_FEATURE.GENERAL.GO_TO_LOGIN' | translate }}</span>
     </button>
   </div>
 </form>

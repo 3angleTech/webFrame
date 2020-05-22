@@ -1,0 +1,95 @@
+{
+  "GENERAL": {
+    "BUTTON": {
+      "CANCEL": "Cancel",
+      "CONFIRM": "Confirm",
+      "LOGIN": "Login",
+      "LOGOUT": "Logout",
+      "SUBMIT": "Submit"
+    }
+  },
+  "DEFAULT_SHELL": {
+    "NAVIGATION_MENU": {
+      "LOGIN": "Login",
+      "ACCOUNT": "Account",
+      "PROFILE": "Profile",
+      "SANDBOX": "Sandbox"
+    }
+  },
+  "ACCOUNT_FEATURE": {
+    "GENERAL": {
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "EMAIL": "Email",
+      "FIRST_NAME": "First name",
+      "GO_TO_LOGIN": "Login?",
+      "LAST_NAME": "Last name",
+      "OR": "Or",
+      "PASSWORD": "Password",
+      "USERNAME": "Username"
+    },
+    "CONFIRM_EMAIL_PAGE": {
+      "SUCCESS": "You email has been successfully activated.",
+      "TOKEN_EXPIRED": "Token expired.",
+      "TOKEN_INVALID": "Token is invalid.",
+      "GO_TO_LOGIN": "Go to Login Page"
+    },
+    "FORGOT_PASSWORD_PAGE": {
+      "PAGE_TITLE": "Forgot password",
+      "SUBMIT": "Request recovery email",
+      "ERRORS": {
+      }
+    },
+    "INFORMATION_PAGE": {
+      "GO_TO_LOGIN": "Go to Login Page",
+      "NOT_ACTIVATED": {
+        "PAGE_TITLE": "Email account not activated"
+      },
+      "RESET_PASSWORD_SUCCESS": {
+        "PAGE_TITLE": "Password reset was successful."
+      }
+    },
+    "LOGIN_PAGE": {
+      "PAGE_TITLE": "Login",
+      "STAY_SIGNED_IN": "Stay signed in",
+      "SUBMIT": "Login",
+      "CREATE_ACCOUNT": "Create account",
+      "FORGOT_PASSWORD": "Forgot password?",
+      "ERRORS": {
+      }
+    },
+    "RESET_PASSWORD": {
+      "PAGE_TITLE": "Reset password",
+      "SUBMIT": "Reset password email",
+      "ERRORS": {
+      }
+    },
+    "SIGNUP_PAGE": {
+      "PAGE_TITLE": "Signup",
+      "SUBMIT": "Signup",
+      "ERRORS": {
+      }
+    }
+  },
+  "PROFILE_FEATURE": {
+    "GENERAL": {
+      "EMAIL": "Email",
+      "FIRST_NAME": "First name",
+      "LAST_NAME": "Last name"
+    },
+    "PROFILE_PAGE": {
+      "PAGE_TITLE": "Profile",
+      "GO_TO_SETTINGS": "Profile Settings"
+    },
+    "PROFILE_SETTINGS_PAGE": {
+      "PAGE_TITLE": "Profile Settings"
+    },
+    "PASSWORD_CHANGE_FORM": {
+      "FORM_TITLE": "Change password",
+      "CURRENT_PASSWORD": "Current Password",
+      "NEW_PASSWORD": "New Password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "ERRORS": {
+      }
+    }
+  }
+}
