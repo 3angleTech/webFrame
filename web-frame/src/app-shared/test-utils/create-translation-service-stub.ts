@@ -8,7 +8,7 @@ import {
   ITranslationService,
   TranslationPhrase,
   TranslationPhraseArgs,
-} from '~app-shared/core';
+} from '~app-shared/translate';
 
 /**
  * Provides a stub for testing components that depend on the translation service.

@@ -9,8 +9,8 @@
  */
 import { Component, HostBinding, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IWebFrameContextStateService, User } from '~app-shared/core';
 import { ENVIRONMENT } from '~app-shared/config';
+import { IWebFrameContextStateService, User } from '~app-shared/core';
 
 @Component({
   selector: 'app-navigation-menu',

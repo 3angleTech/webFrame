@@ -6,8 +6,7 @@
 
 import { inject, TestBed } from '@angular/core/testing';
 import { createTranslationServiceStub } from '~app-shared/test-utils';
-
-import { ITranslationService } from '../translation/translation.service';
+import { ITranslationService } from '~app-shared/translate';
 
 import { NotificationService } from './notification.service';
 

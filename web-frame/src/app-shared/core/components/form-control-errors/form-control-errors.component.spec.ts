@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 /* tslint:disable:no-identical-functions no-multiline-string no-duplicate-string no-commented-code no-suspicious-comment */
@@ -28,11 +28,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { createTranslationServiceStub } from '~app-shared/test-utils';
+import { createTranslationServiceStub, TranslatePipeStub } from '~app-shared/test-utils';
+import { ITranslationService } from '~app-shared/translate';
 
 import { Dictionary } from '../../interface/dictionary';
-import { TranslatePipeStub } from '../../pipes/translate.pipe.stub';
-import { ITranslationService } from '../../service/translation/translation.service';
 
 import { FormControlErrorsComponent } from './form-control-errors.component';
 
@@ -68,6 +67,7 @@ class FormControlErrorsTestFormComponent {
       userName: new FormControl('', Validators.required),
       userEmail: new FormControl('', Validators.compose([
         Validators.email,
+        // tslint:disable-next-line:no-magic-numbers
         Validators.minLength(8),
       ])),
     });
@@ -164,6 +164,7 @@ describe('FormControlErrorsComponent', () => {
     abstractControl.setValue(invalidEmailAddress);
     fixture.detectChanges();
     expect(countFormControlErrors(fixture, 'userEmail').length)
+      // tslint:disable-next-line:no-magic-numbers
       .toBe(2, 'Expected two errors on userEmail control with invalid email');
   }));
 
@@ -196,7 +197,6 @@ function countFormControlErrors(fixture: ComponentFixture<unknown>, formControlP
     By.css(`[formControlPath=${formControlPath}]`),
   );
 
-  // console.log('controlError.attributes.formControlPath', controlError.attributes.formControlPath);
   const controlErrorItems: DebugElement[] = controlError.queryAll(
     By.css('ul > li'),
   );
@@ -208,7 +208,5 @@ function countFormControlErrors(fixture: ComponentFixture<unknown>, formControlP
     errorStrings.push(errorString);
   });
 
-  // console.log(controlErrorItems[0].nativeElement.attributes.title);
-  // debugger;
   return errorStrings;
 }

@@ -35,11 +35,6 @@ export {
   INotificationService,
 } from './service/notification/notification.service';
 export {
-  ITranslationService,
-  TranslationPhrase,
-  TranslationPhraseArgs,
-} from './service/translation/translation.service';
-export {
   IWebFrameContextService,
 } from './service/web-frame-context/web-frame-context.service';
 export {

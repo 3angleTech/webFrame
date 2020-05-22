@@ -5,8 +5,11 @@
  */
 
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-
-import { ITranslationService, TranslationPhrase, TranslationPhraseArgs } from '../translation/translation.service';
+import {
+  ITranslationService,
+  TranslationPhrase,
+  TranslationPhraseArgs,
+} from '~app-shared/translate';
 
 export interface INotificationConfiguration {
   message: TranslationPhrase;
@@ -24,7 +27,8 @@ export class NotificationService implements INotificationService {
   constructor(
     @Inject(ITranslationService)
     private translationService: ITranslationService,
-  ) { }
+  ) {
+  }
 
   public showNotification(config: INotificationConfiguration): void {
     const translatedMessage = this.translationService.translate(config.message, config.messageArgs);
