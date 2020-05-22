@@ -13,6 +13,7 @@ import {
 import { ExtraOptions, RouterModule } from '@angular/router';
 
 import { ENVIRONMENT } from './defaults/environment';
+import { IEnvironmentConfig, validateEnvironmentConfig } from './interfaces/environment-config.interface';
 
 // NOTE: The initialNavigation is delayed until after AppFeaturesInitializerService.
 const ROUTES = [];
@@ -42,9 +43,7 @@ export class ConfigModule {
     if (existingInstance) {
       throw new Error('ConfigModule should only be imported once.');
     }
-    if (!ENVIRONMENT.apiBaseUrl || ENVIRONMENT.apiBaseUrl === '') {
-      throw new Error('Invalid environment configuration, apiBaseUrl is missing.');
-    }
+    validateEnvironmentConfig(ENVIRONMENT);
   }
 
   public static forRoot(): ModuleWithProviders<ConfigModule> {
