@@ -88,10 +88,6 @@
                 {
                   "replace": "web-frame/src/app-shared/config/defaults/environment.ts",
                   "with": "web-frame/src/app-shared/config/defaults/environment.prod.ts"
-                },
-                {
-                  "replace": "web-frame/src/app/app-routes.ts",
-                  "with": "web-frame/src/app/app-routes.prod.ts"
                 }
               ]
             },

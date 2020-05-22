@@ -9,5 +9,6 @@
  */
 export * from './config.module';
 
+export * from './defaults/available-feature-modules';
 export * from './defaults/environment';
 export * from './interfaces/environment-config.interface';
