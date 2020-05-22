@@ -6,8 +6,8 @@
 
 import { Inject, Injectable } from '@angular/core';
 import { isNil, isString } from 'lodash';
+import { ENVIRONMENT } from '~app-shared/config';
 
-import { environment } from '../../../../environments/environment';
 import { Dictionary } from '../../interface/dictionary';
 import { IStringTemplateService } from '../string-template/string-template.service';
 import { QueryParameterValueType, UrlParameterValueType } from '../web-request/web-request.interface';
@@ -40,7 +40,7 @@ export class ApiEndpointBuilderService implements IApiEndpointBuilderService {
   }
 
   private getBaseUrl(serverApi: ServerApi, urlParameters: Dictionary<UrlParameterValueType>): string {
-    const urlTemplate = `${environment.apiBaseUrl}${serverApi}`;
+    const urlTemplate = `${ENVIRONMENT.apiBaseUrl}${serverApi}`;
 
     return this.templateService.interpolate(urlTemplate, urlParameters);
   }

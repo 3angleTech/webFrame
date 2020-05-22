@@ -1,11 +1,12 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import { APP_INITIALIZER, Inject, Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { NEVER, Observable, of } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
+import { ENVIRONMENT } from '~app-shared/config';
 
 import { IAccountService } from './account/account.service';
 import { IWebFrameContextStateService } from './web-frame-context/web-frame-context-state.service';
@@ -24,6 +25,7 @@ export class AppInitializerService {
     if (!this.accountService.authenticatedCookieExists()) {
       return of(undefined);
     }
+
     return this.stateService.initialize().pipe(
       catchError((): Observable<never> => {
         return this.logoutAndReloadApplication();
@@ -34,30 +36,10 @@ export class AppInitializerService {
   private logoutAndReloadApplication(): Observable<never> {
     return this.accountService.logout().pipe(
       mergeMap((): Observable<never> => {
-        window.location.href = '/';
+        window.location.href = ENVIRONMENT.appBaseUrl;
+
         return NEVER;
       }),
     );
   }
 }
-
-export type AppInitializer = () => Promise<void>;
-export const appInitializerFactory = (
-  initializerService: AppInitializerService,
-): AppInitializer => {
-  return async (): Promise<void> => {
-    return initializerService.initialize().toPromise();
-  };
-};
-
-export const APP_INITIALIZER_PROVIDERS = [
-  AppInitializerService,
-  {
-    provide: APP_INITIALIZER,
-    useFactory: appInitializerFactory,
-    deps: [
-      AppInitializerService,
-    ],
-    multi: true,
-  },
-];

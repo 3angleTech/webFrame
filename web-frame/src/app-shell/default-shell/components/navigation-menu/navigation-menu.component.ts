@@ -10,8 +10,7 @@
 import { Component, HostBinding, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IWebFrameContextStateService, User } from '~app-shared/core';
-
-import { environment } from '../../../../environments/environment';
+import { ENVIRONMENT } from '~app-shared/config';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -23,7 +22,7 @@ export class NavigationMenuComponent implements OnInit {
   public componentClass: boolean = true;
 
   public currentUserObs: Observable<User>;
-  public isDevMode: boolean = environment.devMode;
+  public isDevMode: boolean = ENVIRONMENT.devMode;
 
   constructor(
     @Inject(IWebFrameContextStateService)

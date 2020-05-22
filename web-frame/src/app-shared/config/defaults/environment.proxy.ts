@@ -1,25 +1,25 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
+import { IEnvironmentConfig } from '../interfaces/environment-config.interface';
 
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
-export const environment = {
-  devMode: true,
-  clientId: '3at-api',
-  apiBaseUrl: 'http://localhost:3000/api/v1',
+/** @internal This variable should never be used directly; only by the build process. */
+export const ENVIRONMENT: Readonly<IEnvironmentConfig> = {
+  apiBaseUrl: '/api/v1',
+  appBaseUrl: '/',
   appName: 'WebFrame-3angleTECH',
+  clientId: '3at-api',
   clientSecret: '5r5rd15c650f4849119eb894939d9fdaaf5f7d0e7e0f65de15b71bfa6411011y',
+  devMode: true,
 };
 
-/*
+/**
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
  * import the following file, but please comment it out in production mode
  * because it will have performance impact when throw error
  */
+// tslint:disable-next-line:comment-format
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.

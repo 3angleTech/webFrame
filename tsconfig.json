@@ -37,6 +37,9 @@
       "~app-feature/sandbox-feature": [
         "./web-frame/src/app-feature/sandbox-feature/index.ts"
       ],
+      "~app-shared/config": [
+        "./web-frame/src/app-shared/config/index.ts"
+      ],
       "~app-shared/core": [
         "./web-frame/src/app-shared/core/index.ts"
       ],
