@@ -10,5 +10,7 @@
 export * from './config.module';
 
 export * from './defaults/available-feature-modules';
+export * from './defaults/build-flags';
 export * from './defaults/environment';
+export * from './interfaces/build-flags.interface';
 export * from './interfaces/environment-config.interface';
