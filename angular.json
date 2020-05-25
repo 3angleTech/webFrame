@@ -86,6 +86,10 @@
               ],
               "fileReplacements": [
                 {
+                  "replace": "web-frame/src/app-shared/config/defaults/available-feature-modules.ts",
+                  "with": "web-frame/src/app-shared/config/defaults/available-feature-modules.prod.ts"
+                },
+                {
                   "replace": "web-frame/src/app-shared/config/defaults/environment.ts",
                   "with": "web-frame/src/app-shared/config/defaults/environment.prod.ts"
                 }

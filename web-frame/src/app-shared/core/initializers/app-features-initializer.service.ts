@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 import { Route, Router, Routes } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AVAILABLE_FEATURE_MODULES, ENVIRONMENT } from '~app-shared/config';
+import { AVAILABLE_FEATURE_MODULES } from '~app-shared/config';
 
 @Injectable()
 export class AppFeaturesInitializerService {
@@ -30,13 +30,7 @@ export class AppFeaturesInitializerService {
   private getEnabledFeatures(): Observable<string[]> {
     const enabledFeatures: string[] = [];
     Object.keys(AVAILABLE_FEATURE_MODULES).forEach((featureName: string): void => {
-      if (featureName === 'sandbox') {
-        if (ENVIRONMENT.devMode) {
-          enabledFeatures.push(featureName);
-        }
-      } else {
-        enabledFeatures.push(featureName);
-      }
+      enabledFeatures.push(featureName);
     });
 
     return of(enabledFeatures);
