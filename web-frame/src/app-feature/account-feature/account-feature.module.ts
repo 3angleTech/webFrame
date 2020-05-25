@@ -48,7 +48,6 @@ const FEATURE_COMPONENTS: Type<unknown>[] = [
     MinimalShellModule,
     AccountFeatureRoutingModule,
   ],
-  exports: [SelectLanguagePageComponent],
   declarations: [
     FEATURE_COMPONENTS,
   ],
