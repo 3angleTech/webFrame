@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '~app-shared/translate';
 
 import { FormControlErrorsComponent } from './components/form-control-errors/form-control-errors.component';
+import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { APP_INITIALIZER_PROVIDERS } from './initializers/app-initializer.factory';
 import {
   AccountService,
@@ -63,6 +64,7 @@ import { WebRequestService } from './service/web-request/web-request.service';
 
 const SHARED_COMPONENTS: Type<unknown>[] = [
   FormControlErrorsComponent,
+  LanguageSwitcherComponent,
 ];
 
 const SHARED_DIRECTIVES: Type<unknown>[] = [

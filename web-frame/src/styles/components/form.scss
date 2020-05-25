@@ -13,42 +13,42 @@
 
 .app-form {
   color: app-get-color($app-text-colors, "darker");
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin-bottom: var(--spacing-normal);
+  margin-top: var(--spacing-normal);
 }
 
 .app-form--narrow {
   margin-left: auto;
   margin-right: auto;
-  max-width: 320px;
+  max-width: 20rem;
 }
 
 .app-form--simple {
   border: 1px solid app-get-color($app-foreground-colors, "dividers");
   box-sizing: border-box;
-  padding: 2em;
+  padding: var(--spacing-large);
 }
 
 // TODO: Move to a different file.
 .app-form__logo {
   display: block;
-  margin: 2em auto;
+  margin: var(--spacing-large) auto;
   width: 16em;
 }
 
 .app-form__separator {
   background-color: app-get-color($app-foreground-colors, "dividers");
   height: 1px;
-  margin-bottom: 2em;
-  margin-top: 2em;
+  margin-bottom: var(--spacing-large);
+  margin-top: var(--spacing-large);
   text-align: center;
 
   span {
     background-color: app-get-contrast($app-text-colors, "lighter");
     line-height: 1;
-    padding: 0 0.5em;
+    padding: 0 var(--spacing-small);
     position: relative;
-    top: -0.5em;
+    top: calc(-1 * var(--spacing-small));
   }
 }
 
@@ -78,28 +78,37 @@
 }
 
 .app-form__actions {
+  display: grid;
+  grid-gap: var(--spacing-small);
   text-align: center;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    line-height: 2em;
+  }
 }
 
-.app-form__actions,
 .app-form__errors {
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin-bottom: var(--spacing-normal);
+  margin-top: var(--spacing-normal);
 }
 
 .app-form__element--inline-block {
   display: inline-block;
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin-bottom: var(--spacing-normal);
+  margin-top: var(--spacing-normal);
 }
 
 .app-form__element--block {
   display: block;
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin-bottom: var(--spacing-normal);
+  margin-top: var(--spacing-normal);
 
   .app-form__element-label,
   .app-form__element-input {
-    display: block;
+    display: grid;
   }
 }

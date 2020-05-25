@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let languageMetadata of languageMetadataList">
+    <button
+      (click)="changeLanguage(languageMetadata)"
+      [dir]="languageMetadata.isRTL ? 'rtl' : 'ltr'"
+      [lang]="languageMetadata.localeId"
+      type="button"
+    >{{ languageMetadata.name }}</button>
+  </li>
+</ul>

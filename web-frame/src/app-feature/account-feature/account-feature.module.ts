@@ -12,7 +12,7 @@ import { NgModule, Type } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';
-import { DefaultShellModule } from '~app-shell/default-shell';
+import { MinimalShellModule } from '~app-shell/minimal-shell';
 
 import { AccountFeatureRoutingModule } from './account-feature-routing.module';
 import { AccountFeatureComponent } from './account-feature.component';
@@ -23,6 +23,7 @@ import { InviteUsersPageComponent } from './pages/invite-users-page/invite-users
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
 import { ResetPasswordPageComponent } from './pages/reset-password-page/reset-password-page.component';
+import { SelectLanguagePageComponent } from './pages/select-language-page/select-language-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 const FEATURE_COMPONENTS: Type<unknown>[] = [
@@ -34,6 +35,7 @@ const FEATURE_COMPONENTS: Type<unknown>[] = [
   LoginPageComponent,
   LogoutPageComponent,
   ResetPasswordPageComponent,
+  SelectLanguagePageComponent,
   SignupPageComponent,
 ];
 
@@ -43,10 +45,10 @@ const FEATURE_COMPONENTS: Type<unknown>[] = [
     ReactiveFormsModule,
     CoreModule,
     SecurityModule,
-    DefaultShellModule,
+    MinimalShellModule,
     AccountFeatureRoutingModule,
   ],
-  exports: [],
+  exports: [SelectLanguagePageComponent],
   declarations: [
     FEATURE_COMPONENTS,
   ],

@@ -5,8 +5,10 @@
       "CONFIRM": "Confirm",
       "LOGIN": "Login",
       "LOGOUT": "Logout",
+      "GO_BACK": "Go Back",
       "SUBMIT": "Submit"
-    }
+    },
+    "GO_TO_SELECT_LANGUAGE": "Select language"
   },
   "DEFAULT_SHELL": {
     "NAVIGATION_MENU": {
@@ -62,6 +64,9 @@
       "SUBMIT": "Reset password email",
       "ERRORS": {
       }
+    },
+    "SELECT_LANGUAGE": {
+      "PAGE_TITLE": "Select language"
     },
     "SIGNUP_PAGE": {
       "PAGE_TITLE": "Signup",
