@@ -52,14 +52,14 @@
     "typescript": "3.8.3"
   },
   "scripts": {
-    "build": "ng build",
-    "build:prod": "ng build --prod",
+    "build:production": "ng run web-frame:build:production --progress=false",
     "e2e": "ng run web-frame:e2e",
     "e2e:ci": "ng run web-frame:e2e:ci",
     "lint": "ng lint && npm run lint:style",
     "lint:ci": "ng lint --configuration=ci && npm run lint:style",
     "lint:style": "stylelint './web-frame/src/**/*.*css'",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "ngcc": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points --no-async",
+    "postinstall": "npm run ngcc",
     "start": "ng serve",
     "start:proxy": "ng serve --configuration=proxy",
     "test": "ng test",

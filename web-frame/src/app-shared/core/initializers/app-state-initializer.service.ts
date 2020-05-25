@@ -8,11 +8,11 @@ import { NEVER, Observable, of } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
 import { ENVIRONMENT } from '~app-shared/config';
 
-import { IAccountService } from './account/account.service';
-import { IWebFrameContextStateService } from './web-frame-context/web-frame-context-state.service';
+import { IAccountService } from '../service/account/account.service';
+import { IWebFrameContextStateService } from '../service/web-frame-context/web-frame-context-state.service';
 
 @Injectable()
-export class AppInitializerService {
+export class AppStateInitializerService {
   constructor(
     @Inject(IAccountService)
     private accountService: IAccountService,

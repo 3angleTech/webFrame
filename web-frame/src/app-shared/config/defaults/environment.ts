@@ -1,15 +1,14 @@
 /**
+ * @file Provides configuration for the current environment.
+ *
+ * NOTE: This file will be replaced during the build process.
+ *
  * @license
  * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 import { IEnvironmentConfig } from '../interfaces/environment-config.interface';
 
-/**
- * @file Provides configuration for the current environment.
- *
- * NOTE: This file will be replaced during the build process.
- */
 export const ENVIRONMENT: Readonly<IEnvironmentConfig> = {
   apiBaseUrl: 'http://localhost:3000/api/v1',
   appBaseUrl: '/',

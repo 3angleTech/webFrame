@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
 
 import { FormControlErrorsComponent } from './components/form-control-errors/form-control-errors.component';
+import { APP_INITIALIZER_PROVIDERS } from './initializers/app-initializer.factory';
 import { TranslatePipe } from './pipes/translate.pipe';
 import {
   AccountService,
@@ -19,7 +20,6 @@ import {
 } from './service/account/account.service';
 import { IApiEndpointBuilderService } from './service/api-endpoint-builder/api-endpoint-builder.interface';
 import { ApiEndpointBuilderService } from './service/api-endpoint-builder/api-endpoint-builder.service';
-import { APP_INITIALIZER_PROVIDERS } from './service/app-initializer.factory';
 import {
   IJsonConverterService,
   JsonConverterService,
