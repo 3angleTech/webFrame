@@ -1,0 +1,26 @@
+:host {
+  --component-color: var(--loading-bar-color, var(--color-primary-base));
+  --component-height: var(--loading-bar-height, 4px);
+  --component-animation-speed: var(--loading-bar-animation-speed, 1500ms);
+
+  animation: progress-bar-opacity var(--component-animation-speed) infinite linear;
+  background-color: var(--component-color);
+  display: block;
+  height: var(--component-height);
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+@keyframes progress-bar-opacity {
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}

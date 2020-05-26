@@ -8,7 +8,8 @@
       "GO_BACK": "Go Back",
       "SUBMIT": "Submit"
     },
-    "GO_TO_SELECT_LANGUAGE": "Select language"
+    "GO_TO_SELECT_LANGUAGE": "Select language",
+    "LOADING_PAGE": "Loading page…"
   },
   "DEFAULT_SHELL": {
     "NAVIGATION_MENU": {
