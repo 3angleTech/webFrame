@@ -20,6 +20,5 @@ import { DataTablePageComponent } from './pages/data-table-page/data-table-page.
     DefaultShellModule,
   ],
   declarations: [DataTablePageComponent],
-  exports: [DataTablePageComponent],
 })
 export class ComponentsSandboxModule { }
