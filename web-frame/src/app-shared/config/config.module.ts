@@ -11,8 +11,8 @@ import {
   SkipSelf,
 } from '@angular/core';
 
-import { ENVIRONMENT } from './defaults/environment';
 import { validateEnvironmentConfig } from './other/validate-environment-config';
+import { ENVIRONMENT } from './replacements/environment';
 
 @NgModule({})
 export class ConfigModule {

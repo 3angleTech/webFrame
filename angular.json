@@ -86,20 +86,20 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "web-frame/src/app-shared/config/defaults/available-feature-modules.ts",
-                  "with": "web-frame/src/app-shared/config/defaults/available-feature-modules.prod.ts"
+                  "replace": "web-frame/src/app-shared/config/replacements/available-feature-modules.ts",
+                  "with": "web-frame/src/app-shared/config/replacements/available-feature-modules.prod.ts"
                 },
                 {
-                  "replace": "web-frame/src/app-shared/config/defaults/environment.ts",
-                  "with": "web-frame/src/app-shared/config/defaults/environment.prod.ts"
+                  "replace": "web-frame/src/app-shared/config/replacements/environment.ts",
+                  "with": "web-frame/src/app-shared/config/replacements/environment.prod.ts"
                 }
               ]
             },
             "proxy": {
               "fileReplacements": [
                 {
-                  "replace": "web-frame/src/app-shared/config/defaults/environment.ts",
-                  "with": "web-frame/src/app-shared/config/defaults/environment.proxy.ts"
+                  "replace": "web-frame/src/app-shared/config/replacements/environment.ts",
+                  "with": "web-frame/src/app-shared/config/replacements/environment.proxy.ts"
                 }
               ]
             }

@@ -9,9 +9,9 @@
  */
 export * from './config.module';
 
-export * from './defaults/available-feature-modules';
-export * from './defaults/build-flags';
-export * from './defaults/environment';
 export * from './interfaces/build-flags.interface';
 export * from './interfaces/environment-config.interface';
 export * from './other/validate-environment-config';
+export * from './replacements/available-feature-modules';
+export * from './replacements/build-flags';
+export * from './replacements/environment';
