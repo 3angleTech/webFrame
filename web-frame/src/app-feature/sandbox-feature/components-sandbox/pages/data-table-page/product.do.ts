@@ -6,7 +6,7 @@
 
 import { JsonObject, JsonProperty } from 'json2typescript';
 
-@JsonObject
+@JsonObject('Product')
 export class Product {
   @JsonProperty('id', Number, true)
   public id: number = undefined;
