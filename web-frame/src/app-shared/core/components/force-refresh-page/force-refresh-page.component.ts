@@ -36,7 +36,6 @@ export class ForceRefreshPageComponent implements OnDestroy, OnInit {
   }
 
   public ngOnInit(): void {
-    console.log('ForceRefreshPageComponent.ngOnInit()', this.appRefresherList);
     if (this.appRefresherList && this.appRefresherList.length) {
       this.doRefreshSubscription = this.doRefresh().subscribe((): void => {
         this.navigateToDestinationPage();
@@ -55,7 +54,6 @@ export class ForceRefreshPageComponent implements OnDestroy, OnInit {
     const observableList: Observable<void>[] = [];
     sortBy(this.appRefresherList, ['refresherWeight']).forEach((appRefresher: IAppRefresher): void => {
       observableList.push(appRefresher.refresh());
-      console.log('appRefresher', appRefresher);
     });
 
     return concat(...observableList);
