@@ -19,7 +19,7 @@ export interface ITranslationService {
 
   translate(
     phrase: TranslationPhrase,
-    phraseArgs: TranslationPhraseArgs,
+    phraseArgs?: TranslationPhraseArgs,
   ): string;
 }
 
@@ -44,7 +44,7 @@ export class TranslationService implements ITranslationService {
     return languageMetadata;
   }
 
-  public translate(phrase: TranslationPhrase, phraseArgs: TranslationPhraseArgs): string {
+  public translate(phrase: TranslationPhrase, phraseArgs?: TranslationPhraseArgs): string {
     return this.translateService.instant(phrase, phraseArgs);
   }
 
