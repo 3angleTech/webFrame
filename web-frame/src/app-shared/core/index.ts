@@ -10,10 +10,15 @@
 
 export { CoreModule } from './core.module';
 
+export { ForceRefreshPageComponent } from './components/force-refresh-page/force-refresh-page.component';
 export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
 export { PagedResult } from './data/paged-result.do';
 export { Dictionary } from './interfaces/dictionary';
+export {
+  IAppRefresher,
+  APP_REFRESHER,
+} from './other/app-refresher.token';
 export { PAGE_URL } from './other/page-url.enum';
 
 export {

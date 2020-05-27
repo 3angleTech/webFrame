@@ -13,10 +13,12 @@ import { ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '~app-shared/translate';
 
+import { ForceRefreshPageComponent } from './components/force-refresh-page/force-refresh-page.component';
 import { FormControlErrorsComponent } from './components/form-control-errors/form-control-errors.component';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { APP_INITIALIZER_PROVIDERS } from './initializers/app-initializer.factory';
+import { APP_REFRESHER } from './other/app-refresher.token';
 import {
   AccountService,
   IAccountService,
@@ -64,6 +66,7 @@ import { IWebRequestService } from './service/web-request/web-request.interface'
 import { WebRequestService } from './service/web-request/web-request.service';
 
 const SHARED_COMPONENTS: Type<unknown>[] = [
+  ForceRefreshPageComponent,
   FormControlErrorsComponent,
   LanguageSwitcherComponent,
   ProgressBarComponent,
@@ -124,6 +127,11 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
   {
     provide: IWebFrameContextStateService,
     useClass: WebFrameContextStateService,
+  },
+  {
+    provide: APP_REFRESHER,
+    useClass: WebFrameContextStateService,
+    multi: true,
   },
   {
     provide: IWebFrameContextUIService,
