@@ -1,14 +1,12 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
 /**
  * Use the `DefaultShellComponent` to provide a structure around most application pages that
  * require a consistent structure (page headers, navigation menu).
- *
- * E.g.: dashboard or profile edit pages.
  */
 import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';

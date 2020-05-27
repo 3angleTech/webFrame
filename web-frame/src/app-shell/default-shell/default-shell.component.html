@@ -1,8 +1,8 @@
 <!--
   @license
-  Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+  Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
   Available under MIT license webFrame/LICENSE
 -->
-
+<app-progress-bar *ngIf="routeIsLoading | async"></app-progress-bar>
 <app-navigation-menu></app-navigation-menu>
 <router-outlet></router-outlet>

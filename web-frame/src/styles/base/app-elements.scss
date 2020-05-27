@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
@@ -16,4 +16,6 @@ body {
   min-width: 320px;
 }
 
-// TODO: Define styles for anchor tags.
+app-root {
+  display: block;
+}
