@@ -31,7 +31,7 @@ import { By } from '@angular/platform-browser';
 import { createTranslationServiceStub, TranslatePipeStub } from '~app-shared/test-utils';
 import { ITranslationService } from '~app-shared/translate';
 
-import { Dictionary } from '../../interface/dictionary';
+import { Dictionary } from '../../interfaces/dictionary';
 
 import { FormControlErrorsComponent } from './form-control-errors.component';
 

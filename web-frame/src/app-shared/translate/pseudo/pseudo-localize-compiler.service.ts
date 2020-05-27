@@ -7,8 +7,8 @@
 import { Injectable } from '@angular/core';
 import { TranslateCompiler } from '@ngx-translate/core';
 
-import { AVAILABLE_LANGUAGES_METADATA } from '../defaults/available-languages-metadata';
 import { getLanguageMetadata } from '../interfaces/language-metadata.interface';
+import { AVAILABLE_LANGUAGES_METADATA } from '../replacements/available-languages-metadata';
 
 import { PseudoElongateCompilerStrategy } from './strategies/pseudo-elongate-compiler.strategy';
 import { IPseudoLocalizeCompilerStrategy, ITranslations } from './strategies/pseudo-localize-strategy.interface';

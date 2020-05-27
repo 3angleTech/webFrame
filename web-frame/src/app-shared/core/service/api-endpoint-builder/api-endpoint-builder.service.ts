@@ -8,7 +8,7 @@ import { Inject, Injectable } from '@angular/core';
 import { isNil, isString } from 'lodash';
 import { ENVIRONMENT } from '~app-shared/config';
 
-import { Dictionary } from '../../interface/dictionary';
+import { Dictionary } from '../../interfaces/dictionary';
 import { IStringTemplateService } from '../string-template/string-template.service';
 import { QueryParameterValueType, UrlParameterValueType } from '../web-request/web-request.interface';
 
