@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'placeholder',
     loadChildren: () => import('./placeholder-sandbox/placeholder-sandbox.module').then(m => m.PlaceholderSandboxModule),
   },
+  {
+    path: 'loading',
+    loadChildren: () => import('./loading-sandbox/loading-sandbox.module').then(m => m.LoadingSandboxModule),
+  },
 ];
 
 @NgModule({

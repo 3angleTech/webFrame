@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
@@ -10,6 +10,7 @@
  */
 import { NgModule, Type } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CoreModule } from '~app-shared/core';
 
 import { MinimalShellComponent } from './minimal-shell.component';
 
@@ -20,6 +21,7 @@ const SHELL_DECLARATIONS: Type<unknown>[] = [
 @NgModule({
   imports: [
     RouterModule,
+    CoreModule,
   ],
   exports: [
   ],

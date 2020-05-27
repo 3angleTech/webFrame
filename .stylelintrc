@@ -1,5 +1,16 @@
 {
   "extends": [
     "@3angletech/tslint/styles"
-  ]
+  ],
+  "rules": {
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": [
+          "router-outlet",
+          "/^app-/"
+        ]
+      }
+    ]
+  }
 }

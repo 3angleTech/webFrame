@@ -1,6 +1,27 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
+app-minimal-shell {
+  display: grid;
+  min-height: 100vh;
+  place-content: start center;
+
+  app-progress-bar {
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  router-outlet {
+    position: absolute;
+  }
+
+  > router-outlet + * {
+    display: block;
+    margin: 0 auto;
+    padding: var(--spacing-large);
+  }
+}
