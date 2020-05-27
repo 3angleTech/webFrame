@@ -32,6 +32,6 @@ export class PlaceholderSandboxComponent implements OnInit {
   }
 
   public getPageTitle(): string {
-    return `TODO: ${this.placeholderPageTitle}`;
+    return `Sandbox: ${this.placeholderPageTitle}`;
   }
 }
