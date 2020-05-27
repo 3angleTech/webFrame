@@ -9,6 +9,7 @@ import { ConfigModule } from '~app-shared/config';
 import { CoreModule } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppTranslateModule } from './app-translate.module';
 import { AppComponent } from './app.component';
 
@@ -21,6 +22,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     AppTranslateModule,
     ConfigModule.forRoot(),
     CoreModule.forRoot(),
