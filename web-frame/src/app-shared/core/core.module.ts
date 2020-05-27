@@ -19,6 +19,7 @@ import { LanguageSwitcherComponent } from './components/language-switcher/langua
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { APP_INITIALIZER_PROVIDERS } from './initializers/app-initializer.factory';
 import { APP_REFRESHER } from './other/app-refresher.token';
+import { ForceRefreshPageResolver } from './other/force-refresh-page.resolver';
 import {
   AccountService,
   IAccountService,
@@ -79,6 +80,7 @@ const SHARED_PIPES: Type<unknown>[] = [
 ];
 
 const SHARED_ROOT_PROVIDERS: Provider[] = [
+  ForceRefreshPageResolver,
   {
     provide: IAccountService,
     useClass: AccountService,

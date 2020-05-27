@@ -9,7 +9,7 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ForceRefreshPageComponent } from '~app-shared/core';
+import { FORCE_REFRESH_PAGE_ROUTE } from '~app-shared/core';
 import { AnonymousGuard, AuthenticatedGuard } from '~app-shared/security';
 import { MinimalShellComponent } from '~app-shell/minimal-shell';
 
@@ -30,10 +30,7 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'login',
   },
-  {
-    path: 'force-refresh',
-    component: ForceRefreshPageComponent,
-  },
+  FORCE_REFRESH_PAGE_ROUTE,
   {
     path: '',
     component: MinimalShellComponent,
