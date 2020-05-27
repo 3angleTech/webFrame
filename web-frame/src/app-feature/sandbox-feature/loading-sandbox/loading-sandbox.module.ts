@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { DefaultShellModule } from '~app-shell/default-shell';
 
 import { SlowLoadingCanActivateGuard } from './components/slow-loading-sandbox-page/slow-loading-can-activate.guard';
-import { SlowLoadingResolveGuard } from './components/slow-loading-sandbox-page/slow-loading-resolve.guard';
+import { SlowLoadingResolver } from './components/slow-loading-sandbox-page/slow-loading.resolver';
 import { SlowLoadingSandboxPageComponent } from './components/slow-loading-sandbox-page/slow-loading-sandbox-page.component';
 import { LOADING_SANDBOX_ROUTES } from './loading-sandbox.routes';
 
@@ -24,7 +24,7 @@ import { LOADING_SANDBOX_ROUTES } from './loading-sandbox.routes';
   ],
   providers: [
     SlowLoadingCanActivateGuard,
-    SlowLoadingResolveGuard,
+    SlowLoadingResolver,
   ],
 })
 export class LoadingSandboxModule {

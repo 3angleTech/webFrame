@@ -7,7 +7,7 @@ import { Routes } from '@angular/router';
 import { DefaultShellComponent } from '~app-shell/default-shell';
 
 import { SlowLoadingCanActivateGuard } from './components/slow-loading-sandbox-page/slow-loading-can-activate.guard';
-import { SlowLoadingResolveGuard } from './components/slow-loading-sandbox-page/slow-loading-resolve.guard';
+import { SlowLoadingResolver } from './components/slow-loading-sandbox-page/slow-loading.resolver';
 import { SlowLoadingSandboxPageComponent } from './components/slow-loading-sandbox-page/slow-loading-sandbox-page.component';
 
 export const LOADING_SANDBOX_ROUTES: Routes = [
@@ -25,7 +25,7 @@ export const LOADING_SANDBOX_ROUTES: Routes = [
       {
         path: 'slow-resolve',
         resolve: {
-          boolean: SlowLoadingResolveGuard,
+          boolean: SlowLoadingResolver,
         },
         component: SlowLoadingSandboxPageComponent,
       },

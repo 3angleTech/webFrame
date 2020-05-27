@@ -9,7 +9,7 @@ import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 @Injectable()
-export class SlowLoadingResolveGuard implements Resolve<boolean> {
+export class SlowLoadingResolver implements Resolve<boolean> {
   public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     const pageLoadDelay: number = 5000;
 
