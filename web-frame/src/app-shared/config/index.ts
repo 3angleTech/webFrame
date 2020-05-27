@@ -14,3 +14,4 @@ export * from './defaults/build-flags';
 export * from './defaults/environment';
 export * from './interfaces/build-flags.interface';
 export * from './interfaces/environment-config.interface';
+export * from './other/validate-environment-config';

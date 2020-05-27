@@ -12,10 +12,9 @@ import {
 } from '@angular/core';
 
 import { ENVIRONMENT } from './defaults/environment';
-import { IEnvironmentConfig, validateEnvironmentConfig } from './interfaces/environment-config.interface';
+import { validateEnvironmentConfig } from './other/validate-environment-config';
 
-@NgModule({
-})
+@NgModule({})
 export class ConfigModule {
   constructor(
     @Inject(ConfigModule) @Optional() @SkipSelf()
@@ -30,8 +29,7 @@ export class ConfigModule {
   public static forRoot(): ModuleWithProviders<ConfigModule> {
     return {
       ngModule: ConfigModule,
-      providers: [
-      ],
+      providers: [],
     };
   }
 }
