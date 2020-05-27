@@ -13,7 +13,7 @@ export { CoreModule } from './core.module';
 export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
 export { PagedResult } from './data/paged-result.do';
-export { Dictionary } from './interface/dictionary';
+export { Dictionary } from './interfaces/dictionary';
 export { PAGE_URL } from './other/page-url.enum';
 
 export {

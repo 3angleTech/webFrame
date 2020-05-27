@@ -7,7 +7,7 @@
 import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Dictionary } from '../../interface/dictionary';
+import { Dictionary } from '../../interfaces/dictionary';
 import { ServerApi } from '../api-endpoint-builder/api-endpoint-builder.interface';
 
 /**
