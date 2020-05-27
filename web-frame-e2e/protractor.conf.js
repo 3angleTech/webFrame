@@ -5,6 +5,9 @@ require('dotenv').config({
   path: require('path').join(__dirname, '../environments/e2e.env'),
 });
 
+/** @type { number } */
+const highlightDelay = isNaN(Number(process.env.E2E_HIGHLIGHT_DELAY)) ? 0 : Number(process.env.E2E_HIGHLIGHT_DELAY);
+
 /**
  * @type { import('protractor').Config }
  */
@@ -24,9 +27,9 @@ exports.config = {
       ],
     },
   },
-  highlightDelay: 0 + process.env.E2E_HIGHLIGHT_DELAY,
+  highlightDelay: highlightDelay,
   jasmineNodeOpts: {
-    defaultTimeoutInterval: 10000,
+    defaultTimeoutInterval: 10000 + highlightDelay * 10,
     random: false,
     showColors: true,
   },

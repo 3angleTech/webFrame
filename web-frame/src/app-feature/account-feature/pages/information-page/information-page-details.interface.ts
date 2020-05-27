@@ -3,7 +3,7 @@
  * Copyright (c) 2019 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import { TranslationPhrase } from '~app-shared/core';
+import { TranslationPhrase } from '~app-shared/translate';
 
 export interface IInformationPageDetails {
   title: TranslationPhrase;

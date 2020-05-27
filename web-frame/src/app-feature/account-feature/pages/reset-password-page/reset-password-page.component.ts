@@ -65,7 +65,7 @@ export class ResetPasswordPageComponent implements OnInit {
   }
 
   public getPageTitle(): string {
-    return 'Reset password';
+    return 'ACCOUNT_FEATURE.RESET_PASSWORD.PAGE_TITLE';
   }
 
   public onSubmit(): void {

@@ -6,18 +6,26 @@
 
 <div class="app-form app-form--simple">
   <div *ngIf="tokenStatus === tokenVerificationStatusType.ValidToken">
-    <h1 class="app-page__title">You email has been successfully activated.</h1>
+    <h1 class="app-page__title">
+      {{ 'ACCOUNT_FEATURE.CONFIRM_EMAIL_PAGE.SUCCESS' | translate }}
+    </h1>
   </div>
   <div *ngIf="tokenStatus === tokenVerificationStatusType.TokenExpired">
-    <h1 class="app-page__title">Token expired.</h1>
+    <h1 class="app-page__title">
+      {{ 'ACCOUNT_FEATURE.CONFIRM_EMAIL_PAGE.TOKEN_EXPIRED' | translate }}
+    </h1>
   </div>
   <div *ngIf="tokenStatus === tokenVerificationStatusType.InvalidToken">
-    <h1 class="app-page__title">Token is invalid.</h1>
+    <h1 class="app-page__title">
+      {{ 'ACCOUNT_FEATURE.CONFIRM_EMAIL_PAGE.TOKEN_INVALID' | translate }}
+    </h1>
   </div>
   <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
   <div class="app-form__actions">
     <button class="app-button--with-icon" type="button" routerLink="/account/login">
-      <span class="text">{{ 'Go to Login Page' | translate }}</span>
+      <span class="text">
+        {{ 'ACCOUNT_FEATURE.CONFIRM_EMAIL_PAGE.GO_TO_LOGIN' | translate }}
+      </span>
     </button>
   </div>
 </div>

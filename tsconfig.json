@@ -49,6 +49,9 @@
       "~app-shared/security": [
         "./web-frame/src/app-shared/security/index.ts"
       ],
+      "~app-shared/translate": [
+        "./web-frame/src/app-shared/translate/index.ts"
+      ],
       "~app-shared/test-utils": [
         "./web-frame/src/app-shared/test-utils/index.ts"
       ],

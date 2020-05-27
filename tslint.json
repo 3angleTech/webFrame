@@ -9,6 +9,12 @@
       "@license",
       "Copyright \\(c\\) \\d{4} THREEANGLE SOFTWARE SOLUTIONS SRL"
     ],
+    "import-blacklist": [
+      true,
+      "@ngx-translate/core",
+      "@ngx-translate/http-loader",
+      "rxjs/Rx"
+    ],
     "no-implicit-dependencies": [
       true,
       "dev",

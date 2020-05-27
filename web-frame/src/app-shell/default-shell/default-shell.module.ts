@@ -13,6 +13,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CoreModule } from '~app-shared/core';
 
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
 import { DefaultShellComponent } from './default-shell.component';
@@ -26,6 +27,7 @@ const SHELL_DECLARATIONS: Type<unknown>[] = [
   imports: [
     CommonModule,
     RouterModule,
+    CoreModule,
   ],
   exports: [
   ],

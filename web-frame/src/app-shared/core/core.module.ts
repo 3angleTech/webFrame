@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
@@ -10,10 +10,12 @@
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '~app-shared/translate';
 
 import { FormControlErrorsComponent } from './components/form-control-errors/form-control-errors.component';
+import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { APP_INITIALIZER_PROVIDERS } from './initializers/app-initializer.factory';
-import { TranslatePipe } from './pipes/translate.pipe';
 import {
   AccountService,
   IAccountService,
@@ -36,10 +38,6 @@ import {
   IStringTemplateService,
   StringTemplateService,
 } from './service/string-template/string-template.service';
-import {
-  ITranslationService,
-  TranslationService,
-} from './service/translation/translation.service';
 import {
   IWebFrameContextLocalizationService,
   WebFrameContextLocalizationService,
@@ -66,13 +64,13 @@ import { WebRequestService } from './service/web-request/web-request.service';
 
 const SHARED_COMPONENTS: Type<unknown>[] = [
   FormControlErrorsComponent,
+  LanguageSwitcherComponent,
 ];
 
 const SHARED_DIRECTIVES: Type<unknown>[] = [
 ];
 
 const SHARED_PIPES: Type<unknown>[] = [
-  TranslatePipe,
 ];
 
 const SHARED_ROOT_PROVIDERS: Provider[] = [
@@ -87,10 +85,6 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
   {
     provide: IStorageService,
     useClass: StorageService,
-  },
-  {
-    provide: ITranslationService,
-    useClass: TranslationService,
   },
   {
     provide: IApiEndpointBuilderService,
@@ -135,12 +129,19 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
   },
 ];
 
+const SHARED_MODULES: unknown[] = [
+  CommonModule,
+  ReactiveFormsModule,
+  TranslateModule,
+];
+
 @NgModule({
   imports: [
-    CommonModule,
+    SHARED_MODULES,
     HttpClientModule,
   ],
   exports: [
+    SHARED_MODULES,
     SHARED_COMPONENTS,
     SHARED_DIRECTIVES,
     SHARED_PIPES,

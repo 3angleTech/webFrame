@@ -9,6 +9,7 @@ import { ConfigModule } from '~app-shared/config';
 import { CoreModule } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';
 
+import { AppTranslateModule } from './app-translate.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    AppTranslateModule,
     ConfigModule.forRoot(),
     CoreModule.forRoot(),
     SecurityModule.forRoot(),

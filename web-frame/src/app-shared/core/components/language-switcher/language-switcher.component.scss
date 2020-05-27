@@ -1,0 +1,14 @@
+:host {
+  display: block;
+
+  ul {
+    margin: var(--spacing-normal) 0;
+    padding: 0;
+  }
+
+  li {
+    display: grid;
+    list-style: none;
+    margin: var(--spacing-small) 0;
+  }
+}

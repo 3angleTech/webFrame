@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 
@@ -54,7 +54,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   public getPageTitle(): string {
-    return 'Login';
+    return 'ACCOUNT_FEATURE.LOGIN_PAGE.PAGE_TITLE';
   }
 
   public onSubmit(): void {

@@ -1,14 +1,16 @@
 /**
  * @license
- * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
+/* tslint:disable:object-literal-shorthand */
+import { Observable } from 'rxjs';
 import {
+  ILanguageMetadata,
   ITranslationService,
   TranslationPhrase,
   TranslationPhraseArgs,
-} from '~app-shared/core';
+} from '~app-shared/translate';
 
 /**
  * Provides a stub for testing components that depend on the translation service.
@@ -23,7 +25,13 @@ import {
 export function createTranslationServiceStub(): ITranslationService {
   // Create a fake TranslationService object with a `translate()` spy.
   return {
-    translate: (phrase: TranslationPhrase, phraseArgs: TranslationPhraseArgs): string => {
+    changeLanguage(languageMetadata: ILanguageMetadata): Observable<void> {
+      return undefined;
+    },
+    getCurrentLanguageMetadata(): ILanguageMetadata {
+      return undefined;
+    },
+    translate: (phrase: TranslationPhrase, phraseArgs?: TranslationPhraseArgs): string => {
       if (phrase === undefined || phrase === null) {
         return '';
       }

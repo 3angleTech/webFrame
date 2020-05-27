@@ -4,13 +4,21 @@
   Available under MIT license webFrame/LICENSE
 -->
 <ng-container *ngIf="{ currentUser: currentUserObs | async } as context">
-  <button *ngIf="!context.currentUser" class="navigation-menu__item" type="button" routerLink="/account">Account</button>
-  <button *ngIf="context.currentUser" class="navigation-menu__item" type="button" routerLink="/profile">Profile</button>
-  <button *ngIf="isDevMode" class="navigation-menu__item" type="button" routerLink="/sandbox">Sandbox</button>
+  <button *ngIf="!context.currentUser" class="navigation-menu__item" type="button" routerLink="/account">
+    {{ 'DEFAULT_SHELL.NAVIGATION_MENU.ACCOUNT' | translate }}
+  </button>
+  <button *ngIf="context.currentUser" class="navigation-menu__item" type="button" routerLink="/profile">
+    {{ 'DEFAULT_SHELL.NAVIGATION_MENU.PROFILE' | translate }}
+  </button>
+  <button *ngIf="isDevMode" class="navigation-menu__item" type="button" routerLink="/sandbox">
+    {{ 'DEFAULT_SHELL.NAVIGATION_MENU.SANDBOX' | translate }}
+  </button>
   <span class="spacer"></span>
 
   <button *ngIf="context.currentUser" class="navigation-menu__item" type="button" routerLink="/profile">
     {{ context.currentUser.firstName }} {{ context.currentUser.lastName }}
   </button>
-  <button *ngIf="!context.currentUser" class="navigation-menu__item" type="button" routerLink="/account/login">Login</button>
+  <button *ngIf="!context.currentUser" class="navigation-menu__item" type="button" routerLink="/account/login">
+    {{ 'DEFAULT_SHELL.NAVIGATION_MENU.LOGIN' | translate }}
+  </button>
 </ng-container>

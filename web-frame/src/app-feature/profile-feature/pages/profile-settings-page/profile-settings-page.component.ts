@@ -3,11 +3,7 @@
  * Copyright (c) 2018 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
 import { Component, OnInit } from '@angular/core';
-/**
- * TODO
- */
 
 @Component({
   selector: 'app-profile-settings-page',
@@ -22,7 +18,7 @@ export class ProfileSettingsPageComponent implements OnInit {
   }
 
   public getPageTitle(): string {
-    return 'Profile Settings';
+    return 'PROFILE_FEATURE.PROFILE_SETTINGS_PAGE.PAGE_TITLE';
   }
 
 }
