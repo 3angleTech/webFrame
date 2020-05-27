@@ -23,6 +23,7 @@ export interface IWebFrameContextStateService {
   currentUser: BehaviorSubject<User | undefined>;
 
   isAuthenticated(): boolean;
+
   initialize(): Observable<void>;
 }
 
@@ -50,6 +51,10 @@ export class WebFrameContextStateService implements IAppRefresher, IWebFrameCont
     return this.initializeCurrentUser();
   }
 
+  public refresh(): Observable<void> {
+    return this.initializeCurrentUser();
+  }
+
   private initializeCurrentUser(): Observable<void> {
     const config: RequestConfiguration = {
       serverApi: ServerApi.AccountMe,
@@ -62,9 +67,5 @@ export class WebFrameContextStateService implements IAppRefresher, IWebFrameCont
         return undefined;
       }),
     );
-  }
-
-  public refresh(): Observable<void> {
-    return this.initializeCurrentUser()
   }
 }
