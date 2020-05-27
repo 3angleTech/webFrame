@@ -7,7 +7,10 @@ import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, Optional
 import { ActivatedRoute } from '@angular/router';
 import { sortBy } from 'lodash';
 import { concat, Observable, Subscription } from 'rxjs';
-import { APP_REFRESHER, IAppRefresher, IWebFrameContextNavigationService, PAGE_URL } from '~app-shared/core';
+
+import { APP_REFRESHER, IAppRefresher } from '../../other/app-refresher.token';
+import { PAGE_URL } from '../../other/page-url.enum';
+import { IWebFrameContextNavigationService } from '../../service/web-frame-context/web-frame-context-navigation.service';
 
 @Component({
   selector: 'app-force-refresh-page',
