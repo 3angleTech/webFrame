@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('./components-sandbox/components-sandbox.module').then(m => m.ComponentsSandboxModule),
       },
       {
+        path: 'error-handling',
+        loadChildren: () => import('./error-sandbox/error-sandbox.module').then(m => m.ErrorSandboxModule),
+      },
+      {
         path: 'loading',
         loadChildren: () => import('./loading-sandbox/loading-sandbox.module').then(m => m.LoadingSandboxModule),
       },

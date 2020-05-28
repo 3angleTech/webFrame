@@ -1,0 +1,17 @@
+<ng-container *ngIf="list.items && list.items.length">
+  <h3>{{ list.header }}</h3>
+  <ul>
+    <li *ngFor="let item of list.items">
+      <ng-container *ngIf="item.route; else actionItem">
+        <button [routerLink]="item.route" type="button">
+          {{ item.label }}
+        </button>
+      </ng-container>
+      <ng-template #actionItem>
+        <button (click)="itemClicked.emit(item)" type="button">
+          {{ item.label }}
+        </button>
+      </ng-template>
+    </li>
+  </ul>
+</ng-container>
