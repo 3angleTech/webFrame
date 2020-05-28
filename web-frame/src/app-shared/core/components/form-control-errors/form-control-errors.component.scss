@@ -9,7 +9,7 @@
 
 
 :host {
-  color: app-get-color($app-status-colors, "error");
+  color: app-get-color($app-status-colors, "danger");
   display: block;
   font-size: 0.75em;
 

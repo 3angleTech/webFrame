@@ -70,13 +70,6 @@
   }
 }
 
-.app-form__element-error {
-  color: app-get-color($app-status-colors, "error");
-  display: block;
-  font-size: 0.75em;
-  line-height: 1;
-}
-
 .app-form__actions {
   display: grid;
   grid-gap: var(--spacing-small);
