@@ -15,6 +15,10 @@
   color: app-get-color($app-text-colors, "darker");
   margin-bottom: var(--spacing-normal);
   margin-top: var(--spacing-normal);
+
+  app-form-group-errors {
+    margin: var(--spacing-small) 0;
+  }
 }
 
 .app-form--narrow {

@@ -15,6 +15,7 @@ import { TranslateModule } from '~app-shared/translate';
 
 import { ForceRefreshPageComponent } from './components/force-refresh-page/force-refresh-page.component';
 import { FormControlErrorsComponent } from './components/form-control-errors/form-control-errors.component';
+import { FormGroupErrorsComponent } from './components/form-group-errors/form-group-errors.component';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { APP_INITIALIZER_PROVIDERS } from './initializers/app-initializer.factory';
@@ -69,6 +70,7 @@ import { WebRequestService } from './service/web-request/web-request.service';
 const SHARED_COMPONENTS: Type<unknown>[] = [
   ForceRefreshPageComponent,
   FormControlErrorsComponent,
+  FormGroupErrorsComponent,
   LanguageSwitcherComponent,
   ProgressBarComponent,
 ];
