@@ -25,7 +25,7 @@ export const LOADING_SANDBOX_ROUTES: Routes = [
       {
         path: 'slow-resolve',
         resolve: {
-          boolean: SlowLoadingResolver,
+          slowLoading: SlowLoadingResolver,
         },
         component: SlowLoadingSandboxPageComponent,
       },

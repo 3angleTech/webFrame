@@ -13,6 +13,6 @@ export const FORCE_REFRESH_PAGE_ROUTE: Route = {
   path: 'force-refresh',
   component: ForceRefreshPageComponent,
   resolve: {
-    refreshFinished: ForceRefreshPageResolver,
+    forceRefresh: ForceRefreshPageResolver,
   },
 };

@@ -9,11 +9,11 @@ import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 @Injectable()
-export class SlowLoadingResolver implements Resolve<boolean> {
-  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+export class SlowLoadingResolver implements Resolve<void> {
+  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<void> {
     const pageLoadDelay: number = 5000;
 
-    return of(true).pipe(
+    return of(undefined).pipe(
       delay(pageLoadDelay),
     );
   }
