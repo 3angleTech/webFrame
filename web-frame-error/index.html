@@ -1,0 +1,95 @@
+<!--
+  @license
+  Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+  Available under MIT license webFrame/LICENSE
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <title> Runtime Error!</title>
+  <base href="/">
+  <style>
+    body {
+      display: grid;
+      font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", system-ui, sans-serif;
+      min-height: 75vh;
+      place-content: center;
+    }
+
+    h1 {
+      border-bottom: 1px double currentColor;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <h1>Runtime Error!</h1>
+    <p>Please contact your administrator for more information.</p>
+    <p><a href="/">Go to homepage</a></p>
+    <details>
+      <summary>View details</summary>
+      <div id="error-details"></div>
+    </details>
+  </div>
+  <script>
+    // @ts-check
+    const LAST_RUNTIME_ERROR_KEY = 'lastRuntimeError';
+
+    /**
+     * @return { Error | undefined }
+     */
+    function getErrorInfo() {
+      const errorInfoString = /** @type { string } */
+        window.sessionStorage.getItem(LAST_RUNTIME_ERROR_KEY);
+
+      if (errorInfoString && errorInfoString.length) {
+        /** @type { Error } */
+        const errorInfo = {
+          name: 'Unknown Error',
+          message: undefined,
+          stack: undefined,
+        };
+
+        const parsedErrorInfo = JSON.parse(errorInfoString);
+
+        if (parsedErrorInfo.hasOwnProperty('name')) {
+          errorInfo.name = parsedErrorInfo.name;
+        }
+        if (parsedErrorInfo.hasOwnProperty('message')) {
+          errorInfo.message = parsedErrorInfo.message;
+        }
+        if (parsedErrorInfo.hasOwnProperty('stack')) {
+          errorInfo.stack = parsedErrorInfo.stack;
+        }
+        return errorInfo;
+      }
+
+      return undefined;
+    }
+
+    /** @type { {errorInfo: Error} } */
+    const ERROR_PAGE_DATA = {};
+    ERROR_PAGE_DATA.errorInfo = getErrorInfo();
+
+    const detailsContainerEl = /** @type { HTMLDivElement } */
+      document.getElementById('error-details');
+
+    if (ERROR_PAGE_DATA.errorInfo) {
+      const errorNameEl = /** @type { HTMLHeadingElement } */
+        document.createElement('h2');
+      errorNameEl.classList.add('error-page__error-name');
+      errorNameEl.innerHTML = ERROR_PAGE_DATA.errorInfo.name;
+      detailsContainerEl.appendChild(errorNameEl);
+
+      const errorMessageEl = /** @type { HTMLParagraphElement } */
+        document.createElement('p');
+      errorMessageEl.classList.add('error-page__error-message');
+      errorMessageEl.innerHTML = ERROR_PAGE_DATA.errorInfo.message;
+      detailsContainerEl.appendChild(errorMessageEl);
+    }
+  </script>
+</body>
+</html>

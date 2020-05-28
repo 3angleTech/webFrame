@@ -9,6 +9,7 @@
  */
 export const enum PAGE_URL {
   HOME_PAGE = '/',
+  STANDALONE_ERROR_PAGE = '/error/index.html',
   FORGOT_PASSWORD_PAGE = '/account/forgot-password',
   LOGIN_PAGE = '/account/login',
   LOGOUT_PAGE = '/account/logout',

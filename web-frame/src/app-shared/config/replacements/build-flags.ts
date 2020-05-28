@@ -8,4 +8,5 @@ import { IBuildFlags } from '../interfaces/build-flags.interface';
 
 export const BUILD_FLAGS: Readonly<IBuildFlags> = {
   clientVersion: '0.0.0',
+  disableStandaloneErrorPage: false,
 };

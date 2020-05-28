@@ -56,5 +56,8 @@ export {
   IWebFrameContextUIService,
 } from './service/web-frame-context/web-frame-context-ui.service';
 export {
+  WebFrameErrorHandlerService,
+} from './service/web-frame-error-handler.service';
+export {
   IWebRequestService,
 } from './service/web-request/web-request.interface';

@@ -6,7 +6,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ConfigModule } from '~app-shared/config';
-import { CoreModule } from '~app-shared/core';
+import { CoreModule, WebFrameErrorHandlerService } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';
 
 import { APP_ERROR_HANDLER_PROVIDER } from './app-error-handler';
@@ -34,4 +34,9 @@ import { AppComponent } from './app.component';
   ],
 })
 export class AppModule {
+  constructor(
+    readonly errorHandlerService: WebFrameErrorHandlerService,
+  ) {
+    this.errorHandlerService.initialize();
+  }
 }

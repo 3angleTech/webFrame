@@ -63,6 +63,7 @@ import {
   IWebFrameContextService,
   WebFrameContextService,
 } from './service/web-frame-context/web-frame-context.service';
+import { WebFrameErrorHandlerService } from './service/web-frame-error-handler.service';
 import { WebRequestInterceptorService } from './service/web-request/web-request-interceptor.service';
 import { IWebRequestService } from './service/web-request/web-request.interface';
 import { WebRequestService } from './service/web-request/web-request.service';
@@ -83,6 +84,7 @@ const SHARED_PIPES: Type<unknown>[] = [
 
 const SHARED_ROOT_PROVIDERS: Provider[] = [
   ForceRefreshPageResolver,
+  WebFrameErrorHandlerService,
   {
     provide: IAccountService,
     useClass: AccountService,
