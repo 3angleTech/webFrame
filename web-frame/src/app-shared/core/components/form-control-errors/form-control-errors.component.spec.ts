@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 /* tslint:disable:no-identical-functions no-multiline-string no-duplicate-string no-commented-code no-suspicious-comment */
