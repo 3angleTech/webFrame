@@ -23,20 +23,19 @@ const routes: Routes = [
         path: '',
         component: SandboxFeatureComponent,
       },
+      {
+        path: 'components',
+        loadChildren: () => import('./components-sandbox/components-sandbox.module').then(m => m.ComponentsSandboxModule),
+      },
+      {
+        path: 'loading',
+        loadChildren: () => import('./loading-sandbox/loading-sandbox.module').then(m => m.LoadingSandboxModule),
+      },
     ],
-  },
-  // Other lazy-loaded sandbox sub-modules.
-  {
-    path: 'components',
-    loadChildren: () => import('./components-sandbox/components-sandbox.module').then(m => m.ComponentsSandboxModule),
   },
   {
     path: 'placeholder',
     loadChildren: () => import('./placeholder-sandbox/placeholder-sandbox.module').then(m => m.PlaceholderSandboxModule),
-  },
-  {
-    path: 'loading',
-    loadChildren: () => import('./loading-sandbox/loading-sandbox.module').then(m => m.LoadingSandboxModule),
   },
 ];
 
