@@ -58,6 +58,9 @@
       "CREATE_ACCOUNT": "Create account",
       "FORGOT_PASSWORD": "Forgot password?",
       "ERRORS": {
+        "INVALID_DATA": "Invalid data provided.",
+        "PLEASE_UPDATE": "Please update the form data.",
+        "SUBMIT_ERROR": "Invalid credentials."
       }
     },
     "RESET_PASSWORD": {

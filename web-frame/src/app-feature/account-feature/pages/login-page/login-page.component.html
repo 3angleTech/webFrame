@@ -45,6 +45,8 @@
     </button>
   </div>
 
+  <app-form-group-errors [validationErrors]="loginForm.errors" namespace="ACCOUNT_FEATURE.LOGIN_PAGE.ERRORS"></app-form-group-errors>
+
   <div class="app-form__separator">
     <span>{{ 'ACCOUNT_FEATURE.GENERAL.OR' | translate }}</span>
   </div>

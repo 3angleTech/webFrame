@@ -7,6 +7,7 @@
 /**
  * Provides LoginPageComponent.
  */
+import { HttpErrorResponse } from '@angular/common/http';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -62,8 +63,14 @@ export class LoginPageComponent implements OnInit {
       return;
     }
     if (this.loginForm.invalid) {
+      let message: string = 'ACCOUNT_FEATURE.LOGIN_PAGE.ERRORS.INVALID_DATA';
+      if (this.loginForm.untouched) {
+        message = 'ACCOUNT_FEATURE.LOGIN_PAGE.ERRORS.PLEASE_UPDATE';
+      }
+      // tslint:disable-next-line:no-null-keyword
+      this.loginForm.setErrors(null);
       const notificationConfig: INotificationConfiguration = {
-        message: 'Invalid data provided.',
+        message: message,
       };
       this.context.ui.showNotification(notificationConfig);
 
@@ -86,11 +93,11 @@ export class LoginPageComponent implements OnInit {
 
   private onLoginError(err: unknown): void {
     this.loginForm.enable();
-    if (typeof err === 'object' && err['message']) {
-      alert('Login error!');
+    if (err instanceof HttpErrorResponse) {
       this.loginForm.setErrors({
-        submitError: err['message'],
+        SUBMIT_ERROR: true,
       });
+      this.loginForm.markAsUntouched();
     } else {
       throw err;
     }
