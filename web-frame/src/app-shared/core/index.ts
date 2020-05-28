@@ -13,6 +13,10 @@ export { CoreModule } from './core.module';
 export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
 export { PagedResult } from './data/paged-result.do';
+export { AccessDeniedError } from './errors/access-denied.error';
+export { KnownError, isHttpErrorResponseOrKnownError } from './errors/known.error';
+export { PageNotFoundError } from './errors/page-not-found.error';
+export { HttpStatusCode } from './interfaces/common.interface';
 export { Dictionary } from './interfaces/dictionary';
 export { IWebFrameErrorHandler } from './interfaces/web-frame-error-handler.interface';
 export {

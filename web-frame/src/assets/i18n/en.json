@@ -44,6 +44,12 @@
     },
     "INFORMATION_PAGE": {
       "GO_TO_LOGIN": "Go to Login Page",
+      "ACCESS_DENIED": {
+        "PAGE_TITLE": "Access Denied"
+      },
+      "PAGE_NOT_FOUND": {
+        "PAGE_TITLE": "Page not found"
+      },
       "NOT_ACTIVATED": {
         "PAGE_TITLE": "Email account not activated"
       },

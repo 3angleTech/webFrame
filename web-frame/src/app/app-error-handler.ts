@@ -3,9 +3,8 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, EventEmitter, Provider } from '@angular/core';
-import { IWebFrameErrorHandler } from '~app-shared/core';
+import { isHttpErrorResponseOrKnownError, IWebFrameErrorHandler } from '~app-shared/core';
 
 /**
  * Replaces the Angular Core ErrorHandler class in order to emit errors.
@@ -18,7 +17,7 @@ export class AppErrorHandler extends ErrorHandler implements IWebFrameErrorHandl
 
   public handleError(err: unknown): void {
     if (!this.runtimeErrorEncountered) {
-      if (!(err instanceof HttpErrorResponse)) {
+      if (!isHttpErrorResponseOrKnownError(err)) {
         this.runtimeErrorEncountered = true;
       }
       this.errors$.emit(err);

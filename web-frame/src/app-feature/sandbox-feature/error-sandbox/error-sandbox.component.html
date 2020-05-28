@@ -6,6 +6,8 @@
 
 <h1 class="app-page__title">{{ getPageTitle() }}</h1>
 
+<p>{{ 'NOTE: The triggered HttpErrorResponse instances are not actual requests.' }}</p>
+
 <app-sandbox-list
   *ngFor="let actionList of actionLists"
   [list]="actionList"

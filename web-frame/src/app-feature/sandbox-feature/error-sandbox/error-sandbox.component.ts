@@ -3,7 +3,9 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
+/* tslint:disable:no-duplicate-string */
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AccessDeniedError, PageNotFoundError } from '~app-shared/core';
 
 import { ISandboxList } from '../components/sandbox-list/sandbox-list.interface';
 
@@ -22,8 +24,74 @@ export class ErrorSandboxComponent implements OnInit {
       header: 'Runtime Errors',
       items: [
         {
-          label: 'Trow unknown error (SandboxError)',
+          label: 'trow new AccessDeniedError()',
+          action: 'testThrowAccessDeniedError',
+        },
+        {
+          label: 'trow new PageNotFoundError()',
+          action: 'testThrowPageNotFoundError',
+        },
+        {
+          label: 'throw new SandboxError()',
           action: 'testThrowCustomSandboxError',
+        },
+      ],
+    },
+    {
+      header: 'Router Resolver Errors',
+      items: [
+        {
+          label: 'throw new AccessDeniedError()',
+          route: '/sandbox/error-handling/resolver/AccessDeniedError',
+        },
+        {
+          label: 'throw new PageNotFoundError()',
+          route: '/sandbox/error-handling/resolver/PageNotFoundError',
+        },
+        {
+          label: 'throw new SandboxError()',
+          route: '/sandbox/error-handling/resolver/UnknownError',
+        },
+        {
+          label: 'HTTP 403 Forbidden',
+          route: '/sandbox/error-handling/resolver/Mock403',
+        },
+        {
+          label: 'HTTP 404 Not Found',
+          route: '/sandbox/error-handling/resolver/Mock404',
+        },
+        {
+          label: 'HTTP 500 Internal Server Error',
+          route: '/sandbox/error-handling/resolver/Mock500',
+        },
+      ],
+    },
+    {
+      header: 'Router (CanActivate) Guard Errors',
+      items: [
+        {
+          label: 'throw new AccessDeniedError()',
+          route: '/sandbox/error-handling/can-activate/AccessDeniedError',
+        },
+        {
+          label: 'throw new PageNotFoundError()',
+          route: '/sandbox/error-handling/can-activate/PageNotFoundError',
+        },
+        {
+          label: 'throw new SandboxError()',
+          route: '/sandbox/error-handling/can-activate/UnknownError',
+        },
+        {
+          label: 'HTTP 403 Forbidden',
+          route: '/sandbox/error-handling/can-activate/Mock403',
+        },
+        {
+          label: 'HTTP 404 Not Found',
+          route: '/sandbox/error-handling/can-activate/Mock404',
+        },
+        {
+          label: 'HTTP 500 Internal Server Error',
+          route: '/sandbox/error-handling/can-activate/Mock500',
         },
       ],
     },
@@ -56,5 +124,13 @@ export class ErrorSandboxComponent implements OnInit {
 
   private testThrowCustomSandboxError(): never {
     throw new SandboxError('An intentionally triggered SandboxError.');
+  }
+
+  private testThrowAccessDeniedError(): never {
+    throw new AccessDeniedError('This is not the error you are looking for.');
+  }
+
+  private testThrowPageNotFoundError(): never {
+    throw new PageNotFoundError('This is not the page you are looking for.');
   }
 }
