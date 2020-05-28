@@ -14,6 +14,7 @@ export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
 export { PagedResult } from './data/paged-result.do';
 export { Dictionary } from './interfaces/dictionary';
+export { IWebFrameErrorHandler } from './interfaces/web-frame-error-handler.interface';
 export {
   IAppRefresher,
   APP_REFRESHER,

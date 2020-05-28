@@ -1,7 +1,17 @@
 {
   "name": "web-frame",
   "version": "0.0.0-dev",
+  "license": "MIT",
   "private": true,
+  "author": {
+    "name": "The 3AngleTech Team",
+    "email": "contact@3angle.tech",
+    "url": "https://3angle.tech"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3angleTech/webFrame.git"
+  },
   "dependencies": {
     "@angular/animations": "9.1.9",
     "@angular/common": "9.1.9",
