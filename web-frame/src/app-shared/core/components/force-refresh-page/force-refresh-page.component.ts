@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@angular/core';

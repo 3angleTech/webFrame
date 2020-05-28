@@ -6,8 +6,7 @@
   "rules": {
     "file-header": [
       true,
-      "@license",
-      "Copyright \\(c\\) \\d{4} THREEANGLE SOFTWARE SOLUTIONS SRL"
+      "@license[^a-z]*Copyright \\(c\\) 2018-202\\d THREEANGLE SOFTWARE SOLUTIONS SRL\n[^a-z]*Available under MIT license webFrame/LICENSE"
     ],
     "import-blacklist": [
       true,
