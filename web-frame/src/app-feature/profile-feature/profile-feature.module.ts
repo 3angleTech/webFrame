@@ -36,7 +36,6 @@ const FEATURE_COMPONENTS: Type<unknown>[] = [
     SecurityModule,
     ProfileFeatureRoutingModule,
   ],
-  exports: [],
   declarations: [
     FEATURE_COMPONENTS,
   ],

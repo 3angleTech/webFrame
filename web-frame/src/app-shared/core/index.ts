@@ -14,6 +14,11 @@ export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
 export { PagedResult } from './data/paged-result.do';
 export { Dictionary } from './interfaces/dictionary';
+export {
+  IAppRefresher,
+  APP_REFRESHER,
+} from './other/app-refresher.token';
+export { FORCE_REFRESH_PAGE_ROUTE } from './other/force-refresh-page.route';
 export { PAGE_URL } from './other/page-url.enum';
 
 export {

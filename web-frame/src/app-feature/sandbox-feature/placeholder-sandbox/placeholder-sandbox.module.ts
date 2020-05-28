@@ -20,7 +20,6 @@ import { PlaceholderSandboxComponent } from './placeholder-sandbox.component';
     MinimalShellModule,
     PlaceholderSandboxRoutingModule,
   ],
-  exports: [],
   declarations: [PlaceholderSandboxComponent],
   providers: [],
 })

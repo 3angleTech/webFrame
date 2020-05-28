@@ -9,6 +9,7 @@
  * to lazy-loaded sub-modules.
  */
 import { ChangeDetectionStrategy, Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sandbox-feature',
@@ -22,9 +23,17 @@ export class SandboxFeatureComponent implements OnInit {
   @HostBinding('class.app-sandbox-feature')
   public componentClass: boolean = true;
 
-  constructor() { }
+  public forceRefreshQueryParams: Record<string, string>;
+
+  constructor(
+    private router: Router,
+  ) {
+  }
 
   public ngOnInit(): void {
+    this.forceRefreshQueryParams = {
+      destination: this.router.url,
+    };
   }
 
   public getPageTitle(): string {

@@ -9,6 +9,7 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FORCE_REFRESH_PAGE_ROUTE } from '~app-shared/core';
 import { AnonymousGuard, AuthenticatedGuard } from '~app-shared/security';
 import { MinimalShellComponent } from '~app-shell/minimal-shell';
 
@@ -29,6 +30,7 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'login',
   },
+  FORCE_REFRESH_PAGE_ROUTE,
   {
     path: '',
     component: MinimalShellComponent,

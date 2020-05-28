@@ -22,7 +22,6 @@ const FEATURE_COMPONENTS: Type<unknown>[] = [
     SandboxFeatureRoutingModule,
     DefaultShellModule,
   ],
-  exports: [],
   declarations: [
     FEATURE_COMPONENTS,
   ],

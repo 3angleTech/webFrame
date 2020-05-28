@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { User } from '../../data/user.do';
+import { IAppRefresher } from '../../other/app-refresher.token';
 import { ServerApi } from '../api-endpoint-builder/api-endpoint-builder.interface';
 import {
   IWebRequestService,
@@ -22,15 +23,18 @@ export interface IWebFrameContextStateService {
   currentUser: BehaviorSubject<User | undefined>;
 
   isAuthenticated(): boolean;
+
   initialize(): Observable<void>;
 }
 
 export const IWebFrameContextStateService = new InjectionToken('IWebFrameContextStateService');
 
-// TODO: Move outside
 @Injectable()
-export class WebFrameContextStateService implements IWebFrameContextStateService {
+export class WebFrameContextStateService implements IAppRefresher, IWebFrameContextStateService {
   public currentUser: BehaviorSubject<User | undefined>;
+
+  // The state service refresher needs to be executed first.
+  public refresherWeight: number = -100;
 
   constructor(
     @Inject(IWebRequestService)
@@ -47,13 +51,19 @@ export class WebFrameContextStateService implements IWebFrameContextStateService
     return this.initializeCurrentUser();
   }
 
+  public refresh(): Observable<void> {
+    return this.initializeCurrentUser();
+  }
+
   private initializeCurrentUser(): Observable<void> {
     const config: RequestConfiguration = {
       serverApi: ServerApi.AccountMe,
     };
+
     return this.webRequest.get(config).pipe(
       map((user: User): void => {
         this.currentUser.next(user);
+
         return undefined;
       }),
     );
