@@ -7,6 +7,9 @@
  */
 
 :root {
+  // System fonts are the default fonts used by any given OS, helping performance by eliminating the need to download font files.
+  --font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", system-ui, sans-serif;
+
   // Color variables.
   --color-primary-base: #2a3990;
   --color-primary-contrast: #ffffff;
