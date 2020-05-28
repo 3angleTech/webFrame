@@ -132,7 +132,7 @@ const SHARED_ROOT_PROVIDERS: Provider[] = [
   },
   {
     provide: APP_REFRESHER,
-    useClass: WebFrameContextStateService,
+    useExisting: IWebFrameContextStateService,
     multi: true,
   },
   {
