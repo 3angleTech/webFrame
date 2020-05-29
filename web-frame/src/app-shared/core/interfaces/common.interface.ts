@@ -7,6 +7,8 @@
 import { Observable } from 'rxjs';
 
 export enum HttpStatusCode {
+  // NOTE: The Angular HttpClient returns a 0 code for when a connection could not be established.
+  CONNECTION_REFUSED = 0,
   OK = 200,
   MULTIPLE_CHOICES = 300,
   BAD_REQUEST = 400,

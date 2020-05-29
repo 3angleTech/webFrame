@@ -16,6 +16,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
+  getHttpResponseValidationErrors,
   IAccountCredentials,
   IAccountService,
   INotificationConfiguration,
@@ -62,27 +63,29 @@ export class LoginPageComponent implements OnInit {
     if (this.loginForm.disabled) {
       return;
     }
-    if (this.loginForm.invalid) {
-      let message: string = 'ACCOUNT_FEATURE.LOGIN_PAGE.ERROR.INVALID_DATA';
-      if (this.loginForm.untouched) {
-        message = 'ACCOUNT_FEATURE.LOGIN_PAGE.ERROR.PLEASE_UPDATE';
-      }
-      // tslint:disable-next-line:no-null-keyword
-      this.loginForm.setErrors(null);
-      const notificationConfig: INotificationConfiguration = {
-        message: message,
-      };
-      this.context.ui.showNotification(notificationConfig);
-
-      return;
+    if (this.loginForm.invalid && !this.loginForm.errors['CONNECTION_REFUSED']) {
+      return this.showInvalidDataNotification();
     }
-    this.loginForm.disable();
 
+    this.loginForm.disable();
     const credentials: IAccountCredentials = this.loginForm.getRawValue();
     this.accountService.login(credentials).subscribe({
       error: (err: unknown): void => this.onLoginError(err),
       complete: (): void => this.onLoginComplete(),
     });
+  }
+
+  private showInvalidDataNotification(): void {
+    let message: string = 'GENERAL.ERROR.INVALID_DATA';
+    if (this.loginForm.untouched) {
+      message = 'GENERAL.ERROR.PLEASE_UPDATE';
+    }
+    // tslint:disable-next-line:no-null-keyword
+    this.loginForm.setErrors(null);
+    const notificationConfig: INotificationConfiguration = {
+      message: message,
+    };
+    this.context.ui.showNotification(notificationConfig);
   }
 
   private onLoginComplete(): void {
@@ -94,9 +97,8 @@ export class LoginPageComponent implements OnInit {
   private onLoginError(err: unknown): void {
     this.loginForm.enable();
     if (err instanceof HttpErrorResponse) {
-      this.loginForm.setErrors({
-        SUBMIT_ERROR: true,
-      });
+      const validationErrors = getHttpResponseValidationErrors(err);
+      this.loginForm.setErrors(validationErrors);
       this.loginForm.markAsUntouched();
     } else {
       throw err;

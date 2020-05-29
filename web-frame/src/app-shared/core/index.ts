@@ -14,6 +14,8 @@ export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
 export { PagedResult } from './data/paged-result.do';
 export { AccessDeniedError } from './errors/access-denied.error';
+export { isApiError } from './errors/api-error.interface';
+export { getHttpResponseValidationErrors } from './errors/get-http-response-validation-errors';
 export { KnownError, isHttpErrorResponseOrKnownError } from './errors/known.error';
 export { PageNotFoundError } from './errors/page-not-found.error';
 export { HttpStatusCode } from './interfaces/common.interface';
