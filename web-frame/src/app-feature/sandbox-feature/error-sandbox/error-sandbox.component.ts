@@ -11,6 +11,10 @@ import { ISandboxList } from '../components/sandbox-list/sandbox-list.interface'
 
 import { SandboxError } from './sandbox-error';
 
+export interface IErrorSandboxTestInterface {
+  record: Record<string, string>;
+}
+
 @Component({
   selector: 'app-error-sandbox',
   styleUrls: ['./error-sandbox.component.scss'],
@@ -23,6 +27,14 @@ export class ErrorSandboxComponent implements OnInit {
     {
       header: 'Runtime Errors',
       items: [
+        {
+          label: 'Parse Invalid JSON',
+          action: 'testJsonParseError',
+        },
+        {
+          label: 'Read property from undefined object',
+          action: 'testPropertyReadFromUndefinedObject',
+        },
         {
           label: 'trow new AccessDeniedError()',
           action: 'testThrowAccessDeniedError',
@@ -132,5 +144,20 @@ export class ErrorSandboxComponent implements OnInit {
 
   private testThrowPageNotFoundError(): never {
     throw new PageNotFoundError('This is not the page you are looking for.');
+  }
+
+  private testJsonParseError(): void {
+    this.log('»»» Test JSON.parse() error handling «««');
+    const invalidJsonString: string = '{"name":"John Doe",}';
+    JSON.parse(invalidJsonString);
+  }
+
+  private testPropertyReadFromUndefinedObject(): void {
+    this.log('»»» Test "read property from undefined object" error handling «««');
+    // tslint:disable-next-line:no-any
+    const sandboxTestObject: IErrorSandboxTestInterface = {} as unknown as any;
+    if (sandboxTestObject.record.noSuchProperty) {
+      // Nothing to do.
+    }
   }
 }
