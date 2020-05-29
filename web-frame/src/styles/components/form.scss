@@ -107,5 +107,6 @@
   .app-form__element-label,
   .app-form__element-input {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
