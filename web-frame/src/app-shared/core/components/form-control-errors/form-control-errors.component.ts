@@ -8,9 +8,11 @@
  * Provides a helper component that can be used to display form control errors.
  */
 import { ChangeDetectionStrategy, Component, DoCheck, EventEmitter, Host, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, ValidationErrors } from '@angular/forms';
+import { FormControl, FormGroupDirective } from '@angular/forms';
 import { merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { getValidationErrorsTranslations } from '../../other/get-validation-errors-translations';
 
 @Component({
   selector: 'app-form-control-errors',
@@ -65,7 +67,7 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
     ).pipe(
       map((): string[] | undefined => {
         if (this.formControl.errors) {
-          return this.getErrorPhrases(this.formControl.errors);
+          return getValidationErrorsTranslations(this.formControl.errors, this.namespace);
         }
 
         return undefined;
@@ -85,28 +87,6 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
       this.formControlTouchedChanged = true;
       this.formControlTouchedChanges.emit();
     }
-  }
-
-  /**
-   * Returns a list of error phrases that need to go through the translate service.
-   *
-   * @param errors The ValidationErrors object from the FormControl.errors property.
-   */
-  protected getErrorPhrases(errors: ValidationErrors): string[] {
-    const errorPhrases: string[] = [];
-    const errorPhrasePrefix = `${this.namespace}.${this.formControlPath}`;
-
-    Object.getOwnPropertyNames(errors).forEach((errorKey: string) => {
-      if (FormControlErrorsComponent.complexValidationErrors.includes(errorKey)) {
-        Object.getOwnPropertyNames(errors[errorKey]).forEach((errorDetailKey: string) => {
-          errorPhrases.push(`${errorPhrasePrefix}.${errorKey}.${errorDetailKey}`);
-        });
-      } else {
-        errorPhrases.push(`${errorPhrasePrefix}.${errorKey}`);
-      }
-    });
-
-    return errorPhrases;
   }
 }
 

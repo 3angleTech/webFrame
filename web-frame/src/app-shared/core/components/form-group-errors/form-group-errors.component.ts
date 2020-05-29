@@ -21,7 +21,7 @@ export class FormGroupErrorsComponent implements OnChanges {
   @Input()
   public readonly validationErrors: ValidationErrors | null | undefined;
 
-  public errorList: string[];
+  public errorList: string[] | undefined;
 
   constructor(
     @Host() @Optional()
