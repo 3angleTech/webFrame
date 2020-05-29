@@ -36,6 +36,10 @@ export class AppStateInitializerService {
   private logoutAndReloadApplication(): Observable<never> {
     return this.accountService.logout().pipe(
       mergeMap((): Observable<never> => {
+        // TODO: Fix possible race condition and use translated messages.
+        // const translatedMessage = 'GENERAL.ERROR.EXPIRED_SESSION';
+        const translatedMessage = 'Session has expired.';
+        alert(translatedMessage);
         window.location.href = ENVIRONMENT.appBaseUrl;
 
         return NEVER;

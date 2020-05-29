@@ -8,6 +8,9 @@
       "GO_BACK": "Go Back",
       "SUBMIT": "Submit"
     },
+    "ERROR": {
+      "EXPIRED_SESSION": "Session has expired"
+    },
     "GO_TO_SELECT_LANGUAGE": "Select language",
     "LOADING_PAGE": "Loading page…"
   },
@@ -64,9 +67,13 @@
       "CREATE_ACCOUNT": "Create account",
       "FORGOT_PASSWORD": "Forgot password?",
       "ERROR": {
-        "INVALID_DATA": "Invalid data provided.",
-        "PLEASE_UPDATE": "Please update the form data.",
-        "SUBMIT_ERROR": "Invalid credentials."
+        "EMAIL": {
+          "email": "Email is invalid.",
+          "required": "Email is required."
+        },
+        "PASSWORD": {
+          "required": "Password is required."
+        }
       }
     },
     "RESET_PASSWORD": {
