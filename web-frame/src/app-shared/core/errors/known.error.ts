@@ -5,9 +5,16 @@
  */
 import { HttpErrorResponse } from '@angular/common/http';
 
-export class KnownError extends Error {
-  constructor(public message: string) {
-    super(message);
+export abstract class KnownError extends Error {
+  public abstract readonly name: string;
+  public readonly message: string;
+  public readonly location?: string;
+
+  protected constructor(message: string, location?: string) {
+    // NOTE: To avoid `enumerable: false` issues, the Error class is called without any arguments.
+    super();
+    this.message = message;
+    this.location = location ? location : undefined;
   }
 }
 

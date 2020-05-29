@@ -6,9 +6,9 @@
 import { KnownError } from './known.error';
 
 export class PageNotFoundError extends KnownError {
-  public name: 'PageNotFoundError';
+  public readonly name: 'PageNotFoundError';
 
-  constructor(public message: string) {
-    super(message);
+  constructor(message: string, location?: string) {
+    super(message, location);
   }
 }

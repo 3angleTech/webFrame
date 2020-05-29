@@ -6,9 +6,9 @@
 import { KnownError } from './known.error';
 
 export class AccessDeniedError extends KnownError {
-  public name: 'AccessDeniedError';
+  public readonly name: 'AccessDeniedError';
 
-  constructor(public message: string) {
-    super(message);
+  constructor(message: string, location?: string) {
+    super(message, location);
   }
 }
