@@ -39,7 +39,7 @@
     "FORGOT_PASSWORD_PAGE": {
       "PAGE_TITLE": "Forgot password",
       "SUBMIT": "Request recovery email",
-      "ERRORS": {
+      "ERROR": {
       }
     },
     "INFORMATION_PAGE": {
@@ -63,7 +63,7 @@
       "SUBMIT": "Login",
       "CREATE_ACCOUNT": "Create account",
       "FORGOT_PASSWORD": "Forgot password?",
-      "ERRORS": {
+      "ERROR": {
         "INVALID_DATA": "Invalid data provided.",
         "PLEASE_UPDATE": "Please update the form data.",
         "SUBMIT_ERROR": "Invalid credentials."
@@ -72,7 +72,7 @@
     "RESET_PASSWORD": {
       "PAGE_TITLE": "Reset password",
       "SUBMIT": "Reset password email",
-      "ERRORS": {
+      "ERROR": {
       }
     },
     "SELECT_LANGUAGE": {
@@ -81,7 +81,7 @@
     "SIGNUP_PAGE": {
       "PAGE_TITLE": "Signup",
       "SUBMIT": "Signup",
-      "ERRORS": {
+      "ERROR": {
       }
     }
   },
@@ -103,7 +103,7 @@
       "CURRENT_PASSWORD": "Current Password",
       "NEW_PASSWORD": "New Password",
       "CONFIRM_PASSWORD": "Confirm Password",
-      "ERRORS": {
+      "ERROR": {
       }
     }
   }

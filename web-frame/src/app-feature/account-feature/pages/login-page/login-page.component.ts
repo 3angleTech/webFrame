@@ -63,9 +63,9 @@ export class LoginPageComponent implements OnInit {
       return;
     }
     if (this.loginForm.invalid) {
-      let message: string = 'ACCOUNT_FEATURE.LOGIN_PAGE.ERRORS.INVALID_DATA';
+      let message: string = 'ACCOUNT_FEATURE.LOGIN_PAGE.ERROR.INVALID_DATA';
       if (this.loginForm.untouched) {
-        message = 'ACCOUNT_FEATURE.LOGIN_PAGE.ERRORS.PLEASE_UPDATE';
+        message = 'ACCOUNT_FEATURE.LOGIN_PAGE.ERROR.PLEASE_UPDATE';
       }
       // tslint:disable-next-line:no-null-keyword
       this.loginForm.setErrors(null);
