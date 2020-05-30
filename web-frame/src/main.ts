@@ -7,7 +7,6 @@
 /**
  * The application's bootstrap script.
  */
-
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { ENVIRONMENT } from '~app-shared/config';

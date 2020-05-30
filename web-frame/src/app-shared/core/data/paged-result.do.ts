@@ -3,7 +3,6 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
 import { JsonProperty } from 'json2typescript';
 
 /**

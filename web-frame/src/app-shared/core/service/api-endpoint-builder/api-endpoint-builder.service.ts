@@ -3,7 +3,6 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
 import { Inject, Injectable } from '@angular/core';
 import { isNil, isString } from 'lodash';
 import { ENVIRONMENT } from '~app-shared/config';

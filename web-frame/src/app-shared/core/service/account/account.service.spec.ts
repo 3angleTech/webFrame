@@ -3,7 +3,6 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
 import { inject, TestBed } from '@angular/core/testing';
 
 import { IJsonConverterService } from '../json-converter/json-converter.service';

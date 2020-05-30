@@ -1,4 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+/**
+ * @license
+ * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
