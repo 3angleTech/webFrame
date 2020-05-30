@@ -4,7 +4,9 @@
   Available under MIT license webFrame/LICENSE
 -->
 
-<div class="app-form app-form--simple">
+<img src="/assets/logo.svg" alt="Logo" class="app-page-section-logo">
+
+<div class="app-page-section app-form--simple">
   <div *ngIf="tokenStatus === tokenVerificationStatusType.ValidToken">
     <h1 class="app-page__title">
       {{ 'ACCOUNT_FEATURE.CONFIRM_EMAIL_PAGE.SUCCESS' | translate }}
@@ -20,8 +22,8 @@
       {{ 'ACCOUNT_FEATURE.CONFIRM_EMAIL_PAGE.TOKEN_INVALID' | translate }}
     </h1>
   </div>
-  <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
-  <div class="app-form__actions">
+
+  <div class="app-page-section-actions">
     <button class="app-button--with-icon" type="button" routerLink="/account/login">
       <span class="text">
         {{ 'ACCOUNT_FEATURE.CONFIRM_EMAIL_PAGE.GO_TO_LOGIN' | translate }}

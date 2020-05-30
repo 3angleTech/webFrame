@@ -12,10 +12,12 @@ import { NgModule, Type } from '@angular/core';
 import { DefaultShellModule } from '~app-shell/default-shell';
 
 import { SandboxListComponent } from './components/sandbox-list/sandbox-list.component';
+import { SandboxOverviewComponent } from './pages/sandbox-overview/sandbox-overview.component';
 import { SandboxFeatureRoutingModule } from './sandbox-feature-routing.module';
 import { SandboxFeatureComponent } from './sandbox-feature.component';
 
 const FEATURE_COMPONENTS: Type<unknown>[] = [
+  SandboxOverviewComponent,
   SandboxFeatureComponent,
 ];
 

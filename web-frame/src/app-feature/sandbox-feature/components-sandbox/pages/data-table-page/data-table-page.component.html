@@ -1,3 +1,15 @@
+<!--
+  @license
+  Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+  Available under MIT license webFrame/LICENSE
+-->
+
+<button class="app-button" type="button" routerLink="/sandbox">
+  {{ 'Go back' }}
+</button>
+
+<h1 class="app-page__title">{{ getPageTitle() }}</h1>
+
 <form (submit)="searchForProducts()">
   <label>
     <span>{{ 'Name' }}</span>&nbsp;
@@ -54,7 +66,3 @@
     {{(dataSource | async)?.totalCount}} total
   </span>
 </p>
-
-<button type="button" routerLink="/sandbox">
-  {{ 'Go back' }}
-</button>

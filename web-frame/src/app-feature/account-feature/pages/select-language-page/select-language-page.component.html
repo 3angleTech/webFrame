@@ -1,18 +1,28 @@
-<div class="app-form app-form--narrow app-form--simple">
-  <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
+<!--
+  @license
+  Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+  Available under MIT license webFrame/LICENSE
+-->
+
+<img src="/assets/logo.svg" alt="Logo" class="app-page-section-logo">
+
+<div class="app-page-section app-form--narrow app-form--simple">
   <h1 class="app-page__title">{{ getPageTitle() | translate }}</h1>
 
   <app-language-switcher></app-language-switcher>
+</div>
 
-  <div class="app-form__separator">
-    <span>{{ 'ACCOUNT_FEATURE.GENERAL.OR' | translate }}</span>
-  </div>
+<div aria-hidden="true" class="app-page-section-separator" role="presentation">
+  {{ 'ACCOUNT_FEATURE.GENERAL.OR' | translate }}
+</div>
 
-  <div class="app-form__actions">
+<aside class="app-page-section">
+  <h1 class="visually-hidden">{{ 'More actions' | translate }}</h1>
+
+  <div class="app-page-section-actions">
     <button class="app-button--with-icon" type="button" routerLink="/account/login">
-      <span class="text">
-        {{ 'GENERAL.BUTTON.GO_BACK' | translate }}
-      </span>
+      <i class="material-icons">person</i>
+      <span class="text">{{ 'GENERAL.BUTTON.GO_BACK' | translate }}</span>
     </button>
   </div>
-</div>
+</aside>

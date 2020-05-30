@@ -4,18 +4,18 @@
   Available under MIT license webFrame/LICENSE
 -->
 
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="app-form app-form--narrow app-form--simple">
-  <h1 class="app-page__title">{{ getPageTitle() | translate }}</h1>
+<img alt="Logo" class="app-page-section-logo" src="/assets/logo.svg">
 
-  <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="app-page-section app-form--narrow app-form--simple">
+  <h1 class="app-page__title">{{ getPageTitle() | translate }}</h1>
 
   <label class="app-form__element--block">
     <span class="app-form__element-label">
       {{ 'ACCOUNT_FEATURE.GENERAL.EMAIL' | translate }}
     </span>
     <span class="app-form__element-input">
-      <input type="text" class="app-form__text-input" formControlName="email" name="email">
-      <app-form-control-errors namespace="ACCOUNT_FEATURE.LOGIN_PAGE.ERROR.EMAIL" formControlPath="email"></app-form-control-errors>
+      <input class="app-form__text-input" formControlName="email" name="email" type="text">
+      <app-form-control-errors formControlPath="email" namespace="ACCOUNT_FEATURE.LOGIN_PAGE.ERROR.EMAIL"></app-form-control-errors>
     </span>
   </label>
 
@@ -24,35 +24,39 @@
       {{ 'ACCOUNT_FEATURE.GENERAL.PASSWORD' | translate }}
     </span>
     <span class="app-form__element-input">
-      <input type="password" class="app-form__text-input" formControlName="password" name="password">
-      <app-form-control-errors namespace="ACCOUNT_FEATURE.LOGIN_PAGE.ERROR.PASSWORD" formControlPath="password"></app-form-control-errors>
+      <input class="app-form__text-input" formControlName="password" name="password" type="password">
+      <app-form-control-errors formControlPath="password" namespace="ACCOUNT_FEATURE.LOGIN_PAGE.ERROR.PASSWORD"></app-form-control-errors>
     </span>
   </label>
 
-  <label class="app-form__element--inline-block">
+  <label class="app-form__element--line-block">
     <span class="app-form__element-input">
-      <input type="checkbox" class="app-form__checkbox-input" formControlName="staySignedIn" name="staySignedIn">
+      <input class="app-form__checkbox-input" formControlName="staySignedIn" name="staySignedIn" type="checkbox">
     </span>
     <span class="app-form__element-label">
       {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.STAY_SIGNED_IN' | translate }}
     </span>
   </label>
 
-  <div class="app-form__actions">
-    <button class="app-button--with-icon" type="submit" name="submit" [disabled]="loginForm.disabled">
+  <div class="app-page-section-actions">
+    <button [disabled]="loginForm.disabled" class="app-button--with-icon" name="submit" type="submit">
       <i class="material-icons">lock_open</i>
       <span class="text">{{ 'ACCOUNT_FEATURE.LOGIN_PAGE.SUBMIT' | translate }}</span>
     </button>
   </div>
 
   <app-form-group-errors [validationErrors]="loginForm.errors" namespace="ACCOUNT_FEATURE.LOGIN_PAGE.ERROR"></app-form-group-errors>
+</form>
 
-  <div class="app-form__separator">
-    <span>{{ 'ACCOUNT_FEATURE.GENERAL.OR' | translate }}</span>
-  </div>
+<div aria-hidden="true" class="app-page-section-separator" role="presentation">
+  {{ 'ACCOUNT_FEATURE.GENERAL.OR' | translate }}
+</div>
 
-  <div class="app-form__actions">
-    <button class="app-button--with-icon" type="button" routerLink="/account/signup">
+<aside class="app-page-section">
+  <h1 class="visually-hidden">{{ 'More actions' | translate }}</h1>
+
+  <div class="app-page-section-actions">
+    <button class="app-button--with-icon" routerLink="/account/signup" type="button">
       <i class="material-icons">person</i>
       <span class="text">
         {{ 'ACCOUNT_FEATURE.LOGIN_PAGE.CREATE_ACCOUNT' | translate }}
@@ -67,4 +71,4 @@
       {{ 'GENERAL.GO_TO_SELECT_LANGUAGE' | translate }}
     </a>
   </div>
-</form>
+</aside>

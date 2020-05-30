@@ -8,22 +8,17 @@
 // This file should contains temporary styles, until a permanent home is found for them.
 // Please keep this file as small as possible and documented.
 
-.app-page__title {
-  text-align: center;
-}
+@import "app-styling-utils";
+@import "app-styling-variables";
 
-.app-button--with-icon {
-  border-radius: 2px;
-  cursor: pointer;
-  line-height: 1em;
-  padding: 0.25em 1em;
+app-sandbox-feature {
+  max-width: 30em;
 
-  .material-icons,
-  .text {
-    vertical-align: middle;
+  .app-page-section-actions--inline {
+    margin-bottom: var(--spacing-medium);
   }
 
-  .material-icons + .text {
-    margin-left: 0.5em;
+  .app-sandbox__content > *:not(:first-child):not(:last-child) {
+    margin: var(--spacing-large) 0;
   }
 }

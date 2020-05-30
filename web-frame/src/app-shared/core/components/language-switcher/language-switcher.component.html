@@ -4,6 +4,7 @@
       (click)="changeLanguage(languageMetadata)"
       [dir]="languageMetadata.isRTL ? 'rtl' : 'ltr'"
       [lang]="languageMetadata.localeId"
+      class="app-button"
       type="button"
     >{{ languageMetadata.name }}</button>
   </li>

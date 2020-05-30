@@ -3,13 +3,16 @@
   Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
   Available under MIT license webFrame/LICENSE
 -->
-<div class="app-form app-form--simple">
-  <img src="/assets/logo.svg" alt="Logo" class="app-form__logo">
+
+<img src="/assets/logo.svg" alt="Logo" class="app-page-section-logo">
+
+<div class="app-page-section app-form--simple">
   <h1 class="app-page__title">{{ getPageTitle() | translate }}</h1>
   <p *ngIf="pageDetails.message">
     {{ pageDetails.message | translate }}
   </p>
-  <div class="app-form__actions">
+
+  <div class="app-page-section-actions">
     <ng-container *ngIf="isAuthenticated; else anonymousUserActions">
       <button class="app-button--with-icon" type="button" (click)="navigateToDestinationPage()">
         <span class="text">

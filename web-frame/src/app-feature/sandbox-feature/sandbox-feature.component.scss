@@ -3,24 +3,9 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
 @import "app-styling-utils";
 @import "app-styling-variables";
 
-
-.app-sandbox__content {
-  margin: 24px auto;
-  max-width: 320px;
-
-  a,
-  button {
-    background-color: app-get-color($app-text-colors, lighter);
-    border-radius: 2px;
-    color: app-get-contrast($app-text-colors, lighter);
-    display: block;
-    margin-bottom: 8px;
-    padding: 8px;
-    text-align: center;
-    text-decoration: none;
-  }
+app-sandbox-feature {
+  max-width: 480px;
 }

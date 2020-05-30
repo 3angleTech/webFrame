@@ -103,4 +103,8 @@ export class DataTablePageComponent implements OnInit {
     }
     this.tableController.inputEvents.sortChange.next(this.sortQuery);
   }
+
+  public getPageTitle(): string {
+    return 'Sandbox: Data Table';
+  }
 }

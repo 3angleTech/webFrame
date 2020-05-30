@@ -12,16 +12,16 @@
   <p>{{ 'PROFILE_FEATURE.GENERAL.EMAIL' | translate }}: {{ context.currentUser.email }}</p>
 </ng-container>
 
-<div class="inline-actions">
-  <button type="button" name="settings" routerLink="/profile/settings">
+<div class="app-page-section-actions--inline">
+  <button class="app-button" type="button" name="settings" routerLink="/profile/settings">
     {{ 'PROFILE_FEATURE.PROFILE_PAGE.GO_TO_SETTINGS' | translate }}
   </button>
 
-  <button type="button" name="logout" routerLink="/account/logout">
+  <button class="app-button" type="button" name="logout" routerLink="/account/logout">
     {{ 'GENERAL.BUTTON.LOGOUT' | translate }}
   </button>
 
-  <a routerLink="/account/select-language">
+  <a class="app-button" routerLink="/account/select-language">
     {{ 'GENERAL.GO_TO_SELECT_LANGUAGE' | translate }}
   </a>
 </div>

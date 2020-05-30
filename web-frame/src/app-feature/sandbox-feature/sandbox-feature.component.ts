@@ -5,11 +5,9 @@
  */
 
 /**
- * The sandbox feature module main component. This component should only link
- * to lazy-loaded sub-modules.
+ * The sandbox feature module main component, this component should only provide styles for sandbox pages.
  */
-import { ChangeDetectionStrategy, Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-sandbox-feature',
@@ -20,23 +18,9 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
 })
 export class SandboxFeatureComponent implements OnInit {
-  @HostBinding('class.app-sandbox-feature')
-  public componentClass: boolean = true;
-
-  public forceRefreshQueryParams: Record<string, string>;
-
-  constructor(
-    private router: Router,
-  ) {
+  constructor() {
   }
 
   public ngOnInit(): void {
-    this.forceRefreshQueryParams = {
-      destination: this.router.url,
-    };
-  }
-
-  public getPageTitle(): string {
-    return 'Sandbox';
   }
 }
