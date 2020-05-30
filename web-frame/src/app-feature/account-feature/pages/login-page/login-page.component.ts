@@ -63,8 +63,12 @@ export class LoginPageComponent implements OnInit {
     if (this.loginForm.disabled) {
       return;
     }
-    if (this.loginForm.invalid && !this.loginForm.errors['CONNECTION_REFUSED']) {
-      return this.showInvalidDataNotification();
+    if (this.loginForm.invalid) {
+      if (this.loginForm.errors && this.loginForm.errors['CONNECTION_REFUSED']) {
+        return this.showInvalidDataNotification();
+      }
+
+      return;
     }
 
     this.loginForm.disable();
