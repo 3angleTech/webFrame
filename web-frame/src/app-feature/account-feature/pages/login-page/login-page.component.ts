@@ -8,13 +8,8 @@
  * Provides LoginPageComponent.
  */
 import { HttpErrorResponse } from '@angular/common/http';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  OnInit,
-} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import {
   getHttpResponseValidationErrors,
   IAccountCredentials,
@@ -60,14 +55,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    if (this.loginForm.disabled) {
-      return;
-    }
-    if (this.loginForm.invalid) {
-      if (this.loginForm.errors && this.loginForm.errors['CONNECTION_REFUSED']) {
-        return this.showInvalidDataNotification();
-      }
-
+    if (!this.canSubmitFormData()) {
       return;
     }
 
@@ -79,13 +67,40 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  private showInvalidDataNotification(): void {
+  private canSubmitFormData(): boolean {
+    // Prevent accidental multiple consecutive submissions.
+    if (this.loginForm.disabled) {
+      return false;
+    }
+
+    // Allow re-submission when a connection error was encountered.
+    if (this.hasConnectionRefusedError(this.loginForm.errors)) {
+      return true;
+    }
+
+    // Show notification.
+    if (this.loginForm.invalid || this.loginForm.errors) {
+      this.showFormGroupErrorsNotification();
+
+      return false;
+    }
+
+    return true;
+  }
+
+  private hasConnectionRefusedError(errors: ValidationErrors): boolean {
+    if (!errors || Object.keys(errors).length !== 1) {
+      return false;
+    }
+
+    return this.loginForm.errors.hasOwnProperty('GENERAL.ERROR.CONNECTION_REFUSED');
+  }
+
+  private showFormGroupErrorsNotification(): void {
     let message: string = 'GENERAL.ERROR.INVALID_DATA';
     if (this.loginForm.untouched) {
       message = 'GENERAL.ERROR.PLEASE_UPDATE';
     }
-    // tslint:disable-next-line:no-null-keyword
-    this.loginForm.setErrors(null);
     const notificationConfig: INotificationConfiguration = {
       message: message,
     };
