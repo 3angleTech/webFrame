@@ -98,8 +98,14 @@ export class WebFrameErrorHandlerService implements OnDestroy {
 
   private storeLastRuntimeError(err: unknown): void {
     try {
-      const errorString: string = JSON.stringify(err);
-      this.storageArea.setItem(WebFrameErrorHandlerService.LAST_RUNTIME_ERROR_KEY, errorString);
+      // NOTE: To avoid `enumerable: false` issues, the error details are copied to a new object.
+      const errorDetails: Partial<Error> = {
+        name: (err as { name: string }).name,
+        message: (err as { message: string }).message,
+        stack: (err as { stack: string }).stack,
+      };
+      const errorDetailsString: string = JSON.stringify(errorDetails);
+      this.storageArea.setItem(WebFrameErrorHandlerService.LAST_RUNTIME_ERROR_KEY, errorDetailsString);
     } catch (err) {
       // Ignore storageArea issues and just display a generic error page.
       console.error('Failed to serialize the error object for the error page.');

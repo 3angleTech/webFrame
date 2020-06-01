@@ -15,12 +15,18 @@
     body {
       display: grid;
       font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", system-ui, sans-serif;
+      margin: 1em;
       min-height: 75vh;
-      place-content: center;
+      place-content: center stretch;
     }
 
     h1 {
       border-bottom: 1px double currentColor;
+    }
+
+    pre {
+      overflow: auto;
+      white-space: pre-wrap;
     }
   </style>
 </head>
@@ -42,27 +48,32 @@
      * @return { Error | undefined }
      */
     function getErrorInfo() {
-      const errorInfoString = /** @type { string } */
-        window.sessionStorage.getItem(LAST_RUNTIME_ERROR_KEY);
+      /** @type { Partial<Error> | unknown } */
+      let errorDetails;
+      try {
+        const errorInfoString = /** @type { string } */
+          window.sessionStorage.getItem(LAST_RUNTIME_ERROR_KEY);
+        errorDetails = JSON.parse(errorInfoString);
+      } catch (err) {
+        // Nothing to do.
+      }
 
-      if (errorInfoString && errorInfoString.length) {
-        /** @type { Error } */
+      if (errorDetails && errorDetails.hasOwnProperty('name')) {
+        /** @type { Partial<Error> } */
         const errorInfo = {
           name: 'Unknown Error',
           message: undefined,
           stack: undefined,
         };
 
-        const parsedErrorInfo = JSON.parse(errorInfoString);
-
-        if (parsedErrorInfo.hasOwnProperty('name')) {
-          errorInfo.name = parsedErrorInfo.name;
+        if (errorDetails.hasOwnProperty('name')) {
+          errorInfo.name = `Name: ${errorDetails.name}`;
         }
-        if (parsedErrorInfo.hasOwnProperty('message')) {
-          errorInfo.message = parsedErrorInfo.message;
+        if (errorDetails.hasOwnProperty('message')) {
+          errorInfo.message = `Message: ${errorDetails.message}`;
         }
-        if (parsedErrorInfo.hasOwnProperty('stack')) {
-          errorInfo.stack = parsedErrorInfo.stack;
+        if (errorDetails.hasOwnProperty('stack')) {
+          errorInfo.stack = errorDetails.stack;
         }
         return errorInfo;
       }
@@ -70,7 +81,7 @@
       return undefined;
     }
 
-    /** @type { {errorInfo: Error} } */
+    /** @type { {errorInfo: Partial<Error>} } */
     const ERROR_PAGE_DATA = {};
     ERROR_PAGE_DATA.errorInfo = getErrorInfo();
 
@@ -89,6 +100,12 @@
       errorMessageEl.classList.add('error-page__error-message');
       errorMessageEl.innerHTML = ERROR_PAGE_DATA.errorInfo.message;
       detailsContainerEl.appendChild(errorMessageEl);
+
+      const errorStackEl = /** @type { HTMLParagraphElement } */
+        document.createElement('pre');
+      errorStackEl.classList.add('error-page__error-stack');
+      errorStackEl.innerHTML = ERROR_PAGE_DATA.errorInfo.stack;
+      detailsContainerEl.appendChild(errorStackEl);
     }
   </script>
 </body>
