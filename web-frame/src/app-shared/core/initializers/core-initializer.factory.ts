@@ -7,11 +7,10 @@ import { APP_INITIALIZER, Provider } from '@angular/core';
 import { concat } from 'rxjs';
 
 import { AppFeaturesInitializerService } from './app-features-initializer.service';
+import { AppInitializer } from './app-initializer.type';
 import { AppStateInitializerService } from './app-state-initializer.service';
 
-export type AppInitializer = () => Promise<void>;
-
-export const appInitializerFactory = (
+export const coreInitializerFactory = (
   featuresInitializerService: AppFeaturesInitializerService,
   stateInitializerService: AppStateInitializerService,
 ): AppInitializer => {
@@ -23,12 +22,12 @@ export const appInitializerFactory = (
   };
 };
 
-export const APP_INITIALIZER_PROVIDERS: Provider[] = [
+export const CORE_INITIALIZER_PROVIDERS: Provider[] = [
   AppFeaturesInitializerService,
   AppStateInitializerService,
   {
     provide: APP_INITIALIZER,
-    useFactory: appInitializerFactory,
+    useFactory: coreInitializerFactory,
     deps: [
       AppFeaturesInitializerService,
       AppStateInitializerService,

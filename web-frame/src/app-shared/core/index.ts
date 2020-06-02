@@ -18,6 +18,9 @@ export { isApiError } from './errors/api-error.interface';
 export { getHttpResponseValidationErrors } from './errors/get-http-response-validation-errors';
 export { KnownError, isHttpErrorResponseOrKnownError } from './errors/known.error';
 export { PageNotFoundError } from './errors/page-not-found.error';
+
+export { AppInitializer } from './initializers/app-initializer.type';
+
 export { HttpStatusCode } from './interfaces/common.interface';
 export { Dictionary } from './interfaces/dictionary';
 export { IWebFrameErrorHandler } from './interfaces/web-frame-error-handler.interface';
