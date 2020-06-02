@@ -24,6 +24,6 @@ export function getHttpResponseValidationErrors(response: HttpErrorResponse): Va
   }
 
   return {
-    'GENERAL.ERROR.UNKNOWN_HTTP_ERROR': true,
+    'GENERAL.ERROR.UNKNOWN_NETWORK_ERROR': true,
   };
 }

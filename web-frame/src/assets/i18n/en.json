@@ -14,7 +14,7 @@
       "INVALID_DATA": "Invalid data provided.",
       "INVALID_CREDENTIALS": "Invalid credentials.",
       "PLEASE_UPDATE": "Please update the form data.",
-      "UNKNOWN_HTTP_ERROR": "Unknown error. Try again later."
+      "UNKNOWN_NETWORK_ERROR": "Unknown network error. Try again later."
     },
     "GO_TO_SELECT_LANGUAGE": "Select language",
     "LOADING_PAGE": "Loading page…",
