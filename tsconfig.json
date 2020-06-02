@@ -31,6 +31,9 @@
       "~app-feature/account-feature": [
         "./web-frame/src/app-feature/account-feature/index.ts"
       ],
+      "~app-feature/admin-feature": [
+        "./web-frame/src/app-feature/admin-feature/index.ts"
+      ],
       "~app-feature/profile-feature": [
         "./web-frame/src/app-feature/profile-feature/index.ts"
       ],

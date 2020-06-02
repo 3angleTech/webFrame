@@ -24,6 +24,7 @@
     "NAVIGATION_MENU": {
       "LOGIN": "Login",
       "ACCOUNT": "Account",
+      "ADMIN": "Admin",
       "PROFILE": "Profile",
       "SANDBOX": "Sandbox"
     }
@@ -96,6 +97,11 @@
       "SUBMIT": "Signup",
       "ERROR": {
       }
+    }
+  },
+  "ADMIN_FEATURE": {
+    "OVERVIEW_PAGE": {
+      "PAGE_TITLE": "Administration"
     }
   },
   "PROFILE_FEATURE": {

@@ -4,6 +4,9 @@
   Available under MIT license webFrame/LICENSE
 -->
 <nav *ngIf="{ currentUser: currentUserObs | async } as context" class="navigation-menu__container">
+  <button class="app-button navigation-menu__item" type="button" routerLink="/admin">
+    {{ 'DEFAULT_SHELL.NAVIGATION_MENU.ADMIN' | translate }}
+  </button>
   <button *ngIf="!context.currentUser" class="app-button navigation-menu__item" type="button" routerLink="/account">
     {{ 'DEFAULT_SHELL.NAVIGATION_MENU.ACCOUNT' | translate }}
   </button>
