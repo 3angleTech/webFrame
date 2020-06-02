@@ -1,0 +1,11 @@
+/**
+ * @license
+ * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+
+export enum USER_ROLE {
+  ADMINISTRATOR = 'ADMINISTRATOR',
+  ANONYMOUS = 'ANONYMOUS',
+  AUTHENTICATED = 'AUTHENTICATED',
+}

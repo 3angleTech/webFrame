@@ -5,6 +5,18 @@
   "rules": {
     /* NOTE: These rules are disabled in order for the CI pipelines to pass. IDEs use stricter rules. In time, these overrides need to be removed. */
     "comment-format": false,
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ],
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
     "interface-name": false,
     "jsdoc-format": false,
     "newline-before-return": false,

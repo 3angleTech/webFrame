@@ -17,6 +17,7 @@ export { AccessDeniedError } from './errors/access-denied.error';
 export { isApiError } from './errors/api-error.interface';
 export { getHttpResponseValidationErrors } from './errors/get-http-response-validation-errors';
 export { KnownError, isHttpErrorResponseOrKnownError } from './errors/known.error';
+export { KNOWN_ERROR_MESSAGE } from './errors/known-error-message';
 export { PageNotFoundError } from './errors/page-not-found.error';
 
 export { AppInitializer } from './initializers/app-initializer.type';

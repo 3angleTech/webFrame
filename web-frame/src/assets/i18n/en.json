@@ -9,6 +9,8 @@
       "SUBMIT": "Submit"
     },
     "ERROR": {
+      "ACCESS_DENIED_USER_PERMISSION": "Access denied: missing user permission.",
+      "ACCESS_DENIED_USER_ROLE": "Access denied: missing user role.",
       "CONNECTION_REFUSED": "Server connection failed. Try again later.",
       "EXPIRED_SESSION": "Session has expired.",
       "INVALID_DATA": "Invalid data provided.",
