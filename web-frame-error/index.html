@@ -51,8 +51,8 @@
       /** @type { Partial<Error> | unknown } */
       let errorDetails;
       try {
-        const errorInfoString = /** @type { string } */
-          window.sessionStorage.getItem(LAST_RUNTIME_ERROR_KEY);
+        /** @type { string } */
+        const errorInfoString = window.sessionStorage.getItem(LAST_RUNTIME_ERROR_KEY);
         errorDetails = JSON.parse(errorInfoString);
       } catch (err) {
         // Nothing to do.
@@ -85,24 +85,24 @@
     const ERROR_PAGE_DATA = {};
     ERROR_PAGE_DATA.errorInfo = getErrorInfo();
 
-    const detailsContainerEl = /** @type { HTMLDivElement } */
-      document.getElementById('error-details');
+    /** @type { HTMLElement } */
+    const detailsContainerEl = document.getElementById('error-details');
 
     if (ERROR_PAGE_DATA.errorInfo) {
-      const errorNameEl = /** @type { HTMLHeadingElement } */
-        document.createElement('h2');
+      /** @type { HTMLHeadingElement } */
+      const errorNameEl = document.createElement('h2');
       errorNameEl.classList.add('error-page__error-name');
       errorNameEl.innerHTML = ERROR_PAGE_DATA.errorInfo.name;
       detailsContainerEl.appendChild(errorNameEl);
 
-      const errorMessageEl = /** @type { HTMLParagraphElement } */
-        document.createElement('p');
+      /** @type { HTMLParagraphElement } */
+      const errorMessageEl = document.createElement('p');
       errorMessageEl.classList.add('error-page__error-message');
       errorMessageEl.innerHTML = ERROR_PAGE_DATA.errorInfo.message;
       detailsContainerEl.appendChild(errorMessageEl);
 
-      const errorStackEl = /** @type { HTMLParagraphElement } */
-        document.createElement('pre');
+      /** @type { HTMLPreElement } */
+      const errorStackEl = document.createElement('pre');
       errorStackEl.classList.add('error-page__error-stack');
       errorStackEl.innerHTML = ERROR_PAGE_DATA.errorInfo.stack;
       detailsContainerEl.appendChild(errorStackEl);
