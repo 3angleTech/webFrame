@@ -5,8 +5,6 @@
  */
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationExtras, Router } from '@angular/router';
-import { trimStart } from 'lodash';
-import { ENVIRONMENT } from '~app-shared/config';
 import {
   AccessDeniedError,
   HttpStatusCode,
