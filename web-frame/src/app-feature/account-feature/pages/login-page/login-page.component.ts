@@ -74,7 +74,7 @@ export class LoginPageComponent implements OnInit {
     }
 
     // Allow re-submission when a connection error was encountered.
-    if (this.hasConnectionRefusedError(this.loginForm.errors)) {
+    if (this.isConnectionRefusedError(this.loginForm.errors)) {
       return true;
     }
 
@@ -88,7 +88,7 @@ export class LoginPageComponent implements OnInit {
     return true;
   }
 
-  private hasConnectionRefusedError(errors: ValidationErrors): boolean {
+  private isConnectionRefusedError(errors: ValidationErrors): boolean {
     if (!errors || Object.keys(errors).length !== 1) {
       return false;
     }
