@@ -36,11 +36,11 @@ export class ErrorSandboxComponent implements OnInit {
           action: 'testPropertyReadFromUndefinedObject',
         },
         {
-          label: 'trow new AccessDeniedError()',
+          label: 'throw new AccessDeniedError()',
           action: 'testThrowAccessDeniedError',
         },
         {
-          label: 'trow new PageNotFoundError()',
+          label: 'throw new PageNotFoundError()',
           action: 'testThrowPageNotFoundError',
         },
         {
