@@ -10,7 +10,12 @@
     "newline-before-return": false,
     "no-magic-numbers": false,
     "no-null-keyword": false,
-    "no-suspicious-comment": false,
+    "no-suspicious-comment": {
+      "severity": "warning",
+      "options": [
+        " [A-Z]+: #[0-9]+ \\b"
+      ]
+    },
     "no-unbound-method": false,
     "no-unsafe-any": false,
     "template-cyclomatic-complexity": false,
