@@ -17,9 +17,7 @@ function isAccessDeniedError(err: unknown): boolean {
   if (err instanceof AccessDeniedError) {
     return true;
   } else if (err instanceof HttpErrorResponse) {
-    if (err.status === HttpStatusCode.FORBIDDEN) {
-      return true;
-    }
+    return err.status === HttpStatusCode.FORBIDDEN;
   }
 
   return false;
@@ -29,17 +27,19 @@ function isPageNotFoundError(err: unknown): boolean {
   if (err instanceof PageNotFoundError) {
     return true;
   } else if (err instanceof HttpErrorResponse) {
-    if (err.status >= HttpStatusCode.BAD_REQUEST
-      && err.status < HttpStatusCode.INTERNAL_SERVER_ERROR) {
-      return true;
-    }
+    return err.status >= HttpStatusCode.BAD_REQUEST
+      && err.status < HttpStatusCode.INTERNAL_SERVER_ERROR;
   }
 
   return false;
 }
 
-function isInternalServerError(err: HttpErrorResponse): boolean {
-  return err.status >= HttpStatusCode.INTERNAL_SERVER_ERROR;
+function isInternalServerError(err: unknown): boolean {
+  if (err instanceof HttpErrorResponse) {
+    return err.status >= HttpStatusCode.INTERNAL_SERVER_ERROR;
+  }
+
+  return false;
 }
 
 export function appRoutingErrorHandler(this: Router, err: unknown): unknown {
@@ -48,10 +48,8 @@ export function appRoutingErrorHandler(this: Router, err: unknown): unknown {
     return this.navigateByUrl(PAGE_URL.ACCESS_DENIED_PAGE, extras);
   } else if (isPageNotFoundError(err)) {
     return this.navigateByUrl(PAGE_URL.PAGE_NOT_FOUND_PAGE, extras);
-  } else if (err instanceof HttpErrorResponse) {
-    if (isInternalServerError(err)) {
-      return WebFrameErrorHandlerService.DISPLAY_STANDALONE_ERROR_PAGE(err);
-    }
+  } else if (isInternalServerError(err)) {
+    return WebFrameErrorHandlerService.DISPLAY_STANDALONE_ERROR_PAGE(err);
   }
 
   throw err;
