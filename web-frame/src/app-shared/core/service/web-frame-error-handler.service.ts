@@ -4,11 +4,10 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorHandler, Inject, Injectable, NgZone, OnDestroy } from '@angular/core';
-import { trimStart } from 'lodash';
+import { ErrorHandler, Inject, Injectable, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { skipWhile } from 'rxjs/operators';
-import { BUILD_FLAGS, ENVIRONMENT } from '~app-shared/config';
+import { BUILD_FLAGS } from '~app-shared/config';
 
 import { AccessDeniedError } from '../errors/access-denied.error';
 import { isHttpErrorResponseOrKnownError } from '../errors/known.error';
@@ -29,16 +28,33 @@ export class WebFrameErrorHandlerService implements OnDestroy {
   private initialized: boolean = false;
   private unknownRuntimeErrorEncountered: boolean = false;
 
-  private get storageArea(): Storage {
-    return window.sessionStorage;
-  }
-
   constructor(
     @Inject(IWebFrameContextNavigationService)
     public navigationService: IWebFrameContextNavigationService,
     private readonly errorHandler: ErrorHandler,
-    private readonly ngZone: NgZone,
   ) {
+  }
+
+  public static DISPLAY_STANDALONE_ERROR_PAGE(err: unknown): void {
+    console.warn('Redirecting to error page...');
+    WebFrameErrorHandlerService.STORE_LAST_RUNTIME_ERROR(err);
+    window.location.href = PAGE_URL.STANDALONE_ERROR_PAGE;
+  }
+
+  public static STORE_LAST_RUNTIME_ERROR(err: unknown): void {
+    try {
+      // NOTE: To avoid `enumerable: false` issues, the error details are copied to a new object.
+      const errorDetails: Partial<Error> = {
+        name: (err as { name: string }).name,
+        message: (err as { message: string }).message,
+        stack: (err as { stack: string }).stack,
+      };
+      const errorDetailsString: string = JSON.stringify(errorDetails);
+      window.sessionStorage.setItem(WebFrameErrorHandlerService.LAST_RUNTIME_ERROR_KEY, errorDetailsString);
+    } catch (err) {
+      // Ignore storageArea issues and just display a generic error page.
+      console.error('Failed to serialize the error object for the error page.');
+    }
   }
 
   public ngOnDestroy(): void {
@@ -82,33 +98,10 @@ export class WebFrameErrorHandlerService implements OnDestroy {
     }
 
     if (!BUILD_FLAGS.disableStandaloneErrorPage) {
-      this.displayStandaloneErrorPage(err);
+      WebFrameErrorHandlerService.DISPLAY_STANDALONE_ERROR_PAGE(err);
     }
 
     throw err;
   }
 
-  public displayStandaloneErrorPage(err: unknown): void {
-    this.ngZone.runOutsideAngular((): void => {
-      console.warn('Redirecting to error page...');
-      this.storeLastRuntimeError(err);
-      window.location.href = ENVIRONMENT.appBaseUrl + trimStart(PAGE_URL.STANDALONE_ERROR_PAGE, '/');
-    });
-  }
-
-  private storeLastRuntimeError(err: unknown): void {
-    try {
-      // NOTE: To avoid `enumerable: false` issues, the error details are copied to a new object.
-      const errorDetails: Partial<Error> = {
-        name: (err as { name: string }).name,
-        message: (err as { message: string }).message,
-        stack: (err as { stack: string }).stack,
-      };
-      const errorDetailsString: string = JSON.stringify(errorDetails);
-      this.storageArea.setItem(WebFrameErrorHandlerService.LAST_RUNTIME_ERROR_KEY, errorDetailsString);
-    } catch (err) {
-      // Ignore storageArea issues and just display a generic error page.
-      console.error('Failed to serialize the error object for the error page.');
-    }
-  }
 }

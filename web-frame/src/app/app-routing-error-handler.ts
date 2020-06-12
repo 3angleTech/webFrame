@@ -44,17 +44,6 @@ function isInternalServerError(err: HttpErrorResponse): boolean {
   return err.status >= HttpStatusCode.INTERNAL_SERVER_ERROR;
 }
 
-function goToErrorDetailsPage(err: HttpErrorResponse): void {
-  try {
-    const errorString: string = JSON.stringify(err);
-    window.sessionStorage.setItem(WebFrameErrorHandlerService.LAST_RUNTIME_ERROR_KEY, errorString);
-  } catch (err) {
-    // Ignore storageArea issues and just display a generic error page.
-    console.error('Failed to serialize the navigation error object for the error page.');
-  }
-  window.location.href = ENVIRONMENT.appBaseUrl + trimStart(PAGE_URL.STANDALONE_ERROR_PAGE, '/');
-}
-
 export function appRoutingErrorHandler(this: Router, err: unknown): unknown {
   const extras: NavigationExtras = { skipLocationChange: true };
   if (isAccessDeniedError(err)) {
@@ -63,7 +52,7 @@ export function appRoutingErrorHandler(this: Router, err: unknown): unknown {
     return this.navigateByUrl(PAGE_URL.PAGE_NOT_FOUND_PAGE, extras);
   } else if (err instanceof HttpErrorResponse) {
     if (isInternalServerError(err)) {
-      return goToErrorDetailsPage(err);
+      return WebFrameErrorHandlerService.DISPLAY_STANDALONE_ERROR_PAGE(err);
     }
   }
 
