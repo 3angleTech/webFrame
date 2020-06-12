@@ -10,7 +10,7 @@
     },
     "ERROR": {
       "CONNECTION_REFUSED": "Server connection failed. Try again later.",
-      "EXPIRED_SESSION": "Session has expired",
+      "EXPIRED_SESSION": "Session has expired.",
       "INVALID_DATA": "Invalid data provided.",
       "INVALID_CREDENTIALS": "Invalid credentials.",
       "PLEASE_UPDATE": "Please update the form data.",

@@ -7,6 +7,7 @@ import { Inject, Injectable } from '@angular/core';
 import { NEVER, Observable, of } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
 import { ENVIRONMENT } from '~app-shared/config';
+import { ITranslationService } from '~app-shared/translate';
 
 import { IAccountService } from '../service/account/account.service';
 import { IWebFrameContextStateService } from '../service/web-frame-context/web-frame-context-state.service';
@@ -18,6 +19,8 @@ export class AppStateInitializerService {
     private accountService: IAccountService,
     @Inject(IWebFrameContextStateService)
     private stateService: IWebFrameContextStateService,
+    @Inject(ITranslationService)
+    private translationService: ITranslationService,
   ) {
   }
 
@@ -36,9 +39,7 @@ export class AppStateInitializerService {
   private logoutAndReloadApplication(): Observable<never> {
     return this.accountService.logout().pipe(
       mergeMap((): Observable<never> => {
-        // TODO: Fix possible race condition and use translated messages.
-        // const translatedMessage = 'GENERAL.ERROR.EXPIRED_SESSION';
-        const translatedMessage = 'Session has expired.';
+        const translatedMessage = this.translationService.translate('GENERAL.ERROR.EXPIRED_SESSION');
         alert(translatedMessage);
         window.location.href = ENVIRONMENT.appBaseUrl;
 
