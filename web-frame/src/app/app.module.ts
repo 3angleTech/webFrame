@@ -9,7 +9,7 @@ import { ConfigModule } from '~app-shared/config';
 import { CoreModule, WebFrameErrorHandlerService } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';
 
-import { APP_ERROR_HANDLER_PROVIDER } from './app-error-handler';
+import { AppErrorHandlerModule } from './app-error-handler.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppTranslateModule } from './app-translate.module';
 import { AppComponent } from './app.component';
@@ -23,14 +23,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    AppErrorHandlerModule,
     AppRoutingModule,
     AppTranslateModule,
     ConfigModule.forRoot(),
     CoreModule.forRoot(),
     SecurityModule.forRoot(),
-  ],
-  providers: [
-    APP_ERROR_HANDLER_PROVIDER,
   ],
 })
 export class AppModule {
