@@ -9,10 +9,10 @@ import { ConfigModule } from '~app-shared/config';
 import { CoreModule, WebFrameErrorHandlerService } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';
 
-import { AppErrorHandlerModule } from './app-error-handler.module';
-import { AppRoutingModule } from './app-routing.module';
-import { AppTranslateModule } from './app-translate.module';
 import { AppComponent } from './app.component';
+import { AppErrorHandlerModule } from './error-handler/app-error-handler.module';
+import { AppRoutingModule } from './routing/app-routing.module';
+import { AppTranslateModule } from './translate/app-translate.module';
 
 @NgModule({
   bootstrap: [
