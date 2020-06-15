@@ -17,7 +17,6 @@ export function getHttpResponseValidationErrors(response: HttpErrorResponse): Va
     };
   }
 
-  // TODO: Add support for more multiple translations.
   if (isApiError(response.error)) {
     return {
       [response.error.name]: true,
