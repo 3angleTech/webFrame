@@ -1,0 +1,19 @@
+<!--
+  @license
+  Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+  Available under MIT license webFrame/LICENSE
+-->
+
+<h1 class="app-page__title">{{ getPageTitle() }}</h1>
+
+<p>{{ 'NOTE: The triggered HttpErrorResponse instances are not actual requests.' }}</p>
+
+<app-sandbox-list
+  *ngFor="let actionList of actionLists"
+  [list]="actionList"
+  (itemClicked)="executeMethodForAction($event.action)"
+></app-sandbox-list>
+
+<button type="button" routerLink="/sandbox">
+  {{ 'Go back' }}
+</button>

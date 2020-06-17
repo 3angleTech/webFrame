@@ -7,14 +7,11 @@
 /**
  * Provides LoginPageComponent.
  */
+import { HttpErrorResponse } from '@angular/common/http';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  OnInit,
-} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
+  getHttpResponseValidationErrors,
   IAccountCredentials,
   IAccountService,
   INotificationConfiguration,
@@ -58,24 +55,56 @@ export class LoginPageComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    if (this.loginForm.disabled) {
+    if (!this.canSubmitFormData()) {
       return;
     }
-    if (this.loginForm.invalid) {
-      const notificationConfig: INotificationConfiguration = {
-        message: 'Invalid data provided.',
-      };
-      this.context.ui.showNotification(notificationConfig);
 
-      return;
-    }
     this.loginForm.disable();
-
     const credentials: IAccountCredentials = this.loginForm.getRawValue();
     this.accountService.login(credentials).subscribe({
       error: (err: unknown): void => this.onLoginError(err),
       complete: (): void => this.onLoginComplete(),
     });
+  }
+
+  private canSubmitFormData(): boolean {
+    // Prevent accidental multiple consecutive submissions.
+    if (this.loginForm.disabled) {
+      return false;
+    }
+
+    // Allow re-submission when a connection error was encountered.
+    if (this.isConnectionRefusedError(this.loginForm.errors)) {
+      return true;
+    }
+
+    // Show notification.
+    if (this.loginForm.invalid || this.loginForm.errors) {
+      this.showFormGroupErrorsNotification();
+
+      return false;
+    }
+
+    return true;
+  }
+
+  private isConnectionRefusedError(errors: ValidationErrors): boolean {
+    if (!errors || Object.keys(errors).length !== 1) {
+      return false;
+    }
+
+    return this.loginForm.errors.hasOwnProperty('GENERAL.ERROR.CONNECTION_REFUSED');
+  }
+
+  private showFormGroupErrorsNotification(): void {
+    let message: string = 'GENERAL.ERROR.INVALID_DATA';
+    if (this.loginForm.untouched) {
+      message = 'GENERAL.ERROR.PLEASE_UPDATE';
+    }
+    const notificationConfig: INotificationConfiguration = {
+      message: message,
+    };
+    this.context.ui.showNotification(notificationConfig);
   }
 
   private onLoginComplete(): void {
@@ -86,11 +115,10 @@ export class LoginPageComponent implements OnInit {
 
   private onLoginError(err: unknown): void {
     this.loginForm.enable();
-    if (typeof err === 'object' && err['message']) {
-      alert('Login error!');
-      this.loginForm.setErrors({
-        submitError: err['message'],
-      });
+    if (err instanceof HttpErrorResponse) {
+      const validationErrors = getHttpResponseValidationErrors(err);
+      this.loginForm.setErrors(validationErrors);
+      this.loginForm.markAsUntouched();
     } else {
       throw err;
     }

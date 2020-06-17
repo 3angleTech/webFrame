@@ -40,8 +40,21 @@
             "polyfills": "web-frame/src/polyfills.ts",
             "tsConfig": "web-frame/tsconfig.app.json",
             "assets": [
-              "web-frame/src/favicon.ico",
-              "web-frame/src/assets"
+              {
+                "glob": "favicon.ico",
+                "input": "web-frame/src/",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "web-frame/src/assets/",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "web-frame-error/",
+                "output": "error/"
+              }
             ],
             "scripts": [],
             "styles": [
@@ -134,8 +147,21 @@
             "tsConfig": "web-frame/tsconfig.spec.json",
             "karmaConfig": "web-frame/karma.conf.js",
             "assets": [
-              "web-frame/src/favicon.ico",
-              "web-frame/src/assets"
+              {
+                "glob": "favicon.ico",
+                "input": "web-frame/src/",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "web-frame/src/assets/",
+                "output": "assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "web-frame-error/",
+                "output": "error/"
+              }
             ],
             "scripts": [],
             "styles": [

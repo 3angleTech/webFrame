@@ -20,8 +20,8 @@ export class WebRequestInterceptorService implements HttpInterceptor {
     });
 
     return next.handle(updatedRequest).pipe(
-      catchError((response: HttpErrorResponse): Observable<never> => {
-        return throwError(response.error);
+      catchError((errorResponse: HttpErrorResponse): Observable<never> => {
+        return throwError(errorResponse);
       }),
     );
   }

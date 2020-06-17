@@ -10,10 +10,19 @@
     {{ pageDetails.message | translate }}
   </p>
   <div class="app-form__actions">
-    <button class="app-button--with-icon" type="button" routerLink="/account/login">
-      <span class="text">
-        {{ 'ACCOUNT_FEATURE.INFORMATION_PAGE.GO_TO_LOGIN' | translate }}
-      </span>
-    </button>
+    <ng-container *ngIf="isAuthenticated; else anonymousUserActions">
+      <button class="app-button--with-icon" type="button" (click)="navigateToDestinationPage()">
+        <span class="text">
+          {{ 'GENERAL.BUTTON.GO_BACK' | translate }}
+        </span>
+      </button>
+    </ng-container>
+    <ng-template #anonymousUserActions>
+      <button class="app-button--with-icon" type="button" routerLink="/account/login">
+        <span class="text">
+          {{ 'ACCOUNT_FEATURE.INFORMATION_PAGE.GO_TO_LOGIN' | translate }}
+        </span>
+      </button>
+    </ng-template>
   </div>
 </div>

@@ -3,6 +3,7 @@
     "@3angletech/tslint/styles"
   ],
   "rules": {
+    "font-family-name-quotes": null,
     "selector-type-no-unknown": [
       true,
       {

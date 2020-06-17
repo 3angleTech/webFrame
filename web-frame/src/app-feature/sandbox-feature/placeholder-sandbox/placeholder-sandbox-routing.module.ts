@@ -42,5 +42,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class PlaceholderSandboxRoutingModule { }
-
-export const routedComponents = [PlaceholderSandboxComponent];

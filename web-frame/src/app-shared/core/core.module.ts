@@ -15,6 +15,7 @@ import { TranslateModule } from '~app-shared/translate';
 
 import { ForceRefreshPageComponent } from './components/force-refresh-page/force-refresh-page.component';
 import { FormControlErrorsComponent } from './components/form-control-errors/form-control-errors.component';
+import { FormGroupErrorsComponent } from './components/form-group-errors/form-group-errors.component';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { APP_INITIALIZER_PROVIDERS } from './initializers/app-initializer.factory';
@@ -62,6 +63,7 @@ import {
   IWebFrameContextService,
   WebFrameContextService,
 } from './service/web-frame-context/web-frame-context.service';
+import { WebFrameErrorHandlerService } from './service/web-frame-error-handler.service';
 import { WebRequestInterceptorService } from './service/web-request/web-request-interceptor.service';
 import { IWebRequestService } from './service/web-request/web-request.interface';
 import { WebRequestService } from './service/web-request/web-request.service';
@@ -69,6 +71,7 @@ import { WebRequestService } from './service/web-request/web-request.service';
 const SHARED_COMPONENTS: Type<unknown>[] = [
   ForceRefreshPageComponent,
   FormControlErrorsComponent,
+  FormGroupErrorsComponent,
   LanguageSwitcherComponent,
   ProgressBarComponent,
 ];
@@ -81,6 +84,7 @@ const SHARED_PIPES: Type<unknown>[] = [
 
 const SHARED_ROOT_PROVIDERS: Provider[] = [
   ForceRefreshPageResolver,
+  WebFrameErrorHandlerService,
   {
     provide: IAccountService,
     useClass: AccountService,

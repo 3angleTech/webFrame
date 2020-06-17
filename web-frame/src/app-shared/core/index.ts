@@ -13,7 +13,14 @@ export { CoreModule } from './core.module';
 export { User } from './data/user.do';
 export { Empty } from './data/empty.do';
 export { PagedResult } from './data/paged-result.do';
+export { AccessDeniedError } from './errors/access-denied.error';
+export { isApiError } from './errors/api-error.interface';
+export { getHttpResponseValidationErrors } from './errors/get-http-response-validation-errors';
+export { KnownError, isHttpErrorResponseOrKnownError } from './errors/known.error';
+export { PageNotFoundError } from './errors/page-not-found.error';
+export { HttpStatusCode } from './interfaces/common.interface';
 export { Dictionary } from './interfaces/dictionary';
+export { IWebFrameErrorHandler } from './interfaces/web-frame-error-handler.interface';
 export {
   IAppRefresher,
   APP_REFRESHER,
@@ -54,6 +61,9 @@ export {
 export {
   IWebFrameContextUIService,
 } from './service/web-frame-context/web-frame-context-ui.service';
+export {
+  WebFrameErrorHandlerService,
+} from './service/web-frame-error-handler.service';
 export {
   IWebRequestService,
 } from './service/web-request/web-request.interface';

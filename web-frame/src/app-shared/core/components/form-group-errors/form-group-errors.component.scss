@@ -1,0 +1,33 @@
+/**
+ * @license
+ * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+@import "app-styling-utils";
+@import "app-styling-variables";
+
+
+:host {
+  display: block;
+
+  ul {
+    background-color: app-get-contrast($app-status-colors, "danger");
+    border: 1px solid app-get-color($app-status-colors, "danger");
+    border-radius: 4px;
+    color: app-get-color($app-status-colors, "danger");
+    display: block;
+    font-size: 0.75em;
+    font-weight: 700;
+    list-style-type: none;
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+  }
+
+  li {
+    display: block;
+    line-height: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

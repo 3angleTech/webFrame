@@ -15,6 +15,10 @@
   color: app-get-color($app-text-colors, "darker");
   margin-bottom: var(--spacing-normal);
   margin-top: var(--spacing-normal);
+
+  app-form-group-errors {
+    margin: var(--spacing-small) 0;
+  }
 }
 
 .app-form--narrow {
@@ -70,13 +74,6 @@
   }
 }
 
-.app-form__element-error {
-  color: app-get-color($app-status-colors, "error");
-  display: block;
-  font-size: 0.75em;
-  line-height: 1;
-}
-
 .app-form__actions {
   display: grid;
   grid-gap: var(--spacing-small);
@@ -110,5 +107,6 @@
   .app-form__element-label,
   .app-form__element-input {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

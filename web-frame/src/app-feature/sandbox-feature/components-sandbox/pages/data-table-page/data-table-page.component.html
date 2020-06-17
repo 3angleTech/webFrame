@@ -34,14 +34,27 @@
   </tbody>
 </table>
 
-<input type="button" value="prev" (click)="pageChange(pageIndex - 1)">
-{{pageIndex}}
-<input type="button" value="next" (click)="pageChange(pageIndex + 1)">
-<select (change)="pageSizeChange($event.target.value)">
+<p>
+  <input type="button" value="prev" (click)="pageChange(pageIndex - 1)">
+
+  <span>
+    {{ pageIndex }}
+  </span>
+
+  <input type="button" value="next" (click)="pageChange(pageIndex + 1)">
+
+  <select (change)="pageSizeChange($event.target.value)">
     <option value="3">3</option>
     <option value="6">6</option>
     <option value="9">9</option>
     <option value="12">12</option>
   </select>
-<br>
-{{(dataSource | async)?.totalCount}} total
+
+  <span>
+    {{(dataSource | async)?.totalCount}} total
+  </span>
+</p>
+
+<button type="button" routerLink="/sandbox">
+  {{ 'Go back' }}
+</button>

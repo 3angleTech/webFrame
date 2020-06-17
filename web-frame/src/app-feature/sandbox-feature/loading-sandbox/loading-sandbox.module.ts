@@ -5,13 +5,11 @@
  */
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { DefaultShellModule } from '~app-shell/default-shell';
 
-import { SlowLoadingCanActivateGuard } from './components/slow-loading-sandbox-page/slow-loading-can-activate.guard';
-import { SlowLoadingSandboxPageComponent } from './components/slow-loading-sandbox-page/slow-loading-sandbox-page.component';
-import { SlowLoadingResolver } from './components/slow-loading-sandbox-page/slow-loading.resolver';
-import { LOADING_SANDBOX_ROUTES } from './loading-sandbox.routes';
+import { LoadingSandboxRoutingModule } from './loading-sandbox-routing.module';
+import { SlowLoadingCanActivateGuard } from './pages/slow-loading-sandbox-page/slow-loading-can-activate.guard';
+import { SlowLoadingSandboxPageComponent } from './pages/slow-loading-sandbox-page/slow-loading-sandbox-page.component';
+import { SlowLoadingResolver } from './pages/slow-loading-sandbox-page/slow-loading.resolver';
 
 @NgModule({
   declarations: [
@@ -19,8 +17,7 @@ import { LOADING_SANDBOX_ROUTES } from './loading-sandbox.routes';
   ],
   imports: [
     CommonModule,
-    DefaultShellModule,
-    RouterModule.forChild(LOADING_SANDBOX_ROUTES),
+    LoadingSandboxRoutingModule,
   ],
   providers: [
     SlowLoadingCanActivateGuard,

@@ -6,12 +6,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ConfigModule } from '~app-shared/config';
-import { CoreModule } from '~app-shared/core';
+import { CoreModule, WebFrameErrorHandlerService } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppTranslateModule } from './app-translate.module';
 import { AppComponent } from './app.component';
+import { AppErrorHandlerModule } from './error-handler/app-error-handler.module';
+import { AppRoutingModule } from './routing/app-routing.module';
+import { AppTranslateModule } from './translate/app-translate.module';
 
 @NgModule({
   bootstrap: [
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    AppErrorHandlerModule,
     AppRoutingModule,
     AppTranslateModule,
     ConfigModule.forRoot(),
@@ -30,4 +32,9 @@ import { AppComponent } from './app.component';
   ],
 })
 export class AppModule {
+  constructor(
+    readonly errorHandlerService: WebFrameErrorHandlerService,
+  ) {
+    this.errorHandlerService.initialize();
+  }
 }

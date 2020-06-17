@@ -6,10 +6,13 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
+import { appRoutingErrorHandler } from './app-routing-error-handler';
+
 // NOTE: The routes are registered by AppFeaturesInitializerService.initialize().
 const ROUTES: Routes = [];
 
 const ROUTER_CONFIG: ExtraOptions = {
+  errorHandler: appRoutingErrorHandler,
   initialNavigation: 'disabled',
   onSameUrlNavigation: 'reload',
   paramsInheritanceStrategy: 'always',

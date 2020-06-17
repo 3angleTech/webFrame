@@ -29,6 +29,12 @@
         "ignore-module": "(zone\\.js/.*)$"
       }
     ],
+    "no-suspicious-comment": {
+      "severity": "error",
+      "options": [
+        " [A-Z]+: #[0-9]+ \\b"
+      ]
+    },
     "no-unnecessary-field-initialization": false
   }
 }

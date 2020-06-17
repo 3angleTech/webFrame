@@ -18,7 +18,7 @@ $dark-secondary-text: rgba(#000000, 0.54);
 $dark-disabled-text: rgba(#000000, 0.38);
 $dark-dividers: rgba(#000000, 0.12);
 $dark-focused: rgba(#000000, 0.12);
-$light-primary-text: #ffffff;
+$light-primary-text: #f8f9fa;
 $light-secondary-text: rgba(#ffffff, 0.7);
 $light-disabled-text: rgba(#ffffff, 0.5);
 $light-dividers: rgba(#ffffff, 0.12);
@@ -41,12 +41,14 @@ $app-foreground-colors: (
 
 // TODO: Define multiple hues for status colors, at least two, for dark and light contrasts.
 $app-status-colors: (
-  success: #43a047,
-  warning: #fb8c00,
-  error: #e53935,
+  danger: #dc3545,
+  warning: #d79a06,
+  success: #28a745,
+  info: #17a2b8,
   contrast: (
-    success: $dark-primary-text,
-    warning: $dark-primary-text,
-    error: $dark-primary-text,
+    danger: $light-primary-text,
+    warning: $light-primary-text,
+    success: $light-primary-text,
+    info: $dark-primary-text,
   ),
 );

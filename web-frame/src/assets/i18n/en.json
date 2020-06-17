@@ -8,6 +8,14 @@
       "GO_BACK": "Go Back",
       "SUBMIT": "Submit"
     },
+    "ERROR": {
+      "CONNECTION_REFUSED": "Server connection failed. Try again later.",
+      "EXPIRED_SESSION": "Session has expired.",
+      "INVALID_DATA": "Invalid data provided.",
+      "INVALID_CREDENTIALS": "Invalid credentials.",
+      "PLEASE_UPDATE": "Please update the form data.",
+      "UNKNOWN_HTTP_ERROR": "Unknown error. Try again later."
+    },
     "GO_TO_SELECT_LANGUAGE": "Select language",
     "LOADING_PAGE": "Loading page…"
   },
@@ -39,11 +47,17 @@
     "FORGOT_PASSWORD_PAGE": {
       "PAGE_TITLE": "Forgot password",
       "SUBMIT": "Request recovery email",
-      "ERRORS": {
+      "ERROR": {
       }
     },
     "INFORMATION_PAGE": {
       "GO_TO_LOGIN": "Go to Login Page",
+      "ACCESS_DENIED": {
+        "PAGE_TITLE": "Access Denied"
+      },
+      "PAGE_NOT_FOUND": {
+        "PAGE_TITLE": "Page not found"
+      },
       "NOT_ACTIVATED": {
         "PAGE_TITLE": "Email account not activated"
       },
@@ -57,13 +71,20 @@
       "SUBMIT": "Login",
       "CREATE_ACCOUNT": "Create account",
       "FORGOT_PASSWORD": "Forgot password?",
-      "ERRORS": {
+      "ERROR": {
+        "EMAIL": {
+          "email": "Email is invalid.",
+          "required": "Email is required."
+        },
+        "PASSWORD": {
+          "required": "Password is required."
+        }
       }
     },
     "RESET_PASSWORD": {
       "PAGE_TITLE": "Reset password",
       "SUBMIT": "Reset password email",
-      "ERRORS": {
+      "ERROR": {
       }
     },
     "SELECT_LANGUAGE": {
@@ -72,7 +93,7 @@
     "SIGNUP_PAGE": {
       "PAGE_TITLE": "Signup",
       "SUBMIT": "Signup",
-      "ERRORS": {
+      "ERROR": {
       }
     }
   },
@@ -94,7 +115,7 @@
       "CURRENT_PASSWORD": "Current Password",
       "NEW_PASSWORD": "New Password",
       "CONFIRM_PASSWORD": "Confirm Password",
-      "ERRORS": {
+      "ERROR": {
       }
     }
   }
