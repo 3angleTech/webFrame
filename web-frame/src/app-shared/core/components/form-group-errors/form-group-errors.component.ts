@@ -13,6 +13,11 @@ import { getValidationErrorsTranslations } from '../../other/get-validation-erro
   styleUrls: ['./form-group-errors.component.scss'],
   templateUrl: './form-group-errors.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[class.app-form-group-errors--not-empty]': '!!errorList?.length',
+    'attr.aria-live': 'assertive',
+    'attr.role': 'alert',
+  },
 })
 export class FormGroupErrorsComponent implements OnChanges {
   @Input()

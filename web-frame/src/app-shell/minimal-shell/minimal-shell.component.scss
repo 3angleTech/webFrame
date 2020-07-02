@@ -19,9 +19,14 @@ app-minimal-shell {
     position: absolute;
   }
 
-  > router-outlet + * {
+  router-outlet + * {
+    box-sizing: border-box;
+    contain: layout;
     display: block;
-    margin: 0 auto;
+  }
+
+  > router-outlet + * {
     padding: var(--spacing-large);
   }
+
 }

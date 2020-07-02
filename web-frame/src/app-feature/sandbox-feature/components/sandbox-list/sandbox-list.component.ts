@@ -9,8 +9,8 @@ import { ISandboxList, SandboxListItem } from './sandbox-list.interface';
 
 @Component({
   selector: 'app-sandbox-list',
-  templateUrl: './sandbox-list.component.html',
   styleUrls: ['./sandbox-list.component.scss'],
+  templateUrl: './sandbox-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SandboxListComponent implements OnInit {

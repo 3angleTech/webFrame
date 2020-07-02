@@ -6,27 +6,32 @@
 @import "app-styling-utils";
 @import "app-styling-variables";
 
-
 :host {
-  display: block;
+  align-items: center;
+  display: grid;
+  font-size: 0.75rem;
+  grid-gap: var(--spacing-small);
+  grid-template-columns: min-content minmax(0, 1fr);
+  line-height: 1.25rem;
 
-  ul {
+  &.app-form-group-errors--not-empty {
     background-color: app-get-contrast($app-status-colors, "danger");
     border: 1px solid app-get-color($app-status-colors, "danger");
-    border-radius: 4px;
+    border-radius: var(--border-radius-medium);
     color: app-get-color($app-status-colors, "danger");
+    padding: var(--spacing-small);
+  }
+
+  ul {
     display: block;
-    font-size: 0.75em;
     font-weight: 700;
     list-style-type: none;
     margin: 0;
-    padding: 1em;
-    text-align: center;
+    padding: 0;
   }
 
   li {
     display: block;
-    line-height: normal;
     overflow: hidden;
     text-overflow: ellipsis;
   }

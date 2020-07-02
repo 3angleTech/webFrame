@@ -18,7 +18,6 @@ To import helper mixins and variables from the `includes` directory:
 @import "app-styling-utils";
 @import "app-styling-variables";
 
-
 .app-message--success {
   background-color: app-get-color($app-status-colors, "success");
   color: app-get-contrast($app-status-colors, "success");

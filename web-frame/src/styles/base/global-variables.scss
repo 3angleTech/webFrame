@@ -10,6 +10,10 @@
   // System fonts are the default fonts used by any given OS, helping performance by eliminating the need to download font files.
   --font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", system-ui, sans-serif;
 
+  // Border radius variables.
+  --border-radius-small: 0.125rem;
+  --border-radius-medium: 0.25rem;
+
   // Color variables.
   --color-primary-base: #2a3990;
   --color-primary-contrast: #ffffff;
@@ -19,4 +23,12 @@
   --spacing-normal: 1rem;
   --spacing-medium: 0.75rem;
   --spacing-small: 0.5rem;
+}
+
+// Reduce spacing on small screens.
+@media all and (max-width: 479px) {
+  :root {
+    --spacing-large: 1rem;
+    --spacing-normal: 0.825rem;
+  }
 }

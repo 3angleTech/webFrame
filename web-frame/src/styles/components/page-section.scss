@@ -1,0 +1,74 @@
+/**
+ * @license
+ * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Available under MIT license webFrame/LICENSE
+ */
+@import "app-styling-utils";
+@import "app-styling-variables";
+
+.app-page-section {
+  margin-bottom: var(--spacing-normal);
+  margin-top: var(--spacing-normal);
+}
+
+// TODO: Move to a different file.
+.app-page-section-logo {
+  display: block;
+  margin: var(--spacing-large);
+  max-width: 16em;
+}
+
+.app-page-section-separator {
+  align-items: center;
+  display: grid;
+  grid-gap: var(--spacing-small);
+  grid-template-columns: 1fr max-content 1fr;
+  margin: var(--spacing-large);
+  text-align: center;
+
+  &::after,
+  &::before {
+    border-bottom: 1px solid app-get-color($app-foreground-colors, "dividers");
+    content: "";
+    display: block;
+  }
+}
+
+%app-page-section-actions {
+  a {
+    line-height: 2em;
+    text-align: center;
+  }
+}
+
+.app-page-section-actions {
+  @extend %app-page-section-actions;
+
+  display: grid;
+  grid-gap: var(--spacing-small);
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.app-page-section-actions--inline {
+  @extend %app-page-section-actions;
+
+  display: block;
+  // Align buttons with the rest of the content.
+  margin: 0 calc(var(--spacing-small) * -1);
+
+  > * {
+    display: inline-block;
+    margin: var(--spacing-small);
+  }
+}

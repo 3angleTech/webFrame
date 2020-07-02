@@ -3,7 +3,6 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
 import { browser, by, Key, WebElement } from 'protractor';
 import { IAccountCredentials } from '~app-shared/core';
 

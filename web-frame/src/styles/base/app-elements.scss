@@ -20,3 +20,30 @@ body {
 app-root {
   display: block;
 }
+
+// Hide elements visually, but keep them available for screen-readers.
+// Used for information required for screen-reader users to understand and use
+// the site where visual display is undesirable. Information provided in this
+// manner should be kept concise, to avoid unnecessary burden on the user.
+.visually-hidden {
+  // stylelint-disable declaration-no-important
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+
+  &.focusable:active,
+  &.focusable:focus {
+    clip: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    position: static !important;
+    width: auto !important;
+  }
+  // stylelint-enable declaration-no-important
+}

@@ -3,7 +3,6 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-
 import {
   ChangeDetectionStrategy,
   Component,
@@ -102,5 +101,9 @@ export class DataTablePageComponent implements OnInit {
         break;
     }
     this.tableController.inputEvents.sortChange.next(this.sortQuery);
+  }
+
+  public getPageTitle(): string {
+    return 'Sandbox: Data Table';
   }
 }

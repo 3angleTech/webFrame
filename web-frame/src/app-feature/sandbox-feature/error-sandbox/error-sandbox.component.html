@@ -4,6 +4,10 @@
   Available under MIT license webFrame/LICENSE
 -->
 
+<button class="app-button" type="button" routerLink="/sandbox">
+  {{ 'Go back' }}
+</button>
+
 <h1 class="app-page__title">{{ getPageTitle() }}</h1>
 
 <p>{{ 'NOTE: The triggered HttpErrorResponse instances are not actual requests.' }}</p>
@@ -13,7 +17,3 @@
   [list]="actionList"
   (itemClicked)="executeMethodForAction($event.action)"
 ></app-sandbox-list>
-
-<button type="button" routerLink="/sandbox">
-  {{ 'Go back' }}
-</button>

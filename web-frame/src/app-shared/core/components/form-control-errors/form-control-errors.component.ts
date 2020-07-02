@@ -20,17 +20,21 @@ import { getValidationErrorsTranslations } from '../../other/get-validation-erro
   styleUrls: ['./form-control-errors.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  host: {
+    'attr.aria-live': 'assertive',
+    'attr.role': 'alert',
+  },
 })
 export class FormControlErrorsComponent implements DoCheck, OnInit {
-  /**
-   * A list of `ValidationErrors` that contain multiple details.
-   */
-  protected static readonly complexValidationErrors: string[] = [
-    'passwordPolicy',
-  ];
+  @Input()
+  public readonly formControlPath: string;
+
+  @Input()
+  public readonly namespace: string;
+
+  public controlErrors$: Observable<string[] | undefined>;
 
   protected formControl: FormControl;
-  public controlErrors$: Observable<string[] | undefined>;
 
   /**
    * Touch events are not emitted by form controls, this emit an event when a
@@ -41,12 +45,6 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
    */
   protected formControlTouchedChanges: EventEmitter<void> = new EventEmitter<void>();
   protected formControlTouchedChanged: boolean = false;
-
-  @Input()
-  public readonly formControlPath: string;
-
-  @Input()
-  public readonly namespace: string;
 
   constructor(
     @Host()

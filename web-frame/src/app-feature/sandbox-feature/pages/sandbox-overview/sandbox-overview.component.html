@@ -1,0 +1,44 @@
+<!--
+  @license
+  Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+  Available under MIT license webFrame/LICENSE
+-->
+
+<h1 class="app-page__title">{{ getPageTitle() }}</h1>
+
+<div class="app-sandbox__content">
+  <div class="app-page-section-actions">
+    <h2>{{ 'Patterns' }}</h2>
+
+    <a class="app-button" routerLink="../error-handling">
+      {{ 'Error handling tests' }}
+    </a>
+    <a class="app-button" routerLink="../loading/slow-can-activate">
+      {{ 'Page with slow CanActivate guard' }}
+    </a>
+    <a class="app-button" routerLink="../loading/slow-resolve">
+      {{ 'Page with slow Resolve guard' }}
+    </a>
+    <a class="app-button" routerLink="/account/force-refresh" [queryParams]="forceRefreshQueryParams" [skipLocationChange]="true">
+      {{ 'Open the force-refresh page' }}
+    </a>
+  </div>
+
+  <div class="app-page-section-actions">
+    <h2>{{ 'Shell demo pages' }}</h2>
+
+    <a class="app-button" routerLink="../placeholder/minimal/example-page-(Minimal-Shell)">
+      {{ 'Minimal Shell' }}
+    </a>
+    <a class="app-button" routerLink="../placeholder/example-page-(Default-Shell)">
+      {{ 'Default Shell' }}
+    </a>
+  </div>
+
+  <div class="app-page-section-actions">
+    <h2>{{ 'Components' }}</h2>
+    <a class="app-button" routerLink="../components/data-table">
+      {{ 'Data table' }}
+    </a>
+  </div>
+</div>

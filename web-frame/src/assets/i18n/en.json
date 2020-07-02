@@ -17,7 +17,8 @@
       "UNKNOWN_HTTP_ERROR": "Unknown error. Try again later."
     },
     "GO_TO_SELECT_LANGUAGE": "Select language",
-    "LOADING_PAGE": "Loading page…"
+    "LOADING_PAGE": "Loading page…",
+    "MORE_ACTIONS": "More actions"
   },
   "DEFAULT_SHELL": {
     "NAVIGATION_MENU": {
