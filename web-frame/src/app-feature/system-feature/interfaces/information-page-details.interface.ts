@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2018-2021 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 import { TranslationPhrase } from '~app-shared/translate';

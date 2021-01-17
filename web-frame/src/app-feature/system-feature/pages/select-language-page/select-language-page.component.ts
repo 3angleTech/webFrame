@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2018-2021 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
@@ -20,6 +20,6 @@ export class SelectLanguagePageComponent implements OnInit {
   }
 
   public getPageTitle(): string {
-    return 'ACCOUNT_FEATURE.SELECT_LANGUAGE.PAGE_TITLE';
+    return 'SYSTEM_FEATURE.SELECT_LANGUAGE.PAGE_TITLE';
   }
 }

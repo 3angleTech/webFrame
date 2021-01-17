@@ -32,9 +32,9 @@ export class AppRoutingErrorHandlerService {
   public handleNavigationError(router: Router, err: unknown): unknown {
     const extras: NavigationExtras = { skipLocationChange: true };
     if (this.isAccessDeniedError(err)) {
-      return router.navigateByUrl(PAGE_URL.ACCESS_DENIED_PAGE, extras);
+      return router.navigateByUrl(PAGE_URL.ACCESS_DENIED, extras);
     } else if (this.isPageNotFoundError(err)) {
-      return router.navigateByUrl(PAGE_URL.PAGE_NOT_FOUND_PAGE, extras);
+      return router.navigateByUrl(PAGE_URL.NOT_FOUND, extras);
     } else if (this.isInternalServerError(err)) {
       return this.displayStandaloneErrorPage(err);
     }

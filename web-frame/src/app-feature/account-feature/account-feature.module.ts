@@ -18,22 +18,18 @@ import { AccountFeatureRoutingModule } from './account-feature-routing.module';
 import { AccountFeatureComponent } from './account-feature.component';
 import { ConfirmEmailPageComponent } from './pages/confirm-email-page/confirm-email-page.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
-import { InformationPageComponent } from './pages/information-page/information-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
 import { ResetPasswordPageComponent } from './pages/reset-password-page/reset-password-page.component';
-import { SelectLanguagePageComponent } from './pages/select-language-page/select-language-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 const FEATURE_COMPONENTS: Type<unknown>[] = [
   AccountFeatureComponent,
   ConfirmEmailPageComponent,
   ForgotPasswordPageComponent,
-  InformationPageComponent,
   LoginPageComponent,
   LogoutPageComponent,
   ResetPasswordPageComponent,
-  SelectLanguagePageComponent,
   SignupPageComponent,
 ];
 

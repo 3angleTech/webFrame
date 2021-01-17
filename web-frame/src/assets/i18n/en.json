@@ -20,7 +20,8 @@
     },
     "GO_TO_SELECT_LANGUAGE": "Select language",
     "LOADING_PAGE": "Loading page…",
-    "MORE_ACTIONS": "More actions"
+    "MORE_ACTIONS": "More actions",
+    "OR": "Or"
   },
   "DEFAULT_SHELL": {
     "NAVIGATION_MENU": {
@@ -54,21 +55,6 @@
       "ERROR": {
       }
     },
-    "INFORMATION_PAGE": {
-      "GO_TO_LOGIN": "Go to Login Page",
-      "ACCESS_DENIED": {
-        "PAGE_TITLE": "Access Denied"
-      },
-      "PAGE_NOT_FOUND": {
-        "PAGE_TITLE": "Page not found"
-      },
-      "NOT_ACTIVATED": {
-        "PAGE_TITLE": "Email account not activated"
-      },
-      "RESET_PASSWORD_SUCCESS": {
-        "PAGE_TITLE": "Password reset was successful."
-      }
-    },
     "LOGIN_PAGE": {
       "PAGE_TITLE": "Login",
       "STAY_SIGNED_IN": "Stay signed in",
@@ -90,9 +76,6 @@
       "SUBMIT": "Reset password email",
       "ERROR": {
       }
-    },
-    "SELECT_LANGUAGE": {
-      "PAGE_TITLE": "Select language"
     },
     "SIGNUP_PAGE": {
       "PAGE_TITLE": "Signup",
@@ -126,6 +109,26 @@
       "CONFIRM_PASSWORD": "Confirm Password",
       "ERROR": {
       }
+    }
+  },
+  "SYSTEM_FEATURE": {
+    "INFORMATION_PAGE": {
+      "GO_TO_LOGIN": "Go to Login Page",
+      "ACCESS_DENIED": {
+        "PAGE_TITLE": "Access Denied"
+      },
+      "PAGE_NOT_FOUND": {
+        "PAGE_TITLE": "Page not found"
+      },
+      "NOT_ACTIVATED": {
+        "PAGE_TITLE": "Email account not activated"
+      },
+      "RESET_PASSWORD_SUCCESS": {
+        "PAGE_TITLE": "Password reset was successful."
+      }
+    },
+    "SELECT_LANGUAGE": {
+      "PAGE_TITLE": "Select language"
     }
   }
 }

@@ -19,4 +19,5 @@ export const AVAILABLE_FEATURE_MODULES: Record<string, LoadChildrenCallback> = {
   admin: () => import('~app-feature/admin-feature').then(m => m.default),
   profile: () => import('~app-feature/profile-feature').then(m => m.default),
   sandbox: () => import('~app-feature/sandbox-feature').then(m => m.default),
+  system: () => import('~app-feature/system-feature').then(m => m.default),
 };

@@ -1,12 +1,12 @@
 <!--
   @license
-  Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+  Copyright (c) 2018-2021 THREEANGLE SOFTWARE SOLUTIONS SRL
   Available under MIT license webFrame/LICENSE
 -->
 
 <img src="/assets/logo.svg" alt="Logo" class="app-page-section-logo">
 
-<div class="app-page-section app-form--simple">
+<div class="app-page-section app-form--narrow app-form--simple">
   <h1 class="app-page__title">{{ getPageTitle() | translate }}</h1>
   <p *ngIf="pageDetails.message">
     {{ pageDetails.message | translate }}
@@ -23,7 +23,7 @@
     <ng-template #anonymousUserActions>
       <button class="app-button--with-icon" type="button" routerLink="/account/login">
         <span class="text">
-          {{ 'ACCOUNT_FEATURE.INFORMATION_PAGE.GO_TO_LOGIN' | translate }}
+          {{ 'SYSTEM_FEATURE.INFORMATION_PAGE.GO_TO_LOGIN' | translate }}
         </span>
       </button>
     </ng-template>

@@ -1,14 +1,13 @@
 /**
  * @license
- * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
+ * Copyright (c) 2018-2021 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
 import { Inject, Injectable, Optional } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { sortBy } from 'lodash';
 import { concat, Observable } from 'rxjs';
-
-import { APP_REFRESHER, IAppRefresher } from './app-refresher.token';
+import { APP_REFRESHER, IAppRefresher } from '~app-shared/core';
 
 @Injectable()
 export class ForceRefreshPageResolver implements Resolve<void> {

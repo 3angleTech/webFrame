@@ -82,7 +82,7 @@ export class WebFrameContextNavigationService implements IWebFrameContextNavigat
 
   public navigateToNotFoundErrorPage(): void {
     const extras: NavigationExtras = { skipLocationChange: true };
-    this.navigateToInformationPage('pageNotFound', extras);
+    this.navigateToInformationPage('notFound', extras);
   }
 
   public navigateToAccessDeniedErrorPage(): void {
