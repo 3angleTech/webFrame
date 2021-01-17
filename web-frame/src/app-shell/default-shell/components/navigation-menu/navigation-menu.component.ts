@@ -9,8 +9,8 @@
  */
 import { Component, HostBinding, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ENVIRONMENT } from '~app-shared/config';
 import { IWebFrameContextStateService, User } from '~app-shared/core';
+import { USER_PERMISSION, USER_ROLE } from '~app-shared/security';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -18,11 +18,13 @@ import { IWebFrameContextStateService, User } from '~app-shared/core';
   styleUrls: ['./navigation-menu.component.scss'],
 })
 export class NavigationMenuComponent implements OnInit {
+  public readonly ADMINISTRATOR: USER_ROLE = USER_ROLE.ADMINISTRATOR;
+  public readonly ACCESS_SANDBOX_PAGES: USER_PERMISSION = USER_PERMISSION.ACCESS_SANDBOX_PAGES;
+
   @HostBinding('class.app-navigation-menu')
   public componentClass: boolean = true;
 
   public currentUserObs: Observable<User>;
-  public isDevMode: boolean = ENVIRONMENT.devMode;
 
   constructor(
     @Inject(IWebFrameContextStateService)

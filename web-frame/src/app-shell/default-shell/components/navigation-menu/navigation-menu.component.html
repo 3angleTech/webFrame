@@ -4,7 +4,7 @@
   Available under MIT license webFrame/LICENSE
 -->
 <nav *ngIf="{ currentUser: currentUserObs | async } as context" class="navigation-menu__container">
-  <button class="app-button navigation-menu__item" type="button" routerLink="/admin">
+  <button *appIfUserHasRole="ADMINISTRATOR" class="app-button navigation-menu__item" type="button" routerLink="/admin">
     {{ 'DEFAULT_SHELL.NAVIGATION_MENU.ADMIN' | translate }}
   </button>
   <button *ngIf="!context.currentUser" class="app-button navigation-menu__item" type="button" routerLink="/account">
@@ -13,7 +13,7 @@
   <button *ngIf="context.currentUser" class="app-button navigation-menu__item" type="button" routerLink="/profile">
     {{ 'DEFAULT_SHELL.NAVIGATION_MENU.PROFILE' | translate }}
   </button>
-  <button *ngIf="isDevMode" class="app-button navigation-menu__item" type="button" routerLink="/sandbox">
+  <button *appIfUserHasPermission="ACCESS_SANDBOX_PAGES" class="app-button navigation-menu__item" type="button" routerLink="/sandbox">
     {{ 'DEFAULT_SHELL.NAVIGATION_MENU.SANDBOX' | translate }}
   </button>
   <span class="spacer"></span>

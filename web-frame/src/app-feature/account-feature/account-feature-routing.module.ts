@@ -9,7 +9,7 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AnonymousGuard, AuthenticatedGuard } from '~app-shared/security';
+import { AnonymousGuard, AuthenticatedGuard, USER_ROLE, UserRoleGuard } from '~app-shared/security';
 import { MinimalShellComponent } from '~app-shell/minimal-shell';
 
 import { AccountFeatureComponent } from './account-feature.component';
@@ -23,17 +23,17 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'login',
-  },
-  {
-    path: '',
     component: MinimalShellComponent,
     children: [
       {
         path: '',
         component: AccountFeatureComponent,
         children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'login',
+          },
           {
             path: 'confirm-email',
             component: ConfirmEmailPageComponent,
