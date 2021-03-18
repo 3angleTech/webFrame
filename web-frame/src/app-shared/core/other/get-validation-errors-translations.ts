@@ -6,11 +6,11 @@
 import { ValidationErrors } from '@angular/forms';
 import { startsWith } from 'lodash';
 
-import { KNOWN_API_ERRORS } from '../errors/known-api-errors';
+import { KNOWN_ERROR_MESSAGE } from '../errors/known-error-message';
 
 function getCurrentErrorNamespace(errorName: string, namespace: string): string {
-  if (KNOWN_API_ERRORS[errorName]) {
-    return KNOWN_API_ERRORS[errorName];
+  if (KNOWN_ERROR_MESSAGE[errorName]) {
+    return KNOWN_ERROR_MESSAGE[errorName];
   } else if (startsWith(errorName, 'GENERAL.ERROR.')) {
     return errorName;
   }

@@ -31,11 +31,17 @@
       "~app-feature/account-feature": [
         "./web-frame/src/app-feature/account-feature/index.ts"
       ],
+      "~app-feature/admin-feature": [
+        "./web-frame/src/app-feature/admin-feature/index.ts"
+      ],
       "~app-feature/profile-feature": [
         "./web-frame/src/app-feature/profile-feature/index.ts"
       ],
       "~app-feature/sandbox-feature": [
         "./web-frame/src/app-feature/sandbox-feature/index.ts"
+      ],
+      "~app-feature/system-feature": [
+        "./web-frame/src/app-feature/system-feature/index.ts"
       ],
       "~app-shared/config": [
         "./web-frame/src/app-shared/config/index.ts"

@@ -18,9 +18,8 @@ import { FormControlErrorsComponent } from './components/form-control-errors/for
 import { FormGroupErrorsComponent } from './components/form-group-errors/form-group-errors.component';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
-import { APP_INITIALIZER_PROVIDERS } from './initializers/app-initializer.factory';
+import { CORE_INITIALIZER_PROVIDERS } from './initializers/core-initializer.factory';
 import { APP_REFRESHER } from './other/app-refresher.token';
-import { ForceRefreshPageResolver } from './other/force-refresh-page.resolver';
 import {
   AccountService,
   IAccountService,
@@ -83,7 +82,6 @@ const SHARED_PIPES: Type<unknown>[] = [
 ];
 
 const SHARED_ROOT_PROVIDERS: Provider[] = [
-  ForceRefreshPageResolver,
   WebFrameErrorHandlerService,
   {
     provide: IAccountService,
@@ -173,7 +171,7 @@ export class CoreModule {
     return {
       ngModule: CoreModule,
       providers: [
-        APP_INITIALIZER_PROVIDERS,
+        CORE_INITIALIZER_PROVIDERS,
         SHARED_ROOT_PROVIDERS,
       ],
     };

@@ -11,19 +11,19 @@ export const enum PAGE_URL {
   HOME_PAGE = '/',
   STANDALONE_ERROR_PAGE = '/error/index.html',
 
-  // TODO: Move these out of the account feature.
-  ACCESS_DENIED_PAGE = '/account/information/accessDenied',
-  FORCE_REFRESH = '/account/force-refresh',
-  PAGE_NOT_FOUND_PAGE = '/account/information/pageNotFound',
+  // Generic system pages:
+  ACCESS_DENIED = '/system/information/accessDenied',
+  FORCE_REFRESH = '/system/force-refresh',
+  NOT_FOUND = '/system/information/notFound',
 
-  // Account Feature
+  // Account feature pages:
   ACCOUNT_PAGE = '/account',
   FORGOT_PASSWORD_PAGE = '/account/forgot-password',
   LOGIN_PAGE = '/account/login',
   LOGOUT_PAGE = '/account/logout',
   SIGNUP_PAGE = '/account/signup',
 
-  // Profile Feature
+  // Profile feature pages:
   PROFILE_PAGE = '/profile',
   PROFILE_SETTINGS_PAGE = '/profile/settings',
 }

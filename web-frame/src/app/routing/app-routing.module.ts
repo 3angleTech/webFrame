@@ -4,12 +4,27 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { NgModule } from '@angular/core';
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, Router, RouterModule, Routes } from '@angular/router';
 
-import { appRoutingErrorHandler } from './app-routing-error-handler';
+import { AppRoutingErrorHandlerService } from './app-routing-error-handler.service';
 
-// NOTE: The routes are registered by AppFeaturesInitializerService.initialize().
-const ROUTES: Routes = [];
+/**
+ * NOTE: The DI system is not used to create this service instance because this needs to also work
+ * with the appRoutingErrorHandler function.
+ */
+const ERROR_HANDLER_SERVICE_INSTANCE: AppRoutingErrorHandlerService
+  = new AppRoutingErrorHandlerService();
+
+function appRoutingErrorHandler(this: Router, err: unknown): unknown {
+  return ERROR_HANDLER_SERVICE_INSTANCE.handleNavigationError(this, err);
+}
+
+/**
+ * NOTE: The routes are registered by AppFeaturesInitializerService.initialize().
+ *
+ * @see AppFeaturesInitializerService.registerAvailableRoutes()
+ */
+const NO_ROUTES: Routes = [];
 
 const ROUTER_CONFIG: ExtraOptions = {
   errorHandler: appRoutingErrorHandler,
@@ -26,7 +41,7 @@ const ROUTER_CONFIG: ExtraOptions = {
     RouterModule,
   ],
   imports: [
-    RouterModule.forRoot(ROUTES, ROUTER_CONFIG),
+    RouterModule.forRoot(NO_ROUTES, ROUTER_CONFIG),
   ],
 })
 export class AppRoutingModule {

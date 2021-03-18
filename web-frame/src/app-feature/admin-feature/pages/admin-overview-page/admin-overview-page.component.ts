@@ -6,12 +6,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-select-language-page',
-  styleUrls: ['./select-language-page.component.scss'],
-  templateUrl: './select-language-page.component.html',
+  selector: 'app-admin-overview-page',
+  styleUrls: ['./admin-overview-page.component.scss'],
+  templateUrl: './admin-overview-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SelectLanguagePageComponent implements OnInit {
+export class AdminOverviewPageComponent implements OnInit {
 
   constructor() {
   }
@@ -19,7 +19,7 @@ export class SelectLanguagePageComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  public getPageTitle(): string {
-    return 'ACCOUNT_FEATURE.SELECT_LANGUAGE.PAGE_TITLE';
+  public getTitle(): string {
+    return 'ADMIN_FEATURE.OVERVIEW_PAGE.PAGE_TITLE';
   }
 }

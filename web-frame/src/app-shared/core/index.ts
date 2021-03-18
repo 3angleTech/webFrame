@@ -17,7 +17,11 @@ export { AccessDeniedError } from './errors/access-denied.error';
 export { isApiError } from './errors/api-error.interface';
 export { getHttpResponseValidationErrors } from './errors/get-http-response-validation-errors';
 export { KnownError, isHttpErrorResponseOrKnownError } from './errors/known.error';
+export { KNOWN_ERROR_MESSAGE } from './errors/known-error-message';
 export { PageNotFoundError } from './errors/page-not-found.error';
+
+export { AppInitializer } from './initializers/app-initializer.type';
+
 export { HttpStatusCode } from './interfaces/common.interface';
 export { Dictionary } from './interfaces/dictionary';
 export { IWebFrameErrorHandler } from './interfaces/web-frame-error-handler.interface';
@@ -25,7 +29,6 @@ export {
   IAppRefresher,
   APP_REFRESHER,
 } from './other/app-refresher.token';
-export { FORCE_REFRESH_PAGE_ROUTE } from './other/force-refresh-page.route';
 export { PAGE_URL } from './other/page-url.enum';
 
 export {
