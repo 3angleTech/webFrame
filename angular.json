@@ -196,26 +196,6 @@
             }
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "format": "stylish",
-            "tslintConfig": "tslint.json",
-            "tsConfig": [
-              "web-frame/tsconfig.app.json",
-              "web-frame/tsconfig.spec.json",
-              "web-frame-e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          },
-          "configurations": {
-            "ci": {
-              "tslintConfig": "tslint.ci.json"
-            }
-          }
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {

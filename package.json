@@ -32,7 +32,6 @@
     "zone.js": "0.10.3"
   },
   "devDependencies": {
-    "@3angletech/tslint": "1.1.0",
     "@angular-devkit/build-angular": "0.901.6",
     "@angular-devkit/build-ng-packagr": "0.901.6",
     "@angular/cli": "9.1.6",
@@ -42,7 +41,6 @@
     "@types/jasminewd2": "2.0.8",
     "@types/lodash": "4.14.152",
     "@types/node": "12.12.41",
-    "codelyzer": "5.2.2",
     "dotenv": "8.2.0",
     "jasmine-core": "3.5.0",
     "jasmine-spec-reporter": "5.0.2",
@@ -58,9 +56,6 @@
     "stylelint-config-sass-guidelines": "7.0.0",
     "stylelint-config-standard": "20.0.0",
     "ts-node": "8.10.1",
-    "tslint": "5.20.1",
-    "tslint-microsoft-contrib": "6.2.0",
-    "tslint-sonarts": "1.9.0",
     "typescript": "3.8.3"
   },
   "scripts": {
