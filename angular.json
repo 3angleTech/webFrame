@@ -33,12 +33,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
+            "buildOptimizer": false,
+            "extractLicenses": false,
             "index": "web-frame/src/index.html",
             "main": "web-frame/src/main.ts",
+            "namedChunks": true,
+            "optimization": false,
             "outputPath": "dist/web-frame",
             "polyfills": "web-frame/src/polyfills.ts",
+            "sourceMap": true,
             "tsConfig": "web-frame/tsconfig.app.json",
+            "vendorChunk": true,
             "assets": [
               {
                 "glob": "favicon.ico",
@@ -119,7 +124,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
