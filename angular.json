@@ -32,6 +32,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
+          "defaultConfiguration": "production",
           "options": {
             "buildOptimizer": false,
             "extractLicenses": false,
@@ -91,6 +92,7 @@
             }
           },
           "configurations": {
+            "development": {},
             "production": {
               "buildOptimizer": true,
               "extractLicenses": true,
@@ -124,15 +126,17 @@
                 }
               ]
             }
-          },
-          "defaultConfiguration": ""
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "defaultConfiguration": "development",
           "options": {
-            "browserTarget": "web-frame:build"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "web-frame:build:development"
+            },
             "production": {
               "browserTarget": "web-frame:build:production"
             },
