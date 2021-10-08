@@ -45,6 +45,10 @@
             "sourceMap": true,
             "tsConfig": "web-frame/tsconfig.app.json",
             "vendorChunk": true,
+            "allowedCommonJsDependencies": [
+              "json2typescript",
+              "lodash"
+            ],
             "assets": [
               {
                 "glob": "favicon.ico",
