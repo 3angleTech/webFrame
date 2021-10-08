@@ -60,19 +60,23 @@
             "styles": [
               {
                 "bundleName": "vendor-styles",
-                "input": "node_modules/normalize.css/normalize.css"
+                "input": "node_modules/normalize.css/normalize.css",
+                "inject": true
               },
               {
                 "bundleName": "vendor-styles",
-                "input": "node_modules/material-design-icons/iconfont/material-icons.css"
+                "input": "node_modules/material-design-icons/iconfont/material-icons.css",
+                "inject": true
               },
               {
                 "bundleName": "main-styles",
-                "input": "web-frame/src/styles/main.scss"
+                "input": "web-frame/src/styles/main.scss",
+                "inject": true
               },
               {
                 "bundleName": "print-styles",
-                "input": "web-frame/src/styles/print.scss"
+                "input": "web-frame/src/styles/print.scss",
+                "inject": true
               }
             ],
             "stylePreprocessorOptions": {
@@ -84,7 +88,6 @@
           "configurations": {
             "production": {
               "buildOptimizer": true,
-              "extractCss": true,
               "extractLicenses": true,
               "namedChunks": false,
               "optimization": true,
@@ -167,19 +170,23 @@
             "styles": [
               {
                 "bundleName": "vendor-styles",
-                "input": "node_modules/normalize.css/normalize.css"
+                "input": "node_modules/normalize.css/normalize.css",
+                "inject": true
               },
               {
                 "bundleName": "vendor-styles",
-                "input": "node_modules/material-design-icons/iconfont/material-icons.css"
+                "input": "node_modules/material-design-icons/iconfont/material-icons.css",
+                "inject": true
               },
               {
                 "bundleName": "main-styles",
-                "input": "web-frame/src/styles/main.scss"
+                "input": "web-frame/src/styles/main.scss",
+                "inject": true
               },
               {
                 "bundleName": "print-styles",
-                "input": "web-frame/src/styles/print.scss"
+                "input": "web-frame/src/styles/print.scss",
+                "inject": true
               }
             ],
             "stylePreprocessorOptions": {
