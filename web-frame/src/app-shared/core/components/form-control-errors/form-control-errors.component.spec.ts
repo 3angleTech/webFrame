@@ -14,12 +14,7 @@ import {
   Type,
   ViewChild,
 } from '@angular/core';
-import {
-  async,
-  ComponentFixture,
-  fakeAsync,
-  TestBed,
-} from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   AbstractControl,
   FormControl,
@@ -85,7 +80,7 @@ describe('FormControlErrorsComponent', () => {
   let fixture: ComponentFixture<FormControlErrorsTestFormComponent>;
   let testComponent: FormControlErrorsTestFormComponent;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         ReactiveFormsModule,
