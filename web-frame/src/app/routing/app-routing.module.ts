@@ -31,7 +31,6 @@ const ROUTER_CONFIG: ExtraOptions = {
   initialNavigation: 'disabled',
   onSameUrlNavigation: 'reload',
   paramsInheritanceStrategy: 'always',
-  relativeLinkResolution: 'corrected',
   urlUpdateStrategy: 'eager',
   useHash: true,
 };
