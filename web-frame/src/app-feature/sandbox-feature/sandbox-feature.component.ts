@@ -14,7 +14,7 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
   styleUrls: ['./sandbox-feature.component.scss'],
   templateUrl: './sandbox-feature.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // tslint:disable-next-line:use-component-view-encapsulation
+  // eslint-disable-next-line @angular-eslint/use-component-view-encapsulation
   encapsulation: ViewEncapsulation.None,
 })
 export class SandboxFeatureComponent implements OnInit {

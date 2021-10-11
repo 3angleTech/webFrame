@@ -23,8 +23,7 @@ export enum TokenVerificationStatusType {
 })
 export class ConfirmEmailPageComponent implements OnInit {
   public tokenStatus: TokenVerificationStatusType = TokenVerificationStatusType.ValidToken;
-  // tslint:disable-next-line:typedef
-  public tokenVerificationStatusType = TokenVerificationStatusType;
+  public tokenVerificationStatusType: typeof TokenVerificationStatusType = TokenVerificationStatusType;
 
   constructor() { }
 

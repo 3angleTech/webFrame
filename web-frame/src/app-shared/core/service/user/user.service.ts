@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 /**
  * @license
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
@@ -15,7 +16,6 @@ export interface IUserService extends ICRUDService<User> {
 }
 export const IUserService = new InjectionToken('IUserService');
 
-// tslint:disable:no-duplicate-string
 export class UserService implements IUserService {
   constructor(
     @Inject(IWebRequestService)

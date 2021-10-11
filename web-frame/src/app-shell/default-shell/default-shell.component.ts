@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./default-shell.component.scss'],
   templateUrl: './default-shell.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // tslint:disable-next-line:use-component-view-encapsulation
+  // eslint-disable-next-line @angular-eslint/use-component-view-encapsulation
   encapsulation: ViewEncapsulation.None,
 })
 export class DefaultShellComponent implements OnDestroy, OnInit {

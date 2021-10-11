@@ -12,7 +12,6 @@ import { catchError } from 'rxjs/operators';
 export class WebRequestInterceptorService implements HttpInterceptor {
   constructor() { }
 
-  /* tslint:disable:no-any */
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const updatedRequest = request.clone({
       withCredentials: true,

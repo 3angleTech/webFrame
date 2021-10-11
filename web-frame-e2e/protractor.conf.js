@@ -1,6 +1,11 @@
-// @ts-check
-// Protractor configuration file, see link for more information
-// https://github.com/angular/protractor/blob/master/lib/config.ts
+/* eslint-disable @typescript-eslint/no-var-requires,import/no-extraneous-dependencies,no-magic-numbers */
+/**
+ * @file Protractor configuration file, see link for more information
+ * @see https://github.com/angular/protractor/blob/master/lib/config.ts
+ *
+ * @typedef { import('protractor').Config } ProtractorConfig
+ * @typedef { import('protractor').Reporter } ProtractorReporter
+ */
 require('dotenv').config({
   path: require('path').join(__dirname, '../environments/e2e.env'),
 });
@@ -9,7 +14,7 @@ require('dotenv').config({
 const highlightDelay = isNaN(Number(process.env.E2E_HIGHLIGHT_DELAY)) ? 0 : Number(process.env.E2E_HIGHLIGHT_DELAY);
 
 /**
- * @type { import('protractor').Config }
+ * @type { ProtractorConfig }
  */
 exports.config = {
   allScriptsTimeout: 11000,
@@ -17,7 +22,6 @@ exports.config = {
   framework: 'jasmine',
   noGlobals: true,
   // Explicitly disable the deprecated WebDriver Control Flow.
-  // TODO: Remove when updating to selenium-webdriver@4 and protractor@6.
   SELENIUM_PROMISE_MANAGER: false,
   capabilities: {
     browserName: 'chrome',
@@ -33,15 +37,17 @@ exports.config = {
     random: false,
     showColors: true,
   },
-  onPrepare() {
+  onPrepare: function () {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json'),
     });
     const { SpecReporter } = require('jasmine-spec-reporter');
-    /** @type { import('protractor').Reporter } */
+    /** @type { ProtractorReporter } */
     const specReporter = new SpecReporter({ spec: { displayStacktrace: 'raw' } });
-    jasmine.getEnv().clearReporters();
-    jasmine.getEnv().addReporter(specReporter);
+    // eslint-disable-next-line no-undef
+    const jasmineEnv = jasmine.getEnv();
+    jasmineEnv.clearReporters();
+    jasmineEnv.addReporter(specReporter);
   },
   params: {
     E2E_LOGIN_EMAIL: process.env.E2E_LOGIN_EMAIL,

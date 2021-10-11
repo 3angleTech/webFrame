@@ -3,7 +3,6 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-/* tslint:disable:import-blacklist */
 import { HttpClient } from '@angular/common/http';
 import { FactoryProvider } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';

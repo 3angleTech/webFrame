@@ -12,24 +12,21 @@ import { IWebRequestService } from '../web-request/web-request.interface';
 import { AccountService } from './account.service';
 
 describe('AccountService', () => {
-  // tslint:disable-next-line:no-any variable-name
-  const MockDependentService: any = undefined;
-
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         AccountService,
         {
           provide: IJsonConverterService,
-          useValue: MockDependentService,
+          useValue: undefined,
         },
         {
           provide: IStorageService,
-          useValue: MockDependentService,
+          useValue: undefined,
         },
         {
           provide: IWebRequestService,
-          useValue: MockDependentService,
+          useValue: undefined,
         },
       ],
     });

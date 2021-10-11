@@ -1,9 +1,9 @@
+/* eslint-disable max-classes-per-file */
 /**
  * @license
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-/* tslint:disable:max-classes-per-file */
 import { Inject, Injectable } from '@angular/core';
 import { JsonObject, JsonProperty } from 'json2typescript';
 import { filter, orderBy, slice } from 'lodash';

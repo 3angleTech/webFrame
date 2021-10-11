@@ -3,7 +3,7 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import { browser, by, logging } from 'protractor';
+import { browser, logging } from 'protractor';
 
 import { AccountTestability } from './account.testability';
 

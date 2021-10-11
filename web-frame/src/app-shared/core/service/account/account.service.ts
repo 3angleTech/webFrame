@@ -166,8 +166,9 @@ export class AccountService implements IAccountService {
   }
 
   public signup(information: IAccountInformation): Observable<null> {
+    // eslint-disable-next-line no-warning-comments
     // TODO: Implement signup feature.
-    // tslint:disable-next-line:no-console
+    // eslint-disable-next-line no-console
     console.log('IAccountInformation', information);
     return of(null);
   }

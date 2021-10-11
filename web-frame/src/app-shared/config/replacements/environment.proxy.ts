@@ -1,3 +1,4 @@
+/* eslint-disable capitalized-comments */
 /**
  * @file This file should never be imported directly, see the fileReplacements.
  *
@@ -22,5 +23,4 @@ export const ENVIRONMENT: Readonly<IEnvironmentConfig> = {
  * import the following file, but please comment it out in production mode
  * because it will have performance impact when throw error
  */
-// tslint:disable-next-line:comment-format
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

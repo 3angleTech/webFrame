@@ -28,13 +28,12 @@ export enum RequestContentType {
   FormData = 'multipart/form-data',
 }
 
-export interface RequestConfiguration {
+export interface RequestConfiguration<T = any> {
   serverApi: ServerApi;
   queryParameters?: Dictionary<QueryParameterValueType>;
   urlParameters?: Dictionary<UrlParameterValueType>;
   contentType?: RequestContentType;
-  // tslint:disable-next-line:no-any
-  body?: any;
+  body?: T;
 }
 
 export interface IWebRequestService {

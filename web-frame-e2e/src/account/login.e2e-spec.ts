@@ -4,7 +4,6 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { browser, ExpectedConditions, logging } from 'protractor';
-// tslint:disable-next-line:no-implicit-dependencies
 import { Alert } from 'selenium-webdriver';
 import { IAccountCredentials } from '~app-shared/core';
 

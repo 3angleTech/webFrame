@@ -46,7 +46,6 @@ export class AccountTestability {
     data: Record<string, string>,
   ): Promise<void> {
     const inputNames: string[] = Object.keys(data);
-    // tslint:disable-next-line:prefer-for-of
     for (let index = 0; index < inputNames.length; index++) {
       const inputName: string = inputNames[index];
       await formEl.findElement(by.name(inputName)).clear();

@@ -54,7 +54,6 @@ export interface IWebFrameContextNavigationService {
 
 export const IWebFrameContextNavigationService = new InjectionToken('IWebFrameContextNavigationService');
 
-// tslint:disable:no-duplicate-string
 @Injectable()
 export class WebFrameContextNavigationService implements IWebFrameContextNavigationService {
   constructor(
