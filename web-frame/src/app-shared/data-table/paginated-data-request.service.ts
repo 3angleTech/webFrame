@@ -4,8 +4,8 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { delay, mergeMap } from 'rxjs/operators';
 
 import {
   Dictionary,
@@ -97,7 +97,15 @@ export abstract class PaginatedDataRequestService<T> implements IPaginatedDataRe
     public load<Q extends DataTableQuery>(query: Q): void {
       this.latestQuery = query;
       this.loading.next(true);
-      this.getPage(query).pipe(delay(1000)).subscribe((pageObject) => {
+      // eslint-disable-next-line no-warning-comments
+      // TODO: Add support for canceling ongoing requests.
+      const loadDelay = 250;
+      of().pipe(
+        delay(loadDelay),
+        mergeMap(() => {
+          return this.getPage(query);
+        }),
+      ).subscribe((pageObject) => {
         const pagesResultClass = this.getPagedResultClass();
         const page = this.jsonConverter.deserialize(pageObject, pagesResultClass);
         this.data.next(page);
