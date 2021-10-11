@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "./.eslintrc.json"
+  ],
+  "rules": {
+    "@typescript-eslint/naming-convention": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@angular-eslint/no-empty-lifecycle-method": "off",
+    "jsdoc/require-param": "off",
+    "import/no-cycle": "off",
+    "import/order": "off",
+    "no-use-before-define": "off",
+    "no-redeclare": "off",
+    "no-warning-comments": "off"
+  }
+}

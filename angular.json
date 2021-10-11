@@ -150,10 +150,24 @@
             }
           }
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "browserTarget": "web-frame:build"
+            "eslintConfig": ".eslintrc.json",
+            "lintFilePatterns": [
+              "web-frame/**/*.ts",
+              "web-frame/**/*.html",
+              "web-frame-e2e/**/*.js",
+              "web-frame-e2e/**/*.ts"
+            ]
+          },
+          "configurations": {
+            "ci": {
+              "eslintConfig": ".eslintrc.ci.json"
+            },
+            "fix": {
+              "fix": true
+            }
           }
         },
         "test": {

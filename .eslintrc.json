@@ -1,0 +1,52 @@
+{
+  "root": true,
+  "extends": [
+    "@3angletech/eslint-config/angular"
+  ],
+  "rules": {
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "rules": {
+        "import/no-cycle": "warn",
+        "import/no-unresolved": [
+          "error",
+          {
+            "ignore": [
+              "^~app-feature/*",
+              "^~app-shared/*",
+              "^~app-shell/*"
+            ]
+          }
+        ],
+        "jsdoc/check-values": "off",
+        "jsdoc/require-jsdoc": "off",
+        "arrow-body-style": "off",
+        "no-redeclare": "warn"
+      }
+    },
+    {
+      "files": [
+        "*.spec.ts",
+        "web-frame-e2e/**/*.ts"
+      ],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "excludedFiles": [
+        "web-frame/src/index.html",
+        "web-frame-error/index.html"
+      ],
+      "rules": {
+      }
+    }
+  ]
+}
