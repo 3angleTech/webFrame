@@ -23,6 +23,6 @@ export function isDataWithRequiredUserPermission(value: unknown): value is IData
   }
   const requiredUserPermission: unknown = (value as {requiredUserPermission: unknown}).requiredUserPermission;
 
-  return typeof requiredUserPermission === 'string'
-    && Object.keys(USER_PERMISSION).includes(requiredUserPermission);
+  return typeof requiredUserPermission === 'string' &&
+    Object.keys(USER_PERMISSION).includes(requiredUserPermission);
 }

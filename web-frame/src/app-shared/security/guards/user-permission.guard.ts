@@ -6,6 +6,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+
 import { AccessDeniedError, KNOWN_ERROR_MESSAGE } from '~app-shared/core';
 
 import { isDataWithRequiredUserPermission } from '../interfaces/data-with-required-user-permissions.interface';

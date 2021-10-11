@@ -5,6 +5,7 @@
  */
 import { browser, ExpectedConditions, logging } from 'protractor';
 import { Alert } from 'selenium-webdriver';
+
 import { IAccountCredentials } from '~app-shared/core';
 
 import { withExpectedErrorForApiEndpoint } from '../utils/with-expected-error-for-api-endpoint';
@@ -28,7 +29,7 @@ describe('Test Login feature', (): void => {
     const randomNumber: number = Math.floor(Math.random() * 1000);
     invalidCredentials = {
       email: browser.params.E2E_LOGIN_EMAIL,
-      password: `--InvalidPassword--${ randomNumber }`,
+      password: `--InvalidPassword--${randomNumber}`,
     };
   });
 

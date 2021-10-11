@@ -9,6 +9,7 @@
  */
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { IWebFrameContextNavigationService, IWebFrameContextStateService, PAGE_URL } from '~app-shared/core';
 
 import { IInformationPageDetails } from '../../interfaces/information-page-details.interface';

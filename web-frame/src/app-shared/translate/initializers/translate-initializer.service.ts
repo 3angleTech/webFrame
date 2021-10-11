@@ -62,8 +62,8 @@ export class TranslateInitializerService implements OnDestroy {
   private getPreferredLanguage(availableLanguages: string[]): string {
     const preferredLang: string = this.defaultLanguage || availableLanguages[0];
     if (!this.defaultLanguage) {
-      const browserLang: string = this.translateService.getBrowserLang().
-        split('-')[0];
+      const browserLang: string = this.translateService.getBrowserLang()
+        .split('-')[0];
       if (browserLang && availableLanguages.includes(browserLang)) {
         return browserLang;
       }

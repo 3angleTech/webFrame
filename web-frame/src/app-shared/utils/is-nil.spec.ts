@@ -32,7 +32,7 @@ describe('isNil', () => {
     };
   });
 
-  it ('should be true for object that is null or undefined', () => {
+  it('should be true for object that is null or undefined', () => {
     expect(isNil(null)).toBeTruthy();
     expect(isNil(undefined)).toBeTruthy();
   });
@@ -46,7 +46,7 @@ describe('isNil', () => {
     expect(isNil(testObject, 'childB.childB2.X')).toBeTruthy();
   });
 
-  it ('should be false for defined objects', () => {
+  it('should be false for defined objects', () => {
     expect(isNil(testObject)).toBeFalsy();
     expect(isNil(testObject, '')).toBeFalsy();
   });

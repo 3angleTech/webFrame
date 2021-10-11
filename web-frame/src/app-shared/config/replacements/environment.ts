@@ -3,7 +3,6 @@
  * @file Provides configuration for the current environment.
  *
  * NOTE: This file will be replaced during the build process.
- *
  * @license
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE

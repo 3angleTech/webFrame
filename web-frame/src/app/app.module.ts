@@ -5,6 +5,7 @@
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { ConfigModule } from '~app-shared/config';
 import { CoreModule, WebFrameErrorHandlerService } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';

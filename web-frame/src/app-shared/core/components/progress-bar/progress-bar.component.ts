@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+
 import { ITranslationService } from '~app-shared/translate';
 
 @Component({

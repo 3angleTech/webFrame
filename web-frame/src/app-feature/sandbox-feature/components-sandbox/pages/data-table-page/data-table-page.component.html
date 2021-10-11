@@ -26,9 +26,9 @@
           (click)="sortChanged(column)">
         {{column}}
         <span *ngIf="column == sortQuery.column">
-          <ng-container *ngIf="sortQuery.direction == ''">&nbsp;</ng-container>
-          <ng-container *ngIf="sortQuery.direction == 'asc'">^</ng-container>
-          <ng-container *ngIf="sortQuery.direction == 'desc'">v</ng-container>
+          <ng-container *ngIf="sortQuery.direction === ''">&nbsp;</ng-container>
+          <ng-container *ngIf="sortQuery.direction === 'asc'">^</ng-container>
+          <ng-container *ngIf="sortQuery.direction === 'desc'">v</ng-container>
         </span>
       </th>
     </tr>

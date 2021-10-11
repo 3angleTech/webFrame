@@ -6,6 +6,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
+
 import {
   Dictionary,
   IJsonConverterService,
@@ -50,6 +51,7 @@ export interface IPaginatedDataRequestService<T> {
     latestQuery: DataTableQuery;
     /**
      * Makes a request to load the resource data for the provided query.
+     *
      * @param query The query.
      */
     load<Q extends DataTableQuery>(query: Q): void;
@@ -63,10 +65,13 @@ export interface IPaginatedDataRequestService<T> {
 export abstract class PaginatedDataRequestService<T> implements IPaginatedDataRequestService<T> {
     public data: BehaviorSubject<PagedResult<T>> =
         new BehaviorSubject<PagedResult<T>>(null);
+
     public loading: BehaviorSubject<boolean> =
         new BehaviorSubject<boolean>(true);
+
     public totalCount: BehaviorSubject<number> =
         new BehaviorSubject<number>(0);
+
     public latestQuery: DataTableQuery;
 
     constructor(
@@ -75,33 +80,33 @@ export abstract class PaginatedDataRequestService<T> implements IPaginatedDataRe
         @Inject(IJsonConverterService)
         protected jsonConverter: IJsonConverterService,
     ) {
-        this.latestQuery = {
-            pagination: {
-                page: 0,
-                pageSize: 10,
-            },
-        };
+      this.latestQuery = {
+        pagination: {
+          page: 0,
+          pageSize: 10,
+        },
+      };
     }
 
     public destroy(): void {
-        this.data.complete();
-        this.loading.complete();
-        this.totalCount.complete();
+      this.data.complete();
+      this.loading.complete();
+      this.totalCount.complete();
     }
 
     public load<Q extends DataTableQuery>(query: Q): void {
-        this.latestQuery = query;
-        this.loading.next(true);
-        this.getPage(query).pipe(delay(1000)).subscribe((pageObject) => {
-            const pagesResultClass = this.getPagedResultClass();
-            const page = this.jsonConverter.deserialize(pageObject, pagesResultClass);
-            this.data.next(page);
-            this.loading.next(false);
-        });
+      this.latestQuery = query;
+      this.loading.next(true);
+      this.getPage(query).pipe(delay(1000)).subscribe((pageObject) => {
+        const pagesResultClass = this.getPagedResultClass();
+        const page = this.jsonConverter.deserialize(pageObject, pagesResultClass);
+        this.data.next(page);
+        this.loading.next(false);
+      });
     }
 
     public refresh(): void {
-        this.load(this.latestQuery);
+      this.load(this.latestQuery);
     }
 
     protected abstract getPage<Q extends DataTableQuery>(query: Q): Observable<PagedResult<T>>;

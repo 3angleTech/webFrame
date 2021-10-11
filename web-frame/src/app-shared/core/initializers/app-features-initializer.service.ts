@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import { Route, Router, Routes } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 import { AVAILABLE_FEATURE_MODULES } from '~app-shared/config';
 
 @Injectable()

@@ -2,7 +2,6 @@
 /**
  * @file Protractor configuration file, see link for more information
  * @see https://github.com/angular/protractor/blob/master/lib/config.ts
- *
  * @typedef { import('protractor').Config } ProtractorConfig
  * @typedef { import('protractor').Reporter } ProtractorReporter
  */

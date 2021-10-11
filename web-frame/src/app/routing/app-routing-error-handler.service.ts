@@ -12,6 +12,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+
 import {
   AccessDeniedError,
   HttpStatusCode, PAGE_URL,
@@ -23,61 +24,61 @@ export class AppRoutingErrorHandlerService {
   public static readonly LAST_RUNTIME_ERROR_KEY: string = 'lastRuntimeError';
   public static readonly STANDALONE_ERROR_PAGE: string = '/error/index.html';
 
-  public displayStandaloneErrorPage(err: unknown): void {
+  public displayStandaloneErrorPage(caughtErr: unknown): void {
     console.warn('Redirecting to error page...');
-    this.storeLastRuntimeError(err);
+    this.storeLastRuntimeError(caughtErr);
     window.location.href = AppRoutingErrorHandlerService.STANDALONE_ERROR_PAGE;
   }
 
-  public handleNavigationError(router: Router, err: unknown): unknown {
+  public handleNavigationError(router: Router, caughtErr: unknown): unknown {
     const extras: NavigationExtras = { skipLocationChange: true };
-    if (this.isAccessDeniedError(err)) {
+    if (this.isAccessDeniedError(caughtErr)) {
       return router.navigateByUrl(PAGE_URL.ACCESS_DENIED, extras);
-    } else if (this.isPageNotFoundError(err)) {
+    } else if (this.isPageNotFoundError(caughtErr)) {
       return router.navigateByUrl(PAGE_URL.NOT_FOUND, extras);
-    } else if (this.isInternalServerError(err)) {
-      return this.displayStandaloneErrorPage(err);
+    } else if (this.isInternalServerError(caughtErr)) {
+      return this.displayStandaloneErrorPage(caughtErr);
     }
 
-    throw err;
+    throw caughtErr;
   }
 
-  private isAccessDeniedError(err: unknown): boolean {
-    if (err instanceof AccessDeniedError) {
+  private isAccessDeniedError(caughtErr: unknown): boolean {
+    if (caughtErr instanceof AccessDeniedError) {
       return true;
-    } else if (err instanceof HttpErrorResponse) {
-      return err.status === HttpStatusCode.FORBIDDEN;
+    } else if (caughtErr instanceof HttpErrorResponse) {
+      return caughtErr.status === HttpStatusCode.FORBIDDEN;
     }
 
     return false;
   }
 
-  private isInternalServerError(err: unknown): boolean {
-    if (err instanceof HttpErrorResponse) {
-      return err.status >= HttpStatusCode.INTERNAL_SERVER_ERROR;
+  private isInternalServerError(caughtErr: unknown): boolean {
+    if (caughtErr instanceof HttpErrorResponse) {
+      return caughtErr.status >= HttpStatusCode.INTERNAL_SERVER_ERROR;
     }
 
     return false;
   }
 
-  private isPageNotFoundError(err: unknown): boolean {
-    if (err instanceof PageNotFoundError) {
+  private isPageNotFoundError(caughtErr: unknown): boolean {
+    if (caughtErr instanceof PageNotFoundError) {
       return true;
-    } else if (err instanceof HttpErrorResponse) {
-      return err.status >= HttpStatusCode.BAD_REQUEST
-        && err.status < HttpStatusCode.INTERNAL_SERVER_ERROR;
+    } else if (caughtErr instanceof HttpErrorResponse) {
+      return caughtErr.status >= HttpStatusCode.BAD_REQUEST &&
+        caughtErr.status < HttpStatusCode.INTERNAL_SERVER_ERROR;
     }
 
     return false;
   }
 
-  private storeLastRuntimeError(err: unknown): void {
+  private storeLastRuntimeError(caughtErr: unknown): void {
     try {
       // NOTE: To avoid `enumerable: false` issues, the error details are copied to a new object.
       const errorDetails: Partial<Error> = {
-        name: (err as { name: string }).name,
-        message: (err as { message: string }).message,
-        stack: (err as { stack: string }).stack,
+        name: (caughtErr as { name: string }).name,
+        message: (caughtErr as { message: string }).message,
+        stack: (caughtErr as { stack: string }).stack,
       };
       const errorDetailsString: string = JSON.stringify(errorDetails);
       window.sessionStorage.setItem(
@@ -86,7 +87,7 @@ export class AppRoutingErrorHandlerService {
       );
     } catch (err) {
       // Ignore storageArea issues, just display generic error page, without any details.
-      console.error('Failed to serialize the error object for the error page.');
+      console.error('Failed to serialize the error object for the error page.', err);
     }
   }
 

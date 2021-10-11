@@ -14,6 +14,7 @@ import { PAGE_URL } from '../../other/page-url.enum';
 export interface IWebFrameContextNavigationService {
   /**
    * Navigate to target url.
+   *
    * @param url The target url.
    * @param extras An object containing properties that modify the navigation strategy.
    */
@@ -31,6 +32,7 @@ export interface IWebFrameContextNavigationService {
 
   /**
    * Navigate to information page.
+   *
    * @param informationId The information page ID as defined in `INFORMATION_PAGES_DETAILS`.
    * @param extras An object containing properties that modify the navigation strategy.
    */

@@ -5,6 +5,7 @@
  */
 import { Inject, Injectable } from '@angular/core';
 import { isNil, isString } from 'lodash';
+
 import { ENVIRONMENT } from '~app-shared/config';
 
 import { Dictionary } from '../../interfaces/dictionary';

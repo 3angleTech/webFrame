@@ -10,6 +10,7 @@
  */
 import { NgModule, Type } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 import { CoreModule } from '~app-shared/core';
 
 import { MinimalShellComponent } from './minimal-shell.component';

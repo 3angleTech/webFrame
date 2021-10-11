@@ -9,6 +9,7 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { DefaultShellComponent } from '~app-shell/default-shell';
 
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
@@ -35,7 +36,7 @@ const routes: Routes = [
         ],
       },
     ],
-   },
+  },
 ];
 
 @NgModule({

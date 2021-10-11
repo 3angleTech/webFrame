@@ -35,4 +35,4 @@ export class WebFrameContextService implements IWebFrameContextService {
     public ui: IWebFrameContextUIService,
   ) {
   }
- }
+}

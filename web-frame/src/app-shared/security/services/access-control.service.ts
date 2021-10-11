@@ -6,6 +6,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { mapTo, mergeMap } from 'rxjs/operators';
+
 import { ENVIRONMENT } from '~app-shared/config';
 import { IWebFrameContextStateService, User } from '~app-shared/core';
 

@@ -7,6 +7,7 @@ import { Inject, Injectable, Optional } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { sortBy } from 'lodash';
 import { concat, Observable } from 'rxjs';
+
 import { APP_REFRESHER, IAppRefresher } from '~app-shared/core';
 
 @Injectable()

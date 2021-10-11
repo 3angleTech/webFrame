@@ -7,6 +7,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Inject, Injectable, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { skipWhile } from 'rxjs/operators';
+
 import { BUILD_FLAGS } from '~app-shared/config';
 
 import { AccessDeniedError } from '../errors/access-denied.error';

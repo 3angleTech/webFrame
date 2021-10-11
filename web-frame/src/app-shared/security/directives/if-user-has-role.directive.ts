@@ -22,7 +22,7 @@ export class IfUserHasRoleDirective extends NgIf<boolean> {
     private readonly accessControlService: AccessControlService,
     _viewContainer: ViewContainerRef,
     templateRef: TemplateRef<NgIfContext<boolean>>,
-    ) {
+  ) {
     super(_viewContainer, templateRef);
   }
 

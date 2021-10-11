@@ -22,5 +22,5 @@ export function getLanguageMetadata<LocaleId extends string = string>(
   return find(list, partial) as ILanguageMetadata<LocaleId> | undefined;
 }
 
-export const LANGUAGE_METADATA_LIST: InjectionToken<ILanguageMetadata[]>
-  = new InjectionToken<ILanguageMetadata[]>('LANGUAGE_METADATA_LIST');
+export const LANGUAGE_METADATA_LIST: InjectionToken<ILanguageMetadata[]> =
+  new InjectionToken<ILanguageMetadata[]>('LANGUAGE_METADATA_LIST');

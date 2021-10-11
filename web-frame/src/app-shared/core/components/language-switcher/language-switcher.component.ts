@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+
 import { ILanguageMetadata, ITranslationService, LANGUAGE_METADATA_LIST } from '~app-shared/translate';
 
 @Component({

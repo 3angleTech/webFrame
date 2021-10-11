@@ -10,6 +10,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
 import { PagedResult } from '~app-shared/core';
 import { DataTableSortQuery, IPaginatorVm } from '~app-shared/data-table';
 
@@ -89,7 +90,7 @@ export class DataTablePageComponent implements OnInit {
       return;
     }
 
-    switch (this.sortQuery.direction ) {
+    switch (this.sortQuery.direction) {
       case '':
         this.sortQuery.direction = 'asc';
         break;

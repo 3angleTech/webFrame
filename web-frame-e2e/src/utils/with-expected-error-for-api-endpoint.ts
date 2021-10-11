@@ -7,6 +7,9 @@ import { logging } from 'protractor';
 
 /**
  * Checks if the provided browser logs contains a single known error.
+ *
+ * @param logs
+ * @param apiEndpoint
  */
 export function withExpectedErrorForApiEndpoint(
   logs: logging.Entry[],

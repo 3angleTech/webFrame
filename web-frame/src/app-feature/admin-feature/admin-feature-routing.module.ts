@@ -5,6 +5,7 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { USER_ROLE, UserRoleGuard } from '~app-shared/security';
 import { DefaultShellComponent } from '~app-shell/default-shell';
 

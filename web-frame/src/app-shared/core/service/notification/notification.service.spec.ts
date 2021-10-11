@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { inject, TestBed } from '@angular/core/testing';
+
 import { createTranslationServiceStub } from '~app-shared/test-utils';
 import { ITranslationService } from '~app-shared/translate';
 

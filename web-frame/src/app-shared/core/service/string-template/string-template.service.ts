@@ -5,6 +5,7 @@
  */
 import { Injectable, InjectionToken } from '@angular/core';
 import { forEach, map, union } from 'lodash';
+
 import { isNil } from '~app-shared/utils';
 
 export interface IStringTemplateService {
@@ -34,7 +35,7 @@ export class StringTemplateService implements IStringTemplateService {
   }
 
   private validateTemplateAndParameters(template: string, parameters: Object): void {
-    const normalizedParameters = (parameters) ? parameters : {};
+    const normalizedParameters = (parameters) || {};
 
     const parameterList = Object.keys(normalizedParameters);
     const pVariableFormatList = template.match(this.PLACEHOLDER_VARIABLE_FORMAT_REG_EXP);
@@ -43,7 +44,9 @@ export class StringTemplateService implements IStringTemplateService {
     const pVariableDict = {};
     const pVariableList = map(pVariableFormatList, vf => this.parsePlaceholderVariableFormat(vf));
 
-    forEach(pVariableList, p => { pVariableDict[p] = DEFINED; });
+    forEach(pVariableList, p => {
+      pVariableDict[p] = DEFINED;
+    });
 
     const keyList = union(pVariableList, parameterList);
     forEach(keyList, key => {

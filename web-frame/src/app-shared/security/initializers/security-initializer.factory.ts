@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { APP_INITIALIZER, Provider } from '@angular/core';
+
 import { AppInitializer } from '~app-shared/core';
 
 import { AccessControlService } from '../services/access-control.service';

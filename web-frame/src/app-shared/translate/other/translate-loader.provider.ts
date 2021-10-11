@@ -8,6 +8,7 @@ import { FactoryProvider } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader as UpstreamTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Observable } from 'rxjs';
+
 import { BUILD_FLAGS, ENVIRONMENT } from '~app-shared/config';
 
 export class TranslateHttpLoader extends UpstreamTranslateHttpLoader {
@@ -19,8 +20,8 @@ export class TranslateHttpLoader extends UpstreamTranslateHttpLoader {
 }
 
 export function translateLoaderFactory(httpClient: HttpClient): TranslateHttpLoader {
-  const filePrefix = `${ ENVIRONMENT.appBaseUrl }assets/i18n/`;
-  const fileSuffix = '.json?v=' + BUILD_FLAGS.clientVersion;
+  const filePrefix = `${ENVIRONMENT.appBaseUrl}assets/i18n/`;
+  const fileSuffix = `.json?v=${BUILD_FLAGS.clientVersion}`;
 
   return new TranslateHttpLoader(httpClient, filePrefix, fileSuffix);
 }

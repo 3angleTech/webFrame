@@ -5,5 +5,5 @@
  */
 import { InjectionToken } from '@angular/core';
 
-export const DEFAULT_LANGUAGE: InjectionToken<string>
-  = new InjectionToken<string>('DEFAULT_LANGUAGE');
+export const DEFAULT_LANGUAGE: InjectionToken<string> =
+  new InjectionToken<string>('DEFAULT_LANGUAGE');

@@ -1,7 +1,6 @@
 /**
  * @file Protractor configuration file, see link for more information
  * @see https://github.com/angular/protractor/blob/5.4.2/lib/config.ts
- *
  * @typedef { import('protractor').Config } ProtractorConfig
  */
 

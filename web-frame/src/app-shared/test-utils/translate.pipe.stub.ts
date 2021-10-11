@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Pipe, PipeTransform } from '@angular/core';
+
 import { createTranslationServiceStub } from '~app-shared/test-utils';
 import { ITranslationService } from '~app-shared/translate';
 

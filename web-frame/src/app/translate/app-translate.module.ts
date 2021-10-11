@@ -6,6 +6,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { TranslateModule as UpstreamTranslateModule } from '@ngx-translate/core';
+
 import { AVAILABLE_LANGUAGES_METADATA, NGX_TRANSLATE_CONFIG, TranslateModule } from '~app-shared/translate';
 
 @NgModule({

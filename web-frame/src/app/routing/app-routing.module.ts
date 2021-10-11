@@ -12,8 +12,8 @@ import { AppRoutingErrorHandlerService } from './app-routing-error-handler.servi
  * NOTE: The DI system is not used to create this service instance because this needs to also work
  * with the appRoutingErrorHandler function.
  */
-const ERROR_HANDLER_SERVICE_INSTANCE: AppRoutingErrorHandlerService
-  = new AppRoutingErrorHandlerService();
+const ERROR_HANDLER_SERVICE_INSTANCE: AppRoutingErrorHandlerService =
+  new AppRoutingErrorHandlerService();
 
 function appRoutingErrorHandler(this: Router, err: unknown): unknown {
   return ERROR_HANDLER_SERVICE_INSTANCE.handleNavigationError(this, err);

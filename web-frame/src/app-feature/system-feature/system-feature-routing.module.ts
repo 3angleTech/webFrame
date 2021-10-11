@@ -9,6 +9,7 @@
  */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { MinimalShellComponent } from '~app-shell/minimal-shell';
 
 import { ForceRefreshPageResolver } from './other/force-refresh-page.resolver';
@@ -41,8 +42,8 @@ const FEATURE_ROUTES: Routes = [
 ];
 
 @NgModule({
-  exports: [ RouterModule ],
-  imports: [ RouterModule.forChild(FEATURE_ROUTES) ],
+  exports: [RouterModule],
+  imports: [RouterModule.forChild(FEATURE_ROUTES)],
 })
 export class SystemFeatureRoutingModule {
 }

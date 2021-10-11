@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { browser, by, WebElement } from 'protractor';
+
 import { PAGE_URL } from '~app-shared/core';
 
 export class AccountTestability {

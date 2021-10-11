@@ -10,6 +10,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { CoreModule } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';
 import { MinimalShellModule } from '~app-shell/minimal-shell';

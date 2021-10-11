@@ -16,12 +16,14 @@ import {
 export interface IWebFrameContextUIService {
   /**
    * Show a notification.
+   *
    * @param configuration The configuration for notification.
    */
   showNotification(configuration: INotificationConfiguration): void;
 
   /**
    * Show a dialog.
+   *
    * @param configuration The configuration of the dialog.
    * @param cancelCallback The cancel callback of the dialog.
    */
@@ -32,6 +34,7 @@ export interface IWebFrameContextUIService {
 
   /**
    * Show a confirmation dialog.
+   *
    * @param configuration The configuration of the confirm dialog.
    * @param confirmCallback The confirmation callback of the dialog.
    * @param cancelCallback  The cancel callback of the dialog.

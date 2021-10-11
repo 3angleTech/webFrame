@@ -5,6 +5,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
 import { AccessDeniedError, PageNotFoundError } from '~app-shared/core';
 
 import { ISandboxList } from '../components/sandbox-list/sandbox-list.interface';

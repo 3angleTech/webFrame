@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { browser, by, Key, WebElement } from 'protractor';
+
 import { IAccountCredentials } from '~app-shared/core';
 
 import { AccountTestability } from './account.testability';

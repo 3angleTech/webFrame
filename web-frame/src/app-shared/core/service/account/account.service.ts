@@ -7,6 +7,7 @@ import { HttpParams } from '@angular/common/http';
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 import { ENVIRONMENT } from '~app-shared/config';
 import { getCookieValue } from '~app-shared/utils';
 
