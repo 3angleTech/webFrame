@@ -3,8 +3,8 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import { ChangeDetectionStrategy, Component, Host, Input, OnChanges, Optional } from '@angular/core';
-import { FormGroupDirective, ValidationErrors } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
+import { ValidationErrors } from '@angular/forms';
 
 import { getValidationErrorsTranslations } from '../../other/get-validation-errors-translations';
 
@@ -28,13 +28,7 @@ export class FormGroupErrorsComponent implements OnChanges {
 
   public errorList: string[] | undefined;
 
-  constructor(
-    @Host() @Optional()
-    public readonly parentFormGroupDirective: FormGroupDirective | null,
-  ) {
-    if (!this.parentFormGroupDirective) {
-      throw new Error('The <app-form-group-validationErrors> element needs a FormGroup parent component.');
-    }
+  constructor() {
   }
 
   public ngOnChanges(): void {
