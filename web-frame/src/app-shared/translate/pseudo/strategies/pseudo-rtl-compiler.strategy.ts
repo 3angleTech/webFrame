@@ -25,8 +25,6 @@ export class PseudoRtlCompilerStrategy extends BasePseudoLocalizeCompilerStrateg
    * Surround words with Unicode formatting marks forcing right-to-left
    * directionality of non-RTL characters. If this string is from the DOM, it
    * should already contain the pre- and postfix.
-   *
-   * @param pseudoTranslation
    */
   private attachRightToLeftMarkers(pseudoTranslation: string): string {
     if (this.hasRightToLeftMarkers(pseudoTranslation)) {

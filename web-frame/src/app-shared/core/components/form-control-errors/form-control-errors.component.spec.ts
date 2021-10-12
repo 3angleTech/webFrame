@@ -1,4 +1,4 @@
-/* eslint-disable no-magic-numbers,sonarjs/no-duplicate-string */
+/* eslint-disable no-magic-numbers,sonarjs/no-duplicate-string,@typescript-eslint/no-use-before-define */
 /**
  * @file Tests for FormControlErrorsComponent.
  * @license
@@ -31,6 +31,7 @@ import { FormControlErrorsComponent } from './form-control-errors.component';
 
 @Component({
   selector: 'app-form-control-errors-test-form',
+  // eslint-disable-next-line @angular-eslint/component-max-inline-declarations
   template: `
   <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
     <!-- control without any validators. -->
@@ -156,7 +157,8 @@ describe('FormControlErrorsComponent', () => {
     abstractControl.setValue(invalidEmailAddress);
     fixture.detectChanges();
     expect(countFormControlErrors(fixture, 'userEmail').length)
-      .toBe(2, 'Expected two errors on userEmail control with invalid email');
+      // NOTE: The minlength error shows twice in the list: once for the actualLength and once for the requiredLength.
+      .toBe(3, 'Expected two errors on userEmail control with invalid email');
   }));
 
   // NOTE: This test is temporarily disabled.

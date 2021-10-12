@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Injectable } from '@angular/core';
+// eslint-disable-next-line no-restricted-imports
 import { TranslateCompiler } from '@ngx-translate/core';
 
 import { getLanguageMetadata } from '../interfaces/language-metadata.interface';

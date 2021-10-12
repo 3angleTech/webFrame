@@ -11,6 +11,16 @@
         "*.ts"
       ],
       "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              "@ngx-translate/core",
+              "@ngx-translate/http-loader",
+              "rxjs/Rx"
+            ]
+          }
+        ],
         "import/no-cycle": "warn",
         "import/no-unresolved": [
           "error",
@@ -25,7 +35,8 @@
         "jsdoc/check-values": "off",
         "jsdoc/require-jsdoc": "off",
         "arrow-body-style": "off",
-        "no-redeclare": "warn"
+        "no-redeclare": "warn",
+        "no-use-before-define": "warn"
       }
     },
     {

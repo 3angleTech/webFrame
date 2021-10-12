@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define,@typescript-eslint/ban-types */
 /**
  * @license
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
@@ -58,7 +59,7 @@ export interface IDialogConfiguration {
 export class WebFrameContextUIService implements IWebFrameContextUIService {
   constructor(
     @Inject(INotificationService)
-    private notificationService: INotificationService,
+    private readonly notificationService: INotificationService,
   ) {
   }
 

@@ -24,6 +24,7 @@ export const IWebFrameContextService = new InjectionToken('IWebFrameContextServi
 
 @Injectable()
 export class WebFrameContextService implements IWebFrameContextService {
+  // eslint-disable-next-line max-params
   constructor(
     @Inject(IWebFrameContextStateService)
     public state: IWebFrameContextStateService,

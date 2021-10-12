@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Inject, Injectable, InjectionToken } from '@angular/core';
+// eslint-disable-next-line no-restricted-imports
 import { TranslateService } from '@ngx-translate/core';
 import { find } from 'lodash';
 import { Observable } from 'rxjs';

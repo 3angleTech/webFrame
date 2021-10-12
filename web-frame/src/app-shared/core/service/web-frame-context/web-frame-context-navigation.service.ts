@@ -64,8 +64,10 @@ export class WebFrameContextNavigationService implements IWebFrameContextNavigat
   }
 
   public navigateToUrl(url: string | UrlTree, extras?: NavigationExtras): void {
+    // eslint-disable-next-line promise/catch-or-return
     this.router.navigateByUrl(url, extras).then(() => {
       // Nothing to do.
+      return undefined;
     });
   }
 

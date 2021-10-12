@@ -3,7 +3,7 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges } from '@angular/core';
 
 import { ITranslationService } from '~app-shared/translate';
 
@@ -12,23 +12,30 @@ import { ITranslationService } from '~app-shared/translate';
   styleUrls: ['./progress-bar.component.scss'],
   template: '',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '[attr.aria-valuetext]': 'translationService.translate(infoText)',
-    'attr.aria-busy': 'true',
-    'attr.aria-live': 'polite',
-    'attr.role': 'progressbar',
-  },
 })
-export class ProgressBarComponent implements OnInit {
+export class ProgressBarComponent implements OnChanges {
   @Input()
   public infoText: string = 'GENERAL.LOADING_PAGE';
+
+  @HostBinding('attr.aria-valuetext')
+  public ariaValuetext: string | undefined = undefined;
+
+  @HostBinding('attr.aria-busy')
+  public readonly ariaBusy: string = 'true';
+
+  @HostBinding('attr.aria-live')
+  public readonly ariaLive: string = 'polite';
+
+  @HostBinding('attr.role')
+  public readonly ariaRole: string = 'progressbar';
 
   constructor(
     public readonly translationService: ITranslationService,
   ) {
   }
 
-  public ngOnInit(): void {
+  public ngOnChanges(): void {
+    this.ariaValuetext = this.infoText ? this.translationService.translate(this.infoText) : undefined;
   }
 
 }

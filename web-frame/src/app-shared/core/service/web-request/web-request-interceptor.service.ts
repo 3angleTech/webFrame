@@ -12,6 +12,7 @@ import { catchError } from 'rxjs/operators';
 export class WebRequestInterceptorService implements HttpInterceptor {
   constructor() { }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const updatedRequest = request.clone({
       withCredentials: true,

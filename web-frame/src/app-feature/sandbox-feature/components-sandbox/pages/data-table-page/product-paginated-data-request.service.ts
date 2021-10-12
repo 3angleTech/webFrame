@@ -47,6 +47,7 @@ export class ProductPaginatedDataRequestService extends PaginatedDataRequestServ
     super(webRequest, jsonConverter);
   }
 
+  // eslint-disable-next-line max-statements
   protected getPage(query: DataTableQuery): Observable<PagedResult<Product>> {
     // TODO: Request from server
     const pResults = new ProductPagedResult();
@@ -65,7 +66,7 @@ export class ProductPaginatedDataRequestService extends PaginatedDataRequestServ
     const start: number = pagination.page * pagination.pageSize;
     const end = Math.min(start + pagination.pageSize, ELEMENT_DATA.length);
     pList = slice(pList, start, end);
-    if (!isNil(query.sort) && query.sort.direction !== '') {
+    if (query.sort?.direction) {
       pList = orderBy(pList, [query.sort.column], [query.sort.direction]);
     }
     pResults.results = pList;

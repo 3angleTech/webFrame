@@ -94,7 +94,7 @@ export class LoginPageComponent implements OnInit {
       return false;
     }
 
-    return this.loginForm.errors.hasOwnProperty('GENERAL.ERROR.CONNECTION_REFUSED');
+    return Object.keys(this.loginForm.errors).includes('GENERAL.ERROR.CONNECTION_REFUSED');
   }
 
   private showFormGroupErrorsNotification(): void {

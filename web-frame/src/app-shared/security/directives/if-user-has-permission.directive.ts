@@ -13,6 +13,7 @@ import { AccessControlService } from '../services/access-control.service';
   selector: '[appIfUserHasPermission]',
 })
 export class IfUserHasPermissionDirective extends NgIf<boolean> {
+  // eslint-disable-next-line accessor-pairs
   @Input()
   public set appIfUserHasPermission(permission: USER_PERMISSION) {
     super.ngIf = this.accessControlService.currentUserHasPermission(permission);

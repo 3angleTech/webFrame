@@ -4,16 +4,17 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { APP_INITIALIZER, Provider } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { AppInitializer } from '~app-shared/core';
 
 import { TranslateInitializerService } from './translate-initializer.service';
-
-export type AppInitializer = () => Promise<void>;
 
 export const translateInitializerFactory = (
   translateInitializerService: TranslateInitializerService,
 ): AppInitializer => {
-  return async (): Promise<void> => {
-    return translateInitializerService.initialize().toPromise();
+  return (): Observable<void> => {
+    return translateInitializerService.initialize();
   };
 };
 

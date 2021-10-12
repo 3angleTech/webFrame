@@ -9,6 +9,7 @@ import {
   PipeTransform,
   Type,
 } from '@angular/core';
+// eslint-disable-next-line no-restricted-imports
 import { TranslateModule as UpstreamTranslateModule } from '@ngx-translate/core';
 
 import { TRANSLATE_INITIALIZER_PROVIDERS } from './initializers/translate-initializer.factory';

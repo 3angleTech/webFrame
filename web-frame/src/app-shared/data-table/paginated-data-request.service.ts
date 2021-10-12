@@ -15,12 +15,15 @@ import {
 } from '~app-shared/core';
 
 export interface DataTableSearchQuery {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
 }
 
+export type DataTableSortDirection = 'asc' | 'desc';
+
 export interface DataTableSortQuery {
     column: string;
-    direction: 'asc' | 'desc' | '';
+    direction?: DataTableSortDirection;
 }
 
 export interface DataTableQuery {

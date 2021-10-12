@@ -28,6 +28,7 @@ export enum RequestContentType {
   FormData = 'multipart/form-data',
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface RequestConfiguration<T = any> {
   serverApi: ServerApi;
   queryParameters?: Dictionary<QueryParameterValueType>;

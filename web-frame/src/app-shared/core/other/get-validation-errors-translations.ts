@@ -20,9 +20,6 @@ function getCurrentErrorNamespace(errorName: string, namespace: string): string 
 
 /**
  * Returns a list of error phrases that need to go through the translate service.
- *
- * @param errors
- * @param namespace
  */
 export function getValidationErrorsTranslations(errors: ValidationErrors | null | undefined, namespace: string): string[] | undefined {
   if (!errors) {

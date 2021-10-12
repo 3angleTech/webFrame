@@ -31,18 +31,19 @@ import { Product } from './product.do';
 export class DataTablePageComponent implements OnInit {
   public search: string;
   public pageIndex: number = 0;
+  // eslint-disable-next-line no-magic-numbers
   public pageSize: number = 3;
 
   public sortQuery: DataTableSortQuery;
   constructor(
     @Inject(ProductDataTableController)
-    private tableController: ProductDataTableController,
+    private readonly tableController: ProductDataTableController,
   ) { }
 
   public ngOnInit(): void {
     this.sortQuery = {
       column: 'id',
-      direction: '',
+      direction: undefined,
     };
   }
 
@@ -91,14 +92,14 @@ export class DataTablePageComponent implements OnInit {
     }
 
     switch (this.sortQuery.direction) {
-      case '':
+      case undefined:
         this.sortQuery.direction = 'asc';
         break;
       case 'asc':
         this.sortQuery.direction = 'desc';
         break;
       case 'desc':
-        this.sortQuery.direction = '';
+        this.sortQuery.direction = undefined;
         break;
     }
     this.tableController.inputEvents.sortChange.next(this.sortQuery);

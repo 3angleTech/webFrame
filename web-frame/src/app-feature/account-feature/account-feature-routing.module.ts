@@ -10,7 +10,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AnonymousGuard, AuthenticatedGuard, USER_ROLE, UserRoleGuard } from '~app-shared/security';
+import { AnonymousGuard, AuthenticatedGuard } from '~app-shared/security';
 import { MinimalShellComponent } from '~app-shell/minimal-shell';
 
 import { AccountFeatureComponent } from './account-feature.component';

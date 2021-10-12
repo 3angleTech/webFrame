@@ -22,6 +22,7 @@ export class ProductDataTableController extends DataTableController<Product> {
       paginatorVm: {
         length: 100,
         pageSize: 3,
+        // eslint-disable-next-line no-magic-numbers
         pageSizeOptions: [3, 6, 9, 12],
       },
       requestService: this.requestService,

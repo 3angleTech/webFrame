@@ -22,10 +22,10 @@
   <thead>
     <tr>
       <th *ngFor="let column of displayedColumns"
-          [ngClass]="{ clickable: column == sortQuery.column }"
+          [ngClass]="{ clickable: column === sortQuery.column }"
           (click)="sortChanged(column)">
         {{column}}
-        <span *ngIf="column == sortQuery.column">
+        <span *ngIf="column === sortQuery.column">
           <ng-container *ngIf="sortQuery.direction === ''">&nbsp;</ng-container>
           <ng-container *ngIf="sortQuery.direction === 'asc'">^</ng-container>
           <ng-container *ngIf="sortQuery.direction === 'desc'">v</ng-container>
@@ -40,9 +40,11 @@
         {{ 'Loading...' }}
       </td>
     </tr>
+    <!-- eslint-disable @angular-eslint/template/cyclomatic-complexity -->
     <tr *ngFor="let row of (dataSource | async)?.results">
       <td *ngFor="let column of displayedColumns">{{row[column]}}</td>
     </tr>
+    <!-- eslint-enable @angular-eslint/template/cyclomatic-complexity -->
   </tbody>
 </table>
 
@@ -55,7 +57,7 @@
 
   <input type="button" value="next" (click)="pageChange(pageIndex + 1)">
 
-  <select (change)="pageSizeChange($event.target.value)">
+  <select (change)="pageSizeChange($event.target?.value)">
     <option value="3">3</option>
     <option value="6">6</option>
     <option value="9">9</option>

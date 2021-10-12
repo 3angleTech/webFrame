@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 /**
  * @license
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL

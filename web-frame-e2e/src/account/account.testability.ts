@@ -8,28 +8,28 @@ import { browser, by, WebElement } from 'protractor';
 import { PAGE_URL } from '~app-shared/core';
 
 export class AccountTestability {
-  public async openHomePage(): Promise<void> {
-    return browser.get(PAGE_URL.HOME_PAGE);
+  public openHomePage(): Promise<void> {
+    return browser.get(PAGE_URL.HOME_PAGE) as Promise<void>;
   }
 
-  public async getPageTitle(): Promise<string> {
-    return browser.findElement(by.css('app-root h1.app-page__title')).getText();
+  public getPageTitle(): Promise<string> {
+    return browser.findElement(by.css('app-root h1.app-page__title')).getText() as Promise<string>;
   }
 
-  public async openLoginPage(): Promise<void> {
-    return browser.get(PAGE_URL.LOGIN_PAGE);
+  public openLoginPage(): Promise<void> {
+    return browser.get(PAGE_URL.LOGIN_PAGE) as Promise<void>;
   }
 
-  public async openLogoutPage(): Promise<void> {
-    return browser.get(PAGE_URL.LOGOUT_PAGE);
+  public openLogoutPage(): Promise<void> {
+    return browser.get(PAGE_URL.LOGOUT_PAGE) as Promise<void>;
   }
 
-  public async openSignupPage(): Promise<void> {
-    return browser.get(PAGE_URL.SIGNUP_PAGE);
+  public openSignupPage(): Promise<void> {
+    return browser.get(PAGE_URL.SIGNUP_PAGE) as Promise<void>;
   }
 
-  public async openForgotPasswordPage(): Promise<void> {
-    return browser.get(PAGE_URL.FORGOT_PASSWORD_PAGE);
+  public openForgotPasswordPage(): Promise<void> {
+    return browser.get(PAGE_URL.FORGOT_PASSWORD_PAGE) as Promise<void>;
   }
 
   public async clickButtonWithText(partialButtonText: string): Promise<void> {

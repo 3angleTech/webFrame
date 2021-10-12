@@ -33,6 +33,7 @@ import {
 export class PasswordChangeFormComponent implements OnInit {
   public passwordChangeForm: FormGroup;
 
+  // eslint-disable-next-line max-params
   constructor(
     @Inject(IAccountService)
     private accountService: IAccountService,
@@ -79,7 +80,7 @@ export class PasswordChangeFormComponent implements OnInit {
     };
 
     this.accountService.changePassword(resetPasswordReq).subscribe({
-      error: (err: unknown): void => this.onChangePasswordError(err),
+      error: (err: NonNullable<unknown>): void => this.onChangePasswordError(err),
       complete: (): void => this.onChangePasswordComplete(),
     });
   }
@@ -92,12 +93,14 @@ export class PasswordChangeFormComponent implements OnInit {
     this.context.ui.showNotification(notificationConfig);
   }
 
-  private onChangePasswordError(err: unknown): void {
+  private onChangePasswordError(err: NonNullable<unknown>): void {
     this.passwordChangeForm.enable();
-    if (typeof err === 'object' && err['message']) {
+    // eslint-disable-next-line @typescript-eslint/dot-notation
+    const message = err['message'];
+    if (message) {
       alert('Password change error!');
       this.passwordChangeForm.setErrors({
-        submitError: err['message'],
+        submitError: message,
       });
     } else {
       throw err;

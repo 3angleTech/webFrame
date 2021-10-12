@@ -4,10 +4,8 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Inject, Injectable, OnDestroy } from '@angular/core';
-import {
-  LangChangeEvent,
-  TranslateService as UpstreamTranslateService,
-} from '@ngx-translate/core';
+// eslint-disable-next-line no-restricted-imports
+import { LangChangeEvent, TranslateService as UpstreamTranslateService } from '@ngx-translate/core';
 import { Observable, Subscription } from 'rxjs';
 
 import {

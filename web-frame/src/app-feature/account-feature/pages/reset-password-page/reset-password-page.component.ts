@@ -33,6 +33,7 @@ import {
 export class ResetPasswordPageComponent implements OnInit {
   public forgotPasswordForm: FormGroup;
 
+  // eslint-disable-next-line max-params
   constructor(
     private formBuilder: FormBuilder,
     @Inject(IAccountService)

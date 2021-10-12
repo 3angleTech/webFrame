@@ -68,6 +68,7 @@ export abstract class DataTableController<T> {
     const defaultPaginatorVm = {
       length: 100,
       pageSize: 10,
+      // eslint-disable-next-line no-magic-numbers
       pageSizeOptions: [10, 25, 50, 100],
     };
 
