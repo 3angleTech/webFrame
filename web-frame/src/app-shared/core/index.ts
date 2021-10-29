@@ -25,7 +25,7 @@ export * from './errors/page-not-found.error';
 export * from './initializers/app-initializer.type';
 export * from './interfaces/common.interface';
 export * from './interfaces/dictionary';
-export * from './interfaces/web-frame-error-handler.interface';
+export * from './interfaces/web-frame-error-handler-proxy.interface';
 export * from './other/app-refresher.token';
 export * from './other/get-validation-errors-translations';
 export * from './other/page-url.enum';

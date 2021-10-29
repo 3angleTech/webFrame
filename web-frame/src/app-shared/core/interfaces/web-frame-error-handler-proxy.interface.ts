@@ -5,11 +5,11 @@
  */
 import { ErrorHandler, EventEmitter } from '@angular/core';
 
-export interface IWebFrameErrorHandler extends ErrorHandler {
+export interface IWebFrameErrorHandlerProxy extends ErrorHandler {
   readonly errors$: EventEmitter<unknown>;
 }
 
-export function isWebFrameErrorHandler(value: unknown): value is IWebFrameErrorHandler {
+export function isWebFrameErrorHandlerProxy(value: unknown): value is IWebFrameErrorHandlerProxy {
   if (typeof value !== 'object' && value === null) {
     return false;
   }

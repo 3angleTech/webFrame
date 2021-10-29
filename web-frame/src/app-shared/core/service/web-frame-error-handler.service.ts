@@ -13,7 +13,7 @@ import { BUILD_FLAGS } from '~app-shared/config';
 import { AccessDeniedError } from '../errors/access-denied.error';
 import { isHttpErrorResponseOrKnownError } from '../errors/known.error';
 import { PageNotFoundError } from '../errors/page-not-found.error';
-import { isWebFrameErrorHandler } from '../interfaces/web-frame-error-handler.interface';
+import { isWebFrameErrorHandlerProxy } from '../interfaces/web-frame-error-handler-proxy.interface';
 import { PAGE_URL } from '../other/page-url.enum';
 
 import { IWebFrameContextNavigationService } from './web-frame-context/web-frame-context-navigation.service';
@@ -69,8 +69,8 @@ export class WebFrameErrorHandlerService implements OnDestroy {
       throw new Error('WebFrameErrorHandlerService can only be initialized once.');
     }
     this.initialized = true;
-    if (!isWebFrameErrorHandler(this.errorHandler)) {
-      throw new Error('The global ErrorHandler must implement IWebFrameErrorHandler.');
+    if (!isWebFrameErrorHandlerProxy(this.errorHandler)) {
+      throw new Error('The global ErrorHandler must implement IWebFrameErrorHandlerProxy.');
     }
     this.errorsSubscription = this.errorHandler.errors$.asObservable().pipe(
       skipWhile((err: unknown): boolean => {

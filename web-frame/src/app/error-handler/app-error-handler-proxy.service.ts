@@ -5,15 +5,17 @@
  */
 import { ErrorHandler, EventEmitter, Injectable } from '@angular/core';
 
-import { isHttpErrorResponseOrKnownError, IWebFrameErrorHandler } from '~app-shared/core';
+import { isHttpErrorResponseOrKnownError, IWebFrameErrorHandlerProxy } from '~app-shared/core';
 
 /**
  * Replaces the Angular Core ErrorHandler class in order to emit errors.
  *
- * NOTE: This service should never be used directly, it's a replacement for the core ErrorHandler.
+ * NOTE: Never use directly, use the isWebFrameErrorHandlerProxy type guard on the ErrorHandler injection token.
+ *
+ * @see isWebFrameErrorHandlerProxy()
  */
 @Injectable()
-export class AppErrorHandlerService extends ErrorHandler implements IWebFrameErrorHandler {
+export class AppErrorHandlerProxyService extends ErrorHandler implements IWebFrameErrorHandlerProxy {
   public readonly errors$: EventEmitter<unknown>
     = new EventEmitter<unknown>();
 
