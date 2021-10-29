@@ -47,7 +47,7 @@
      * @return { Error | undefined }
      */
     function getErrorInfo() {
-      /** @type { Partial<Error> | unknown } */
+      /** @type { Error | unknown } */
       let errorDetails;
       try {
         /** @type { string } */
@@ -58,10 +58,10 @@
       }
 
       if (errorDetails && errorDetails.hasOwnProperty('name')) {
-        /** @type { Partial<Error> } */
+        /** @type { Error } */
         const errorInfo = {
-          name: 'Unknown Error',
-          message: undefined,
+          name: 'Error',
+          message: 'Unknown Error',
           stack: undefined,
         };
 
@@ -80,7 +80,7 @@
       return undefined;
     }
 
-    /** @type { {errorInfo: Partial<Error>} } */
+    /** @type { {errorInfo: Error} } */
     const ERROR_PAGE_DATA = {};
     ERROR_PAGE_DATA.errorInfo = getErrorInfo();
 
@@ -100,11 +100,19 @@
       errorMessageEl.innerHTML = ERROR_PAGE_DATA.errorInfo.message;
       detailsContainerEl.appendChild(errorMessageEl);
 
-      /** @type { HTMLPreElement } */
-      const errorStackEl = document.createElement('pre');
-      errorStackEl.classList.add('error-page__error-stack');
-      errorStackEl.innerHTML = ERROR_PAGE_DATA.errorInfo.stack;
-      detailsContainerEl.appendChild(errorStackEl);
+      if (ERROR_PAGE_DATA.errorInfo.stack) {
+        /** @type { HTMLPreElement } */
+        const errorStackEl = document.createElement('pre');
+        errorStackEl.classList.add('error-page__error-stack');
+        errorStackEl.innerHTML = ERROR_PAGE_DATA.errorInfo.stack;
+        detailsContainerEl.appendChild(errorStackEl);
+      }
+    } else {
+      /** @type { HTMLParagraphElement } */
+      const missingEl = document.createElement('p');
+      missingEl.classList.add('error-page__error-stack-missing');
+      missingEl.innerHTML = ERROR_PAGE_DATA.errorInfo.message;
+      detailsContainerEl.appendChild(missingEl);
     }
   </script>
 </body>
