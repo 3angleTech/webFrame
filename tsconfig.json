@@ -27,48 +27,15 @@
       "ES2018"
     ],
     "paths": {
-      "~app-feature/account-feature": [
-        "./web-frame/src/app-feature/account-feature/index.ts"
+      "~app-feature/*": [
+        "./web-frame/src/app-feature/*"
       ],
-      "~app-feature/admin-feature": [
-        "./web-frame/src/app-feature/admin-feature/index.ts"
+      "~app-shared/*": [
+        "./web-frame/src/app-shared/*"
       ],
-      "~app-feature/profile-feature": [
-        "./web-frame/src/app-feature/profile-feature/index.ts"
+      "~app-shell/*": [
+        "./web-frame/src/app-shell/*"
       ],
-      "~app-feature/sandbox-feature": [
-        "./web-frame/src/app-feature/sandbox-feature/index.ts"
-      ],
-      "~app-feature/system-feature": [
-        "./web-frame/src/app-feature/system-feature/index.ts"
-      ],
-      "~app-shared/config": [
-        "./web-frame/src/app-shared/config/index.ts"
-      ],
-      "~app-shared/core": [
-        "./web-frame/src/app-shared/core/index.ts"
-      ],
-      "~app-shared/data-table": [
-        "./web-frame/src/app-shared/data-table/index.ts"
-      ],
-      "~app-shared/security": [
-        "./web-frame/src/app-shared/security/index.ts"
-      ],
-      "~app-shared/translate": [
-        "./web-frame/src/app-shared/translate/index.ts"
-      ],
-      "~app-shared/test-utils": [
-        "./web-frame/src/app-shared/test-utils/index.ts"
-      ],
-      "~app-shared/utils": [
-        "./web-frame/src/app-shared/utils/index.ts"
-      ],
-      "~app-shell/default-shell": [
-        "./web-frame/src/app-shell/default-shell/index.ts"
-      ],
-      "~app-shell/minimal-shell": [
-        "./web-frame/src/app-shell/minimal-shell/index.ts"
-      ]
     }
   }
 }

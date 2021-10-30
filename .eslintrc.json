@@ -5,6 +5,9 @@
   ],
   "rules": {
   },
+  "settings": {
+    "import/internal-regex": ["error", "^~?app-[^/]+/[^/]+$"]
+  },
   "overrides": [
     {
       "files": [
@@ -22,16 +25,38 @@
           }
         ],
         "import/no-cycle": "warn",
-        "import/no-unresolved": [
+        "import/order": [
           "error",
           {
-            "ignore": [
-              "^~app-feature/*",
-              "^~app-shared/*",
-              "^~app-shell/*"
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": false
+            },
+            "groups": [
+              [
+                "builtin",
+                "external"
+              ],
+              "internal",
+              [
+                "parent",
+                "sibling"
+              ],
+              [
+                "index",
+                "object"
+              ]
+            ],
+            "pathGroups": [
+              {
+                "pattern": "~app-*/*",
+                "group": "internal"
+              }
             ]
           }
         ],
+        "import/no-unresolved": ["error", {"ignore": ["^~app-[^/]+/[^/]+$"]}],
         "jsdoc/check-values": "off",
         "jsdoc/require-jsdoc": "off",
         "arrow-body-style": "off",
