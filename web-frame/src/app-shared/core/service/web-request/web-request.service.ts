@@ -8,8 +8,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { IApiEndpointBuilderService } from '../api-endpoint-builder/api-endpoint-builder.interface';
-
-import { IWebRequestService, RequestConfiguration, RequestContentType } from './web-request.interface';
+import { IWebRequestService, RequestConfiguration, RequestContentType, SKIP_ERROR_HANDLING_HEADER } from './web-request.interface';
 
 export type RequestStrategy<T> = (url: string, headers: HttpHeaders, body?: string) => Observable<T>;
 
@@ -17,8 +16,8 @@ export type RequestStrategy<T> = (url: string, headers: HttpHeaders, body?: stri
 export class WebRequestService implements IWebRequestService {
   constructor(
     @Inject(IApiEndpointBuilderService)
-    private apiEndpointBuilder: IApiEndpointBuilderService,
-    private http: HttpClient,
+    private readonly apiEndpointBuilder: IApiEndpointBuilderService,
+    private readonly http: HttpClient,
   ) { }
 
   public get<T>(config: RequestConfiguration): Observable<T> {
@@ -58,7 +57,9 @@ export class WebRequestService implements IWebRequestService {
     let headers = new HttpHeaders();
     const contentType = (config.contentType) ? config.contentType : RequestContentType.ApplicationJson;
     headers = headers.append('Content-Type', contentType);
-
+    if (config.skipErrorHandling) {
+      headers = headers.append(SKIP_ERROR_HANDLING_HEADER, 'true');
+    }
     const url = this.apiEndpointBuilder.getUrl(config.serverApi, config.queryParameters, config.urlParameters);
 
     return requestStrategy(url, headers, config.body);

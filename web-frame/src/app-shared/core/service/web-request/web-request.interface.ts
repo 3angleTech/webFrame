@@ -35,7 +35,10 @@ export interface RequestConfiguration<T = any> {
   urlParameters?: Dictionary<UrlParameterValueType>;
   contentType?: RequestContentType;
   body?: T;
+  skipErrorHandling?: boolean;
 }
+
+export const SKIP_ERROR_HANDLING_HEADER: string = 'X-SkipErrorHandling';
 
 export interface IWebRequestService {
   /**

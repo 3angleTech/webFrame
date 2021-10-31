@@ -38,7 +38,7 @@ export class WebFrameContextStateService implements IAppRefresher, IWebFrameCont
 
   constructor(
     @Inject(IWebRequestService)
-    private webRequest: IWebRequestService,
+    private readonly webRequest: IWebRequestService,
   ) {
     this.currentUser = new BehaviorSubject(undefined);
   }
@@ -48,16 +48,18 @@ export class WebFrameContextStateService implements IAppRefresher, IWebFrameCont
   }
 
   public initialize(): Observable<void> {
-    return this.initializeCurrentUser();
+    const skipErrorHandling: boolean = true;
+    return this.initializeCurrentUser(skipErrorHandling);
   }
 
   public refresh(): Observable<void> {
     return this.initializeCurrentUser();
   }
 
-  private initializeCurrentUser(): Observable<void> {
+  private initializeCurrentUser(skipErrorHandling?: boolean): Observable<void> {
     const config: RequestConfiguration = {
       serverApi: ServerApi.AccountMe,
+      skipErrorHandling: skipErrorHandling,
     };
 
     return this.webRequest.get(config).pipe(
