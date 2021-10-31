@@ -6,12 +6,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationErrors } from '@angular/forms';
 
-import { HttpStatusCode } from '../interfaces/common.interface';
-
 import { isApiError } from './api-error.interface';
 
 export function getHttpResponseValidationErrors(response: HttpErrorResponse): ValidationErrors {
-  if (response.status === HttpStatusCode.CONNECTION_REFUSED) {
+  // NOTE: The HttpClient returns a 0 status code when the connection could not be established.
+  if (!response.status) {
     return {
       'GENERAL.ERROR.CONNECTION_REFUSED': true,
     };

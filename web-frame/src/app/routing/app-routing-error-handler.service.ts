@@ -9,13 +9,13 @@
  * Copyright (c) 2018-2021 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 
 import {
   AccessDeniedError,
-  HttpStatusCode, PAGE_URL,
+  PAGE_URL,
   PageNotFoundError,
 } from '~app-shared/core';
 
@@ -47,7 +47,7 @@ export class AppRoutingErrorHandlerService {
     if (caughtErr instanceof AccessDeniedError) {
       return true;
     } else if (caughtErr instanceof HttpErrorResponse) {
-      return caughtErr.status === HttpStatusCode.FORBIDDEN;
+      return caughtErr.status === HttpStatusCode.Forbidden;
     }
 
     return false;
@@ -55,7 +55,7 @@ export class AppRoutingErrorHandlerService {
 
   private isInternalServerError(caughtErr: unknown): boolean {
     if (caughtErr instanceof HttpErrorResponse) {
-      return caughtErr.status >= HttpStatusCode.INTERNAL_SERVER_ERROR;
+      return caughtErr.status >= HttpStatusCode.InternalServerError;
     }
 
     return false;
@@ -65,8 +65,8 @@ export class AppRoutingErrorHandlerService {
     if (caughtErr instanceof PageNotFoundError) {
       return true;
     } else if (caughtErr instanceof HttpErrorResponse) {
-      return caughtErr.status >= HttpStatusCode.BAD_REQUEST &&
-        caughtErr.status < HttpStatusCode.INTERNAL_SERVER_ERROR;
+      return caughtErr.status >= HttpStatusCode.BadRequest &&
+        caughtErr.status < HttpStatusCode.InternalServerError;
     }
 
     return false;
