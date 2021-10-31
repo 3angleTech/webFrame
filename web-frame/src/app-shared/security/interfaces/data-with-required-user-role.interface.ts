@@ -23,6 +23,6 @@ export function isDataWithRequiredUserRole(value: unknown): value is IDataWithRe
   }
   const requiredUserRole: unknown = (value as {requiredUserRole: unknown}).requiredUserRole;
 
-  return typeof requiredUserRole === 'string'
-    && Object.keys(USER_ROLE).includes(requiredUserRole);
+  return typeof requiredUserRole === 'string' &&
+    Object.keys(USER_ROLE).includes(requiredUserRole);
 }

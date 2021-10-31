@@ -10,6 +10,7 @@ import { BasePseudoLocalizeCompilerStrategy } from './base-pseudo-localize-compi
 import { Translation } from './pseudo-localize-strategy.interface';
 
 export class PseudoElongateCompilerStrategy extends BasePseudoLocalizeCompilerStrategy {
+  // eslint-disable-next-line no-magic-numbers
   private readonly ELONGATE_MAX_COUNT: number = 4;
   private readonly TEXT_PART_REG_EXP: RegExp = /({{\s?[^{}\s]*\s?}})/g;
 

@@ -9,6 +9,7 @@
  */
 import { Component, HostBinding, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { IWebFrameContextStateService, User } from '~app-shared/core';
 import { USER_PERMISSION, USER_ROLE } from '~app-shared/security';
 

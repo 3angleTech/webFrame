@@ -14,6 +14,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import {
   IAccountForgotPasswordRequest,
   IAccountService,
@@ -41,9 +42,9 @@ export class ForgotPasswordPageComponent implements OnInit {
 
   public ngOnInit(): void {
     const emailValidators = Validators.compose([
-        Validators.required,
-        Validators.email,
-      ],
+      Validators.required,
+      Validators.email,
+    ],
     );
 
     this.forgotPasswordForm = this.formBuilder.group({

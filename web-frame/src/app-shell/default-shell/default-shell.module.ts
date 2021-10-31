@@ -11,6 +11,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 import { CoreModule } from '~app-shared/core';
 import { SecurityModule } from '~app-shared/security';
 

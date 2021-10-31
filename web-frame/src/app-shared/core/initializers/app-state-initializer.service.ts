@@ -6,6 +6,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { NEVER, Observable, of } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
+
 import { ENVIRONMENT } from '~app-shared/config';
 import { ITranslationService } from '~app-shared/translate';
 

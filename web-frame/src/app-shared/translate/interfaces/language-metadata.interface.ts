@@ -16,9 +16,11 @@ export function getLanguageMetadata<LocaleId extends string = string>(
   list: ILanguageMetadata<LocaleId>[],
   localeId: string,
 ): ILanguageMetadata<LocaleId> | undefined {
-  // tslint:disable-next-line:no-any
-  return find(list, { localeId: localeId }) as any;
+  const partial: Partial<ILanguageMetadata<LocaleId>> = {
+    localeId: localeId as LocaleId,
+  };
+  return find(list, partial) as ILanguageMetadata<LocaleId> | undefined;
 }
 
-export const LANGUAGE_METADATA_LIST: InjectionToken<ILanguageMetadata[]>
-  = new InjectionToken<ILanguageMetadata[]>('LANGUAGE_METADATA_LIST');
+export const LANGUAGE_METADATA_LIST: InjectionToken<ILanguageMetadata[]> =
+  new InjectionToken<ILanguageMetadata[]>('LANGUAGE_METADATA_LIST');

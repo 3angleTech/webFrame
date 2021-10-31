@@ -3,8 +3,8 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-/* tslint:disable:import-blacklist */
 import { Inject, Injectable, InjectionToken } from '@angular/core';
+// eslint-disable-next-line no-restricted-imports
 import { TranslateService } from '@ngx-translate/core';
 import { find } from 'lodash';
 import { Observable } from 'rxjs';
@@ -23,7 +23,6 @@ export interface ITranslationService {
   ): string;
 }
 
-// tslint:disable-next-line:variable-name
 export const ITranslationService = new InjectionToken('ITranslationService');
 
 @Injectable()

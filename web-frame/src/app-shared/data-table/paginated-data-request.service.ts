@@ -4,8 +4,9 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { delay, mergeMap } from 'rxjs/operators';
+
 import {
   Dictionary,
   IJsonConverterService,
@@ -14,13 +15,15 @@ import {
 } from '~app-shared/core';
 
 export interface DataTableSearchQuery {
-    // tslint:disable-next-line:no-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
 }
 
+export type DataTableSortDirection = 'asc' | 'desc';
+
 export interface DataTableSortQuery {
     column: string;
-    direction: 'asc' | 'desc' | '';
+    direction?: DataTableSortDirection;
 }
 
 export interface DataTableQuery {
@@ -51,6 +54,7 @@ export interface IPaginatedDataRequestService<T> {
     latestQuery: DataTableQuery;
     /**
      * Makes a request to load the resource data for the provided query.
+     *
      * @param query The query.
      */
     load<Q extends DataTableQuery>(query: Q): void;
@@ -64,10 +68,13 @@ export interface IPaginatedDataRequestService<T> {
 export abstract class PaginatedDataRequestService<T> implements IPaginatedDataRequestService<T> {
     public data: BehaviorSubject<PagedResult<T>> =
         new BehaviorSubject<PagedResult<T>>(null);
+
     public loading: BehaviorSubject<boolean> =
         new BehaviorSubject<boolean>(true);
+
     public totalCount: BehaviorSubject<number> =
         new BehaviorSubject<number>(0);
+
     public latestQuery: DataTableQuery;
 
     constructor(
@@ -76,34 +83,41 @@ export abstract class PaginatedDataRequestService<T> implements IPaginatedDataRe
         @Inject(IJsonConverterService)
         protected jsonConverter: IJsonConverterService,
     ) {
-        this.latestQuery = {
-            pagination: {
-                page: 0,
-                pageSize: 10,
-            },
-        };
+      this.latestQuery = {
+        pagination: {
+          page: 0,
+          pageSize: 10,
+        },
+      };
     }
 
     public destroy(): void {
-        this.data.complete();
-        this.loading.complete();
-        this.totalCount.complete();
+      this.data.complete();
+      this.loading.complete();
+      this.totalCount.complete();
     }
 
     public load<Q extends DataTableQuery>(query: Q): void {
-        this.latestQuery = query;
-        this.loading.next(true);
-        this.getPage(query).pipe(delay(1000)).subscribe((pageObject) => {
-            // tslint:disable-next-line:no-inferred-empty-object-type
-            const pagesResultClass = this.getPagedResultClass();
-            const page = this.jsonConverter.deserialize(pageObject, pagesResultClass);
-            this.data.next(page);
-            this.loading.next(false);
-        });
+      this.latestQuery = query;
+      this.loading.next(true);
+      // eslint-disable-next-line no-warning-comments
+      // TODO: Add support for canceling ongoing requests.
+      const loadDelay = 250;
+      of().pipe(
+        delay(loadDelay),
+        mergeMap(() => {
+          return this.getPage(query);
+        }),
+      ).subscribe((pageObject) => {
+        const pagesResultClass = this.getPagedResultClass();
+        const page = this.jsonConverter.deserialize(pageObject, pagesResultClass);
+        this.data.next(page);
+        this.loading.next(false);
+      });
     }
 
     public refresh(): void {
-        this.load(this.latestQuery);
+      this.load(this.latestQuery);
     }
 
     protected abstract getPage<Q extends DataTableQuery>(query: Q): Observable<PagedResult<T>>;

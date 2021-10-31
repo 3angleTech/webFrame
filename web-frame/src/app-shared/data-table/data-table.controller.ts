@@ -6,6 +6,7 @@
 import { EventEmitter } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { skip } from 'rxjs/operators';
+
 import { isNil } from '~app-shared/utils';
 
 import {
@@ -53,6 +54,7 @@ export abstract class DataTableController<T> {
 
   /**
    * Bootstraps the controller with the provided configuration.
+   *
    * @param configuration The bootstrap configuration.
    */
   protected bootstrap(configuration: DataTableControllerConfiguration<T>): void {
@@ -66,6 +68,7 @@ export abstract class DataTableController<T> {
     const defaultPaginatorVm = {
       length: 100,
       pageSize: 10,
+      // eslint-disable-next-line no-magic-numbers
       pageSizeOptions: [10, 25, 50, 100],
     };
 

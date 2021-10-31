@@ -9,6 +9,7 @@
  */
 import { Component, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { IWebFrameContextStateService, User } from '~app-shared/core';
 
 @Component({

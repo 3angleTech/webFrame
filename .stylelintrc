@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@3angletech/tslint/styles"
+    "@3angletech/eslint-config/style"
   ],
   "rules": {
     "font-family-name-quotes": null,

@@ -4,12 +4,12 @@
  * Available under MIT license webFrame/LICENSE
  */
 
-export let products = [
+export const products = [
   {
-      id: 1,
-      name: 'Laptop',
-      description: 'Lenovo laptop',
-      price: 1500,
+    id: 1,
+    name: 'Laptop',
+    description: 'Lenovo laptop',
+    price: 1500,
   },
   {
     id: 1,

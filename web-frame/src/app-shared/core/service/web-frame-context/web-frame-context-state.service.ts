@@ -33,6 +33,7 @@ export class WebFrameContextStateService implements IAppRefresher, IWebFrameCont
   public currentUser: BehaviorSubject<User | undefined>;
 
   // The state service refresher needs to be executed first.
+  // eslint-disable-next-line no-magic-numbers
   public refresherWeight: number = -100;
 
   constructor(

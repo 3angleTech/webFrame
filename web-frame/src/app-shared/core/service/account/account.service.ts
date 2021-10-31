@@ -7,6 +7,7 @@ import { HttpParams } from '@angular/common/http';
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 import { ENVIRONMENT } from '~app-shared/config';
 import { getCookieValue } from '~app-shared/utils';
 
@@ -166,8 +167,9 @@ export class AccountService implements IAccountService {
   }
 
   public signup(information: IAccountInformation): Observable<null> {
+    // eslint-disable-next-line no-warning-comments
     // TODO: Implement signup feature.
-    // tslint:disable-next-line:no-console
+    // eslint-disable-next-line no-console
     console.log('IAccountInformation', information);
     return of(null);
   }

@@ -4,13 +4,15 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { APP_INITIALIZER, Provider } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { AppInitializer } from '~app-shared/core';
 
 import { AccessControlService } from '../services/access-control.service';
 
 export function securityInitializerFactory(service: AccessControlService): AppInitializer {
-  return async (): Promise<void> => {
-    return service.initialize().toPromise();
+  return (): Observable<void> => {
+    return service.initialize();
   };
 }
 

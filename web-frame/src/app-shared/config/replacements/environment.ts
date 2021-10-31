@@ -1,8 +1,8 @@
+/* eslint-disable capitalized-comments */
 /**
  * @file Provides configuration for the current environment.
  *
  * NOTE: This file will be replaced during the build process.
- *
  * @license
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
@@ -24,5 +24,4 @@ export const ENVIRONMENT: Readonly<IEnvironmentConfig> = {
  * import the following file, but please comment it out in production mode
  * because it will have performance impact when throw error
  */
-// tslint:disable-next-line:comment-format
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

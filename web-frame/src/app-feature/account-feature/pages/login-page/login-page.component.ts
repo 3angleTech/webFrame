@@ -10,6 +10,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+
 import {
   getHttpResponseValidationErrors,
   IAccountCredentials,
@@ -93,7 +94,7 @@ export class LoginPageComponent implements OnInit {
       return false;
     }
 
-    return this.loginForm.errors.hasOwnProperty('GENERAL.ERROR.CONNECTION_REFUSED');
+    return Object.keys(this.loginForm.errors).includes('GENERAL.ERROR.CONNECTION_REFUSED');
   }
 
   private showFormGroupErrorsNotification(): void {

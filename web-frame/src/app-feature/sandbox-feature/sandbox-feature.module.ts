@@ -9,6 +9,7 @@
  */
 import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
+
 import { DefaultShellModule } from '~app-shell/default-shell';
 
 import { SandboxListComponent } from './components/sandbox-list/sandbox-list.component';

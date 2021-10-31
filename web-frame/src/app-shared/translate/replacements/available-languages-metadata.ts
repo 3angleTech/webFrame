@@ -9,6 +9,7 @@ export enum AppLocaleId {
   English = 'en',
   /**
    * Valid custom language codes for pseudo localization.
+   *
    * @see https://www.loc.gov/standards/iso639-2/php/langcodes_name.php?code_ID=367
    */
   PseudoEnglishElo = 'en-PSEUDO-EL',

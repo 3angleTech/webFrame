@@ -4,8 +4,8 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { browser, ExpectedConditions, logging } from 'protractor';
-// tslint:disable-next-line:no-implicit-dependencies
 import { Alert } from 'selenium-webdriver';
+
 import { IAccountCredentials } from '~app-shared/core';
 
 import { withExpectedErrorForApiEndpoint } from '../utils/with-expected-error-for-api-endpoint';
@@ -26,10 +26,11 @@ describe('Test Login feature', (): void => {
       email: browser.params.E2E_LOGIN_EMAIL,
       password: browser.params.E2E_LOGIN_PASSWORD,
     };
+    // eslint-disable-next-line no-magic-numbers
     const randomNumber: number = Math.floor(Math.random() * 1000);
     invalidCredentials = {
       email: browser.params.E2E_LOGIN_EMAIL,
-      password: `--InvalidPassword--${ randomNumber }`,
+      password: `--InvalidPassword--${randomNumber}`,
     };
   });
 

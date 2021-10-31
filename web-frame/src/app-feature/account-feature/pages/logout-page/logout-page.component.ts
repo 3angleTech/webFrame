@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Component, Inject, OnInit } from '@angular/core';
+
 import { ENVIRONMENT } from '~app-shared/config';
 import { IAccountService, IWebFrameContextService } from '~app-shared/core';
 

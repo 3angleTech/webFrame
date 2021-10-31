@@ -14,6 +14,7 @@ import { PAGE_URL } from '../../other/page-url.enum';
 export interface IWebFrameContextNavigationService {
   /**
    * Navigate to target url.
+   *
    * @param url The target url.
    * @param extras An object containing properties that modify the navigation strategy.
    */
@@ -31,6 +32,7 @@ export interface IWebFrameContextNavigationService {
 
   /**
    * Navigate to information page.
+   *
    * @param informationId The information page ID as defined in `INFORMATION_PAGES_DETAILS`.
    * @param extras An object containing properties that modify the navigation strategy.
    */
@@ -54,7 +56,6 @@ export interface IWebFrameContextNavigationService {
 
 export const IWebFrameContextNavigationService = new InjectionToken('IWebFrameContextNavigationService');
 
-// tslint:disable:no-duplicate-string
 @Injectable()
 export class WebFrameContextNavigationService implements IWebFrameContextNavigationService {
   constructor(
@@ -63,8 +64,10 @@ export class WebFrameContextNavigationService implements IWebFrameContextNavigat
   }
 
   public navigateToUrl(url: string | UrlTree, extras?: NavigationExtras): void {
+    // eslint-disable-next-line promise/catch-or-return
     this.router.navigateByUrl(url, extras).then(() => {
       // Nothing to do.
+      return undefined;
     });
   }
 

@@ -50,6 +50,10 @@ export {
   INotificationService,
 } from './service/notification/notification.service';
 export {
+  IStringTemplateService,
+  TranslateParameterValueType,
+} from './service/string-template/string-template.service';
+export {
   IWebFrameContextService,
 } from './service/web-frame-context/web-frame-context.service';
 export {

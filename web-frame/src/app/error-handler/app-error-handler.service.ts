@@ -3,7 +3,8 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import { ErrorHandler, EventEmitter } from '@angular/core';
+import { ErrorHandler, EventEmitter, Injectable } from '@angular/core';
+
 import { isHttpErrorResponseOrKnownError, IWebFrameErrorHandler } from '~app-shared/core';
 
 /**
@@ -11,6 +12,7 @@ import { isHttpErrorResponseOrKnownError, IWebFrameErrorHandler } from '~app-sha
  *
  * NOTE: This service should never be used directly, it's a replacement for the core ErrorHandler.
  */
+@Injectable()
 export class AppErrorHandlerService extends ErrorHandler implements IWebFrameErrorHandler {
   public readonly errors$: EventEmitter<unknown>
     = new EventEmitter<unknown>();

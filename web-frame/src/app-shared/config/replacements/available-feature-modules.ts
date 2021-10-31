@@ -2,12 +2,10 @@
  * @file Provides a record of all available features.
  *
  * NOTE: This file will be replaced during the build process.
- *
  * @license
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-/* tslint:disable:typedef */
 import { LoadChildrenCallback } from '@angular/router';
 
 /**

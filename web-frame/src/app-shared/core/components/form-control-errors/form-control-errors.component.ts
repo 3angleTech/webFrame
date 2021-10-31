@@ -7,12 +7,19 @@
 /**
  * Provides a helper component that can be used to display form control errors.
  */
-import { ChangeDetectionStrategy, Component, DoCheck, EventEmitter, Host, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, EventEmitter, Host, HostBinding, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective } from '@angular/forms';
 import { merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { getValidationErrorsTranslations } from '../../other/get-validation-errors-translations';
+
+/**
+ * Returns an error to be thrown when the form control is missing.
+ */
+export function getFormControlErrorsMissingControlError(formControlPath: string): Error {
+  return Error(`Parent form group does not have a "${formControlPath}" control.`);
+}
 
 @Component({
   selector: 'app-form-control-errors',
@@ -20,10 +27,6 @@ import { getValidationErrorsTranslations } from '../../other/get-validation-erro
   styleUrls: ['./form-control-errors.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: {
-    'attr.aria-live': 'assertive',
-    'attr.role': 'alert',
-  },
 })
 export class FormControlErrorsComponent implements DoCheck, OnInit {
   @Input()
@@ -31,6 +34,12 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
 
   @Input()
   public readonly namespace: string;
+
+  @HostBinding('attr.aria-live')
+  public readonly ariaLive: string = 'assertive';
+
+  @HostBinding('attr.role')
+  public readonly ariaRole: string = 'alert';
 
   public controlErrors$: Observable<string[] | undefined>;
 
@@ -41,6 +50,7 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
    * form control is first touched.
    *
    * TODO: Remove once the angular issue #10887 has been fixed.
+   *
    * @see https://github.com/angular/angular/issues/10887
    */
   protected formControlTouchedChanges: EventEmitter<void> = new EventEmitter<void>();
@@ -77,6 +87,7 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
    * NOTE: This method should be kept as fast as possible.
    *
    * TODO: Remove once the angular issue #10887 has been fixed.
+   *
    * @see https://github.com/angular/angular/issues/10887
    */
   public ngDoCheck(): void {
@@ -86,11 +97,4 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
       this.formControlTouchedChanges.emit();
     }
   }
-}
-
-/**
- * Returns an error to be thrown when the form control is missing.
- */
-export function getFormControlErrorsMissingControlError(formControlPath: string): Error {
-  return Error(`Parent form group does not have a "${formControlPath}" control.`);
 }

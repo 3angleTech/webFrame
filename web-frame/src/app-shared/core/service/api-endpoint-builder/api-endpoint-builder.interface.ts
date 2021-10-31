@@ -22,6 +22,7 @@ export enum ServerApi {
 export interface IApiEndpointBuilderService {
   /**
    * Builds the API endpoint url
+   *
    * @param serverApi Server api
    * @param queryParameters List of all the query parameters which should be set.
    * @param urlParameters List of all the url parameters which should be set.

@@ -13,6 +13,7 @@ import { AccessControlService } from '../services/access-control.service';
   selector: '[appIfUserHasRole]',
 })
 export class IfUserHasRoleDirective extends NgIf<boolean> {
+  // eslint-disable-next-line accessor-pairs
   @Input()
   public set appIfUserHasRole(role: USER_ROLE) {
     super.ngIf = this.accessControlService.currentUserHasRole(role);
@@ -22,7 +23,7 @@ export class IfUserHasRoleDirective extends NgIf<boolean> {
     private readonly accessControlService: AccessControlService,
     _viewContainer: ViewContainerRef,
     templateRef: TemplateRef<NgIfContext<boolean>>,
-    ) {
+  ) {
     super(_viewContainer, templateRef);
   }
 

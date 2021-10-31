@@ -10,9 +10,10 @@ export interface IWebFrameErrorHandler extends ErrorHandler {
 }
 
 export function isWebFrameErrorHandler(value: unknown): value is IWebFrameErrorHandler {
-  return typeof value === 'object'
-    && value !== null
-    && value.hasOwnProperty('errors$')
-    && (value as { errors$: unknown }).errors$ instanceof EventEmitter
-    && value instanceof ErrorHandler;
+  if (typeof value !== 'object' && value === null) {
+    return false;
+  }
+  return Object.keys(value).includes('errors$') &&
+    (value as { errors$: unknown }).errors$ instanceof EventEmitter &&
+    value instanceof ErrorHandler;
 }

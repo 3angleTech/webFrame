@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+
 import {
   IAccountResetPasswordRequest,
   IAccountService,
@@ -32,6 +33,7 @@ import {
 export class ResetPasswordPageComponent implements OnInit {
   public forgotPasswordForm: FormGroup;
 
+  // eslint-disable-next-line max-params
   constructor(
     private formBuilder: FormBuilder,
     @Inject(IAccountService)

@@ -25,5 +25,5 @@ export interface IAppRefresher {
  *
  * NOTE: Whenever possible, the force-refresh page should be avoided.
  */
-export const APP_REFRESHER: InjectionToken<IAppRefresher[]>
-  = new InjectionToken<IAppRefresher[]>('APP_REFRESHER');
+export const APP_REFRESHER: InjectionToken<IAppRefresher[]> =
+  new InjectionToken<IAppRefresher[]>('APP_REFRESHER');

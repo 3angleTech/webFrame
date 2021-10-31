@@ -42,6 +42,7 @@ export function passwordPolicyValidator(control: AbstractControl): ValidationErr
 
 export const passwordPolicyComposedValidators = Validators.compose([
   Validators.required,
+  // eslint-disable-next-line no-magic-numbers
   Validators.minLength(6),
   passwordPolicyValidator,
 ]);

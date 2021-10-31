@@ -3,12 +3,9 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-/* tslint:disable:import-blacklist */
 import { Inject, Injectable, OnDestroy } from '@angular/core';
-import {
-  LangChangeEvent,
-  TranslateService as UpstreamTranslateService,
-} from '@ngx-translate/core';
+// eslint-disable-next-line no-restricted-imports
+import { LangChangeEvent, TranslateService as UpstreamTranslateService } from '@ngx-translate/core';
 import { Observable, Subscription } from 'rxjs';
 
 import {
@@ -63,8 +60,8 @@ export class TranslateInitializerService implements OnDestroy {
   private getPreferredLanguage(availableLanguages: string[]): string {
     const preferredLang: string = this.defaultLanguage || availableLanguages[0];
     if (!this.defaultLanguage) {
-      const browserLang: string = this.translateService.getBrowserLang().
-        split('-')[0];
+      const browserLang: string = this.translateService.getBrowserLang()
+        .split('-')[0];
       if (browserLang && availableLanguages.includes(browserLang)) {
         return browserLang;
       }

@@ -28,36 +28,40 @@ export enum RequestContentType {
   FormData = 'multipart/form-data',
 }
 
-export interface RequestConfiguration {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface RequestConfiguration<T = any> {
   serverApi: ServerApi;
   queryParameters?: Dictionary<QueryParameterValueType>;
   urlParameters?: Dictionary<UrlParameterValueType>;
   contentType?: RequestContentType;
-  // tslint:disable-next-line:no-any
-  body?: any;
+  body?: T;
 }
 
 export interface IWebRequestService {
   /**
    * GET resource<T>
+   *
    * @param config The request configuration.
    * @param instance The instance of object <T>.
    */
   get<T>(config: RequestConfiguration): Observable<T>;
   /**
    * POST resource<T>
+   *
    * @param config The request configuration.
    * @param instance The instance of object <T>.
    */
   post<T>(config: RequestConfiguration): Observable<T>;
   /**
    * PUT resource<T>
+   *
    * @param config The request configuration.
    * @param instance The instance of object <T>.
    */
   put<T>(config: RequestConfiguration): Observable<T>;
   /**
    * DELETE resource<T>]
+   *
    * @param config The request configuration.
    * @param instance The instance of object <T>.
    */

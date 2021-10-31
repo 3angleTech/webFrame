@@ -39,7 +39,7 @@ export class PseudoRtlCompilerStrategy extends BasePseudoLocalizeCompilerStrateg
   }
 
   private hasRightToLeftMarkers(pseudoLocalizedText: string): boolean {
-    return pseudoLocalizedText.startsWith(this.RTL_PREFIX)
-      && pseudoLocalizedText.endsWith(this.RTL_SUFFIX);
+    return pseudoLocalizedText.startsWith(this.RTL_PREFIX) &&
+      pseudoLocalizedText.endsWith(this.RTL_SUFFIX);
   }
 }

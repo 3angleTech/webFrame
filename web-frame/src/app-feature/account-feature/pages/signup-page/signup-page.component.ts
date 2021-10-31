@@ -14,6 +14,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import {
   IAccountInformation,
   IAccountService,
@@ -53,6 +54,7 @@ export class SignupPageComponent implements OnInit {
       ])],
       username: ['', Validators.compose([
         Validators.required,
+        // eslint-disable-next-line no-magic-numbers
         Validators.minLength(3),
       ])],
       newPasswordsGroup: this.formBuilder.group(

@@ -4,7 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { APP_INITIALIZER, Provider } from '@angular/core';
-import { concat } from 'rxjs';
+import { concat, Observable } from 'rxjs';
 
 import { AppFeaturesInitializerService } from './app-features-initializer.service';
 import { AppInitializer } from './app-initializer.type';
@@ -14,11 +14,11 @@ export const coreInitializerFactory = (
   featuresInitializerService: AppFeaturesInitializerService,
   stateInitializerService: AppStateInitializerService,
 ): AppInitializer => {
-  return async (): Promise<void> => {
+  return (): Observable<void> => {
     return concat(
       stateInitializerService.initialize(),
       featuresInitializerService.initialize(),
-    ).toPromise();
+    );
   };
 };
 

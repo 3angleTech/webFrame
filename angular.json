@@ -32,13 +32,23 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
+          "defaultConfiguration": "production",
           "options": {
-            "aot": true,
+            "buildOptimizer": false,
+            "extractLicenses": false,
             "index": "web-frame/src/index.html",
             "main": "web-frame/src/main.ts",
+            "namedChunks": true,
+            "optimization": false,
             "outputPath": "dist/web-frame",
             "polyfills": "web-frame/src/polyfills.ts",
+            "sourceMap": true,
             "tsConfig": "web-frame/tsconfig.app.json",
+            "vendorChunk": true,
+            "allowedCommonJsDependencies": [
+              "json2typescript",
+              "lodash"
+            ],
             "assets": [
               {
                 "glob": "favicon.ico",
@@ -60,19 +70,23 @@
             "styles": [
               {
                 "bundleName": "vendor-styles",
-                "input": "node_modules/normalize.css/normalize.css"
+                "input": "node_modules/normalize.css/normalize.css",
+                "inject": true
               },
               {
                 "bundleName": "vendor-styles",
-                "input": "node_modules/material-design-icons/iconfont/material-icons.css"
+                "input": "node_modules/material-design-icons/iconfont/material-icons.css",
+                "inject": true
               },
               {
                 "bundleName": "main-styles",
-                "input": "web-frame/src/styles/main.scss"
+                "input": "web-frame/src/styles/main.scss",
+                "inject": true
               },
               {
                 "bundleName": "print-styles",
-                "input": "web-frame/src/styles/print.scss"
+                "input": "web-frame/src/styles/print.scss",
+                "inject": true
               }
             ],
             "stylePreprocessorOptions": {
@@ -82,9 +96,9 @@
             }
           },
           "configurations": {
+            "development": {},
             "production": {
               "buildOptimizer": true,
-              "extractCss": true,
               "extractLicenses": true,
               "namedChunks": false,
               "optimization": true,
@@ -120,10 +134,13 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "defaultConfiguration": "development",
           "options": {
-            "browserTarget": "web-frame:build"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "web-frame:build:development"
+            },
             "production": {
               "browserTarget": "web-frame:build:production"
             },
@@ -133,10 +150,24 @@
             }
           }
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "browserTarget": "web-frame:build"
+            "eslintConfig": ".eslintrc.json",
+            "lintFilePatterns": [
+              "web-frame/**/*.ts",
+              "web-frame/**/*.html",
+              "web-frame-e2e/**/*.js",
+              "web-frame-e2e/**/*.ts"
+            ]
+          },
+          "configurations": {
+            "ci": {
+              "eslintConfig": ".eslintrc.ci.json"
+            },
+            "fix": {
+              "fix": true
+            }
           }
         },
         "test": {
@@ -167,19 +198,23 @@
             "styles": [
               {
                 "bundleName": "vendor-styles",
-                "input": "node_modules/normalize.css/normalize.css"
+                "input": "node_modules/normalize.css/normalize.css",
+                "inject": true
               },
               {
                 "bundleName": "vendor-styles",
-                "input": "node_modules/material-design-icons/iconfont/material-icons.css"
+                "input": "node_modules/material-design-icons/iconfont/material-icons.css",
+                "inject": true
               },
               {
                 "bundleName": "main-styles",
-                "input": "web-frame/src/styles/main.scss"
+                "input": "web-frame/src/styles/main.scss",
+                "inject": true
               },
               {
                 "bundleName": "print-styles",
-                "input": "web-frame/src/styles/print.scss"
+                "input": "web-frame/src/styles/print.scss",
+                "inject": true
               }
             ],
             "stylePreprocessorOptions": {
@@ -193,26 +228,6 @@
               "browsers": "ChromeHeadlessCI",
               "progress": false,
               "watch": false
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "format": "stylish",
-            "tslintConfig": "tslint.json",
-            "tsConfig": [
-              "web-frame/tsconfig.app.json",
-              "web-frame/tsconfig.spec.json",
-              "web-frame-e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          },
-          "configurations": {
-            "ci": {
-              "tslintConfig": "tslint.ci.json"
             }
           }
         },

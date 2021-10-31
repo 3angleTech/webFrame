@@ -4,6 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Inject, Injectable, InjectionToken } from '@angular/core';
+
 import {
   ITranslationService,
   TranslationPhrase,

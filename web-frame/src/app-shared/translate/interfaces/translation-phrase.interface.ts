@@ -6,7 +6,7 @@
 
 export type TranslationPhrase = string;
 
-// tslint:disable-next-line:interface-name
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export interface TranslationPhraseArgs {
   [key: string]: string | number;
 }

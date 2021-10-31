@@ -8,7 +8,7 @@ import { JsonConvert, ValueCheckingMode } from 'json2typescript';
 
 export interface IJsonConverterService {
   deserialize<T>(json: unknown, classReference: new() => T): T;
-  serialize<T>(object: T): Object;
+  serialize<T>(object: T): string | string[];
 }
 export const IJsonConverterService = new InjectionToken('IJsonConverterService');
 
@@ -19,7 +19,7 @@ export class JsonConverterService implements IJsonConverterService {
     return this.jsonConvert.deserialize(json, classReference) as T;
   }
 
-  public serialize<T>(object: T): Object {
+  public serialize<T>(object: T): string | string[] {
     throw this.jsonConvert.serialize(object);
   }
 

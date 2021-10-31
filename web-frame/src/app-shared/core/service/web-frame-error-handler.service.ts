@@ -7,6 +7,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Inject, Injectable, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { skipWhile } from 'rxjs/operators';
+
 import { BUILD_FLAGS } from '~app-shared/config';
 
 import { AccessDeniedError } from '../errors/access-denied.error';
@@ -41,19 +42,19 @@ export class WebFrameErrorHandlerService implements OnDestroy {
     window.location.href = PAGE_URL.STANDALONE_ERROR_PAGE;
   }
 
-  public static STORE_LAST_RUNTIME_ERROR(err: unknown): void {
+  public static STORE_LAST_RUNTIME_ERROR(runtimeErr: unknown): void {
     try {
       // NOTE: To avoid `enumerable: false` issues, the error details are copied to a new object.
       const errorDetails: Partial<Error> = {
-        name: (err as { name: string }).name,
-        message: (err as { message: string }).message,
-        stack: (err as { stack: string }).stack,
+        name: (runtimeErr as { name: string }).name,
+        message: (runtimeErr as { message: string }).message,
+        stack: (runtimeErr as { stack: string }).stack,
       };
       const errorDetailsString: string = JSON.stringify(errorDetails);
       window.sessionStorage.setItem(WebFrameErrorHandlerService.LAST_RUNTIME_ERROR_KEY, errorDetailsString);
     } catch (err) {
       // Ignore storageArea issues and just display a generic error page.
-      console.error('Failed to serialize the error object for the error page.');
+      console.error('Failed to serialize the error object for the error page.', err);
     }
   }
 

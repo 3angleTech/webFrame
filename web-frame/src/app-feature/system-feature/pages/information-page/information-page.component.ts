@@ -9,6 +9,7 @@
  */
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { IWebFrameContextNavigationService, IWebFrameContextStateService, PAGE_URL } from '~app-shared/core';
 
 import { IInformationPageDetails } from '../../interfaces/information-page-details.interface';
@@ -35,7 +36,7 @@ export class InformationPageComponent implements OnInit {
   public ngOnInit(): void {
     this.isAuthenticated = this.stateService.isAuthenticated();
     const informationId = this.activatedRoute.snapshot.paramMap.get('informationId');
-    if (!informationId || !INFORMATION_PAGES_DETAILS.hasOwnProperty(informationId)) {
+    if (!informationId || !Object.keys(INFORMATION_PAGES_DETAILS).includes(informationId)) {
       return this.navigationService.navigateToNotFoundErrorPage();
     }
     this.pageDetails = INFORMATION_PAGES_DETAILS[informationId];

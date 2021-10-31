@@ -5,6 +5,7 @@
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { IWebFrameContextNavigationService, PAGE_URL } from '~app-shared/core';
 
 @Component({

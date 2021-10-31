@@ -1,6 +1,5 @@
 /**
  * @file Provides the security app-shared module.
- *
  * @license
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE

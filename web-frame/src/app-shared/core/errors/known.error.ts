@@ -14,7 +14,7 @@ export abstract class KnownError extends Error {
     // NOTE: To avoid `enumerable: false` issues, the Error class is called without any arguments.
     super();
     this.message = message;
-    this.location = location ? location : undefined;
+    this.location = location || undefined;
   }
 }
 

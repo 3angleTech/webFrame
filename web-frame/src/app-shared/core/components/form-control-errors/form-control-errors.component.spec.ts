@@ -1,11 +1,9 @@
+/* eslint-disable no-magic-numbers,sonarjs/no-duplicate-string,@typescript-eslint/no-use-before-define */
 /**
+ * @file Tests for FormControlErrorsComponent.
  * @license
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
- */
-/* tslint:disable:no-identical-functions no-multiline-string no-duplicate-string no-commented-code no-suspicious-comment */
-/**
- * Tests for FormControlErrorsComponent.
  */
 import {
   Component,
@@ -14,12 +12,7 @@ import {
   Type,
   ViewChild,
 } from '@angular/core';
-import {
-  async,
-  ComponentFixture,
-  fakeAsync,
-  TestBed,
-} from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   AbstractControl,
   FormControl,
@@ -28,6 +21,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+
 import { createTranslationServiceStub, TranslatePipeStub } from '~app-shared/test-utils';
 import { ITranslationService } from '~app-shared/translate';
 
@@ -37,7 +31,7 @@ import { FormControlErrorsComponent } from './form-control-errors.component';
 
 @Component({
   selector: 'app-form-control-errors-test-form',
-  // tslint:disable-next-line:component-max-inline-declarations
+  // eslint-disable-next-line @angular-eslint/component-max-inline-declarations
   template: `
   <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
     <!-- control without any validators. -->
@@ -56,7 +50,7 @@ import { FormControlErrorsComponent } from './form-control-errors.component';
 })
 class FormControlErrorsTestFormComponent {
   public readonly testForm: FormGroup;
-  @ViewChild(FormControlErrorsComponent, {static: true})
+  @ViewChild(FormControlErrorsComponent, { static: true })
   public readonly formControlErrors: FormControlErrorsComponent;
 
   public submittedValues: Dictionary<string> = undefined;
@@ -67,7 +61,6 @@ class FormControlErrorsTestFormComponent {
       userName: new FormControl('', Validators.required),
       userEmail: new FormControl('', Validators.compose([
         Validators.email,
-        // tslint:disable-next-line:no-magic-numbers
         Validators.minLength(8),
       ])),
     });
@@ -85,7 +78,7 @@ describe('FormControlErrorsComponent', () => {
   let fixture: ComponentFixture<FormControlErrorsTestFormComponent>;
   let testComponent: FormControlErrorsTestFormComponent;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         ReactiveFormsModule,
@@ -164,8 +157,8 @@ describe('FormControlErrorsComponent', () => {
     abstractControl.setValue(invalidEmailAddress);
     fixture.detectChanges();
     expect(countFormControlErrors(fixture, 'userEmail').length)
-      // tslint:disable-next-line:no-magic-numbers
-      .toBe(2, 'Expected two errors on userEmail control with invalid email');
+      // NOTE: The minlength error shows twice in the list: once for the actualLength and once for the requiredLength.
+      .toBe(3, 'Expected two errors on userEmail control with invalid email');
   }));
 
   // NOTE: This test is temporarily disabled.

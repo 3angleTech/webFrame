@@ -1,10 +1,11 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 /**
  * @license
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-/* tslint:disable:no-duplicate-string */
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
 import { AccessDeniedError, PageNotFoundError } from '~app-shared/core';
 
 import { ISandboxList } from '../components/sandbox-list/sandbox-list.interface';
@@ -121,7 +122,7 @@ export class ErrorSandboxComponent implements OnInit {
 
   public log(...args: unknown[]): void {
     // Avoid lint errors and console (dot) log searches.
-    (console as { log: Function }).log(...args);
+    (console as { log(...params: unknown[]): void }).log(...args);
   }
 
   public executeMethodForAction(action: string): void {
@@ -154,7 +155,7 @@ export class ErrorSandboxComponent implements OnInit {
 
   private testPropertyReadFromUndefinedObject(): void {
     this.log('»»» Test "read property from undefined object" error handling «««');
-    // tslint:disable-next-line:no-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const sandboxTestObject: IErrorSandboxTestInterface = {} as unknown as any;
     if (sandboxTestObject.record.noSuchProperty) {
       // Nothing to do.
