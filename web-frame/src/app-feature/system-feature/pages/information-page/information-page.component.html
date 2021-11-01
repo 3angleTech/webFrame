@@ -13,19 +13,19 @@
   </p>
 
   <div class="app-page-section-actions">
-    <ng-container *ngIf="isAuthenticated; else anonymousUserActions">
-      <button class="app-button--with-icon" type="button" (click)="navigateToDestinationPage()">
-        <span class="text">
-          {{ 'GENERAL.BUTTON.GO_BACK' | translate }}
-        </span>
-      </button>
-    </ng-container>
-    <ng-template #anonymousUserActions>
-      <button class="app-button--with-icon" type="button" routerLink="/account/login">
+    <ng-container *ngIf="authenticationRequired">
+      <button class="app-button--with-icon" type="button" (click)="navigateToLoginPage()">
         <span class="text">
           {{ 'SYSTEM_FEATURE.INFORMATION_PAGE.GO_TO_LOGIN' | translate }}
         </span>
       </button>
-    </ng-template>
+    </ng-container>
+    <ng-container *ngIf="!authenticationRequired">
+      <button class="app-button--with-icon" type="button" (click)="navigateToDestinationPage()">
+        <span class="text">
+          {{ pageDetails.buttonText || 'GENERAL.BUTTON.GO_BACK' | translate }}
+        </span>
+      </button>
+    </ng-container>
   </div>
 </div>

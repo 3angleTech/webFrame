@@ -120,7 +120,12 @@
       "PAGE_NOT_FOUND": {
         "PAGE_TITLE": "Page not found"
       },
-      "NOT_ACTIVATED": {
+      "INVALID_APP_VERSION": {
+        "PAGE_TITLE": "Outdated version!",
+        "MESSAGE": "You are using an outdated version of the application.",
+        "BUTTON": "Reload page."
+      },
+      "ACCOUNT_NOT_ACTIVATED": {
         "PAGE_TITLE": "Email account not activated"
       },
       "RESET_PASSWORD_SUCCESS": {

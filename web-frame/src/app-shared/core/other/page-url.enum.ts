@@ -9,12 +9,12 @@
  */
 export const enum PAGE_URL {
   HOME_PAGE = '/',
-  STANDALONE_ERROR_PAGE = '/error/index.html',
 
   // Generic system pages:
-  ACCESS_DENIED = '/system/information/accessDenied',
+  ACCESS_DENIED = '/system/information/AccessDeniedError',
   FORCE_REFRESH = '/system/force-refresh',
-  NOT_FOUND = '/system/information/notFound',
+  INFORMATION = '/system/information/:informationId',
+  NOT_FOUND = '/system/information/PageNotFoundError',
 
   // Account feature pages:
   ACCOUNT_PAGE = '/account',

@@ -3,8 +3,9 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
+import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { NEVER, Observable, of } from 'rxjs';
+import { NEVER, Observable, of, throwError } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
 
 import { ENVIRONMENT } from '~app-shared/config';
@@ -16,13 +17,14 @@ import { IWebFrameContextStateService } from '../service/web-frame-context/web-f
 
 @Injectable()
 export class AppStateInitializerService {
+
   constructor(
     @Inject(IAccountService)
-    private accountService: IAccountService,
+    private readonly accountService: IAccountService,
     @Inject(IWebFrameContextStateService)
-    private stateService: IWebFrameContextStateService,
+    private readonly stateService: IWebFrameContextStateService,
     @Inject(ITranslationService)
-    private translationService: ITranslationService,
+    private readonly translationService: ITranslationService,
   ) {
   }
 
@@ -32,8 +34,14 @@ export class AppStateInitializerService {
     }
 
     return this.stateService.initialize().pipe(
-      catchError((): Observable<never> => {
-        return this.logoutAndReloadApplication();
+      catchError((err: unknown): Observable<never> => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === HttpStatusCode.Unauthorized) {
+            return this.logoutAndReloadApplication();
+          }
+        }
+        // Allow the application to initialize and display the information page.
+        return throwError(err);
       }),
     );
   }
@@ -43,6 +51,7 @@ export class AppStateInitializerService {
       mergeMap((): Observable<never> => {
         const translatedMessage = this.translationService.translate(KNOWN_ERROR_MESSAGE.EXPIRED_SESSION);
         alert(translatedMessage);
+        // TODO: Display the information page with a "login" button. The button should use the current URL as login destination.
         window.location.href = ENVIRONMENT.appBaseUrl;
 
         return NEVER;

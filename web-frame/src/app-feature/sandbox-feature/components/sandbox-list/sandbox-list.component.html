@@ -3,7 +3,7 @@
   <ul>
     <li *ngFor="let item of list.items">
       <ng-container *ngIf="item.route; else actionItem">
-        <button class="app-button" [routerLink]="item.route" type="button">
+        <button class="app-button" [routerLink]="item.route" (click)="logNavigation(item)" type="button">
           {{ item.label }}
         </button>
       </ng-container>

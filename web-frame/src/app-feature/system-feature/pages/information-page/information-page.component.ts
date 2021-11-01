@@ -8,7 +8,7 @@
  * Provides InformationPageComponent.
  */
 import { Component, Inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationExtras } from '@angular/router';
 
 import { IWebFrameContextNavigationService, IWebFrameContextStateService, PAGE_URL } from '~app-shared/core';
 
@@ -21,25 +21,25 @@ import { INFORMATION_PAGES_DETAILS } from '../../other/information-page-details'
   styleUrls: ['./information-page.component.scss'],
 })
 export class InformationPageComponent implements OnInit {
-  public isAuthenticated: boolean;
+  public authenticationRequired: boolean;
   public pageDetails: IInformationPageDetails;
 
   constructor(
     @Inject(IWebFrameContextNavigationService)
-    public navigationService: IWebFrameContextNavigationService,
+    private readonly navigationService: IWebFrameContextNavigationService,
     @Inject(IWebFrameContextStateService)
-    private stateService: IWebFrameContextStateService,
-    private activatedRoute: ActivatedRoute,
+    private readonly stateService: IWebFrameContextStateService,
+    private readonly activatedRoute: ActivatedRoute,
   ) {
   }
 
   public ngOnInit(): void {
-    this.isAuthenticated = this.stateService.isAuthenticated();
-    const informationId = this.activatedRoute.snapshot.paramMap.get('informationId');
-    if (!informationId || !Object.keys(INFORMATION_PAGES_DETAILS).includes(informationId)) {
-      return this.navigationService.navigateToNotFoundErrorPage();
+    let informationId: string | undefined = this.activatedRoute.snapshot.paramMap.get('informationId') || 'PageNotFoundError';
+    if (informationId.length === 0 || INFORMATION_PAGES_DETAILS[informationId] === undefined) {
+      informationId = 'PageNotFoundError';
     }
     this.pageDetails = INFORMATION_PAGES_DETAILS[informationId];
+    this.authenticationRequired = informationId === 'AccessDeniedError' && !this.stateService.isAuthenticated();
   }
 
   public getPageTitle(): string {
@@ -49,5 +49,14 @@ export class InformationPageComponent implements OnInit {
   public navigateToDestinationPage(): void {
     const destinationUrl: string = this.activatedRoute.snapshot.queryParamMap.get('destination') || PAGE_URL.HOME_PAGE;
     this.navigationService.navigateToUrl(destinationUrl);
+  }
+
+  public navigateToLoginPage(): void {
+    const extras: NavigationExtras = {
+      queryParams: {
+        destination: this.activatedRoute.snapshot.queryParamMap.get('destination') || undefined,
+      },
+    };
+    this.navigationService.navigateToUrl(PAGE_URL.LOGIN_PAGE, extras);
   }
 }

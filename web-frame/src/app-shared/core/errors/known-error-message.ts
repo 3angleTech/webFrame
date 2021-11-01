@@ -5,7 +5,7 @@
  */
 
 /**
- * Provides a list of known errors for which translations exist.
+ * A list of known errors for which translations exist.
  */
 export enum KNOWN_ERROR_MESSAGE {
   ACCESS_DENIED_USER_PERMISSION = 'GENERAL.ERROR.ACCESS_DENIED_USER_PERMISSION',

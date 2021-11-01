@@ -10,10 +10,8 @@ export interface IWebFrameErrorHandlerProxy extends ErrorHandler {
 }
 
 export function isWebFrameErrorHandlerProxy(value: unknown): value is IWebFrameErrorHandlerProxy {
-  if (typeof value !== 'object' && value === null) {
-    return false;
+  if (value && value instanceof ErrorHandler) {
+    return (value as unknown as { errors$: unknown }).errors$ instanceof EventEmitter;
   }
-  return Object.keys(value).includes('errors$') &&
-    (value as { errors$: unknown }).errors$ instanceof EventEmitter &&
-    value instanceof ErrorHandler;
+  return false;
 }

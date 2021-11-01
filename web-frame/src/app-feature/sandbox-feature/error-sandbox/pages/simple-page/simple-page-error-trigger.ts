@@ -5,7 +5,7 @@
  */
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { AccessDeniedError, PageNotFoundError } from '~app-shared/core';
+import { AccessDeniedError, InvalidAppVersionError, PageNotFoundError } from '~app-shared/core';
 
 import { SandboxError } from '../../sandbox-error';
 
@@ -13,6 +13,8 @@ export function simplePageErrorTrigger(triggerFakeErrorType: string): never {
   switch (triggerFakeErrorType) {
     case 'AccessDeniedError':
       throw new AccessDeniedError('This is not the error you are looking for.');
+    case 'InvalidAppVersionError':
+      throw new InvalidAppVersionError('This is not the error you are looking for.');
     case 'PageNotFoundError':
       throw new PageNotFoundError('This is not the page you are looking for.');
     case 'Mock403':

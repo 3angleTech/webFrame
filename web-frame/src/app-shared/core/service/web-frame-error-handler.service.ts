@@ -4,34 +4,29 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorHandler, Inject, Injectable, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { ErrorHandler, Inject, Injectable } from '@angular/core';
+import { NavigationExtras } from '@angular/router';
 import { skipWhile } from 'rxjs/operators';
 
 import { BUILD_FLAGS } from '~app-shared/config';
 
-import { AccessDeniedError } from '../errors/access-denied-error';
-import { isAppErrorOrApiError } from '../errors/app-error';
-import { PageNotFoundError } from '../errors/page-not-found-error';
+import { isAppErrorOrApiError, AppError } from '../errors/app-error';
 import { isWebFrameErrorHandlerProxy } from '../interfaces/web-frame-error-handler-proxy.interface';
-import { PAGE_URL } from '../other/page-url.enum';
-
 import { IWebFrameContextNavigationService } from './web-frame-context/web-frame-context-navigation.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class WebFrameErrorHandlerService implements OnDestroy {
+export class WebFrameErrorHandlerService {
   public static readonly LAST_RUNTIME_ERROR_KEY: string = 'lastRuntimeError';
-
-  private errorsSubscription: Subscription;
+  public static readonly STANDALONE_ERROR_PAGE: string = '/error/index.html';
 
   private initialized: boolean = false;
   private unknownRuntimeErrorEncountered: boolean = false;
 
   constructor(
     @Inject(IWebFrameContextNavigationService)
-    public navigationService: IWebFrameContextNavigationService,
+    public readonly navigationService: IWebFrameContextNavigationService,
     private readonly errorHandler: ErrorHandler,
   ) {
   }
@@ -39,28 +34,23 @@ export class WebFrameErrorHandlerService implements OnDestroy {
   public static DISPLAY_STANDALONE_ERROR_PAGE(err: unknown): void {
     console.warn('Redirecting to error page...');
     WebFrameErrorHandlerService.STORE_LAST_RUNTIME_ERROR(err);
-    window.location.href = PAGE_URL.STANDALONE_ERROR_PAGE;
+    window.location.href = WebFrameErrorHandlerService.STANDALONE_ERROR_PAGE;
   }
 
   public static STORE_LAST_RUNTIME_ERROR(runtimeErr: unknown): void {
     try {
       // NOTE: To avoid `enumerable: false` issues, the error details are copied to a new object.
-      const errorDetails: Partial<Error> = {
+      const errorDetails: Partial<AppError | Error> = {
         name: (runtimeErr as { name: string }).name,
         message: (runtimeErr as { message: string }).message,
         stack: (runtimeErr as { stack: string }).stack,
+        location: (runtimeErr as { location?: string }).location,
       };
       const errorDetailsString: string = JSON.stringify(errorDetails);
       window.sessionStorage.setItem(WebFrameErrorHandlerService.LAST_RUNTIME_ERROR_KEY, errorDetailsString);
     } catch (err) {
       // Ignore storageArea issues and just display a generic error page.
-      console.error('Failed to serialize the error object for the error page.', err);
-    }
-  }
-
-  public ngOnDestroy(): void {
-    if (this.errorsSubscription) {
-      this.errorsSubscription.unsubscribe();
+      console.error('Failed to serialize the error object.', err);
     }
   }
 
@@ -72,7 +62,8 @@ export class WebFrameErrorHandlerService implements OnDestroy {
     if (!isWebFrameErrorHandlerProxy(this.errorHandler)) {
       throw new Error('The global ErrorHandler must implement IWebFrameErrorHandlerProxy.');
     }
-    this.errorsSubscription = this.errorHandler.errors$.asObservable().pipe(
+    // NOTE: This subscription is permanently active while the application is running.
+    this.errorHandler.errors$.asObservable().pipe(
       skipWhile((err: unknown): boolean => {
         // Ignore all new errors until the last encountered error is displayed.
         if (this.unknownRuntimeErrorEncountered) {
@@ -81,28 +72,33 @@ export class WebFrameErrorHandlerService implements OnDestroy {
         if (!isAppErrorOrApiError(err)) {
           this.unknownRuntimeErrorEncountered = true;
         }
-
         return false;
       }),
-    ).subscribe({
-      next: (err: unknown): void => this.handlerEmittedError(err),
+    ).subscribe((caughtErr: unknown): void => {
+      this.handleCaughtError(caughtErr);
     });
   }
 
-  private handlerEmittedError(err: unknown): void | never {
-    if (err instanceof HttpErrorResponse) {
-      return alert(`Unhandled HTTP Error: ${err.message}`);
-    } else if (err instanceof AccessDeniedError) {
-      return this.navigationService.navigateToAccessDeniedErrorPage();
-    } else if (err instanceof PageNotFoundError) {
-      return this.navigationService.navigateToNotFoundErrorPage();
+  private handleCaughtError(caughtErr: unknown): void {
+    if (caughtErr instanceof AppError) {
+      return this.navigateToInformationPage(caughtErr);
     }
-
-    if (!BUILD_FLAGS.disableStandaloneErrorPage) {
-      WebFrameErrorHandlerService.DISPLAY_STANDALONE_ERROR_PAGE(err);
+    if (caughtErr instanceof HttpErrorResponse) {
+      return alert(`Unhandled HTTP Error: ${caughtErr.message}`);
     }
+    if (!BUILD_FLAGS.devModeDisableErrorPage) {
+      WebFrameErrorHandlerService.DISPLAY_STANDALONE_ERROR_PAGE(caughtErr);
+    }
+  }
 
-    throw err;
+  public navigateToInformationPage(caughtErr: AppError): void {
+    const extras: NavigationExtras = {
+      skipLocationChange: true,
+      queryParams: {
+        destination: caughtErr.location,
+      },
+    };
+    this.navigationService.navigateToInformationPage(caughtErr.name, extras);
   }
 
 }
