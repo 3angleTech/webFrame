@@ -6,7 +6,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ValidationErrors } from '@angular/forms';
 
-import { isApiError } from './api-error.interface';
+import { isApiErrorProperties } from './api-error';
 
 export function getHttpResponseValidationErrors(response: HttpErrorResponse): ValidationErrors {
   // NOTE: The HttpClient returns a 0 status code when the connection could not be established.
@@ -16,7 +16,7 @@ export function getHttpResponseValidationErrors(response: HttpErrorResponse): Va
     };
   }
 
-  if (isApiError(response.error)) {
+  if (isApiErrorProperties(response.error)) {
     return {
       [response.error.name]: true,
     };

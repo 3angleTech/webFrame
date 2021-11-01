@@ -5,7 +5,7 @@
  */
 import { ErrorHandler, EventEmitter, Injectable } from '@angular/core';
 
-import { isHttpErrorResponseOrKnownError, IWebFrameErrorHandlerProxy } from '~app-shared/core';
+import { isAppErrorOrApiError, IWebFrameErrorHandlerProxy } from '~app-shared/core';
 
 /**
  * Replaces the Angular Core ErrorHandler class in order to emit errors.
@@ -23,7 +23,7 @@ export class AppErrorHandlerProxyService extends ErrorHandler implements IWebFra
 
   public handleError(err: unknown): void {
     if (!this.runtimeErrorEncountered) {
-      if (!isHttpErrorResponseOrKnownError(err)) {
+      if (!isAppErrorOrApiError(err)) {
         this.runtimeErrorEncountered = true;
       }
       this.errors$.emit(err);

@@ -10,9 +10,9 @@ import { skipWhile } from 'rxjs/operators';
 
 import { BUILD_FLAGS } from '~app-shared/config';
 
-import { AccessDeniedError } from '../errors/access-denied.error';
-import { isHttpErrorResponseOrKnownError } from '../errors/known.error';
-import { PageNotFoundError } from '../errors/page-not-found.error';
+import { AccessDeniedError } from '../errors/access-denied-error';
+import { isAppErrorOrApiError } from '../errors/app-error';
+import { PageNotFoundError } from '../errors/page-not-found-error';
 import { isWebFrameErrorHandlerProxy } from '../interfaces/web-frame-error-handler-proxy.interface';
 import { PAGE_URL } from '../other/page-url.enum';
 
@@ -78,7 +78,7 @@ export class WebFrameErrorHandlerService implements OnDestroy {
         if (this.unknownRuntimeErrorEncountered) {
           return true;
         }
-        if (!isHttpErrorResponseOrKnownError(err)) {
+        if (!isAppErrorOrApiError(err)) {
           this.unknownRuntimeErrorEncountered = true;
         }
 
