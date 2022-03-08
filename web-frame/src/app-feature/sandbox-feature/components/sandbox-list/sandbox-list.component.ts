@@ -5,7 +5,7 @@
  */
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { ISandboxList, SandboxListItem } from './sandbox-list.interface';
+import { ISandboxList, ISandboxListItemLink, SandboxListItem } from './sandbox-list.interface';
 
 @Component({
   selector: 'app-sandbox-list',
@@ -27,4 +27,12 @@ export class SandboxListComponent implements OnInit {
   public ngOnInit(): void {
   }
 
+  public logNavigation(item: ISandboxListItemLink): void {
+    this.log(`»»» Navigating to ${item.label}`, item.route);
+  }
+
+  public log(...args: unknown[]): void {
+    // Avoid lint errors and console (dot) log searches.
+    (console as { log(...params: unknown[]): void }).log(...args);
+  }
 }

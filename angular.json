@@ -9,26 +9,6 @@
       "sourceRoot": "web-frame/src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {
-        "@schematics/angular:component": {
-          "export": true,
-          "changeDetection": "OnPush",
-          "flat": false,
-          "style": "scss"
-        },
-        "@schematics/angular:directive": {
-          "export": true,
-          "flat": false
-        },
-        "@schematics/angular:pipe": {
-          "export": true,
-          "flat": true
-        },
-        "@schematics/angular:service": {
-          "export": true,
-          "flat": true
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -246,6 +226,36 @@
           }
         }
       }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "export": true,
+      "changeDetection": "OnPush",
+      "flat": false,
+      "skipTests": true,
+      "style": "scss"
+    },
+    "@schematics/angular:directive": {
+      "export": true,
+      "flat": false,
+      "skipTests": true
+    },
+    "@schematics/angular:guard": {
+      "flat": true,
+      "skipTests": true
+    },
+    "@schematics/angular:resolver": {
+      "flat": true,
+      "skipTests": true
+    },
+    "@schematics/angular:pipe": {
+      "export": true,
+      "flat": true,
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
     }
   }
 }

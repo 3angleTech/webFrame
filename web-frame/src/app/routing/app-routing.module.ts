@@ -23,6 +23,7 @@ function appRoutingErrorHandler(this: Router, err: unknown): unknown {
  * NOTE: The routes are registered by AppFeaturesInitializerService.initialize().
  *
  * @see AppFeaturesInitializerService.registerAvailableRoutes()
+ * @see AVAILABLE_FEATURE_MODULES
  */
 const NO_ROUTES: Routes = [];
 

@@ -6,5 +6,6 @@
 
 export interface IBuildFlags {
   clientVersion: string;
-  disableStandaloneErrorPage?: boolean;
+  devModeDisableErrorPage?: boolean;
+  devModeSkipApiVersionCheck?: boolean;
 }

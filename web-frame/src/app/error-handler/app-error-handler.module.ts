@@ -5,13 +5,13 @@
  */
 import { ErrorHandler, NgModule } from '@angular/core';
 
-import { AppErrorHandlerService } from './app-error-handler.service';
+import { AppErrorHandlerProxyService } from './app-error-handler-proxy.service';
 
 @NgModule({
   providers: [
     {
       provide: ErrorHandler,
-      useClass: AppErrorHandlerService,
+      useClass: AppErrorHandlerProxyService,
     },
   ],
 })

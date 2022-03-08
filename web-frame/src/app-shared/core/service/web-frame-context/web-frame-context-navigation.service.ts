@@ -33,20 +33,12 @@ export interface IWebFrameContextNavigationService {
   /**
    * Navigate to information page.
    *
+   * @see INFORMATION_PAGES_DETAILS
+   *
    * @param informationId The information page ID as defined in `INFORMATION_PAGES_DETAILS`.
    * @param extras An object containing properties that modify the navigation strategy.
    */
   navigateToInformationPage(informationId: string, extras?: NavigationExtras): void;
-
-  /**
-   * Navigate to not found error page.
-   */
-  navigateToNotFoundErrorPage(): void;
-
-  /**
-   * Navigate to access denied error page.
-   */
-  navigateToAccessDeniedErrorPage(): void;
 
   /**
    * Force a refresh of the current page.
@@ -59,7 +51,7 @@ export const IWebFrameContextNavigationService = new InjectionToken('IWebFrameCo
 @Injectable()
 export class WebFrameContextNavigationService implements IWebFrameContextNavigationService {
   constructor(
-    private router: Router,
+    private readonly router: Router,
   ) {
   }
 
@@ -80,17 +72,7 @@ export class WebFrameContextNavigationService implements IWebFrameContextNavigat
   }
 
   public navigateToInformationPage(informationId: string, extras?: NavigationExtras): void {
-    this.navigateToUrl(`/account/information/${informationId}`, extras);
-  }
-
-  public navigateToNotFoundErrorPage(): void {
-    const extras: NavigationExtras = { skipLocationChange: true };
-    this.navigateToInformationPage('notFound', extras);
-  }
-
-  public navigateToAccessDeniedErrorPage(): void {
-    const extras: NavigationExtras = { skipLocationChange: true };
-    this.navigateToInformationPage('accessDenied', extras);
+    this.navigateToUrl(`/system/information/${informationId}`, extras);
   }
 
   public refreshCurrentPage(): void {

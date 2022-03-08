@@ -8,5 +8,6 @@ import { TranslationPhrase } from '~app-shared/translate';
 export interface IInformationPageDetails {
   title: TranslationPhrase;
   message?: TranslationPhrase;
-  type: 'warning' | 'success';
+  type: 'success' | 'warning' | 'danger';
+  buttonText?: TranslationPhrase;
 }

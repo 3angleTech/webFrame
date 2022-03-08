@@ -3,12 +3,7 @@
  * Copyright (c) 2018-2020 THREEANGLE SOFTWARE SOLUTIONS SRL
  * Available under MIT license webFrame/LICENSE
  */
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
@@ -18,6 +13,7 @@ import {
   INotificationConfiguration,
   IWebFrameContextNavigationService,
   IWebFrameContextService,
+  PageNotFoundError,
 } from '~app-shared/core';
 import {
   passwordGroupConfirmedValidator,
@@ -48,8 +44,8 @@ export class ResetPasswordPageComponent implements OnInit {
 
   public ngOnInit(): void {
     const token = this.activatedRoute.snapshot.queryParamMap.get('token');
-    if (!token) {
-      this.navigationService.navigateToNotFoundErrorPage();
+    if (!token || token.length === 0) {
+      throw new PageNotFoundError('Reset password token is required.');
     }
 
     this.forgotPasswordForm = this.formBuilder.group({
@@ -84,7 +80,7 @@ export class ResetPasswordPageComponent implements OnInit {
       newPassword: rawValue.newPasswordsGroup.newPassword,
     };
     const onSuccess = (): void => {
-      this.navigationService.navigateToInformationPage('resetPasswordSuccess');
+      this.navigationService.navigateToInformationPage('ResetPasswordSuccess');
     };
 
     this.accountService.resetPassword(resetPasswordReq).subscribe(onSuccess);

@@ -6,10 +6,9 @@
  */
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { AccessDeniedError, PageNotFoundError } from '~app-shared/core';
+import { AccessDeniedError, InvalidAppVersionError, PageNotFoundError } from '~app-shared/core';
 
 import { ISandboxList } from '../components/sandbox-list/sandbox-list.interface';
-
 import { SandboxError } from './sandbox-error';
 
 export interface IErrorSandboxTestInterface {
@@ -41,6 +40,10 @@ export class ErrorSandboxComponent implements OnInit {
           action: 'testThrowAccessDeniedError',
         },
         {
+          label: 'throw new InvalidAppVersionError()',
+          action: 'testThrowInvalidAppVersionError',
+        },
+        {
           label: 'throw new PageNotFoundError()',
           action: 'testThrowPageNotFoundError',
         },
@@ -56,6 +59,10 @@ export class ErrorSandboxComponent implements OnInit {
         {
           label: 'throw new AccessDeniedError()',
           route: '/sandbox/error-handling/resolver/AccessDeniedError',
+        },
+        {
+          label: 'throw new InvalidAppVersionError()',
+          route: '/sandbox/error-handling/resolver/InvalidAppVersionError',
         },
         {
           label: 'throw new PageNotFoundError()',
@@ -85,6 +92,10 @@ export class ErrorSandboxComponent implements OnInit {
         {
           label: 'throw new AccessDeniedError()',
           route: '/sandbox/error-handling/can-activate/AccessDeniedError',
+        },
+        {
+          label: 'throw new InvalidAppVersionError()',
+          route: '/sandbox/error-handling/can-activate/InvalidAppVersionError',
         },
         {
           label: 'throw new PageNotFoundError()',
@@ -141,6 +152,10 @@ export class ErrorSandboxComponent implements OnInit {
 
   private testThrowAccessDeniedError(): never {
     throw new AccessDeniedError('This is not the error you are looking for.');
+  }
+
+  private testThrowInvalidAppVersionError(): never {
+    throw new InvalidAppVersionError('This is not the error you are looking for.');
   }
 
   private testThrowPageNotFoundError(): never {
