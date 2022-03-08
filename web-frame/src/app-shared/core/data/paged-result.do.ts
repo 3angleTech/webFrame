@@ -19,5 +19,5 @@ export abstract class PagedResult<T> {
   @JsonProperty('totalCount', Number)
   public totalCount: number = undefined;
 
-  public abstract results: T[] = undefined;
+  public abstract results: T[];
 }
