@@ -9,7 +9,7 @@ import {
   Inject,
   OnInit,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import {
@@ -31,7 +31,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PasswordChangeFormComponent implements OnInit {
-  public passwordChangeForm: FormGroup;
+  public passwordChangeForm: UntypedFormGroup;
 
   // eslint-disable-next-line max-params
   constructor(
@@ -42,7 +42,7 @@ export class PasswordChangeFormComponent implements OnInit {
     @Inject(IWebFrameContextNavigationService)
     public navigationService: IWebFrameContextNavigationService,
     private activatedRoute: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
   ) {
   }
 

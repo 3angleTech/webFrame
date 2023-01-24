@@ -8,7 +8,7 @@
  * Provides a helper component that can be used to display form control errors.
  */
 import { ChangeDetectionStrategy, Component, DoCheck, EventEmitter, Host, HostBinding, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective } from '@angular/forms';
+import { UntypedFormControl, FormGroupDirective } from '@angular/forms';
 import { merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -43,7 +43,7 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
 
   public controlErrors$: Observable<string[] | undefined>;
 
-  protected formControl: FormControl;
+  protected formControl: UntypedFormControl;
 
   /**
    * Touch events are not emitted by form controls, this emit an event when a
@@ -63,7 +63,7 @@ export class FormControlErrorsComponent implements DoCheck, OnInit {
   }
 
   public ngOnInit(): void {
-    this.formControl = this.formGroupDirective.form.get(this.formControlPath) as FormControl;
+    this.formControl = this.formGroupDirective.form.get(this.formControlPath) as UntypedFormControl;
     if (!this.formControl) {
       throw getFormControlErrorsMissingControlError(this.formControlPath);
     }

@@ -7,9 +7,9 @@
 /**
  * Provides a validator for newPassword + confirmPassword input field groups.
  */
-import { FormGroup, ValidationErrors } from '@angular/forms';
+import { UntypedFormGroup, ValidationErrors } from '@angular/forms';
 
-export function passwordGroupConfirmedValidator(group: FormGroup): ValidationErrors | null {
+export function passwordGroupConfirmedValidator(group: UntypedFormGroup): ValidationErrors | null {
   const validationError = { passwordConfirmed: true };
 
   const groupValue = group.getRawValue();

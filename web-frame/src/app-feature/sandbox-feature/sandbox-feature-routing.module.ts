@@ -7,6 +7,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { PathMatch } from '~app-shared/core';
 import { DefaultShellComponent } from '~app-shell/default-shell';
 
 import { SandboxOverviewComponent } from './pages/sandbox-overview/sandbox-overview.component';
@@ -23,7 +24,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            pathMatch: 'exact',
+            pathMatch: 'full' as PathMatch,
             redirectTo: 'overview',
           },
           {

@@ -15,8 +15,8 @@ import {
 import { ComponentFixture, fakeAsync, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   AbstractControl,
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -49,17 +49,17 @@ import { FormControlErrorsComponent } from './form-control-errors.component';
   `,
 })
 class FormControlErrorsTestFormComponent {
-  public readonly testForm: FormGroup;
+  public readonly testForm: UntypedFormGroup;
   @ViewChild(FormControlErrorsComponent, { static: true })
   public readonly formControlErrors: FormControlErrorsComponent;
 
   public submittedValues: Dictionary<string> = undefined;
 
   constructor() {
-    this.testForm = new FormGroup({
-      fullName: new FormControl(''),
-      userName: new FormControl('', Validators.required),
-      userEmail: new FormControl('', Validators.compose([
+    this.testForm = new UntypedFormGroup({
+      fullName: new UntypedFormControl(''),
+      userName: new UntypedFormControl('', Validators.required),
+      userEmail: new UntypedFormControl('', Validators.compose([
         Validators.email,
         Validators.minLength(8),
       ])),
@@ -105,7 +105,7 @@ describe('FormControlErrorsComponent', () => {
   });
 
   it('should create within form', () => {
-    expect(testComponent.testForm instanceof FormGroup)
+    expect(testComponent.testForm instanceof UntypedFormGroup)
       .toBeTruthy('FormGroup should have been created');
     expect(testComponent.formControlErrors instanceof FormControlErrorsComponent)
       .toBeTruthy('FormControlErrorsComponent should have been created');

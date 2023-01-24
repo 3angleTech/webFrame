@@ -4,7 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import {
@@ -27,11 +27,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResetPasswordPageComponent implements OnInit {
-  public forgotPasswordForm: FormGroup;
+  public forgotPasswordForm: UntypedFormGroup;
 
   // eslint-disable-next-line max-params
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     @Inject(IAccountService)
     private accountService: IAccountService,
     @Inject(IWebFrameContextService)
