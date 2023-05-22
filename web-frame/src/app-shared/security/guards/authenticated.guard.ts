@@ -4,18 +4,12 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Inject, Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 
 import { IWebFrameContextStateService, PAGE_URL } from '~app-shared/core';
 
 @Injectable()
-export class AuthenticatedGuard implements CanActivate {
+export class AuthenticatedGuard  {
   constructor(
     @Inject(IWebFrameContextStateService)
     private stateService: IWebFrameContextStateService,

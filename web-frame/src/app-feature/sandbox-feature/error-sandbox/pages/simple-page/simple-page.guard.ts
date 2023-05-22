@@ -4,14 +4,14 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { simplePageErrorTrigger } from './simple-page-error-trigger';
 
 @Injectable()
-export class SimplePageGuard implements CanActivate {
+export class SimplePageGuard  {
   public canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,

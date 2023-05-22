@@ -4,7 +4,7 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { AccessDeniedError, KNOWN_ERROR_MESSAGE } from '~app-shared/core';
@@ -14,7 +14,7 @@ import { USER_PERMISSION } from '../other/user-permission.enum';
 import { AccessControlService } from '../services/access-control.service';
 
 @Injectable()
-export class UserPermissionGuard implements CanActivate {
+export class UserPermissionGuard  {
   constructor(
     private readonly accessControlService: AccessControlService,
   ) {
