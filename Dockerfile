@@ -1,11 +1,11 @@
-FROM nginx:1.15.9
-# install node 8 & npm 5.6
+FROM nginx
+# install node & npm
 RUN apt-get update && apt-get install -y
 RUN apt-get install -y apt-utils
 RUN apt-get install -y curl
 RUN apt-get install -y sudo
 RUN apt-get install -y gnupg
-RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 RUN apt-get install -y nodejs
 # Create app directory
 RUN mkdir -p /usr/src/app

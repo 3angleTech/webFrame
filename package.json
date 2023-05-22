@@ -76,6 +76,10 @@
     "ts-node": "10.9.1",
     "typescript": "5.0.4"
   },
+  "engines": {
+    "node": ">=18.0.0 <19",
+    "npm": ">=9.0.0 <10"
+  },
   "scripts": {
     "build:production": "ng run web-frame:build:production --progress=false",
     "e2e": "ng run web-frame:e2e",
