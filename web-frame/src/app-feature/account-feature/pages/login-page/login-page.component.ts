@@ -9,7 +9,7 @@
  */
 import { HttpErrorResponse } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 import {
   getHttpResponseValidationErrors,
@@ -27,10 +27,10 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginPageComponent implements OnInit {
-  public loginForm: FormGroup;
+  public loginForm: UntypedFormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     @Inject(IAccountService)
     private accountService: IAccountService,
     @Inject(IWebFrameContextService)

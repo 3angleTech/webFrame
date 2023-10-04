@@ -13,7 +13,7 @@ import {
   Inject,
   OnInit,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import {
   IAccountForgotPasswordRequest,
@@ -29,10 +29,10 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForgotPasswordPageComponent implements OnInit {
-  public forgotPasswordForm: FormGroup;
+  public forgotPasswordForm: UntypedFormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     @Inject(IAccountService)
     private accountService: IAccountService,
     @Inject(IWebFrameContextService)

@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "defaultProject": "web-frame",
   "newProjectRoot": "",
   "projects": {
     "web-frame": {
@@ -51,11 +50,6 @@
               {
                 "bundleName": "vendor-styles",
                 "input": "node_modules/normalize.css/normalize.css",
-                "inject": true
-              },
-              {
-                "bundleName": "vendor-styles",
-                "input": "node_modules/material-design-icons/iconfont/material-icons.css",
                 "inject": true
               },
               {
@@ -179,11 +173,6 @@
               {
                 "bundleName": "vendor-styles",
                 "input": "node_modules/normalize.css/normalize.css",
-                "inject": true
-              },
-              {
-                "bundleName": "vendor-styles",
-                "input": "node_modules/material-design-icons/iconfont/material-icons.css",
                 "inject": true
               },
               {

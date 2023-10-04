@@ -13,7 +13,7 @@ import {
   Inject,
   OnInit,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import {
   IAccountInformation,
@@ -33,10 +33,10 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignupPageComponent implements OnInit {
-  public signupForm: FormGroup;
+  public signupForm: UntypedFormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     @Inject(IAccountService)
     private accountService: IAccountService,
     @Inject(IWebFrameContextService)

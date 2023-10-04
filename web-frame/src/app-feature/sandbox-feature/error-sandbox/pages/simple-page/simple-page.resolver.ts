@@ -4,14 +4,14 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { simplePageErrorTrigger } from './simple-page-error-trigger';
 
 @Injectable()
-export class SimplePageResolver implements Resolve<void> {
+export class SimplePageResolver  {
   public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<void> {
     return of(undefined).pipe(
       map((): void => {

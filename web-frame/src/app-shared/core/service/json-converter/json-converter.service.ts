@@ -15,11 +15,11 @@ export const IJsonConverterService = new InjectionToken('IJsonConverterService')
 @Injectable()
 export class JsonConverterService implements IJsonConverterService {
 
-  public deserialize<T>(json: unknown, classReference: new () => T): T {
+  public deserialize<T>(json: object | object[], classReference): T {
     return this.jsonConvert.deserialize(json, classReference) as T;
   }
 
-  public serialize<T>(object: T): string | string[] {
+  public serialize<T>(object): string | string[] {
     throw this.jsonConvert.serialize(object);
   }
 

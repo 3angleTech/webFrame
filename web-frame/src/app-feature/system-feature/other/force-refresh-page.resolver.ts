@@ -4,14 +4,14 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Inject, Injectable, Optional } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { sortBy } from 'lodash';
 import { concat, Observable } from 'rxjs';
 
 import { APP_REFRESHER, IAppRefresher } from '~app-shared/core';
 
 @Injectable()
-export class ForceRefreshPageResolver implements Resolve<void> {
+export class ForceRefreshPageResolver  {
   constructor(
     @Inject(APP_REFRESHER) @Optional()
     private appRefresherList: IAppRefresher[] | null,

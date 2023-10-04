@@ -4,12 +4,12 @@
  * Available under MIT license webFrame/LICENSE
  */
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 @Injectable()
-export class SlowLoadingCanActivateGuard implements CanActivate {
+export class SlowLoadingCanActivateGuard  {
   public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     const pageLoadDelay: number = 5000;
 
